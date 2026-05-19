@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Sinora — Voyager en Chine, simplement",
+    "description": "La plateforme qui prépare, organise et accompagne votre voyage en Chine : séjours sur mesure, formalités, trains, cartes interactives et conseils locaux."
+  },
+  "nav": {
+    "destinations": "Destinations",
+    "prepare": "Préparer",
+    "trains": "Trains",
+    "trips": "Séjours",
+    "cta": "Planifier mon voyage"
+  },
+  "hero": {
+    "badge": "Avant, pendant et après le voyage",
+    "title": "Votre voyage en Chine,",
+    "titleAccent": "pensé pour vous",
+    "subtitle": "Des séjours sur mesure, les formalités décryptées, le réseau ferroviaire à portée de main. Tout ce qu'il faut pour partir l'esprit léger.",
+    "ctaPrimary": "Créer mon séjour",
+    "ctaSecondary": "Explorer les villes",
+    "stats": [
+      { "value": "17", "label": "villes détaillées" },
+      { "value": "18", "label": "profils de voyageur" },
+      { "value": "3", "label": "langues" }
+    ]
+  },
+  "how": {
+    "title": "Un compagnon pour chaque étape",
+    "subtitle": "De la première idée au retour, Sinora reste à vos côtés.",
+    "steps": [
+      {
+        "tag": "Avant",
+        "title": "Préparer",
+        "text": "Visa, eSIM, applications indispensables, paiements mobiles : les formalités deviennent une checklist claire."
+      },
+      {
+        "tag": "Pendant",
+        "title": "Voyager",
+        "text": "Itinéraires, trains, cartes interactives et conseils locaux accessibles hors ligne, où que vous soyez."
+      },
+      {
+        "tag": "Après",
+        "title": "Garder",
+        "text": "Vos voyages, favoris et notes réunis dans un espace personnel, prêts pour la prochaine fois."
+      }
+    ]
+  },
+  "features": {
+    "title": "Tout au même endroit",
+    "subtitle": "Les outils essentiels d'un voyage en Chine réussi.",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Générateur de séjour",
+        "text": "Un itinéraire complet à partir de votre budget, vos envies et votre rythme."
+      },
+      {
+        "icon": "luggage",
+        "title": "Préparation au départ",
+        "text": "Visa, douane, santé, internet : chaque formalité expliquée simplement."
+      },
+      {
+        "icon": "train-front",
+        "title": "Réseau ferroviaire",
+        "text": "Trains à grande vitesse, classes, gares et correspondances décryptés."
+      },
+      {
+        "icon": "map",
+        "title": "Cartes interactives",
+        "text": "Météo, sécurité, transports et culture, visualisés ville par ville."
+      },
+      {
+        "icon": "compass",
+        "title": "Guides de villes",
+        "text": "17 destinations détaillées : quartiers, gastronomie, pièges à éviter."
+      },
+      {
+        "icon": "moon-star",
+        "title": "Voyage halal",
+        "text": "Restaurants, mosquées et itinéraires adaptés, en toute sérénité."
+      }
+    ]
+  },
+  "profiles": {
+    "title": "Conçu pour votre façon de voyager",
+    "subtitle": "Sinora adapte ses recommandations à votre profil.",
+    "items": [
+      "Backpacker",
+      "Voyage luxe",
+      "Étudiant",
+      "Famille",
+      "Couple",
+      "Solo",
+      "Nomade digital",
+      "Business",
+      "Halal",
+      "Vegan",
+      "Aventure",
+      "Culture",
+      "Photographie",
+      "Anime & gaming",
+      "Shopping",
+      "Gastronomie",
+      "Nature",
+      "Histoire"
+    ]
+  },
+  "cities": {
+    "title": "Des destinations à explorer",
+    "subtitle": "Mégapoles électriques, paysages classés et villes impériales.",
+    "explore": "Découvrir",
+    "items": [
+      { "name": "Pékin", "region": "Nord", "tagline": "Cité interdite et Grande Muraille" },
+      { "name": "Shanghai", "region": "Côte est", "tagline": "Skyline futuriste et concessions" },
+      { "name": "Xi'an", "region": "Centre", "tagline": "Armée de terre cuite millénaire" },
+      { "name": "Chengdu", "region": "Sichuan", "tagline": "Pandas et cuisine épicée" },
+      { "name": "Guilin", "region": "Sud", "tagline": "Pics karstiques sur la rivière Li" },
+      { "name": "Hong Kong", "region": "Sud", "tagline": "Métropole entre baie et collines" }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à partir ?",
+    "subtitle": "Construisez votre itinéraire en quelques minutes.",
+    "button": "Créer mon séjour"
+  },
+  "footer": {
+    "tagline": "Voyager en Chine, simplement.",
+    "columns": [
+      {
+        "title": "Découvrir",
+        "links": ["Destinations", "Séjours", "Trains", "Événements"]
+      },
+      {
+        "title": "Préparer",
+        "links": ["Visa & formalités", "eSIM & internet", "Applications", "Paiements"]
+      },
+      {
+        "title": "Sinora",
+        "links": ["À propos", "Confidentialité", "Contact"]
+      }
+    ],
+    "rights": "Tous droits réservés."
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Sinora — Travel to China, made simple",
+    "description": "The platform that prepares, organises and supports your trip to China: tailored itineraries, paperwork, trains, interactive maps and local tips."
+  },
+  "nav": {
+    "destinations": "Destinations",
+    "prepare": "Prepare",
+    "trains": "Trains",
+    "trips": "Itineraries",
+    "cta": "Plan my trip"
+  },
+  "hero": {
+    "badge": "Before, during and after the trip",
+    "title": "Your trip to China,",
+    "titleAccent": "designed for you",
+    "subtitle": "Tailored itineraries, paperwork made clear, the rail network at your fingertips. Everything you need to leave with peace of mind.",
+    "ctaPrimary": "Build my trip",
+    "ctaSecondary": "Explore cities",
+    "stats": [
+      { "value": "17", "label": "detailed cities" },
+      { "value": "18", "label": "traveller profiles" },
+      { "value": "3", "label": "languages" }
+    ]
+  },
+  "how": {
+    "title": "A companion for every stage",
+    "subtitle": "From the first idea to coming home, Sinora stays by your side.",
+    "steps": [
+      {
+        "tag": "Before",
+        "title": "Prepare",
+        "text": "Visa, eSIM, essential apps, mobile payments: paperwork becomes a clear checklist."
+      },
+      {
+        "tag": "During",
+        "title": "Travel",
+        "text": "Itineraries, trains, interactive maps and local tips available offline, wherever you are."
+      },
+      {
+        "tag": "After",
+        "title": "Keep",
+        "text": "Your trips, favourites and notes gathered in a personal space, ready for next time."
+      }
+    ]
+  },
+  "features": {
+    "title": "Everything in one place",
+    "subtitle": "The essential tools for a successful trip to China.",
+    "items": [
+      {
+        "icon": "sparkles",
+        "title": "Trip generator",
+        "text": "A full itinerary built from your budget, your wishes and your pace."
+      },
+      {
+        "icon": "luggage",
+        "title": "Pre-departure prep",
+        "text": "Visa, customs, health, internet: every formality explained simply."
+      },
+      {
+        "icon": "train-front",
+        "title": "Rail network",
+        "text": "High-speed trains, classes, stations and connections, all decoded."
+      },
+      {
+        "icon": "map",
+        "title": "Interactive maps",
+        "text": "Weather, safety, transport and culture, visualised city by city."
+      },
+      {
+        "icon": "compass",
+        "title": "City guides",
+        "text": "17 detailed destinations: districts, food, tourist traps to avoid."
+      },
+      {
+        "icon": "moon-star",
+        "title": "Halal travel",
+        "text": "Restaurants, mosques and adapted itineraries, with total peace of mind."
+      }
+    ]
+  },
+  "profiles": {
+    "title": "Built around how you travel",
+    "subtitle": "Sinora tailors its recommendations to your profile.",
+    "items": [
+      "Backpacker",
+      "Luxury",
+      "Student",
+      "Family",
+      "Couple",
+      "Solo",
+      "Digital nomad",
+      "Business",
+      "Halal",
+      "Vegan",
+      "Adventure",
+      "Culture",
+      "Photography",
+      "Anime & gaming",
+      "Shopping",
+      "Food",
+      "Nature",
+      "History"
+    ]
+  },
+  "cities": {
+    "title": "Destinations to explore",
+    "subtitle": "Electric megacities, listed landscapes and imperial towns.",
+    "explore": "Discover",
+    "items": [
+      { "name": "Beijing", "region": "North", "tagline": "Forbidden City and Great Wall" },
+      { "name": "Shanghai", "region": "East coast", "tagline": "Futuristic skyline and concessions" },
+      { "name": "Xi'an", "region": "Centre", "tagline": "Millennia-old Terracotta Army" },
+      { "name": "Chengdu", "region": "Sichuan", "tagline": "Pandas and spicy cuisine" },
+      { "name": "Guilin", "region": "South", "tagline": "Karst peaks along the Li River" },
+      { "name": "Hong Kong", "region": "South", "tagline": "A metropolis between bay and hills" }
+    ]
+  },
+  "cta": {
+    "title": "Ready to go?",
+    "subtitle": "Build your itinerary in a few minutes.",
+    "button": "Build my trip"
+  },
+  "footer": {
+    "tagline": "Travel to China, made simple.",
+    "columns": [
+      {
+        "title": "Discover",
+        "links": ["Destinations", "Itineraries", "Trains", "Events"]
+      },
+      {
+        "title": "Prepare",
+        "links": ["Visa & paperwork", "eSIM & internet", "Apps", "Payments"]
+      },
+      {
+        "title": "Sinora",
+        "links": ["About", "Privacy", "Contact"]
+      }
+    ],
+    "rights": "All rights reserved."
+  }
+}

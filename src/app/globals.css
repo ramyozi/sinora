@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
+/* Mode sombre piloté par la classe .dark sur <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Palette claire — neutres chauds, accent cinabre. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f7;
+  --surface: #ffffff;
+  --surface-muted: #f3f1ec;
+  --border: #e7e3db;
+  --foreground: #1a1714;
+  --muted: #6b6459;
+  --accent: #d8443a;
+  --accent-hover: #c23a31;
+  --accent-foreground: #ffffff;
+  --jade: #1f9d76;
+  --gold: #c8943b;
+  --ring: #d8443a;
 }
 
+/* Palette sombre — encre profonde, accent cinabre éclairci. */
+.dark {
+  --background: #0c0b0a;
+  --surface: #161412;
+  --surface-muted: #1f1c19;
+  --border: #2c2823;
+  --foreground: #f4f1ec;
+  --muted: #9a9288;
+  --accent: #f0594b;
+  --accent-hover: #f26b5e;
+  --accent-foreground: #1a1714;
+  --jade: #38b48c;
+  --gold: #d8a651;
+  --ring: #f0594b;
+}
+
+/* Exposition des tokens à Tailwind (bg-background, text-muted, etc.). */
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-jade: var(--jade);
+  --color-gold: var(--gold);
+  --color-ring: var(--ring);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --radius-card: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Respect des préférences de réduction de mouvement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

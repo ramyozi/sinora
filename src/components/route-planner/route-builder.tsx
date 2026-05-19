@@ -9,6 +9,7 @@ import { suggestIntermediates } from "@/data/routes/recommendation";
 import { type RouteStyle, styleConfig } from "@/data/routes/style";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
+import { ItineraryTimeline } from "./itinerary-timeline";
 import { RouteMap } from "./route-map";
 import { StylePicker } from "./style-picker";
 import { SuggestionsPanel } from "./suggestions-panel";
@@ -105,6 +106,14 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           locale={locale}
           dict={dict}
           onAdd={insertAt}
+        />
+      )}
+      {selectedCities.length >= 2 && (
+        <ItineraryTimeline
+          cities={selectedCities}
+          segments={segments}
+          locale={locale}
+          dict={dict}
         />
       )}
       {selectedCities.length > 0 && (

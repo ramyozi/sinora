@@ -193,6 +193,16 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "packing": {
+      "meta": {
+        "title": "Bagages et checklist — Sinora",
+        "description": "Que mettre dans la valise selon la saison : essentiels universels et compléments par saison."
+      },
+      "essentialsTitle": "Indispensables",
+      "essentialsSubtitle": "À emporter quelle que soit la saison.",
+      "seasonalTitle": "Selon la saison",
+      "seasonalSubtitle": "Choisissez la saison de votre voyage pour adapter la liste."
+    },
     "budget": {
       "meta": {
         "title": "Budget et paiement — Sinora",

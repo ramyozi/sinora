@@ -193,6 +193,16 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "packing": {
+      "meta": {
+        "title": "Packing & checklist — Sinora",
+        "description": "What to pack by season: universal essentials and seasonal add-ons."
+      },
+      "essentialsTitle": "Essentials",
+      "essentialsSubtitle": "Pack these regardless of season.",
+      "seasonalTitle": "By season",
+      "seasonalSubtitle": "Pick your travel season to tailor the list."
+    },
     "budget": {
       "meta": {
         "title": "Budget & payment — Sinora",

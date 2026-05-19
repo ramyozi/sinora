@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getCityBySlug, getCitySlugs } from "@/data/cities";
 import { getAirQuality } from "@/lib/api/providers/air-quality";
 import { getWeather } from "@/lib/api/providers/weather";
+import { getWikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
 import { CityHero } from "@/components/destinations/city-hero";
@@ -51,15 +52,16 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const [dict, weather, aqi] = await Promise.all([
+  const [dict, weather, aqi, image] = await Promise.all([
     getDictionary(locale),
     getWeather(city.coordinates.lat, city.coordinates.lng),
     getAirQuality(city.coordinates.lat, city.coordinates.lng),
+    getWikiLeadImage(city.wikiTitle),
   ]);
 
   return (
     <article>
-      <CityHero city={city} locale={locale} dict={dict} />
+      <CityHero city={city} locale={locale} dict={dict} image={image} />
 
       <Container className="space-y-12 py-12 sm:py-16">
         <CityFacts city={city} dict={dict} />

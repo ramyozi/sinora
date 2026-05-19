@@ -204,6 +204,8 @@
       "othersSubtitle": "Complementary apps depending on your needs.",
       "configTitle": "Phone configuration",
       "configSubtitle": "Done before departure, and right after landing.",
+      "configBefore": "Before departure",
+      "configOnArrival": "On arrival",
       "installBefore": "Install BEFORE entering China",
       "installAnytime": "Can be installed on the ground",
       "publisherLabel": "Publisher",

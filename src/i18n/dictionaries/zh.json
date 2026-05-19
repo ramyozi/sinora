@@ -204,6 +204,8 @@
       "othersSubtitle": "根据需要补充的应用。",
       "configTitle": "手机设置",
       "configSubtitle": "出发前与抵达后即时执行。",
+      "configBefore": "出发前",
+      "configOnArrival": "抵达后",
       "installBefore": "入境前务必安装",
       "installAnytime": "抵达后再装亦可",
       "publisherLabel": "发行方",

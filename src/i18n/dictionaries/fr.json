@@ -204,6 +204,8 @@
       "othersSubtitle": "Apps complémentaires selon vos besoins.",
       "configTitle": "Configurer son téléphone",
       "configSubtitle": "À faire avant le départ, et juste à l'arrivée.",
+      "configBefore": "Avant départ",
+      "configOnArrival": "À l'arrivée",
       "installBefore": "À installer AVANT l'entrée en Chine",
       "installAnytime": "Peut s'installer une fois sur place",
       "publisherLabel": "Éditeur",

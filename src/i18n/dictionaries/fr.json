@@ -129,7 +129,19 @@
     "millionShort": "M hab.",
     "back": "Toutes les destinations",
     "budgetLabel": "Budget",
-    "overviewLabel": "Aperçu"
+    "overviewLabel": "Aperçu",
+    "filters": {
+      "region": "Région",
+      "season": "Saison",
+      "budget": "Budget",
+      "tag": "Thème",
+      "allRegions": "Toutes les régions",
+      "allSeasons": "Toutes les saisons",
+      "allBudgets": "Tous les budgets",
+      "allTags": "Tous les thèmes",
+      "reset": "Réinitialiser",
+      "noResults": "Aucune ville ne correspond à ces critères."
+    }
   },
   "labels": {
     "regions": {

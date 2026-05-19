@@ -129,7 +129,19 @@
     "millionShort": "百万人",
     "back": "全部目的地",
     "budgetLabel": "预算",
-    "overviewLabel": "概览"
+    "overviewLabel": "概览",
+    "filters": {
+      "region": "地区",
+      "season": "季节",
+      "budget": "预算",
+      "tag": "主题",
+      "allRegions": "全部地区",
+      "allSeasons": "全部季节",
+      "allBudgets": "全部预算",
+      "allTags": "全部主题",
+      "reset": "重置",
+      "noResults": "没有城市符合这些筛选条件。"
+    }
   },
   "labels": {
     "regions": {

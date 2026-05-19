@@ -129,7 +129,19 @@
     "millionShort": "M people",
     "back": "All destinations",
     "budgetLabel": "Budget",
-    "overviewLabel": "Overview"
+    "overviewLabel": "Overview",
+    "filters": {
+      "region": "Region",
+      "season": "Season",
+      "budget": "Budget",
+      "tag": "Theme",
+      "allRegions": "All regions",
+      "allSeasons": "All seasons",
+      "allBudgets": "All budgets",
+      "allTags": "All themes",
+      "reset": "Reset",
+      "noResults": "No city matches these filters."
+    }
   },
   "labels": {
     "regions": {

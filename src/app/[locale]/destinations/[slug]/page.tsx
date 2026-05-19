@@ -12,6 +12,7 @@ import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
 import { CityHighlights } from "@/components/destinations/city-highlights";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
+import { CityMap } from "@/components/destinations/city-map";
 import { WeatherCard } from "@/components/destinations/weather-card";
 import { regionGradient } from "@/components/destinations/region-gradient";
 
@@ -91,6 +92,17 @@ export default async function CityPage({
         <WeatherCard weather={weather} locale={locale} dict={dict} />
 
         <AirQualityCard aqi={aqi} dict={dict} />
+
+        <section>
+          <h2 className="mb-6 text-2xl font-semibold tracking-tight text-foreground">
+            {dict.destinations.locationLabel}
+          </h2>
+          <CityMap
+            lat={city.coordinates.lat}
+            lng={city.coordinates.lng}
+            label={`${dict.destinations.locationLabel} — ${city.name[locale]}`}
+          />
+        </section>
 
         <section>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground">

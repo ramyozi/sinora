@@ -52,6 +52,8 @@ export interface City {
   highlights: CityHighlight[];
   /** Code IATA de l'aéroport principal. */
   airport: string;
+  /** Titre de l'article Wikipedia (anglais), pour récupérer l'image en tête. */
+  wikiTitle: string;
   /** Mise en avant sur la page d'accueil. */
   featured: boolean;
 }

@@ -122,6 +122,61 @@
     "subtitle": "Construisez votre itinéraire en quelques minutes.",
     "button": "Créer mon séjour"
   },
+  "destinations": {
+    "meta": {
+      "title": "Destinations en Chine — Sinora",
+      "description": "Explorez les villes de Chine : aperçu, meilleures saisons, durée de séjour conseillée et incontournables."
+    },
+    "title": "Toutes les destinations",
+    "subtitle": "Douze villes pour composer votre voyage, du nord glacé aux confins de la route de la soie.",
+    "cities": "villes",
+    "days": "jours",
+    "stayLabel": "Séjour conseillé",
+    "bestSeasonLabel": "Meilleure saison",
+    "highlightsLabel": "Incontournables",
+    "populationLabel": "Population",
+    "millionShort": "M hab.",
+    "back": "Toutes les destinations"
+  },
+  "labels": {
+    "regions": {
+      "nord": "Nord",
+      "est": "Est",
+      "sud": "Sud",
+      "sud-ouest": "Sud-Ouest",
+      "centre": "Centre",
+      "ouest": "Ouest"
+    },
+    "seasons": {
+      "printemps": "Printemps",
+      "ete": "Été",
+      "automne": "Automne",
+      "hiver": "Hiver"
+    },
+    "budget": {
+      "eco": "Économique",
+      "modere": "Modéré",
+      "confort": "Confort"
+    },
+    "tags": {
+      "culture": "Culture",
+      "histoire": "Histoire",
+      "modernite": "Modernité",
+      "nature": "Nature",
+      "gastronomie": "Gastronomie",
+      "halal": "Halal",
+      "famille": "Famille",
+      "shopping": "Shopping",
+      "panorama": "Panorama",
+      "aventure": "Aventure"
+    },
+    "highlightKinds": {
+      "monument": "Monument",
+      "quartier": "Quartier",
+      "nature": "Nature",
+      "musee": "Musée"
+    }
+  },
   "footer": {
     "tagline": "Voyager en Chine, simplement.",
     "columns": [

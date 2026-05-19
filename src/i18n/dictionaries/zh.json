@@ -122,6 +122,61 @@
     "subtitle": "几分钟即可生成专属行程。",
     "button": "生成行程"
   },
+  "destinations": {
+    "meta": {
+      "title": "中国目的地 — Sinora",
+      "description": "探索中国城市:概览、最佳季节、建议停留时长与必看景点。"
+    },
+    "title": "全部目的地",
+    "subtitle": "十二座城市,任您编排旅程,从冰封的北国到丝路的边陲。",
+    "cities": "座城市",
+    "days": "天",
+    "stayLabel": "建议停留",
+    "bestSeasonLabel": "最佳季节",
+    "highlightsLabel": "必看景点",
+    "populationLabel": "人口",
+    "millionShort": "百万人",
+    "back": "全部目的地"
+  },
+  "labels": {
+    "regions": {
+      "nord": "华北",
+      "est": "华东",
+      "sud": "华南",
+      "sud-ouest": "西南",
+      "centre": "华中",
+      "ouest": "西部"
+    },
+    "seasons": {
+      "printemps": "春季",
+      "ete": "夏季",
+      "automne": "秋季",
+      "hiver": "冬季"
+    },
+    "budget": {
+      "eco": "经济",
+      "modere": "适中",
+      "confort": "舒适"
+    },
+    "tags": {
+      "culture": "文化",
+      "histoire": "历史",
+      "modernite": "现代",
+      "nature": "自然",
+      "gastronomie": "美食",
+      "halal": "清真",
+      "famille": "家庭",
+      "shopping": "购物",
+      "panorama": "风光",
+      "aventure": "探险"
+    },
+    "highlightKinds": {
+      "monument": "地标",
+      "quartier": "街区",
+      "nature": "自然",
+      "musee": "博物馆"
+    }
+  },
   "footer": {
     "tagline": "轻松游中国。",
     "columns": [

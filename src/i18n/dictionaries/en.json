@@ -122,6 +122,61 @@
     "subtitle": "Build your itinerary in a few minutes.",
     "button": "Build my trip"
   },
+  "destinations": {
+    "meta": {
+      "title": "Destinations in China — Sinora",
+      "description": "Explore the cities of China: overview, best seasons, recommended length of stay and must-sees."
+    },
+    "title": "All destinations",
+    "subtitle": "Twelve cities to shape your trip, from the frozen north to the edges of the Silk Road.",
+    "cities": "cities",
+    "days": "days",
+    "stayLabel": "Recommended stay",
+    "bestSeasonLabel": "Best season",
+    "highlightsLabel": "Must-sees",
+    "populationLabel": "Population",
+    "millionShort": "M people",
+    "back": "All destinations"
+  },
+  "labels": {
+    "regions": {
+      "nord": "North",
+      "est": "East",
+      "sud": "South",
+      "sud-ouest": "Southwest",
+      "centre": "Centre",
+      "ouest": "West"
+    },
+    "seasons": {
+      "printemps": "Spring",
+      "ete": "Summer",
+      "automne": "Autumn",
+      "hiver": "Winter"
+    },
+    "budget": {
+      "eco": "Budget",
+      "modere": "Moderate",
+      "confort": "Comfort"
+    },
+    "tags": {
+      "culture": "Culture",
+      "histoire": "History",
+      "modernite": "Modernity",
+      "nature": "Nature",
+      "gastronomie": "Food",
+      "halal": "Halal",
+      "famille": "Family",
+      "shopping": "Shopping",
+      "panorama": "Panorama",
+      "aventure": "Adventure"
+    },
+    "highlightKinds": {
+      "monument": "Landmark",
+      "quartier": "District",
+      "nature": "Nature",
+      "musee": "Museum"
+    }
+  },
   "footer": {
     "tagline": "Travel to China, made simple.",
     "columns": [

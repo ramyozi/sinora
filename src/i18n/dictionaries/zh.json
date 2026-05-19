@@ -193,6 +193,25 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "visa": {
+      "meta": {
+        "title": "签证与手续 — Sinora",
+        "description": "签证类型、免签政策(240 小时过境、单方面免签)、所需材料与常见错误。"
+      },
+      "exemptionsTitle": "是否可以免签?",
+      "exemptionsSubtitle": "多项新近免签政策让短期出行大幅便利。",
+      "typesTitle": "若需办理签证",
+      "typesSubtitle": "主要的中国签证类别。",
+      "documentsTitle": "所需材料",
+      "documentsSubtitle": "前往领事馆办理前需备齐。",
+      "errorsTitle": "常见错误",
+      "errorsSubtitle": "导致拒签或延误的常见陷阱。",
+      "duration": "时长",
+      "eligibility": "适用范围",
+      "purpose": "用途",
+      "note": "提示",
+      "verifyDisclaimer": "政策不断更新,出行前请向领事馆确认。"
+    },
     "modules": {
       "visa": {
         "title": "签证与手续",

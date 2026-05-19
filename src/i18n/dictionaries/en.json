@@ -184,6 +184,50 @@
       "musee": "Museum"
     }
   },
+  "pretrip": {
+    "meta": {
+      "title": "Prepare your trip to China — Sinora",
+      "description": "Visa, apps, phrases, safety, budget: everything you need before leaving, in cards rather than walls of text."
+    },
+    "title": "Prepare your trip",
+    "subtitle": "Everything you need before you leave, in cards.",
+    "available": "Available",
+    "soon": "Soon",
+    "modules": {
+      "visa": {
+        "title": "Visa & paperwork",
+        "summary": "Visa types, exemptions, documents to prepare."
+      },
+      "apps": {
+        "title": "Digital prep",
+        "summary": "Apps, eSIM and phone configuration."
+      },
+      "phrases": {
+        "title": "Essential phrases",
+        "summary": "Greetings, transport, emergencies — the basics in Mandarin."
+      },
+      "securite": {
+        "title": "Safety & offline",
+        "summary": "Offline maps, backups, life behind the Great Firewall."
+      },
+      "restaurants": {
+        "title": "Food & restaurants",
+        "summary": "Halal, vegan, cultural rules, ordering with confidence."
+      },
+      "budget": {
+        "title": "Budget & payment",
+        "summary": "Mobile payment, currency and tourist traps."
+      },
+      "bagages": {
+        "title": "Packing & checklist",
+        "summary": "What to pack by season and city."
+      },
+      "calendrier": {
+        "title": "Before departure",
+        "summary": "A D-30 → D-0 timeline so nothing slips."
+      }
+    }
+  },
   "weather": {
     "title": "Weather",
     "currentLabel": "Now",

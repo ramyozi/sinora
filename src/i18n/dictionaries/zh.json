@@ -184,6 +184,50 @@
       "musee": "博物馆"
     }
   },
+  "pretrip": {
+    "meta": {
+      "title": "中国行前准备 — Sinora",
+      "description": "签证、应用、短语、安全、预算:出发前所需的一切,卡片化呈现,告别长篇大论。"
+    },
+    "title": "出行准备",
+    "subtitle": "出发前所需的一切,以卡片形式呈现。",
+    "available": "已上线",
+    "soon": "即将推出",
+    "modules": {
+      "visa": {
+        "title": "签证与手续",
+        "summary": "签证类型、免签、所需材料。"
+      },
+      "apps": {
+        "title": "数字化准备",
+        "summary": "应用、eSIM 与手机配置。"
+      },
+      "phrases": {
+        "title": "必备中文短语",
+        "summary": "礼貌、交通、应急 — 出行基本款。"
+      },
+      "securite": {
+        "title": "安全与离线",
+        "summary": "离线地图、备份、防火墙现实。"
+      },
+      "restaurants": {
+        "title": "餐饮",
+        "summary": "清真、纯素、文化礼仪与点菜要诀。"
+      },
+      "budget": {
+        "title": "预算与支付",
+        "summary": "移动支付、汇兑、避坑指南。"
+      },
+      "bagages": {
+        "title": "行李与清单",
+        "summary": "按季节与城市装箱。"
+      },
+      "calendrier": {
+        "title": "出行前准备",
+        "summary": "D-30 → D-0 时间线。"
+      }
+    }
+  },
   "weather": {
     "title": "天气",
     "currentLabel": "实时",

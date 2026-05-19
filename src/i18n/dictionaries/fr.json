@@ -184,6 +184,50 @@
       "musee": "Musée"
     }
   },
+  "pretrip": {
+    "meta": {
+      "title": "Préparer son voyage en Chine — Sinora",
+      "description": "Visa, applications, phrases, sécurité, budget : tout ce qu'il faut savoir avant de partir, sans pavé de texte."
+    },
+    "title": "Préparer son voyage",
+    "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
+    "available": "Disponible",
+    "soon": "Bientôt",
+    "modules": {
+      "visa": {
+        "title": "Visa et formalités",
+        "summary": "Types de visa, exemptions, documents à préparer."
+      },
+      "apps": {
+        "title": "Préparation digitale",
+        "summary": "Applications, eSIM et configuration du téléphone."
+      },
+      "phrases": {
+        "title": "Phrases essentielles",
+        "summary": "Politesse, transport, urgence — l'essentiel en mandarin."
+      },
+      "securite": {
+        "title": "Sécurité et hors-ligne",
+        "summary": "Cartes offline, sauvegardes, réalité du Grand Pare-feu."
+      },
+      "restaurants": {
+        "title": "Nourriture et restaurants",
+        "summary": "Halal, vegan, règles culturelles, commander sans crainte."
+      },
+      "budget": {
+        "title": "Budget et paiement",
+        "summary": "Mobile payment, devises et pièges à éviter."
+      },
+      "bagages": {
+        "title": "Bagages et checklist",
+        "summary": "Que mettre dans la valise selon la saison et la ville."
+      },
+      "calendrier": {
+        "title": "Avant le départ",
+        "summary": "Une timeline J-30 → J-0 pour ne rien oublier."
+      }
+    }
+  },
   "weather": {
     "title": "Météo",
     "currentLabel": "Maintenant",

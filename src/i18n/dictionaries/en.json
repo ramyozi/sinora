@@ -193,6 +193,35 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "timeline": {
+      "meta": {
+        "title": "Pre-departure timeline — Sinora",
+        "description": "A D-30 → D-0 chronology aggregating every preparation task so nothing slips."
+      },
+      "intro": "One thread to order every preparation.",
+      "buckets": {
+        "j-30": "D-30",
+        "j-15": "D-15",
+        "j-7": "D-7",
+        "j-1": "D-1"
+      },
+      "bucketsSubtitle": {
+        "j-30": "One month out: start the long procedures.",
+        "j-15": "Two weeks: confirm, install, book.",
+        "j-7": "One week: finalise logistics and digital.",
+        "j-1": "The day before: final tweaks and backups."
+      },
+      "categories": {
+        "visa": "Visa",
+        "apps": "Apps",
+        "packing": "Packing",
+        "safety": "Safety",
+        "budget": "Budget",
+        "phrases": "Phrases",
+        "food": "Food"
+      },
+      "openModule": "Open module"
+    },
     "packing": {
       "meta": {
         "title": "Packing & checklist — Sinora",

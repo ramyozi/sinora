@@ -211,6 +211,16 @@
       "flight": "飞机",
       "bus": "大巴"
     },
+    "suggestions": {
+      "title": "推荐途经",
+      "subtitle": "可插入您路线的城市建议。",
+      "empty": "请先选择一座城市以查看建议。",
+      "add": "加入",
+      "reasons": {
+        "corridor": "顺路",
+        "extension": "延展"
+      }
+    },
     "budget": {
       "title": "在地预算",
       "tierLabel": "档次",

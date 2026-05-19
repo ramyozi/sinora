@@ -6,10 +6,12 @@ import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCityBySlug, getCitySlugs } from "@/data/cities";
 import { localizedPath } from "@/lib/navigation";
+import { getAirQuality } from "@/lib/api/providers/air-quality";
 import { getWeather } from "@/lib/api/providers/weather";
 import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
 import { CityHighlights } from "@/components/destinations/city-highlights";
+import { AirQualityCard } from "@/components/destinations/air-quality-card";
 import { WeatherCard } from "@/components/destinations/weather-card";
 import { regionGradient } from "@/components/destinations/region-gradient";
 
@@ -51,9 +53,10 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const [dict, weather] = await Promise.all([
+  const [dict, weather, aqi] = await Promise.all([
     getDictionary(locale),
     getWeather(city.coordinates.lat, city.coordinates.lng),
+    getAirQuality(city.coordinates.lat, city.coordinates.lng),
   ]);
 
   return (
@@ -86,6 +89,8 @@ export default async function CityPage({
         <CityFacts city={city} dict={dict} />
 
         <WeatherCard weather={weather} locale={locale} dict={dict} />
+
+        <AirQualityCard aqi={aqi} dict={dict} />
 
         <section>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground">

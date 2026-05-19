@@ -1,0 +1,40 @@
+// Métadonnées des modules de préparation au voyage.
+// Chaque module devient disponible dès que sa page est livrée.
+
+export type PretripIcon =
+  | "stamp"
+  | "smartphone"
+  | "languages"
+  | "shield-check"
+  | "utensils-crossed"
+  | "wallet"
+  | "briefcase"
+  | "calendar-clock";
+
+export type PretripModuleSlug =
+  | "visa"
+  | "apps"
+  | "phrases"
+  | "securite"
+  | "restaurants"
+  | "budget"
+  | "bagages"
+  | "calendrier";
+
+export interface PretripModule {
+  slug: PretripModuleSlug;
+  icon: PretripIcon;
+  /** Le module est livré et son lien est actif. */
+  available: boolean;
+}
+
+export const pretripModules: PretripModule[] = [
+  { slug: "visa", icon: "stamp", available: false },
+  { slug: "apps", icon: "smartphone", available: false },
+  { slug: "phrases", icon: "languages", available: false },
+  { slug: "securite", icon: "shield-check", available: false },
+  { slug: "restaurants", icon: "utensils-crossed", available: false },
+  { slug: "budget", icon: "wallet", available: false },
+  { slug: "bagages", icon: "briefcase", available: false },
+  { slug: "calendrier", icon: "calendar-clock", available: false },
+];

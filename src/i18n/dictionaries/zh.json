@@ -136,7 +136,9 @@
     "highlightsLabel": "必看景点",
     "populationLabel": "人口",
     "millionShort": "百万人",
-    "back": "全部目的地"
+    "back": "全部目的地",
+    "budgetLabel": "预算",
+    "overviewLabel": "概览"
   },
   "labels": {
     "regions": {

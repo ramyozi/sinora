@@ -136,7 +136,9 @@
     "highlightsLabel": "Incontournables",
     "populationLabel": "Population",
     "millionShort": "M hab.",
-    "back": "Toutes les destinations"
+    "back": "Toutes les destinations",
+    "budgetLabel": "Budget",
+    "overviewLabel": "Aperçu"
   },
   "labels": {
     "regions": {

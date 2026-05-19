@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
 import { routeTotals, segmentsForRoute } from "@/data/routes";
+import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { RouteMap } from "./route-map";
 
@@ -55,24 +56,34 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
   const totals = useMemo(() => routeTotals(selected), [selected]);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
-      <RouteMap
-        cities={cities}
-        locale={locale}
-        selectedOrder={selected}
-        onToggle={toggle}
-      />
-      <ItineraryPanel
-        selected={selectedCities}
-        segments={segments}
-        totals={totals}
-        locale={locale}
-        dict={dict}
-        onMoveUp={moveUp}
-        onMoveDown={moveDown}
-        onRemove={remove}
-        onClear={clear}
-      />
+    <div className="space-y-6">
+      <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
+        <RouteMap
+          cities={cities}
+          locale={locale}
+          selectedOrder={selected}
+          onToggle={toggle}
+        />
+        <ItineraryPanel
+          selected={selectedCities}
+          segments={segments}
+          totals={totals}
+          locale={locale}
+          dict={dict}
+          onMoveUp={moveUp}
+          onMoveDown={moveDown}
+          onRemove={remove}
+          onClear={clear}
+        />
+      </div>
+      {selectedCities.length > 0 && (
+        <BudgetEstimate
+          cities={selectedCities}
+          transport={totals}
+          locale={locale}
+          dict={dict}
+        />
+      )}
     </div>
   );
 }

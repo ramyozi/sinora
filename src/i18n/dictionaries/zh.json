@@ -210,6 +210,22 @@
       "train": "普通列车",
       "flight": "飞机",
       "bus": "大巴"
+    },
+    "budget": {
+      "title": "在地预算",
+      "tierLabel": "档次",
+      "lodging": "住宿",
+      "food": "餐饮",
+      "activities": "活动",
+      "totalStay": "停留合计",
+      "grandTotal": "全程合计",
+      "nights": "晚",
+      "perCity": "按城市明细",
+      "tiers": {
+        "eco": "经济",
+        "comfort": "舒适",
+        "luxury": "奢华"
+      }
     }
   },
   "pretrip": {

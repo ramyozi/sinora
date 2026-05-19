@@ -1,6 +1,12 @@
 import type { Locale } from "@/i18n/config";
 import { cities } from "./dataset";
-import type { City, CityRegion } from "./types";
+import type {
+  BudgetTier,
+  City,
+  CityRegion,
+  CityTag,
+  Season,
+} from "./types";
 
 export type {
   City,
@@ -45,4 +51,22 @@ export function sortCitiesByName(list: City[], locale: Locale): City[] {
   return [...list].sort((a, b) =>
     a.name[locale].localeCompare(b.name[locale], locale),
   );
+}
+
+// Critères de filtrage du catalogue, tous optionnels.
+export interface CityFilter {
+  region?: CityRegion;
+  season?: Season;
+  budget?: BudgetTier;
+  tag?: CityTag;
+}
+
+export function filterCities(list: City[], criteria: CityFilter): City[] {
+  return list.filter((city) => {
+    if (criteria.region && city.region !== criteria.region) return false;
+    if (criteria.season && !city.bestSeasons.includes(criteria.season)) return false;
+    if (criteria.budget && city.budgetTier !== criteria.budget) return false;
+    if (criteria.tag && !city.tags.includes(criteria.tag)) return false;
+    return true;
+  });
 }

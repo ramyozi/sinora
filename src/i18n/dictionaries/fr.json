@@ -193,6 +193,35 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "timeline": {
+      "meta": {
+        "title": "Timeline avant départ — Sinora",
+        "description": "Une chronologie J-30 → J-0 pour ne rien oublier, agrégeant les tâches de chaque module de préparation."
+      },
+      "intro": "Un fil unique pour ordonner toutes les préparations.",
+      "buckets": {
+        "j-30": "J-30",
+        "j-15": "J-15",
+        "j-7": "J-7",
+        "j-1": "J-1"
+      },
+      "bucketsSubtitle": {
+        "j-30": "Un mois avant : démarrer les démarches longues.",
+        "j-15": "Quinze jours : valider, installer, réserver.",
+        "j-7": "Une semaine : finaliser logistique et numérique.",
+        "j-1": "La veille : derniers réglages et sauvegardes."
+      },
+      "categories": {
+        "visa": "Visa",
+        "apps": "Apps",
+        "packing": "Bagages",
+        "safety": "Sécurité",
+        "budget": "Budget",
+        "phrases": "Phrases",
+        "food": "Nourriture"
+      },
+      "openModule": "Voir le module"
+    },
     "packing": {
       "meta": {
         "title": "Bagages et checklist — Sinora",

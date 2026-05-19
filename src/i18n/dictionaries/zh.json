@@ -193,6 +193,35 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "timeline": {
+      "meta": {
+        "title": "出行前时间线 — Sinora",
+        "description": "D-30 → D-0 时间线汇总各模块准备任务,避免遗漏。"
+      },
+      "intro": "用一条主线串联所有准备工作。",
+      "buckets": {
+        "j-30": "D-30",
+        "j-15": "D-15",
+        "j-7": "D-7",
+        "j-1": "D-1"
+      },
+      "bucketsSubtitle": {
+        "j-30": "出发前一个月:启动耗时手续。",
+        "j-15": "两周前:确认、安装、预订。",
+        "j-7": "一周前:完成物流与数字化。",
+        "j-1": "前一天:最后调整与备份。"
+      },
+      "categories": {
+        "visa": "签证",
+        "apps": "应用",
+        "packing": "行李",
+        "safety": "安全",
+        "budget": "预算",
+        "phrases": "短语",
+        "food": "餐饮"
+      },
+      "openModule": "查看模块"
+    },
     "packing": {
       "meta": {
         "title": "行李与清单 — Sinora",

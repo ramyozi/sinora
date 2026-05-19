@@ -5,9 +5,11 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
 import { routeTotals, segmentsForRoute } from "@/data/routes";
+import { suggestIntermediates } from "@/data/routes/recommendation";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { RouteMap } from "./route-map";
+import { SuggestionsPanel } from "./suggestions-panel";
 
 interface Props {
   cities: City[];
@@ -44,6 +46,14 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
   const moveUp = useCallback((slug: string) => move(slug, -1), [move]);
   const moveDown = useCallback((slug: string) => move(slug, 1), [move]);
   const clear = useCallback(() => setSelected([]), []);
+  const insertAt = useCallback((slug: string, afterIndex: number) => {
+    setSelected((prev) => {
+      if (prev.includes(slug)) return prev;
+      const copy = [...prev];
+      copy.splice(afterIndex + 1, 0, slug);
+      return copy;
+    });
+  }, []);
 
   // Villes sélectionnées dans l'ordre choisi par l'utilisateur.
   const selectedCities = useMemo(() => {
@@ -54,6 +64,10 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
 
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
   const totals = useMemo(() => routeTotals(selected), [selected]);
+  const recommendations = useMemo(
+    () => suggestIntermediates({ selected, cities }),
+    [selected, cities],
+  );
 
   return (
     <div className="space-y-6">
@@ -76,6 +90,14 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           onClear={clear}
         />
       </div>
+      {recommendations.length > 0 && (
+        <SuggestionsPanel
+          recommendations={recommendations}
+          locale={locale}
+          dict={dict}
+          onAdd={insertAt}
+        />
+      )}
       {selectedCities.length > 0 && (
         <BudgetEstimate
           cities={selectedCities}

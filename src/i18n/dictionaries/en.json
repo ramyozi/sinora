@@ -131,6 +131,7 @@
     "budgetLabel": "Budget",
     "overviewLabel": "Overview",
     "locationLabel": "Location",
+    "imageCredit": "Photo: Wikipedia",
     "filters": {
       "region": "Region",
       "season": "Season",

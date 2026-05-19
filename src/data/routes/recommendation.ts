@@ -1,4 +1,4 @@
-import type { City } from "@/data/cities";
+import type { City, CityTag } from "@/data/cities";
 import { findConnection } from "./index";
 
 export type RecommendationReason = "corridor" | "extension";
@@ -17,6 +17,15 @@ export interface RouteRecommendation {
 interface ScoringContext {
   selected: string[];
   cities: City[];
+  /** Tags à favoriser pour adapter les suggestions au style de voyage. */
+  tagBoost?: CityTag[];
+}
+
+// Bonus accordé à une ville selon ses tags par rapport au biais de style.
+function tagBoostFor(city: City, boost?: CityTag[]): number {
+  if (!boost || boost.length === 0) return 0;
+  const matches = city.tags.filter((t) => boost.includes(t)).length;
+  return matches * 0.2;
 }
 
 // Score d'une ville candidate pour un segment a → b :
@@ -48,7 +57,7 @@ export function suggestIntermediates(
   ctx: ScoringContext,
   limit = 5,
 ): RouteRecommendation[] {
-  const { selected, cities } = ctx;
+  const { selected, cities, tagBoost } = ctx;
   if (selected.length === 0) return [];
 
   const selectedSet = new Set(selected);
@@ -64,7 +73,7 @@ export function suggestIntermediates(
       results.push({
         city: candidate,
         insertAfterIndex: 0,
-        score: 0.8,
+        score: 0.8 + tagBoostFor(candidate, tagBoost),
         reason: "extension",
         bridges: [a],
       });
@@ -81,6 +90,7 @@ export function suggestIntermediates(
           city: candidate,
           insertAfterIndex: i,
           ...scored,
+          score: scored.score + tagBoostFor(candidate, tagBoost),
         });
       }
     }

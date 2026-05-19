@@ -211,6 +211,20 @@
       "flight": "飞机",
       "bus": "大巴"
     },
+    "style": {
+      "title": "旅行风格",
+      "subtitle": "选择风格,预算与建议随之调整。",
+      "options": {
+        "eco": "经济",
+        "comfort": "舒适",
+        "luxury": "奢华",
+        "cultural": "文化",
+        "adventure": "探险",
+        "halal": "清真",
+        "fast": "高效",
+        "slow": "慢游"
+      }
+    },
     "suggestions": {
       "title": "推荐途经",
       "subtitle": "可插入您路线的城市建议。",

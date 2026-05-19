@@ -184,6 +184,34 @@
       "musee": "博物馆"
     }
   },
+  "routePlanner": {
+    "meta": {
+      "title": "规划行程 — Sinora",
+      "description": "中国互动地图:点击城市搭建您的路线,查看估算的距离、时长与交通预算。"
+    },
+    "title": "规划行程",
+    "subtitle": "点击城市以添加,自由调整顺序。",
+    "panelTitle": "您的行程",
+    "empty": "请至少选择两座城市,以查看路线。",
+    "totalsTitle": "总体估算",
+    "totalDistance": "距离",
+    "totalDuration": "时长",
+    "totalPrice": "交通预算",
+    "km": "公里",
+    "hours": "小时",
+    "cny": "¥",
+    "missingHint": "部分路段暂无直达连接,后续将引入最短路径算法。",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "remove": "移除",
+    "clear": "全部清除",
+    "modes": {
+      "hsr": "高铁",
+      "train": "普通列车",
+      "flight": "飞机",
+      "bus": "大巴"
+    }
+  },
   "pretrip": {
     "meta": {
       "title": "中国行前准备 — Sinora",

@@ -210,6 +210,22 @@
       "train": "Train",
       "flight": "Avion",
       "bus": "Bus"
+    },
+    "budget": {
+      "title": "Budget sur place",
+      "tierLabel": "Gamme",
+      "lodging": "Hébergement",
+      "food": "Restauration",
+      "activities": "Activités",
+      "totalStay": "Total séjour",
+      "grandTotal": "Total voyage",
+      "nights": "nuits",
+      "perCity": "Détails par ville",
+      "tiers": {
+        "eco": "Économique",
+        "comfort": "Confort",
+        "luxury": "Luxe"
+      }
     }
   },
   "pretrip": {

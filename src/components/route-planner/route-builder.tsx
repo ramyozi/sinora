@@ -6,9 +6,11 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
 import { routeTotals, segmentsForRoute } from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
+import { type RouteStyle, styleConfig } from "@/data/routes/style";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { RouteMap } from "./route-map";
+import { StylePicker } from "./style-picker";
 import { SuggestionsPanel } from "./suggestions-panel";
 
 interface Props {
@@ -21,6 +23,8 @@ interface Props {
 // et calcule les segments / totaux à la volée.
 export function RouteBuilder({ cities, locale, dict }: Props) {
   const [selected, setSelected] = useState<string[]>([]);
+  const [style, setStyle] = useState<RouteStyle>("comfort");
+  const config = styleConfig[style];
 
   const toggle = useCallback((slug: string) => {
     setSelected((prev) =>
@@ -65,12 +69,17 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
   const totals = useMemo(() => routeTotals(selected), [selected]);
   const recommendations = useMemo(
-    () => suggestIntermediates({ selected, cities }),
-    [selected, cities],
+    () =>
+      suggestIntermediates(
+        { selected, cities, tagBoost: config.tagBoost },
+        config.suggestionLimit,
+      ),
+    [selected, cities, config],
   );
 
   return (
     <div className="space-y-6">
+      <StylePicker value={style} onChange={setStyle} dict={dict} />
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
         <RouteMap
           cities={cities}
@@ -102,6 +111,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
         <BudgetEstimate
           cities={selectedCities}
           transport={totals}
+          tier={config.tier}
           locale={locale}
           dict={dict}
         />

@@ -1,5 +1,8 @@
 import "server-only";
 
+// Identifie clairement l'application auprès des APIs publiques.
+const DEFAULT_USER_AGENT = "Sinora/0.1 (+https://github.com/ramyozi/sinora)";
+
 export interface FetchJsonOptions {
   /** Délai d'attente avant abandon, en millisecondes (défaut : 8 s). */
   timeoutMs?: number;
@@ -9,7 +12,17 @@ export interface FetchJsonOptions {
   revalidate?: number;
   /** Étiquettes de cache Next pour invalidation ciblée. */
   tags?: string[];
+  /** En-têtes additionnels : surchargent les valeurs par défaut. */
   headers?: HeadersInit;
+}
+
+// Applique les en-têtes par défaut (User-Agent, Accept) sans écraser ceux
+// explicitement fournis par l'appelant.
+function buildHeaders(extra: HeadersInit | undefined): Headers {
+  const headers = new Headers(extra);
+  if (!headers.has("User-Agent")) headers.set("User-Agent", DEFAULT_USER_AGENT);
+  if (!headers.has("Accept")) headers.set("Accept", "application/json");
+  return headers;
 }
 
 // Petit utilitaire de récupération JSON avec timeout, retry et cache Next.
@@ -18,13 +31,8 @@ export async function fetchJson<T>(
   url: string,
   opts: FetchJsonOptions = {},
 ): Promise<T> {
-  const {
-    timeoutMs = 8000,
-    retries = 1,
-    revalidate,
-    tags,
-    headers,
-  } = opts;
+  const { timeoutMs = 8000, retries = 1, revalidate, tags, headers } = opts;
+  const requestHeaders = buildHeaders(headers);
 
   let lastError: unknown;
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -32,7 +40,7 @@ export async function fetchJson<T>(
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const response = await fetch(url, {
-        headers,
+        headers: requestHeaders,
         signal: controller.signal,
         next: { revalidate, tags },
       });

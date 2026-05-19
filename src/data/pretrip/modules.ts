@@ -36,5 +36,5 @@ export const pretripModules: PretripModule[] = [
   { slug: "restaurants", icon: "utensils-crossed", available: true },
   { slug: "budget", icon: "wallet", available: true },
   { slug: "bagages", icon: "briefcase", available: true },
-  { slug: "calendrier", icon: "calendar-clock", available: false },
+  { slug: "calendrier", icon: "calendar-clock", available: true },
 ];

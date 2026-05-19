@@ -6,6 +6,7 @@ import { isLocale, locales, localeMeta } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ThemeScript } from "@/components/layout/theme-script";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -14,9 +15,6 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://china.ramzibenmansour.com";
-
-// Applique le thème avant le premier rendu pour éviter tout flash.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -71,10 +69,8 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body className="flex min-h-dvh flex-col font-sans">
+        <ThemeScript />
         <Header locale={locale} dict={dict} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale} dict={dict} />

@@ -193,6 +193,22 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "budget": {
+      "meta": {
+        "title": "Budget & payment — Sinora",
+        "description": "Cash vs mobile payment, WeChat Pay / Alipay, currency conversion and common tourist traps in China."
+      },
+      "methodsTitle": "Payment methods",
+      "methodsSubtitle": "Mobile dominates; cash still helps in rural areas.",
+      "tipsTitle": "Tips & traps",
+      "tipsSubtitle": "Practices to know to avoid scams.",
+      "kinds": {
+        "payment": "Payment",
+        "currency": "Currency",
+        "trap": "Trap"
+      },
+      "acceptanceLabel": "Acceptance"
+    },
     "food": {
       "meta": {
         "title": "Food & restaurants — Sinora",

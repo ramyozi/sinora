@@ -193,6 +193,22 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "budget": {
+      "meta": {
+        "title": "Budget et paiement — Sinora",
+        "description": "Cash vs mobile payment, WeChat Pay / Alipay, conversion et pièges fréquents en Chine."
+      },
+      "methodsTitle": "Moyens de paiement",
+      "methodsSubtitle": "Le mobile domine ; le cash reste utile en zone rurale.",
+      "tipsTitle": "Conseils et pièges",
+      "tipsSubtitle": "Quelques pratiques à connaître pour ne pas se faire avoir.",
+      "kinds": {
+        "payment": "Paiement",
+        "currency": "Change",
+        "trap": "Piège"
+      },
+      "acceptanceLabel": "Acceptation"
+    },
     "food": {
       "meta": {
         "title": "Nourriture et restaurants — Sinora",

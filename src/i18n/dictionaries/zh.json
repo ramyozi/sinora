@@ -130,6 +130,7 @@
     "back": "全部目的地",
     "budgetLabel": "预算",
     "overviewLabel": "概览",
+    "locationLabel": "位置",
     "filters": {
       "region": "地区",
       "season": "季节",

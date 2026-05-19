@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCityBySlug, getCitySlugs } from "@/data/cities";
-import { localizedPath } from "@/lib/navigation";
 import { getAirQuality } from "@/lib/api/providers/air-quality";
 import { getWeather } from "@/lib/api/providers/weather";
 import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
+import { CityHero } from "@/components/destinations/city-hero";
 import { CityHighlights } from "@/components/destinations/city-highlights";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
 import { CityMap } from "@/components/destinations/city-map";
 import { WeatherCard } from "@/components/destinations/weather-card";
-import { regionGradient } from "@/components/destinations/region-gradient";
 
 // L'ensemble des villes est connu : pas de route dynamique au-delà.
 export const dynamicParams = false;
@@ -62,29 +59,7 @@ export default async function CityPage({
 
   return (
     <article>
-      <header
-        className={`bg-gradient-to-br ${regionGradient[city.region]}`}
-      >
-        <Container className="py-10 sm:py-14">
-          <Link
-            href={localizedPath("/destinations", locale)}
-            className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" />
-            {dict.destinations.back}
-          </Link>
-
-          <span className="mt-6 inline-block rounded-full bg-background/80 px-3 py-1 text-xs font-medium text-muted backdrop-blur">
-            {dict.labels.regions[city.region]}
-          </span>
-          <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
-            {city.name[locale]}
-          </h1>
-          <p className="mt-2 text-pretty text-lg text-muted">
-            {city.tagline[locale]}
-          </p>
-        </Container>
-      </header>
+      <CityHero city={city} locale={locale} dict={dict} />
 
       <Container className="space-y-12 py-12 sm:py-16">
         <CityFacts city={city} dict={dict} />

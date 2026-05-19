@@ -193,6 +193,19 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "phrases": {
+      "meta": {
+        "title": "Essential phrases — Sinora",
+        "description": "Survival Mandarin: greetings, food, transport, emergency."
+      },
+      "intro": "Hanzi, pinyin, meaning. Audio coming later.",
+      "categories": {
+        "politesse": "Greetings",
+        "restauration": "Food",
+        "transport": "Transport",
+        "urgence": "Emergency"
+      }
+    },
     "apps": {
       "meta": {
         "title": "Digital prep — Sinora",

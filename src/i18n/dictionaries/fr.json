@@ -130,6 +130,7 @@
     "back": "Toutes les destinations",
     "budgetLabel": "Budget",
     "overviewLabel": "Aperçu",
+    "locationLabel": "Localisation",
     "filters": {
       "region": "Région",
       "season": "Saison",

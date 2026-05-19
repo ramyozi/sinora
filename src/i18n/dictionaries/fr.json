@@ -211,6 +211,11 @@
       "flight": "Avion",
       "bus": "Bus"
     },
+    "timeline": {
+      "title": "Itinéraire détaillé",
+      "subtitle": "Vue chronologique étape par étape.",
+      "stay": "Séjour conseillé"
+    },
     "style": {
       "title": "Style de voyage",
       "subtitle": "Choisissez le ton du voyage — budget et suggestions s'adaptent.",

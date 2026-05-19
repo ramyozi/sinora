@@ -42,6 +42,7 @@ export const cities: City[] = [
       },
     ],
     airport: "PEK",
+    wikiTitle: "Beijing",
     featured: true,
   },
   {
@@ -87,6 +88,7 @@ export const cities: City[] = [
       },
     ],
     airport: "PVG",
+    wikiTitle: "Shanghai",
     featured: true,
   },
   {
@@ -136,6 +138,7 @@ export const cities: City[] = [
       },
     ],
     airport: "XIY",
+    wikiTitle: "Xi'an",
     featured: true,
   },
   {
@@ -181,6 +184,7 @@ export const cities: City[] = [
       },
     ],
     airport: "CTU",
+    wikiTitle: "Chengdu",
     featured: true,
   },
   {
@@ -230,6 +234,7 @@ export const cities: City[] = [
       },
     ],
     airport: "KWL",
+    wikiTitle: "Guilin",
     featured: true,
   },
   {
@@ -275,6 +280,7 @@ export const cities: City[] = [
       },
     ],
     airport: "HKG",
+    wikiTitle: "Hong_Kong",
     featured: true,
   },
   {
@@ -320,6 +326,7 @@ export const cities: City[] = [
       },
     ],
     airport: "HGH",
+    wikiTitle: "Hangzhou",
     featured: false,
   },
   {
@@ -373,6 +380,7 @@ export const cities: City[] = [
       },
     ],
     airport: "SHA",
+    wikiTitle: "Suzhou",
     featured: false,
   },
   {
@@ -422,6 +430,7 @@ export const cities: City[] = [
       },
     ],
     airport: "CKG",
+    wikiTitle: "Chongqing",
     featured: false,
   },
   {
@@ -463,6 +472,7 @@ export const cities: City[] = [
       },
     ],
     airport: "KMG",
+    wikiTitle: "Kunming",
     featured: false,
   },
   {
@@ -512,6 +522,7 @@ export const cities: City[] = [
       },
     ],
     airport: "HRB",
+    wikiTitle: "Harbin",
     featured: false,
   },
   {
@@ -565,6 +576,7 @@ export const cities: City[] = [
       },
     ],
     airport: "KHG",
+    wikiTitle: "Kashgar",
     featured: false,
   },
 ];

@@ -46,6 +46,7 @@ docs/                 Architecture, décisions (ADR), feuille de route
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)
+- [Couche API](docs/ARCHITECTURE-API.md)
 - [Feuille de route](docs/ROADMAP.md)
 - [Veille technique — APIs et données](docs/RECHERCHE-TECHNIQUE.md)
 - [Décisions d'architecture (ADR)](docs/adr)

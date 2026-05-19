@@ -193,6 +193,22 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "budget": {
+      "meta": {
+        "title": "预算与支付 — Sinora",
+        "description": "现金对比移动支付、微信支付/支付宝、汇兑与常见消费陷阱。"
+      },
+      "methodsTitle": "支付方式",
+      "methodsSubtitle": "移动支付为主,现金在偏远地区仍有用。",
+      "tipsTitle": "提示与陷阱",
+      "tipsSubtitle": "几项需了解的实用做法。",
+      "kinds": {
+        "payment": "支付",
+        "currency": "汇兑",
+        "trap": "陷阱"
+      },
+      "acceptanceLabel": "接受范围"
+    },
     "food": {
       "meta": {
         "title": "餐饮 — Sinora",

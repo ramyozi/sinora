@@ -211,6 +211,20 @@
       "flight": "Avion",
       "bus": "Bus"
     },
+    "style": {
+      "title": "Style de voyage",
+      "subtitle": "Choisissez le ton du voyage — budget et suggestions s'adaptent.",
+      "options": {
+        "eco": "Économique",
+        "comfort": "Confort",
+        "luxury": "Luxe",
+        "cultural": "Culturel",
+        "adventure": "Aventure",
+        "halal": "Halal",
+        "fast": "Rapide",
+        "slow": "Slow travel"
+      }
+    },
     "suggestions": {
       "title": "Suggestions d'étapes",
       "subtitle": "Villes pertinentes à insérer dans votre tracé.",

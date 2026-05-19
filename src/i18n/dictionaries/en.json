@@ -211,6 +211,20 @@
       "flight": "Flight",
       "bus": "Bus"
     },
+    "style": {
+      "title": "Travel style",
+      "subtitle": "Pick the tone — budget and suggestions follow.",
+      "options": {
+        "eco": "Budget",
+        "comfort": "Comfort",
+        "luxury": "Luxury",
+        "cultural": "Cultural",
+        "adventure": "Adventure",
+        "halal": "Halal",
+        "fast": "Fast",
+        "slow": "Slow travel"
+      }
+    },
     "suggestions": {
       "title": "Stop suggestions",
       "subtitle": "Cities worth inserting into your route.",

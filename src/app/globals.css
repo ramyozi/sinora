@@ -76,6 +76,74 @@ body {
   color: var(--accent-foreground);
 }
 
+/* Marqueurs cliquables du Route Planner. */
+.route-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.route-marker .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: var(--surface);
+  border: 2px solid var(--muted);
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+.route-marker:hover .dot,
+.route-marker:focus-visible .dot {
+  border-color: var(--accent);
+  transform: scale(1.15);
+}
+.route-marker.selected .dot {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.route-marker .name {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--muted);
+  background: var(--surface);
+  padding: 2px 5px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.route-marker.selected .name {
+  color: var(--accent-foreground);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.route-marker .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  font-size: 11px;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.route-marker.selected .badge {
+  display: flex;
+}
+.route-marker {
+  position: relative;
+}
+
 /* Respect des préférences de réduction de mouvement. */
 @media (prefers-reduced-motion: reduce) {
   *,

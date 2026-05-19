@@ -184,6 +184,34 @@
       "musee": "Musée"
     }
   },
+  "routePlanner": {
+    "meta": {
+      "title": "Composer son itinéraire — Sinora",
+      "description": "Carte interactive de Chine : cliquez sur les villes pour construire votre route, voir la distance, la durée et le budget transport estimés."
+    },
+    "title": "Composer son itinéraire",
+    "subtitle": "Cliquez sur les villes pour les ajouter, réordonnez à votre rythme.",
+    "panelTitle": "Votre itinéraire",
+    "empty": "Sélectionnez au moins deux villes pour voir votre route apparaître.",
+    "totalsTitle": "Estimation totale",
+    "totalDistance": "Distance",
+    "totalDuration": "Durée",
+    "totalPrice": "Budget transport",
+    "km": "km",
+    "hours": "h",
+    "cny": "¥",
+    "missingHint": "Une ou plusieurs étapes n'ont pas de liaison directe. Un calcul de plus court chemin sera ajouté prochainement.",
+    "moveUp": "Monter",
+    "moveDown": "Descendre",
+    "remove": "Retirer",
+    "clear": "Tout effacer",
+    "modes": {
+      "hsr": "TGV",
+      "train": "Train",
+      "flight": "Avion",
+      "bus": "Bus"
+    }
+  },
   "pretrip": {
     "meta": {
       "title": "Préparer son voyage en Chine — Sinora",

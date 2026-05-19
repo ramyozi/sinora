@@ -193,6 +193,16 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "packing": {
+      "meta": {
+        "title": "行李与清单 — Sinora",
+        "description": "按季节打包:通用必备与季节性补充。"
+      },
+      "essentialsTitle": "必备物品",
+      "essentialsSubtitle": "无论季节都需携带。",
+      "seasonalTitle": "按季节",
+      "seasonalSubtitle": "选择出行季节以调整清单。"
+    },
     "budget": {
       "meta": {
         "title": "预算与支付 — Sinora",

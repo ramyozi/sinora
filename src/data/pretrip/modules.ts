@@ -31,7 +31,7 @@ export interface PretripModule {
 export const pretripModules: PretripModule[] = [
   { slug: "visa", icon: "stamp", available: true },
   { slug: "apps", icon: "smartphone", available: true },
-  { slug: "phrases", icon: "languages", available: false },
+  { slug: "phrases", icon: "languages", available: true },
   { slug: "securite", icon: "shield-check", available: false },
   { slug: "restaurants", icon: "utensils-crossed", available: false },
   { slug: "budget", icon: "wallet", available: false },

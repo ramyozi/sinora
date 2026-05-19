@@ -193,6 +193,19 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "phrases": {
+      "meta": {
+        "title": "必备中文短语 — Sinora",
+        "description": "在华出行必备短语:礼貌、餐饮、交通、应急。"
+      },
+      "intro": "汉字、拼音、含义。音频功能后续上线。",
+      "categories": {
+        "politesse": "礼貌用语",
+        "restauration": "餐饮",
+        "transport": "交通",
+        "urgence": "应急"
+      }
+    },
     "apps": {
       "meta": {
         "title": "数字化准备 — Sinora",

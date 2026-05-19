@@ -193,6 +193,19 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "phrases": {
+      "meta": {
+        "title": "Phrases essentielles — Sinora",
+        "description": "Les phrases incontournables pour se débrouiller en Chine : politesse, restauration, transport, urgence."
+      },
+      "intro": "Hanzi, pinyin, traduction. Cliquer plus tard pour ajouter l'audio.",
+      "categories": {
+        "politesse": "Politesse",
+        "restauration": "Restauration",
+        "transport": "Transport",
+        "urgence": "Urgence"
+      }
+    },
     "apps": {
       "meta": {
         "title": "Préparation digitale — Sinora",

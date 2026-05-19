@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { getAllCities, sortCitiesByName } from "@/data/cities";
+import {
+  BUDGETS,
+  REGIONS,
+  SEASONS,
+  TAGS,
+  type BudgetTier,
+  type CityFilter,
+  type CityRegion,
+  type CityTag,
+  type Season,
+  filterCities,
+  getAllCities,
+  sortCitiesByName,
+} from "@/data/cities";
 import { Container } from "@/components/ui/container";
 import { CityCard } from "@/components/destinations/city-card";
+import { FilterBar } from "@/components/destinations/filter-bar";
 
 export async function generateMetadata({
   params,
@@ -21,14 +35,37 @@ export async function generateMetadata({
   };
 }
 
+// Valide une valeur d'URL contre la liste autorisée, sinon renvoie undefined.
+function pickValid<T extends string>(
+  value: unknown,
+  allowed: readonly T[],
+): T | undefined {
+  return typeof value === "string" &&
+    (allowed as readonly string[]).includes(value)
+    ? (value as T)
+    : undefined;
+}
+
 export default async function DestinationsPage({
   params,
+  searchParams,
 }: PageProps<"/[locale]/destinations">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
+  const sp = await searchParams;
   const dict = await getDictionary(locale);
-  const cities = sortCitiesByName(getAllCities(), locale);
+
+  const criteria: CityFilter = {
+    region: pickValid<CityRegion>(sp.region, REGIONS),
+    season: pickValid<Season>(sp.season, SEASONS),
+    budget: pickValid<BudgetTier>(sp.budget, BUDGETS),
+    tag: pickValid<CityTag>(sp.tag, TAGS),
+  };
+  const cities = sortCitiesByName(
+    filterCities(getAllCities(), criteria),
+    locale,
+  );
 
   return (
     <Container className="py-16 sm:py-20">
@@ -44,16 +81,26 @@ export default async function DestinationsPage({
         </p>
       </header>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {cities.map((city) => (
-          <CityCard
-            key={city.slug}
-            city={city}
-            locale={locale}
-            dict={dict}
-          />
-        ))}
+      <div className="mt-10">
+        <FilterBar dict={dict} />
       </div>
+
+      {cities.length > 0 ? (
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {cities.map((city) => (
+            <CityCard
+              key={city.slug}
+              city={city}
+              locale={locale}
+              dict={dict}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="mt-10 rounded-card border border-border bg-surface p-10 text-center text-muted">
+          {dict.destinations.filters.noResults}
+        </p>
+      )}
     </Container>
   );
 }

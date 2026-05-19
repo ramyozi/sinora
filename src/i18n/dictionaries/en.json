@@ -193,6 +193,24 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "food": {
+      "meta": {
+        "title": "Food & restaurants — Sinora",
+        "description": "Find halal, vegan or safe meals, understand cultural norms, order with confidence."
+      },
+      "tipsTitle": "Good practices",
+      "tipsSubtitle": "Culture, ordering, allergies, hydration.",
+      "keywordsTitle": "Keywords to recognise",
+      "keywordsSubtitle": "Show or scan on menus.",
+      "needs": {
+        "halal": "Halal",
+        "vegan": "Vegan",
+        "safe": "Safe",
+        "spicy": "Spicy",
+        "culture": "Culture",
+        "ordering": "Ordering"
+      }
+    },
     "safety": {
       "meta": {
         "title": "Safety & offline — Sinora",

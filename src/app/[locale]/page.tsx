@@ -19,7 +19,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <HowItWorks dict={dict} />
       <Features dict={dict} />
       <Profiles dict={dict} />
-      <Cities dict={dict} />
+      <Cities locale={locale} dict={dict} />
       <CtaBand locale={locale} dict={dict} />
     </>
   );

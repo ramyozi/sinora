@@ -106,16 +106,7 @@
   },
   "cities": {
     "title": "Des destinations à explorer",
-    "subtitle": "Mégapoles électriques, paysages classés et villes impériales.",
-    "explore": "Découvrir",
-    "items": [
-      { "name": "Pékin", "region": "Nord", "tagline": "Cité interdite et Grande Muraille" },
-      { "name": "Shanghai", "region": "Côte est", "tagline": "Skyline futuriste et concessions" },
-      { "name": "Xi'an", "region": "Centre", "tagline": "Armée de terre cuite millénaire" },
-      { "name": "Chengdu", "region": "Sichuan", "tagline": "Pandas et cuisine épicée" },
-      { "name": "Guilin", "region": "Sud", "tagline": "Pics karstiques sur la rivière Li" },
-      { "name": "Hong Kong", "region": "Sud", "tagline": "Métropole entre baie et collines" }
-    ]
+    "subtitle": "Mégapoles électriques, paysages classés et villes impériales."
   },
   "cta": {
     "title": "Prêt à partir ?",

@@ -106,16 +106,7 @@
   },
   "cities": {
     "title": "Destinations to explore",
-    "subtitle": "Electric megacities, listed landscapes and imperial towns.",
-    "explore": "Discover",
-    "items": [
-      { "name": "Beijing", "region": "North", "tagline": "Forbidden City and Great Wall" },
-      { "name": "Shanghai", "region": "East coast", "tagline": "Futuristic skyline and concessions" },
-      { "name": "Xi'an", "region": "Centre", "tagline": "Millennia-old Terracotta Army" },
-      { "name": "Chengdu", "region": "Sichuan", "tagline": "Pandas and spicy cuisine" },
-      { "name": "Guilin", "region": "South", "tagline": "Karst peaks along the Li River" },
-      { "name": "Hong Kong", "region": "South", "tagline": "A metropolis between bay and hills" }
-    ]
+    "subtitle": "Electric megacities, listed landscapes and imperial towns."
   },
   "cta": {
     "title": "Ready to go?",

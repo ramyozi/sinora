@@ -193,6 +193,25 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "visa": {
+      "meta": {
+        "title": "Visa & paperwork — Sinora",
+        "description": "Visa categories, exemptions (240-hour transit, waivers), documents to prepare and common pitfalls."
+      },
+      "exemptionsTitle": "Can you skip the visa?",
+      "exemptionsSubtitle": "Several recent exemptions make short stays much easier.",
+      "typesTitle": "If a visa is required",
+      "typesSubtitle": "The main Chinese visa categories.",
+      "documentsTitle": "Documents to gather",
+      "documentsSubtitle": "To bring to your consular appointment.",
+      "errorsTitle": "Common mistakes",
+      "errorsSubtitle": "The traps that delay or get applications refused.",
+      "duration": "Duration",
+      "eligibility": "Eligibility",
+      "purpose": "Purpose",
+      "note": "Note",
+      "verifyDisclaimer": "Rules evolve: verify with your consulate before leaving."
+    },
     "modules": {
       "visa": {
         "title": "Visa & paperwork",

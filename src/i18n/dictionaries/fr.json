@@ -193,6 +193,25 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "visa": {
+      "meta": {
+        "title": "Visa et formalités — Sinora",
+        "description": "Types de visa, exemptions (transit 240 h, exonérations), documents à préparer et erreurs fréquentes."
+      },
+      "exemptionsTitle": "Pouvez-vous éviter le visa ?",
+      "exemptionsSubtitle": "Plusieurs exemptions récentes facilitent grandement les courts séjours.",
+      "typesTitle": "Si un visa est nécessaire",
+      "typesSubtitle": "Les principales catégories de visas chinois.",
+      "documentsTitle": "Documents à préparer",
+      "documentsSubtitle": "À rassembler avant le rendez-vous au consulat.",
+      "errorsTitle": "Erreurs fréquentes",
+      "errorsSubtitle": "Les pièges qui font refuser ou retarder une demande.",
+      "duration": "Durée",
+      "eligibility": "Éligibilité",
+      "purpose": "Motif",
+      "note": "Note",
+      "verifyDisclaimer": "Les règles évoluent : vérifier auprès du consulat avant départ."
+    },
     "modules": {
       "visa": {
         "title": "Visa et formalités",

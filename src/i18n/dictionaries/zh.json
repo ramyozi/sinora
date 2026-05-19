@@ -201,6 +201,23 @@
       "thunder": "雷暴"
     }
   },
+  "airQuality": {
+    "title": "空气质量",
+    "indexLabel": "欧洲指数",
+    "pm25Label": "PM2.5",
+    "pm10Label": "PM10",
+    "unitMicro": "微克/立方米",
+    "source": "数据来源:Open-Meteo",
+    "unavailable": "数据暂不可用。",
+    "bands": {
+      "very-good": "极佳",
+      "good": "良好",
+      "moderate": "中等",
+      "poor": "较差",
+      "very-poor": "很差",
+      "extreme": "极差"
+    }
+  },
   "footer": {
     "tagline": "轻松游中国。",
     "columns": [

@@ -201,6 +201,23 @@
       "thunder": "Thunderstorm"
     }
   },
+  "airQuality": {
+    "title": "Air quality",
+    "indexLabel": "European index",
+    "pm25Label": "PM2.5",
+    "pm10Label": "PM10",
+    "unitMicro": "µg/m³",
+    "source": "Data: Open-Meteo",
+    "unavailable": "Data unavailable.",
+    "bands": {
+      "very-good": "Very good",
+      "good": "Good",
+      "moderate": "Moderate",
+      "poor": "Poor",
+      "very-poor": "Very poor",
+      "extreme": "Extremely poor"
+    }
+  },
   "footer": {
     "tagline": "Travel to China, made simple.",
     "columns": [

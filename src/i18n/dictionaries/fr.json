@@ -201,6 +201,23 @@
       "thunder": "Orage"
     }
   },
+  "airQuality": {
+    "title": "Qualité de l'air",
+    "indexLabel": "Indice européen",
+    "pm25Label": "PM2,5",
+    "pm10Label": "PM10",
+    "unitMicro": "µg/m³",
+    "source": "Données : Open-Meteo",
+    "unavailable": "Données indisponibles.",
+    "bands": {
+      "very-good": "Très bonne",
+      "good": "Bonne",
+      "moderate": "Moyenne",
+      "poor": "Médiocre",
+      "very-poor": "Mauvaise",
+      "extreme": "Très mauvaise"
+    }
+  },
   "footer": {
     "tagline": "Voyager en Chine, simplement.",
     "columns": [

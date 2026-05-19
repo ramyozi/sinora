@@ -19,7 +19,7 @@ export function Header({
 }) {
   const links = [
     { label: dict.nav.destinations, href: localizedPath("/destinations", locale) },
-    { label: dict.nav.prepare, href: "#how" },
+    { label: dict.nav.prepare, href: localizedPath("/preparer", locale) },
     { label: dict.nav.trains, href: "#features" },
     { label: dict.nav.trips, href: "#cta" },
   ];

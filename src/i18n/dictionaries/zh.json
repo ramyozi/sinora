@@ -211,6 +211,11 @@
       "flight": "飞机",
       "bus": "大巴"
     },
+    "timeline": {
+      "title": "详细行程",
+      "subtitle": "按步骤的时间线视图。",
+      "stay": "建议停留"
+    },
     "style": {
       "title": "旅行风格",
       "subtitle": "选择风格,预算与建议随之调整。",

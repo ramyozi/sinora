@@ -6,9 +6,11 @@ import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCityBySlug, getCitySlugs } from "@/data/cities";
 import { localizedPath } from "@/lib/navigation";
+import { getWeather } from "@/lib/api/providers/weather";
 import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
 import { CityHighlights } from "@/components/destinations/city-highlights";
+import { WeatherCard } from "@/components/destinations/weather-card";
 import { regionGradient } from "@/components/destinations/region-gradient";
 
 // L'ensemble des villes est connu : pas de route dynamique au-delà.
@@ -49,7 +51,10 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const dict = await getDictionary(locale);
+  const [dict, weather] = await Promise.all([
+    getDictionary(locale),
+    getWeather(city.coordinates.lat, city.coordinates.lng),
+  ]);
 
   return (
     <article>
@@ -79,6 +84,8 @@ export default async function CityPage({
 
       <Container className="space-y-12 py-12 sm:py-16">
         <CityFacts city={city} dict={dict} />
+
+        <WeatherCard weather={weather} locale={locale} dict={dict} />
 
         <section>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground">

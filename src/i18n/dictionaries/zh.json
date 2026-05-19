@@ -182,6 +182,25 @@
       "musee": "博物馆"
     }
   },
+  "weather": {
+    "title": "天气",
+    "currentLabel": "实时",
+    "forecastLabel": "7 天预报",
+    "wind": "风速",
+    "kmh": "公里/时",
+    "source": "数据来源:Open-Meteo",
+    "unavailable": "天气数据暂不可用。",
+    "kinds": {
+      "clear": "晴朗",
+      "partly": "局部多云",
+      "cloudy": "阴天",
+      "fog": "雾",
+      "drizzle": "细雨",
+      "rain": "雨",
+      "snow": "雪",
+      "thunder": "雷暴"
+    }
+  },
   "footer": {
     "tagline": "轻松游中国。",
     "columns": [

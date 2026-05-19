@@ -193,6 +193,24 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "food": {
+      "meta": {
+        "title": "餐饮 — Sinora",
+        "description": "如何找到清真、纯素或安全餐厅,理解文化礼仪,从容点菜。"
+      },
+      "tipsTitle": "实用要点",
+      "tipsSubtitle": "文化、点菜、过敏、饮水。",
+      "keywordsTitle": "需识别的关键词",
+      "keywordsSubtitle": "可向店员出示或在菜单上查找。",
+      "needs": {
+        "halal": "清真",
+        "vegan": "纯素",
+        "safe": "安全",
+        "spicy": "辣度",
+        "culture": "文化",
+        "ordering": "点菜"
+      }
+    },
     "safety": {
       "meta": {
         "title": "安全与离线 — Sinora",

@@ -193,6 +193,32 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "apps": {
+      "meta": {
+        "title": "Digital prep — Sinora",
+        "description": "Essential apps to install before departure, eSIM and phone configuration for China."
+      },
+      "pinnedTitle": "Install these first",
+      "pinnedSubtitle": "The essentials to function day-to-day in China.",
+      "othersTitle": "Going further",
+      "othersSubtitle": "Complementary apps depending on your needs.",
+      "configTitle": "Phone configuration",
+      "configSubtitle": "Done before departure, and right after landing.",
+      "configBefore": "Before departure",
+      "configOnArrival": "On arrival",
+      "installBefore": "Install BEFORE entering China",
+      "installAnytime": "Can be installed on the ground",
+      "publisherLabel": "Publisher",
+      "categories": {
+        "communication": "Communication",
+        "payment": "Payment",
+        "transit": "Transport",
+        "navigation": "Navigation",
+        "translation": "Translation",
+        "network": "Network / VPN",
+        "esim": "eSIM / SIM"
+      }
+    },
     "visa": {
       "meta": {
         "title": "Visa & paperwork — Sinora",

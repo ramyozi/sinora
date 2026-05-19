@@ -33,7 +33,7 @@ export const pretripModules: PretripModule[] = [
   { slug: "apps", icon: "smartphone", available: true },
   { slug: "phrases", icon: "languages", available: true },
   { slug: "securite", icon: "shield-check", available: true },
-  { slug: "restaurants", icon: "utensils-crossed", available: false },
+  { slug: "restaurants", icon: "utensils-crossed", available: true },
   { slug: "budget", icon: "wallet", available: false },
   { slug: "bagages", icon: "briefcase", available: false },
   { slug: "calendrier", icon: "calendar-clock", available: false },

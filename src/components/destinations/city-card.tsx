@@ -2,18 +2,9 @@ import Link from "next/link";
 import { CalendarRange } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { City, CityRegion } from "@/data/cities";
+import type { City } from "@/data/cities";
 import { localizedPath } from "@/lib/navigation";
-
-// Dégradé par région, pour distinguer les cartes d'un coup d'œil.
-const regionGradient: Record<CityRegion, string> = {
-  nord: "from-jade/25 via-jade/5 to-transparent",
-  est: "from-accent/25 via-gold/10 to-transparent",
-  sud: "from-jade/30 via-accent/10 to-transparent",
-  "sud-ouest": "from-gold/30 via-jade/10 to-transparent",
-  centre: "from-accent/30 via-accent/5 to-transparent",
-  ouest: "from-gold/35 via-gold/10 to-transparent",
-};
+import { regionGradient } from "./region-gradient";
 
 // Carte d'une destination, vers sa page détaillée.
 export function CityCard({

@@ -193,6 +193,23 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "safety": {
+      "meta": {
+        "title": "安全与离线 — Sinora",
+        "description": "离线地图、云端证件、长城防火墙现实、网络安全与在华应急电话。"
+      },
+      "tipsTitle": "出行前措施",
+      "tipsSubtitle": "出发前准备好地图、证件与网络。",
+      "emergencyTitle": "紧急电话",
+      "emergencySubtitle": "请保存到手机。",
+      "criticalBadge": "关键",
+      "kinds": {
+        "offline": "离线",
+        "documents": "证件",
+        "network": "网络",
+        "emergency": "应急"
+      }
+    },
     "phrases": {
       "meta": {
         "title": "必备中文短语 — Sinora",

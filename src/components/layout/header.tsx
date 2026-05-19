@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button";
 import { Logo } from "./logo";
 import { LocaleSwitcher } from "./locale-switcher";
+import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "./theme-toggle";
 
 // En-tête fixe avec navigation par ancres, sélecteur de langue et thème.
@@ -51,10 +52,11 @@ export function Header({
           <ButtonLink
             href={localizedPath("/", locale)}
             size="sm"
-            className="hidden sm:inline-flex"
+            className="hidden md:inline-flex"
           >
             {dict.nav.cta}
           </ButtonLink>
+          <MobileNav locale={locale} dict={dict} links={links} />
         </div>
       </Container>
     </header>

@@ -106,16 +106,7 @@
   },
   "cities": {
     "title": "等待探索的目的地",
-    "subtitle": "活力都市、世界遗产风光与帝都古城。",
-    "explore": "探索",
-    "items": [
-      { "name": "北京", "region": "华北", "tagline": "紫禁城与万里长城" },
-      { "name": "上海", "region": "东海岸", "tagline": "未来天际线与历史租界" },
-      { "name": "西安", "region": "华中", "tagline": "千年兵马俑" },
-      { "name": "成都", "region": "四川", "tagline": "熊猫与麻辣美食" },
-      { "name": "桂林", "region": "华南", "tagline": "漓江畔的喀斯特奇峰" },
-      { "name": "香港", "region": "华南", "tagline": "海湾与山峦间的大都会" }
-    ]
+    "subtitle": "活力都市、世界遗产风光与帝都古城。"
   },
   "cta": {
     "title": "准备出发了吗?",

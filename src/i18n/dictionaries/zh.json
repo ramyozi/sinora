@@ -193,6 +193,30 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "apps": {
+      "meta": {
+        "title": "数字化准备 — Sinora",
+        "description": "出发前必装的应用、eSIM 与手机配置。"
+      },
+      "pinnedTitle": "优先安装",
+      "pinnedSubtitle": "在华日常所需的核心应用。",
+      "othersTitle": "进阶推荐",
+      "othersSubtitle": "根据需要补充的应用。",
+      "configTitle": "手机设置",
+      "configSubtitle": "出发前与抵达后即时执行。",
+      "installBefore": "入境前务必安装",
+      "installAnytime": "抵达后再装亦可",
+      "publisherLabel": "发行方",
+      "categories": {
+        "communication": "通讯",
+        "payment": "支付",
+        "transit": "交通",
+        "navigation": "导航",
+        "translation": "翻译",
+        "network": "网络 / VPN",
+        "esim": "eSIM / SIM"
+      }
+    },
     "visa": {
       "meta": {
         "title": "签证与手续 — Sinora",

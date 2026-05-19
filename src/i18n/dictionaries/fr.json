@@ -193,6 +193,30 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "apps": {
+      "meta": {
+        "title": "Préparation digitale — Sinora",
+        "description": "Applications indispensables à installer avant le départ, eSIM et configuration du téléphone pour la Chine."
+      },
+      "pinnedTitle": "À installer en priorité",
+      "pinnedSubtitle": "Les indispensables pour fonctionner en Chine.",
+      "othersTitle": "Aller plus loin",
+      "othersSubtitle": "Apps complémentaires selon vos besoins.",
+      "configTitle": "Configurer son téléphone",
+      "configSubtitle": "À faire avant le départ, et juste à l'arrivée.",
+      "installBefore": "À installer AVANT l'entrée en Chine",
+      "installAnytime": "Peut s'installer une fois sur place",
+      "publisherLabel": "Éditeur",
+      "categories": {
+        "communication": "Communication",
+        "payment": "Paiement",
+        "transit": "Transport",
+        "navigation": "Navigation",
+        "translation": "Traduction",
+        "network": "Réseau / VPN",
+        "esim": "eSIM / SIM"
+      }
+    },
     "visa": {
       "meta": {
         "title": "Visa et formalités — Sinora",

@@ -182,6 +182,25 @@
       "musee": "Musée"
     }
   },
+  "weather": {
+    "title": "Météo",
+    "currentLabel": "Maintenant",
+    "forecastLabel": "Prévisions 7 jours",
+    "wind": "Vent",
+    "kmh": "km/h",
+    "source": "Données : Open-Meteo",
+    "unavailable": "Météo indisponible.",
+    "kinds": {
+      "clear": "Ciel dégagé",
+      "partly": "Partiellement nuageux",
+      "cloudy": "Couvert",
+      "fog": "Brouillard",
+      "drizzle": "Bruine",
+      "rain": "Pluie",
+      "snow": "Neige",
+      "thunder": "Orage"
+    }
+  },
   "footer": {
     "tagline": "Voyager en Chine, simplement.",
     "columns": [

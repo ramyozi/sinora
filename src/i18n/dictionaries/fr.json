@@ -211,6 +211,16 @@
       "flight": "Avion",
       "bus": "Bus"
     },
+    "suggestions": {
+      "title": "Suggestions d'étapes",
+      "subtitle": "Villes pertinentes à insérer dans votre tracé.",
+      "empty": "Sélectionnez une ville pour voir des suggestions.",
+      "add": "Ajouter",
+      "reasons": {
+        "corridor": "Sur le corridor",
+        "extension": "Prolongement"
+      }
+    },
     "budget": {
       "title": "Budget sur place",
       "tierLabel": "Gamme",

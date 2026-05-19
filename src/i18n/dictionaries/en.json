@@ -211,6 +211,16 @@
       "flight": "Flight",
       "bus": "Bus"
     },
+    "suggestions": {
+      "title": "Stop suggestions",
+      "subtitle": "Cities worth inserting into your route.",
+      "empty": "Select a city to see suggestions.",
+      "add": "Add",
+      "reasons": {
+        "corridor": "On the corridor",
+        "extension": "Extension"
+      }
+    },
     "budget": {
       "title": "On-the-ground budget",
       "tierLabel": "Tier",

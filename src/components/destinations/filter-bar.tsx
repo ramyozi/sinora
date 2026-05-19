@@ -3,30 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { X } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { BudgetTier, CityRegion, CityTag, Season } from "@/data/cities";
-
-const REGIONS: CityRegion[] = [
-  "nord",
-  "est",
-  "sud",
-  "sud-ouest",
-  "centre",
-  "ouest",
-];
-const SEASONS: Season[] = ["printemps", "ete", "automne", "hiver"];
-const BUDGETS: BudgetTier[] = ["eco", "modere", "confort"];
-const TAGS: CityTag[] = [
-  "culture",
-  "histoire",
-  "modernite",
-  "nature",
-  "gastronomie",
-  "halal",
-  "famille",
-  "shopping",
-  "panorama",
-  "aventure",
-];
+import { BUDGETS, REGIONS, SEASONS, TAGS } from "@/data/cities";
 
 const selectClass =
   "h-9 rounded-full border border-border bg-surface px-3 pr-8 text-sm text-foreground transition-colors hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-ring";

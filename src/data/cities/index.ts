@@ -19,6 +19,7 @@ export type {
   LocalizedText,
 } from "./types";
 export { cities } from "./dataset";
+export { REGIONS, SEASONS, BUDGETS, TAGS } from "./enums";
 
 export function getAllCities(): City[] {
   return cities;

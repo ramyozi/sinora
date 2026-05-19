@@ -193,6 +193,23 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "safety": {
+      "meta": {
+        "title": "Safety & offline — Sinora",
+        "description": "Offline maps, cloud documents, life behind the Great Firewall, network safety and emergency numbers in China."
+      },
+      "tipsTitle": "Measures to take",
+      "tipsSubtitle": "Prepare your maps, documents and network before leaving.",
+      "emergencyTitle": "Emergency numbers",
+      "emergencySubtitle": "Save these in your phone.",
+      "criticalBadge": "Critical",
+      "kinds": {
+        "offline": "Offline",
+        "documents": "Documents",
+        "network": "Network",
+        "emergency": "Emergency"
+      }
+    },
     "phrases": {
       "meta": {
         "title": "Essential phrases — Sinora",

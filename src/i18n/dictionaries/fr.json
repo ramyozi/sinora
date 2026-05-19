@@ -193,6 +193,23 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "safety": {
+      "meta": {
+        "title": "Sécurité et hors-ligne — Sinora",
+        "description": "Cartes offline, documents en cloud, réalité du Grand Pare-feu, sécurité réseau et numéros d'urgence en Chine."
+      },
+      "tipsTitle": "Mesures à prendre",
+      "tipsSubtitle": "Préparer ses cartes, ses documents et son réseau avant le départ.",
+      "emergencyTitle": "Numéros d'urgence",
+      "emergencySubtitle": "À noter ou enregistrer dans le téléphone.",
+      "criticalBadge": "Critique",
+      "kinds": {
+        "offline": "Hors-ligne",
+        "documents": "Documents",
+        "network": "Réseau",
+        "emergency": "Urgence"
+      }
+    },
     "phrases": {
       "meta": {
         "title": "Phrases essentielles — Sinora",

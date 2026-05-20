@@ -34,6 +34,11 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // On ignore les fichiers internes, l'API et les assets statiques.
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  // On ignore les fichiers internes, l'API et les assets statiques. Les routes
+  // App Router sans extension generees par Next.js (apple-icon, opengraph,
+  // twitter) doivent etre listees explicitement pour ne pas etre redirigees
+  // vers /{locale}/...
+  matcher: [
+    "/((?!_next|api|apple-icon|opengraph-image|twitter-image|.*\\..*).*)",
+  ],
 };

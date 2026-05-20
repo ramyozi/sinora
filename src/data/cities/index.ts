@@ -10,9 +10,14 @@ import type {
 
 export type {
   City,
+  CityFood,
   CityHighlight,
+  CityIdentity,
+  CityMood,
+  CityPace,
   CityRegion,
   CityTag,
+  DayMoment,
   Season,
   BudgetTier,
   HighlightKind,

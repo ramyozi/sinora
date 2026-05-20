@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
-import { routeTotals, segmentsForRoute } from "@/data/routes";
+import { assessRouteFatigue, routeTotals, segmentsForRoute } from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
 import { type RouteStyle, styleConfig } from "@/data/routes/style";
 import {
@@ -78,6 +78,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
 
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
   const totals = useMemo(() => routeTotals(selected), [selected]);
+  const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
 
   // Tag boost effectif : style + profil + restrictions + intérêts.
   const effectiveBoost = useMemo(
@@ -120,6 +121,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           selected={selectedCities}
           segments={segments}
           totals={totals}
+          fatigue={fatigue}
           locale={locale}
           dict={dict}
           onMoveUp={moveUp}

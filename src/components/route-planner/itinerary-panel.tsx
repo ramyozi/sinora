@@ -4,12 +4,18 @@ import { ArrowDown, ArrowUp, X } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
-import type { Connection, RouteTotals } from "@/data/routes";
+import type {
+  Connection,
+  FatigueAssessment,
+  RouteTotals,
+} from "@/data/routes";
+import { FatigueMeter } from "./fatigue-meter";
 
 interface Props {
   selected: City[];
   segments: (Connection | undefined)[];
   totals: RouteTotals;
+  fatigue: FatigueAssessment;
   locale: Locale;
   dict: Dictionary;
   onMoveUp: (slug: string) => void;
@@ -23,6 +29,7 @@ export function ItineraryPanel({
   selected,
   segments,
   totals,
+  fatigue,
   locale,
   dict,
   onMoveUp,
@@ -140,6 +147,10 @@ export function ItineraryPanel({
             <p className="mt-3 text-xs text-muted">{rp.missingHint}</p>
           )}
         </div>
+      )}
+
+      {selected.length >= 2 && (
+        <FatigueMeter assessment={fatigue} dict={dict} />
       )}
     </aside>
   );

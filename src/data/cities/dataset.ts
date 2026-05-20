@@ -138,6 +138,116 @@ export const cities: City[] = [
         },
       ],
     },
+    pointsOfInterest: [
+      {
+        slug: "forbidden-city",
+        name: { fr: "Cité interdite", en: "Forbidden City", zh: "紫禁城" },
+        category: "monument",
+        coordinates: { lat: 39.9163, lng: 116.397 },
+        wikiTitle: "Forbidden City",
+        description: {
+          fr: "Palais impérial Ming et Qing, axe symbolique de la ville.",
+          en: "Ming and Qing imperial palace, the city's symbolic axis.",
+          zh: "明清两代皇宫,北京的中轴所在。",
+        },
+        tags: [
+          { fr: "Histoire", en: "History", zh: "历史" },
+          { fr: "Iconique", en: "Iconic", zh: "标志" },
+        ],
+      },
+      {
+        slug: "great-wall-mutianyu",
+        name: {
+          fr: "Grande Muraille (Mutianyu)",
+          en: "Great Wall (Mutianyu)",
+          zh: "慕田峪长城",
+        },
+        category: "vue",
+        coordinates: { lat: 40.4319, lng: 116.5704 },
+        wikiTitle: "Mutianyu",
+        description: {
+          fr: "Section restaurée moins touristique, panoramas vertigineux.",
+          en: "Restored section, less crowded, dizzying panoramas.",
+          zh: "修复段,人流较少,景色壮阔。",
+        },
+        tags: [
+          { fr: "Trek", en: "Trek", zh: "徒步" },
+          { fr: "Vue", en: "View", zh: "景观" },
+        ],
+      },
+      {
+        slug: "temple-of-heaven",
+        name: { fr: "Temple du Ciel", en: "Temple of Heaven", zh: "天坛" },
+        category: "monument",
+        coordinates: { lat: 39.8826, lng: 116.4066 },
+        wikiTitle: "Temple of Heaven",
+        description: {
+          fr: "Ensemble taoïste, parc vivant de tai-chi le matin.",
+          en: "Taoist complex, a tai chi park at dawn.",
+          zh: "道教建筑群,清晨太极胜地。",
+        },
+        tags: [
+          { fr: "Spiritualité", en: "Spirituality", zh: "灵性" },
+          { fr: "Parc", en: "Park", zh: "公园" },
+        ],
+      },
+      {
+        slug: "houhai-hutongs",
+        name: {
+          fr: "Houhai et hutongs",
+          en: "Houhai and hutongs",
+          zh: "后海与胡同",
+        },
+        category: "quartier",
+        coordinates: { lat: 39.9381, lng: 116.3826 },
+        wikiTitle: "Houhai",
+        description: {
+          fr: "Ruelles, lacs gelés l'hiver, bars discrets le soir.",
+          en: "Alleys, frozen lakes in winter, low-key bars at night.",
+          zh: "胡同与冬日冰湖,夜里安静的小酒馆。",
+        },
+        tags: [
+          { fr: "Local", en: "Local", zh: "本地" },
+          { fr: "Vélo", en: "Bike", zh: "骑行" },
+        ],
+      },
+      {
+        slug: "summer-palace",
+        name: { fr: "Palais d'Été", en: "Summer Palace", zh: "颐和园" },
+        category: "monument",
+        coordinates: { lat: 39.9999, lng: 116.2752 },
+        wikiTitle: "Summer Palace",
+        description: {
+          fr: "Jardins impériaux, lac Kunming, pavillons sur la colline.",
+          en: "Imperial gardens, Kunming lake, hilltop pavilions.",
+          zh: "皇家园林,昆明湖与山顶亭阁。",
+        },
+        tags: [
+          { fr: "Jardins", en: "Gardens", zh: "园林" },
+          { fr: "Calme", en: "Quiet", zh: "宁静" },
+        ],
+      },
+      {
+        slug: "wangfujing-market",
+        name: {
+          fr: "Marché de Wangfujing",
+          en: "Wangfujing market",
+          zh: "王府井小吃街",
+        },
+        category: "marche",
+        coordinates: { lat: 39.9134, lng: 116.41 },
+        wikiTitle: "Wangfujing",
+        description: {
+          fr: "Brochettes, calligraphie, animation de soirée.",
+          en: "Skewers, calligraphy, evening buzz.",
+          zh: "烤串、书法,夜市气氛浓厚。",
+        },
+        tags: [
+          { fr: "Street food", en: "Street food", zh: "街头" },
+          { fr: "Soirée", en: "Evening", zh: "夜晚" },
+        ],
+      },
+    ],
   },
   {
     slug: "shanghai",
@@ -286,6 +396,92 @@ export const cities: City[] = [
         },
       ],
     },
+    pointsOfInterest: [
+      {
+        slug: "the-bund",
+        name: { fr: "Le Bund", en: "The Bund", zh: "外滩" },
+        category: "vue",
+        coordinates: { lat: 31.2397, lng: 121.4904 },
+        wikiTitle: "The Bund",
+        description: {
+          fr: "Promenade face aux gratte-ciel illuminés du Pudong.",
+          en: "Riverside walk facing the lit Pudong skyline.",
+          zh: "外滩长堤,面向浦东夜景。",
+        },
+        tags: [
+          { fr: "Skyline", en: "Skyline", zh: "天际线" },
+          { fr: "Soirée", en: "Evening", zh: "夜晚" },
+        ],
+      },
+      {
+        slug: "yu-garden",
+        name: { fr: "Jardin Yuyuan", en: "Yu Garden", zh: "豫园" },
+        category: "monument",
+        coordinates: { lat: 31.2272, lng: 121.4922 },
+        wikiTitle: "Yu Garden",
+        description: {
+          fr: "Jardin Ming en pleine vieille ville, maison de thé Huxinting.",
+          en: "Ming garden in the old town, Huxinting teahouse.",
+          zh: "明代园林,湖心亭茶馆。",
+        },
+        tags: [
+          { fr: "Jardins", en: "Gardens", zh: "园林" },
+          { fr: "Thé", en: "Tea", zh: "茶" },
+        ],
+      },
+      {
+        slug: "shanghai-tower",
+        name: { fr: "Shanghai Tower", en: "Shanghai Tower", zh: "上海中心大厦" },
+        category: "vue",
+        coordinates: { lat: 31.2336, lng: 121.5054 },
+        wikiTitle: "Shanghai Tower",
+        description: {
+          fr: "Deuxième plus haut bâtiment du monde, observatoire 562 m.",
+          en: "Second-tallest building in the world, observation deck at 562 m.",
+          zh: "世界第二高建筑,562 米观景台。",
+        },
+        tags: [
+          { fr: "Vertige", en: "Heights", zh: "高空" },
+          { fr: "Photo", en: "Photo", zh: "拍照" },
+        ],
+      },
+      {
+        slug: "french-concession",
+        name: {
+          fr: "Concession française",
+          en: "French Concession",
+          zh: "法租界",
+        },
+        category: "quartier",
+        coordinates: { lat: 31.2167, lng: 121.4571 },
+        wikiTitle: "Shanghai French Concession",
+        description: {
+          fr: "Avenues plantées de platanes, boutiques indépendantes, cafés.",
+          en: "Plane-tree avenues, indie boutiques, cafés.",
+          zh: "梧桐街道,独立小店与咖啡馆。",
+        },
+        tags: [
+          { fr: "Café", en: "Café", zh: "咖啡" },
+          { fr: "Shopping", en: "Shopping", zh: "购物" },
+        ],
+      },
+      {
+        slug: "tianzifang",
+        name: { fr: "Tianzifang", en: "Tianzifang", zh: "田子坊" },
+        category: "quartier",
+        coordinates: { lat: 31.2114, lng: 121.4683 },
+        wikiTitle: "Tianzifang",
+        description: {
+          fr: "Lilong reconverties en ateliers et galeries.",
+          en: "Lilong alleys reborn as studios and galleries.",
+          zh: "里弄改造的工作室与画廊。",
+        },
+        tags: [
+          { fr: "Art", en: "Art", zh: "艺术" },
+          { fr: "Local", en: "Local", zh: "本地" },
+        ],
+      },
+    ],
   },
   {
     slug: "xian",
@@ -434,6 +630,108 @@ export const cities: City[] = [
         },
       ],
     },
+    pointsOfInterest: [
+      {
+        slug: "terracotta-army",
+        name: {
+          fr: "Armée de terre cuite",
+          en: "Terracotta Army",
+          zh: "兵马俑",
+        },
+        category: "monument",
+        coordinates: { lat: 34.3848, lng: 109.2734 },
+        wikiTitle: "Terracotta Army",
+        description: {
+          fr: "Mausolée de l'empereur Qin Shi Huang, milliers de soldats sculptés.",
+          en: "Mausoleum of Emperor Qin Shi Huang, thousands of sculpted soldiers.",
+          zh: "秦始皇陵兵马俑,千军万马。",
+        },
+        tags: [
+          { fr: "UNESCO", en: "UNESCO", zh: "世遗" },
+          { fr: "Histoire", en: "History", zh: "历史" },
+        ],
+      },
+      {
+        slug: "city-walls",
+        name: {
+          fr: "Remparts Ming",
+          en: "Ming city walls",
+          zh: "明代城墙",
+        },
+        category: "vue",
+        coordinates: { lat: 34.2607, lng: 108.9415 },
+        wikiTitle: "Fortifications of Xi'an",
+        description: {
+          fr: "14 km de remparts, à parcourir à vélo au coucher du soleil.",
+          en: "14 km of walls, best cycled at sunset.",
+          zh: "14 公里城墙,夕阳骑行最佳。",
+        },
+        tags: [
+          { fr: "Vélo", en: "Bike", zh: "骑行" },
+          { fr: "Sunset", en: "Sunset", zh: "日落" },
+        ],
+      },
+      {
+        slug: "muslim-quarter",
+        name: {
+          fr: "Muslim Quarter",
+          en: "Muslim Quarter",
+          zh: "回民街",
+        },
+        category: "marche",
+        coordinates: { lat: 34.265, lng: 108.937 },
+        wikiTitle: "Muslim Quarter (Xi'an)",
+        description: {
+          fr: "Allées halal, biangbiang, brochettes d'agneau et lampions.",
+          en: "Halal alleys, biangbiang, lamb skewers and lanterns.",
+          zh: "清真小吃街,biangbiang 面与羊肉串。",
+        },
+        tags: [
+          { fr: "Halal", en: "Halal", zh: "清真" },
+          { fr: "Soirée", en: "Evening", zh: "夜晚" },
+        ],
+      },
+      {
+        slug: "big-wild-goose-pagoda",
+        name: {
+          fr: "Pagode de la Grande Oie",
+          en: "Big Wild Goose Pagoda",
+          zh: "大雁塔",
+        },
+        category: "monument",
+        coordinates: { lat: 34.2197, lng: 108.9594 },
+        wikiTitle: "Giant Wild Goose Pagoda",
+        description: {
+          fr: "Pagode Tang, fontaines musicales le soir.",
+          en: "Tang dynasty pagoda, musical fountains at night.",
+          zh: "唐代大雁塔,夜间音乐喷泉。",
+        },
+        tags: [
+          { fr: "Spirituel", en: "Spiritual", zh: "灵性" },
+          { fr: "Photo", en: "Photo", zh: "拍照" },
+        ],
+      },
+      {
+        slug: "forest-of-stelae",
+        name: {
+          fr: "Forêt de Stèles",
+          en: "Forest of Stelae",
+          zh: "碑林博物馆",
+        },
+        category: "experience",
+        coordinates: { lat: 34.2517, lng: 108.9494 },
+        wikiTitle: "Stele Forest",
+        description: {
+          fr: "Musée de calligraphie, plus de 3000 stèles gravées.",
+          en: "Calligraphy museum, over 3000 engraved stelae.",
+          zh: "碑林博物馆,3000 余通石碑。",
+        },
+        tags: [
+          { fr: "Calligraphie", en: "Calligraphy", zh: "书法" },
+          { fr: "Calme", en: "Quiet", zh: "宁静" },
+        ],
+      },
+    ],
   },
   {
     slug: "chengdu",
@@ -574,6 +872,104 @@ export const cities: City[] = [
         },
       ],
     },
+    pointsOfInterest: [
+      {
+        slug: "dujiangyan-pandas",
+        name: {
+          fr: "Base des pandas de Dujiangyan",
+          en: "Dujiangyan Panda Base",
+          zh: "都江堰熊猫基地",
+        },
+        category: "experience",
+        coordinates: { lat: 30.9933, lng: 103.5856 },
+        wikiTitle: "Dujiangyan",
+        description: {
+          fr: "Base de conservation des pandas géants, programmes de volontariat.",
+          en: "Giant panda conservation base with volunteer programs.",
+          zh: "大熊猫保护研究中心,可参加志愿者项目。",
+        },
+        tags: [
+          { fr: "Pandas", en: "Pandas", zh: "熊猫" },
+          { fr: "Matin", en: "Morning", zh: "清晨" },
+        ],
+      },
+      {
+        slug: "wenshu-monastery",
+        name: {
+          fr: "Monastère de Wenshu",
+          en: "Wenshu Monastery",
+          zh: "文殊院",
+        },
+        category: "monument",
+        coordinates: { lat: 30.6789, lng: 104.0775 },
+        wikiTitle: "Wenshu Monastery",
+        description: {
+          fr: "Plus grand monastère bouddhiste de Chengdu, salon de thé attenant.",
+          en: "Chengdu's largest Buddhist monastery, with adjacent teahouse.",
+          zh: "成都最大佛教寺院,旁边的茶馆值得停留。",
+        },
+        tags: [
+          { fr: "Spirituel", en: "Spiritual", zh: "灵性" },
+          { fr: "Calme", en: "Quiet", zh: "宁静" },
+        ],
+      },
+      {
+        slug: "jinli-street",
+        name: { fr: "Rue Jinli", en: "Jinli Street", zh: "锦里" },
+        category: "marche",
+        coordinates: { lat: 30.6463, lng: 104.0521 },
+        wikiTitle: "Jinli",
+        description: {
+          fr: "Rue piétonne traditionnelle, snacks, lampions, théâtre d'ombres.",
+          en: "Traditional pedestrian street, snacks, lanterns, shadow puppets.",
+          zh: "锦里步行街,小吃、灯笼与皮影戏。",
+        },
+        tags: [
+          { fr: "Street food", en: "Street food", zh: "街头" },
+          { fr: "Photo", en: "Photo", zh: "拍照" },
+        ],
+      },
+      {
+        slug: "peoples-park",
+        name: {
+          fr: "Parc du Peuple",
+          en: "People's Park",
+          zh: "人民公园",
+        },
+        category: "quartier",
+        coordinates: { lat: 30.6633, lng: 104.0635 },
+        wikiTitle: "People's Park, Chengdu",
+        description: {
+          fr: "Salons de thé en plein air, danses, mahjong et chansons.",
+          en: "Open-air teahouses, dancing, mahjong and singing.",
+          zh: "露天茶馆,舞蹈、麻将与歌声。",
+        },
+        tags: [
+          { fr: "Local", en: "Local", zh: "本地" },
+          { fr: "Thé", en: "Tea", zh: "茶" },
+        ],
+      },
+      {
+        slug: "kuan-zhai-alleys",
+        name: {
+          fr: "Ruelles Kuan et Zhai",
+          en: "Kuan and Zhai alleys",
+          zh: "宽窄巷子",
+        },
+        category: "quartier",
+        coordinates: { lat: 30.6722, lng: 104.0526 },
+        wikiTitle: "Kuan-Zhai Alley",
+        description: {
+          fr: "Trois ruelles Qing restaurées : cours, boutiques, démos visage changeant.",
+          en: "Three restored Qing alleys: courtyards, shops, face-changing shows.",
+          zh: "宽巷子、窄巷子与井巷子:庭院与变脸表演。",
+        },
+        tags: [
+          { fr: "Architecture", en: "Architecture", zh: "建筑" },
+          { fr: "Spectacle", en: "Show", zh: "表演" },
+        ],
+      },
+    ],
   },
   {
     slug: "guilin",

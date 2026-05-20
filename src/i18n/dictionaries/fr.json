@@ -133,6 +133,18 @@
     "imageCredit": "Photo : Wikipedia",
     "galleryLabel": "En images",
     "galleryCredit": "Sélection d'images Wikipedia pour {topic}.",
+    "pois": {
+      "title": "À ne pas rater",
+      "subtitle": "Lieux et expériences a vivre : clic carte = focus sur la fiche.",
+      "categories": {
+        "monument": "Monument",
+        "quartier": "Quartier",
+        "marche": "Marché",
+        "vue": "Vue",
+        "experience": "Expérience",
+        "spot": "Lieu"
+      }
+    },
     "identity": {
       "title": "Identité de la ville",
       "subtitle": "Ce qui rend chaque destination unique.",

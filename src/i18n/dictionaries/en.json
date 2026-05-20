@@ -133,6 +133,18 @@
     "imageCredit": "Photo: Wikipedia",
     "galleryLabel": "In pictures",
     "galleryCredit": "Wikipedia image selection for {topic}.",
+    "pois": {
+      "title": "Don't miss",
+      "subtitle": "Spots and experiences worth your time: tap a marker to jump to its card.",
+      "categories": {
+        "monument": "Landmark",
+        "quartier": "District",
+        "marche": "Market",
+        "vue": "View",
+        "experience": "Experience",
+        "spot": "Spot"
+      }
+    },
     "identity": {
       "title": "City identity",
       "subtitle": "What makes each destination feel unique.",

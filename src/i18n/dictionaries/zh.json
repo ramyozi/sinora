@@ -133,6 +133,18 @@
     "imageCredit": "图片:Wikipedia",
     "galleryLabel": "城市影像",
     "galleryCredit": "{topic} 的 Wikipedia 精选图片。",
+    "pois": {
+      "title": "不可错过",
+      "subtitle": "值得停留的地点与体验:点击地图标记即可跳转。",
+      "categories": {
+        "monument": "古迹",
+        "quartier": "街区",
+        "marche": "市集",
+        "vue": "观景",
+        "experience": "体验",
+        "spot": "地点"
+      }
+    },
     "identity": {
       "title": "城市气质",
       "subtitle": "让每个目的地与众不同的细节。",

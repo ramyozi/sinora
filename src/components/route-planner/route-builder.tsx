@@ -12,12 +12,14 @@ import {
   type DietRestriction,
   type TravelProfile,
 } from "@/data/routes/preferences";
+import type { RouteTemplate } from "@/data/routes/templates";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { ItineraryTimeline } from "./itinerary-timeline";
 import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
 import { SuggestionsPanel } from "./suggestions-panel";
+import { TemplatesStrip } from "./templates-strip";
 
 interface Props {
   cities: City[];
@@ -68,6 +70,10 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
       return copy;
     });
   }, []);
+  const loadTemplate = useCallback((template: RouteTemplate) => {
+    setSelected(template.cities);
+    setStyle(template.style);
+  }, []);
 
   // Villes sélectionnées dans l'ordre choisi par l'utilisateur.
   const selectedCities = useMemo(() => {
@@ -97,6 +103,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
 
   return (
     <div className="space-y-6">
+      <TemplatesStrip dict={dict} onLoad={loadTemplate} />
       <PreferencesPanel
         style={style}
         profile={profile}

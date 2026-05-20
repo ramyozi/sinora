@@ -216,6 +216,37 @@
       "subtitle": "Step-by-step chronological view.",
       "stay": "Recommended stay"
     },
+    "templates": {
+      "title": "Ready-to-load itineraries",
+      "subtitle": "Six credible templates — one click to load, then personalise.",
+      "load": "Load",
+      "items": {
+        "cultural-north": {
+          "name": "Northern cultural route",
+          "summary": "Beijing · Datong · Pingyao · Xi'an · Luoyang"
+        },
+        "yunnan-slow": {
+          "name": "Slow Yunnan",
+          "summary": "Kunming · Dali · Lijiang"
+        },
+        "silk-road": {
+          "name": "Silk Road",
+          "summary": "Xi'an · Dunhuang · Kashgar"
+        },
+        "halal-xinjiang": {
+          "name": "Halal Xinjiang",
+          "summary": "Xi'an · Dunhuang · Kashgar"
+        },
+        "megacities": {
+          "name": "Megacities",
+          "summary": "Beijing · Shanghai · Hong Kong"
+        },
+        "southwest-mountain": {
+          "name": "Southwest mountains",
+          "summary": "Chengdu · Kunming · Dali · Lijiang"
+        }
+      }
+    },
     "segmentTooltip": {
       "fatigue": "Fatigue",
       "scenic": "Scenic",

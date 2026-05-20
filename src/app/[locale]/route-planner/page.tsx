@@ -70,17 +70,19 @@ export default async function RoutePlannerPage({
   const cityContext = await getCityContextSnapshots(cities);
 
   return (
-    <Container className="py-10 sm:py-14">
-      <header className="max-w-2xl">
-        <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          {dict.routePlanner.title}
-        </h1>
-        <p className="mt-3 text-pretty text-muted">
-          {dict.routePlanner.subtitle}
-        </p>
+    <Container className="py-6 sm:py-8">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            {dict.routePlanner.title}
+          </h1>
+          <p className="mt-1 text-sm text-muted">
+            {dict.routePlanner.subtitle}
+          </p>
+        </div>
       </header>
 
-      <div className="mt-10">
+      <div className="mt-5">
         <RouteBuilder
           cities={cities}
           locale={locale}

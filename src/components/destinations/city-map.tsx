@@ -105,7 +105,11 @@ export function CityMap({
           <div class="desc">${escapeHtml(poi.description[locale])}</div>
         </div>
       `;
-      new maplibregl.Marker({ element: el, anchor: "bottom" })
+      // La bulle (.bubble, 30px) est au-dessus du label. Avec anchor "bottom"
+      // la coord se retrouvait au BAS du label, soit ~34px sous la vraie POI.
+      // anchor "top" + offset [0, -15] place le centre de la bulle pile sur
+      // la coordonnee : le label hang naturellement en dessous.
+      new maplibregl.Marker({ element: el, anchor: "top", offset: [0, -15] })
         .setLngLat([poi.coordinates.lng, poi.coordinates.lat])
         .addTo(map);
     }

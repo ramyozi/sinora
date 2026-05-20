@@ -112,6 +112,40 @@
     "subtitle": "几分钟即可生成专属行程。",
     "button": "生成行程"
   },
+  "events": {
+    "meta": {
+      "title": "中国节庆活动 - Sinora",
+      "description": "中国年度节庆与高峰时段一览,每个活动都可以加入您的行程。"
+    },
+    "title": "中国节庆与活动",
+    "subtitle": "春节、黄金周、灯会、啤酒节:把握高光时刻,围绕其规划行程。",
+    "countLabel": "即将开始的活动",
+    "filterTitle": "筛选日历",
+    "allCategories": "全部类别",
+    "crowdFilter": "人流:",
+    "allCrowds": "全部",
+    "addToTrip": "加入我的行程",
+    "optimizeAround": "围绕此活动优化",
+    "empty": "没有符合筛选的活动。",
+    "categories": {
+      "festival": "节庆",
+      "religious": "宗教",
+      "food": "美食",
+      "music": "音乐",
+      "sport": "体育",
+      "national": "法定假日",
+      "lantern": "灯会",
+      "ice-snow": "冰雪",
+      "art": "艺术 / 电影",
+      "tech": "科技"
+    },
+    "crowdLabels": {
+      "calme": "安静",
+      "modere": "适中",
+      "dense": "拥挤",
+      "extreme": "极度拥挤"
+    }
+  },
   "destinations": {
     "meta": {
       "title": "中国目的地 - Sinora",

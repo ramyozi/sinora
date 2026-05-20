@@ -10,7 +10,7 @@ const slugToPath: Record<string, string | null> = {
   destinations: "/destinations",
   "route-planner": "/route-planner",
   trains: null,
-  events: null,
+  events: "/events",
   visa: "/preparer/visa",
   esim: "/preparer/apps",
   apps: "/preparer/apps",

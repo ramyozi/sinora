@@ -37,6 +37,8 @@ interface Props {
   locale: Locale;
   dict: Dictionary;
   selectedOrder: string[];
+  /** Slug d'une ville actuellement survolée dans le panneau de suggestions. */
+  hoveredSlug?: string | null;
   onToggle: (slug: string) => void;
 }
 
@@ -47,6 +49,7 @@ export function RouteMap({
   locale,
   dict,
   selectedOrder,
+  hoveredSlug,
   onToggle,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -253,6 +256,13 @@ export function RouteMap({
       });
     }
   }, [selectedOrder, cities]);
+
+  // Synchronisation du marqueur survolé (depuis le panneau de suggestions).
+  useEffect(() => {
+    markersRef.current.forEach((marker, slug) => {
+      marker.getElement().classList.toggle("hovered", slug === hoveredSlug);
+    });
+  }, [hoveredSlug]);
 
   return (
     <div

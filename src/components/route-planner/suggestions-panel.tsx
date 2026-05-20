@@ -10,6 +10,7 @@ interface Props {
   locale: Locale;
   dict: Dictionary;
   onAdd: (slug: string, insertAfterIndex: number) => void;
+  onHover?: (slug: string | null) => void;
 }
 
 // Suggestions de villes pour étoffer un tracé.
@@ -18,6 +19,7 @@ export function SuggestionsPanel({
   locale,
   dict,
   onAdd,
+  onHover,
 }: Props) {
   if (recommendations.length === 0) return null;
 
@@ -36,7 +38,11 @@ export function SuggestionsPanel({
         {recommendations.map((rec) => (
           <li
             key={rec.city.slug}
-            className="flex items-center gap-3 rounded-card border border-border bg-background p-3"
+            onMouseEnter={() => onHover?.(rec.city.slug)}
+            onMouseLeave={() => onHover?.(null)}
+            onFocus={() => onHover?.(rec.city.slug)}
+            onBlur={() => onHover?.(null)}
+            className="flex items-center gap-3 rounded-card border border-border bg-background p-3 transition-colors hover:border-accent/40"
           >
             <div className="flex-1 min-w-0">
               <div className="text-sm font-medium text-foreground">

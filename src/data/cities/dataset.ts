@@ -137,6 +137,62 @@ export const cities: City[] = [
           zh: "别低估紫禁城,至少留三小时。",
         },
       ],
+      hiddenGems: [
+        {
+          fr: "Section Jiankou de la Grande Muraille : sauvage, non restaurée, randonneurs aguerris seulement.",
+          en: "Jiankou section of the Great Wall: wild, unrestored, for experienced hikers.",
+          zh: "箭扣长城:未修复野长城,适合资深徒步爱好者。",
+        },
+        {
+          fr: "Yuanmingyuan, ruines romantiques du palais d'été détruit en 1860.",
+          en: "Yuanmingyuan, romantic ruins of the Old Summer Palace destroyed in 1860.",
+          zh: "圆明园:1860 年被毁的旧夏宫遗址,沉静美丽。",
+        },
+        {
+          fr: "Cafés cachés des 798 Art District tôt en semaine : ateliers d'artistes en activité.",
+          en: "798 Art District cafes early on weekdays: working artist studios open.",
+          zh: "798 艺术区工作日早晨:艺术家工作室开放。",
+        },
+      ],
+      etiquette: [
+        {
+          fr: "Ne pas planter ses baguettes verticalement dans le riz : c'est un geste funéraire.",
+          en: "Don't stick chopsticks upright in rice: it mimics funeral incense.",
+          zh: "切勿将筷子直插米饭,形似祭祀。",
+        },
+        {
+          fr: "Présenter cartes et billets à deux mains, signe de respect.",
+          en: "Hand over cards and tickets with both hands as a sign of respect.",
+          zh: "递交卡片或票据请用双手以示尊敬。",
+        },
+        {
+          fr: "Refuser une fois le verre ou le thé est attendu avant d'accepter.",
+          en: "Politely refuse a drink or tea once before accepting; it's the custom.",
+          zh: "递茶递酒一般先婉拒一次再接受,这是惯例。",
+        },
+      ],
+      seasonalTips: {
+        printemps: {
+          fr: "Mars-mai : tempêtes de sable possibles, garder une écharpe légère sous la main.",
+          en: "Mar-May: sandstorms possible, keep a light scarf at hand.",
+          zh: "3-5 月可能起沙尘,备一条轻巾。",
+        },
+        ete: {
+          fr: "Juin-août : chaud et humide, climatisation systématique dans les musées et métro.",
+          en: "Jun-Aug: hot and humid, museums and metro reliably air-conditioned.",
+          zh: "6-8 月闷热,博物馆与地铁有充足空调。",
+        },
+        automne: {
+          fr: "Septembre-octobre : ciel net, idéal pour la Grande Muraille et le parc Jingshan.",
+          en: "Sep-Oct: clear skies, ideal for the Great Wall and Jingshan Park.",
+          zh: "9-10 月秋高气爽,登长城与景山公园最佳。",
+        },
+        hiver: {
+          fr: "Décembre-février : froid sec autour de -5°C, pollution variable, prévoir masque FFP2.",
+          en: "Dec-Feb: dry cold around -5°C, variable smog, pack an FFP2 mask.",
+          zh: "12-2 月干冷约 -5°C,雾霾不定,请备 FFP2 口罩。",
+        },
+      },
     },
     pointsOfInterest: [
       {

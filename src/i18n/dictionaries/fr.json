@@ -154,6 +154,9 @@
       "experiencesLabel": "À vivre absolument",
       "dayMomentsLabel": "Au fil de la journée",
       "pitfallsLabel": "Erreurs à éviter",
+      "hiddenGemsLabel": "Pépites cachées",
+      "etiquetteLabel": "Étiquette locale",
+      "seasonalTipsLabel": "Conseils saisonniers",
       "moods": {
         "electric": "Électrique",
         "contemplative": "Contemplative",

@@ -95,6 +95,12 @@ export interface CityIdentity {
   dayMoments: Partial<Record<DayMoment, LocalizedText>>;
   /** Erreurs classiques que les visiteurs commettent. */
   pitfalls: LocalizedText[];
+  /** Pepites cachees : spots locaux peu touristiques. */
+  hiddenGems?: LocalizedText[];
+  /** Regles d'etiquette locale a connaitre. */
+  etiquette?: LocalizedText[];
+  /** Conseils saisonniers : printemps / ete / automne / hiver. */
+  seasonalTips?: Partial<Record<Season, LocalizedText>>;
 }
 
 export interface City {

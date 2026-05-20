@@ -154,6 +154,9 @@
       "experiencesLabel": "必体验",
       "dayMomentsLabel": "一天时光",
       "pitfallsLabel": "常见误区",
+      "hiddenGemsLabel": "隐藏宝藏",
+      "etiquetteLabel": "本地礼仪",
+      "seasonalTipsLabel": "季节贴士",
       "moods": {
         "electric": "通电",
         "contemplative": "静谧",

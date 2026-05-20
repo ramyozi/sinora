@@ -220,4 +220,168 @@ export const connections: Connection[] = [
     distanceKm: 2400,
     priceCNY: [1300, 2400],
   },
+
+  // Datong, Pingyao, Luoyang — corridor culturel nord/centre
+  {
+    from: "datong",
+    to: "pekin",
+    mode: "hsr",
+    durationHours: 1.5,
+    distanceKm: 350,
+    priceCNY: [170, 290],
+  },
+  {
+    from: "datong",
+    to: "pingyao",
+    mode: "train",
+    durationHours: 4,
+    distanceKm: 450,
+    priceCNY: [150, 280],
+  },
+  {
+    from: "pingyao",
+    to: "xian",
+    mode: "train",
+    durationHours: 3,
+    distanceKm: 500,
+    priceCNY: [110, 220],
+  },
+  {
+    from: "pingyao",
+    to: "pekin",
+    mode: "train",
+    durationHours: 5,
+    distanceKm: 600,
+    priceCNY: [200, 380],
+  },
+  {
+    from: "luoyang",
+    to: "xian",
+    mode: "hsr",
+    durationHours: 1.5,
+    distanceKm: 380,
+    priceCNY: [175, 280],
+  },
+  {
+    from: "luoyang",
+    to: "pekin",
+    mode: "hsr",
+    durationHours: 4,
+    distanceKm: 800,
+    priceCNY: [380, 620],
+  },
+  {
+    from: "luoyang",
+    to: "shanghai",
+    mode: "hsr",
+    durationHours: 6,
+    distanceKm: 1100,
+    priceCNY: [500, 850],
+  },
+
+  // Yangshuo — appendice de Guilin
+  {
+    from: "yangshuo",
+    to: "guilin",
+    mode: "bus",
+    durationHours: 1.5,
+    distanceKm: 70,
+    priceCNY: [20, 35],
+  },
+
+  // Yunnan — Kunming · Dali · Lijiang
+  {
+    from: "lijiang",
+    to: "kunming",
+    mode: "hsr",
+    durationHours: 3.5,
+    distanceKm: 510,
+    priceCNY: [220, 360],
+  },
+  {
+    from: "lijiang",
+    to: "dali",
+    mode: "hsr",
+    durationHours: 1.5,
+    distanceKm: 165,
+    priceCNY: [70, 120],
+  },
+  {
+    from: "dali",
+    to: "kunming",
+    mode: "hsr",
+    durationHours: 2,
+    distanceKm: 330,
+    priceCNY: [145, 240],
+  },
+
+  // Huangshan — couronne est
+  {
+    from: "huangshan",
+    to: "shanghai",
+    mode: "hsr",
+    durationHours: 3,
+    distanceKm: 470,
+    priceCNY: [220, 360],
+  },
+  {
+    from: "huangshan",
+    to: "hangzhou",
+    mode: "hsr",
+    durationHours: 1.5,
+    distanceKm: 300,
+    priceCNY: [140, 230],
+  },
+  {
+    from: "huangshan",
+    to: "pekin",
+    mode: "hsr",
+    durationHours: 6.5,
+    distanceKm: 1300,
+    priceCNY: [600, 1000],
+  },
+
+  // Dunhuang — oasis de la route de la soie
+  {
+    from: "dunhuang",
+    to: "xian",
+    mode: "flight",
+    durationHours: 2.5,
+    distanceKm: 1700,
+    priceCNY: [1000, 1800],
+  },
+  {
+    from: "dunhuang",
+    to: "kachgar",
+    mode: "flight",
+    durationHours: 2,
+    distanceKm: 1100,
+    priceCNY: [800, 1500],
+  },
+
+  // Lhassa — accès aérien principal
+  {
+    from: "lhassa",
+    to: "chengdu",
+    mode: "flight",
+    durationHours: 2,
+    distanceKm: 1300,
+    priceCNY: [900, 1700],
+  },
+  {
+    from: "lhassa",
+    to: "pekin",
+    mode: "flight",
+    durationHours: 4,
+    distanceKm: 2500,
+    priceCNY: [1500, 2800],
+  },
+  {
+    from: "lhassa",
+    to: "xian",
+    mode: "flight",
+    durationHours: 3,
+    distanceKm: 1900,
+    priceCNY: [1100, 2100],
+  },
 ];

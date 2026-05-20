@@ -8,6 +8,7 @@ import {
   assessRouteFatigue,
   resolveRoute,
   routeTotalsResolved,
+  scoreRoute,
   segmentsForRoute,
 } from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
@@ -25,6 +26,7 @@ import { ItineraryPanel } from "./itinerary-panel";
 import { ItineraryTimeline } from "./itinerary-timeline";
 import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
+import { RouteScoreCard } from "./route-score";
 import { SuggestionsPanel } from "./suggestions-panel";
 import { TemplatesStrip } from "./templates-strip";
 
@@ -102,6 +104,10 @@ export function RouteBuilder({
   const resolved = useMemo(() => resolveRoute(selected), [selected]);
   const totals = useMemo(() => routeTotalsResolved(selected), [selected]);
   const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
+  const score = useMemo(
+    () => scoreRoute(selectedCities, resolved, fatigue),
+    [selectedCities, resolved, fatigue],
+  );
   const routeModes = useMemo(
     () =>
       Array.from(
@@ -169,6 +175,14 @@ export function RouteBuilder({
           onClear={clear}
         />
       </div>
+      {score && (
+        <RouteScoreCard
+          score={score}
+          cities={selectedCities}
+          locale={locale}
+          dict={dict}
+        />
+      )}
       {recommendations.length > 0 && (
         <SuggestionsPanel
           recommendations={recommendations}

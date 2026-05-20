@@ -23,6 +23,13 @@ export {
   resolveRoute,
   type ResolvedSegment,
 } from "./pathfinding";
+export {
+  scoreRoute,
+  type RouteScore,
+  type RouteScoreLevel,
+  type RouteWarning,
+  type RouteWarningKind,
+} from "./score";
 
 // Connexions impliquant la ville donnée, peu importe le sens du graphe.
 export function getConnections(citySlug: string): Connection[] {

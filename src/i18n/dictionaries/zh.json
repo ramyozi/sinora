@@ -271,6 +271,36 @@
       "crowded": "客流",
       "overnight": "夕发朝至"
     },
+    "score": {
+      "title": "行程评分",
+      "subtitle": "地理连贯性、舒适度与节奏均衡。",
+      "allGood": "行程整体均衡,暂无需调整。",
+      "levels": {
+        "weak": "需优化",
+        "fair": "尚可",
+        "good": "良好",
+        "excellent": "出色"
+      },
+      "criteria": {
+        "coherence": "连贯",
+        "pace": "节奏",
+        "balance": "均衡"
+      },
+      "warnings": {
+        "backtrack": {
+          "title": "出现折返",
+          "body": "在 {cities} 之间出现往返,重新排序可节省时间。"
+        },
+        "long-leg": {
+          "title": "长途单段",
+          "body": "{cities}:单段 {value} 公里,可考虑中转停留。"
+        },
+        "fragmented": {
+          "title": "行程碎片化",
+          "body": "多段无直达连接({value} 段),适度收紧更高效。"
+        }
+      }
+    },
     "fatigue": {
       "title": "行程强度",
       "levels": {

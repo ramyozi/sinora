@@ -271,6 +271,36 @@
       "crowded": "Crowded",
       "overnight": "Overnight"
     },
+    "score": {
+      "title": "Route score",
+      "subtitle": "Geographic coherence, comfort and balance.",
+      "allGood": "Route looks well-balanced, nothing to flag.",
+      "levels": {
+        "weak": "Needs work",
+        "fair": "Fair",
+        "good": "Good",
+        "excellent": "Excellent"
+      },
+      "criteria": {
+        "coherence": "Coherence",
+        "pace": "Pace",
+        "balance": "Balance"
+      },
+      "warnings": {
+        "backtrack": {
+          "title": "Backtrack detected",
+          "body": "You go back on yourself between {cities}. Reordering can save time."
+        },
+        "long-leg": {
+          "title": "Very long leg",
+          "body": "{cities}: {value} km in one go. Consider an intermediate stop."
+        },
+        "fragmented": {
+          "title": "Fragmented route",
+          "body": "Many legs without a direct connection ({value}). Tightening up would help."
+        }
+      }
+    },
     "fatigue": {
       "title": "Trip intensity",
       "levels": {

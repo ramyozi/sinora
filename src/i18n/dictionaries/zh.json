@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Sinora — 轻松游中国",
+    "title": "Sinora - 轻松游中国",
     "description": "为您的中国之旅提供全程支持的平台：定制行程、出行手续、高铁网络、互动地图与当地贴士。"
   },
   "nav": {
@@ -115,7 +115,7 @@
   },
   "destinations": {
     "meta": {
-      "title": "中国目的地 — Sinora",
+      "title": "中国目的地 - Sinora",
       "description": "探索中国城市:概览、最佳季节、建议停留时长与必看景点。"
     },
     "title": "全部目的地",
@@ -187,7 +187,7 @@
   },
   "routePlanner": {
     "meta": {
-      "title": "规划行程 — Sinora",
+      "title": "规划行程 - Sinora",
       "description": "中国互动地图:点击城市搭建您的路线,查看估算的距离、时长与交通预算。"
     },
     "title": "规划行程",
@@ -335,12 +335,12 @@
       },
       "suggestions": {
         "intense": "建议安排一站缓冲行程。",
-        "exhausting": "行程过于密集 — 至少保留一晚静养。"
+        "exhausting": "行程过于密集 - 至少保留一晚静养。"
       }
     },
     "preferences": {
       "title": "偏好设置",
-      "subtitle": "微调旅程 — 每个选项都影响推荐。",
+      "subtitle": "微调旅程 - 每个选项都影响推荐。",
       "profileTitle": "出行人",
       "dietTitle": "饮食限制",
       "interestsTitle": "兴趣",
@@ -397,7 +397,7 @@
   },
   "pretrip": {
     "meta": {
-      "title": "中国行前准备 — Sinora",
+      "title": "中国行前准备 - Sinora",
       "description": "签证、应用、短语、安全、预算:出发前所需的一切,卡片化呈现,告别长篇大论。"
     },
     "title": "出行准备",
@@ -406,7 +406,7 @@
     "soon": "即将推出",
     "timeline": {
       "meta": {
-        "title": "出行前时间线 — Sinora",
+        "title": "出行前时间线 - Sinora",
         "description": "D-30 → D-0 时间线汇总各模块准备任务,避免遗漏。"
       },
       "intro": "用一条主线串联所有准备工作。",
@@ -435,7 +435,7 @@
     },
     "packing": {
       "meta": {
-        "title": "行李与清单 — Sinora",
+        "title": "行李与清单 - Sinora",
         "description": "按季节打包:通用必备与季节性补充。"
       },
       "essentialsTitle": "必备物品",
@@ -445,7 +445,7 @@
     },
     "budget": {
       "meta": {
-        "title": "预算与支付 — Sinora",
+        "title": "预算与支付 - Sinora",
         "description": "现金对比移动支付、微信支付/支付宝、汇兑与常见消费陷阱。"
       },
       "methodsTitle": "支付方式",
@@ -461,7 +461,7 @@
     },
     "food": {
       "meta": {
-        "title": "餐饮 — Sinora",
+        "title": "餐饮 - Sinora",
         "description": "如何找到清真、纯素或安全餐厅,理解文化礼仪,从容点菜。"
       },
       "tipsTitle": "实用要点",
@@ -479,7 +479,7 @@
     },
     "safety": {
       "meta": {
-        "title": "安全与离线 — Sinora",
+        "title": "安全与离线 - Sinora",
         "description": "离线地图、云端证件、长城防火墙现实、网络安全与在华应急电话。"
       },
       "tipsTitle": "出行前措施",
@@ -496,7 +496,7 @@
     },
     "phrases": {
       "meta": {
-        "title": "必备中文短语 — Sinora",
+        "title": "必备中文短语 - Sinora",
         "description": "在华出行必备短语:礼貌、餐饮、交通、应急。"
       },
       "intro": "汉字、拼音、含义。音频功能后续上线。",
@@ -509,7 +509,7 @@
     },
     "apps": {
       "meta": {
-        "title": "数字化准备 — Sinora",
+        "title": "数字化准备 - Sinora",
         "description": "出发前必装的应用、eSIM 与手机配置。"
       },
       "pinnedTitle": "优先安装",
@@ -535,7 +535,7 @@
     },
     "visa": {
       "meta": {
-        "title": "签证与手续 — Sinora",
+        "title": "签证与手续 - Sinora",
         "description": "签证类型、免签政策(240 小时过境、单方面免签)、所需材料与常见错误。"
       },
       "exemptionsTitle": "是否可以免签?",
@@ -563,7 +563,7 @@
       },
       "phrases": {
         "title": "必备中文短语",
-        "summary": "礼貌、交通、应急 — 出行基本款。"
+        "summary": "礼貌、交通、应急 - 出行基本款。"
       },
       "securite": {
         "title": "安全与离线",

@@ -69,7 +69,7 @@ export function ItineraryTimeline({
                       {segment.priceCNY[1]} {rp.cny}
                     </span>
                   ) : (
-                    <span>—</span>
+                    <span>-</span>
                   )}
                 </div>
               )}

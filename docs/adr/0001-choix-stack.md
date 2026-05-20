@@ -1,4 +1,4 @@
-# ADR 0001 — Choix de la stack technique
+# ADR 0001 - Choix de la stack technique
 
 - **Statut** : accepté
 - **Date** : 2026-05-19

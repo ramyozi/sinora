@@ -279,8 +279,8 @@ export const visaErrors: VisaError[] = [
       zh: "过境无第三国机票",
     },
     detail: {
-      fr: "Le transit sans visa exige un billet confirmé vers un pays tiers — l'aller-retour ne suffit pas.",
-      en: "Visa-free transit requires a confirmed onward ticket to a third country — a round trip is not enough.",
+      fr: "Le transit sans visa exige un billet confirmé vers un pays tiers - l'aller-retour ne suffit pas.",
+      en: "Visa-free transit requires a confirmed onward ticket to a third country - a round trip is not enough.",
       zh: "过境免签需持前往第三国的确认机票,往返票不符合条件。",
     },
   },

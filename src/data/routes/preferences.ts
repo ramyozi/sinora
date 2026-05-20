@@ -1,10 +1,10 @@
 import type { CityTag } from "@/data/cities";
 import type { RouteStyle } from "./style";
 
-// Profil de voyageur — influence les biais de tag (famille, etc.).
+// Profil de voyageur - influence les biais de tag (famille, etc.).
 export type TravelProfile = "solo" | "couple" | "family" | "group";
 
-// Restriction alimentaire — la version halal aligne les suggestions sur les villes adaptées.
+// Restriction alimentaire - la version halal aligne les suggestions sur les villes adaptées.
 export type DietRestriction = "halal";
 
 export const TRAVEL_PROFILES: TravelProfile[] = [

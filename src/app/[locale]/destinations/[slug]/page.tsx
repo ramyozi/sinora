@@ -32,11 +32,11 @@ export async function generateMetadata({
 
   const name = city.name[locale];
   return {
-    title: `${name} — Sinora`,
+    title: `${name} - Sinora`,
     description: city.summary[locale],
     alternates: { canonical: `/${locale}/destinations/${slug}` },
     openGraph: {
-      title: `${name} — Sinora`,
+      title: `${name} - Sinora`,
       description: city.tagline[locale],
       type: "article",
     },
@@ -77,7 +77,7 @@ export default async function CityPage({
           <CityMap
             lat={city.coordinates.lat}
             lng={city.coordinates.lng}
-            label={`${dict.destinations.locationLabel} — ${city.name[locale]}`}
+            label={`${dict.destinations.locationLabel} - ${city.name[locale]}`}
           />
         </section>
 

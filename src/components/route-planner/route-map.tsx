@@ -148,6 +148,11 @@ export function RouteMap({
       zoom: 3.5,
       attributionControl: { compact: true },
       cooperativeGestures: true,
+      locale: {
+        "CooperativeGesturesHandler.WindowsHelpText": dict.routePlanner.gestures.desktop,
+        "CooperativeGesturesHandler.MacHelpText": dict.routePlanner.gestures.desktop,
+        "CooperativeGesturesHandler.MobileHelpText": dict.routePlanner.gestures.mobile,
+      },
     });
     map.addControl(
       new maplibregl.NavigationControl({ showCompass: false }),

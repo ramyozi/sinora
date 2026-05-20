@@ -198,6 +198,10 @@
       "title": "Click a city",
       "subtitle": "Build your route directly from the map."
     },
+    "gestures": {
+      "desktop": "Use Ctrl + scroll to zoom",
+      "mobile": "Use two fingers to move the map"
+    },
     "totalsTitle": "Estimated totals",
     "totalDistance": "Distance",
     "totalDuration": "Duration",

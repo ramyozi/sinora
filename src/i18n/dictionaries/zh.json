@@ -216,6 +216,17 @@
       "subtitle": "按步骤的时间线视图。",
       "stay": "建议停留"
     },
+    "booking": {
+      "title": "在哪里预订",
+      "subtitle": "与您行程交通方式相关的平台。",
+      "contextLabels": {
+        "before-china": "出发前",
+        "in-china": "抵达后",
+        "anytime": "出行前后均可"
+      },
+      "primary": "推荐",
+      "open": "打开"
+    },
     "templates": {
       "title": "现成行程模板",
       "subtitle": "六条经典线路,一键载入再自由调整。",

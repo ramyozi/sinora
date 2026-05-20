@@ -143,6 +143,69 @@ body {
 .route-marker {
   position: relative;
 }
+.route-marker .info-card {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 220px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 20;
+  text-align: left;
+}
+.route-marker:hover .info-card,
+.route-marker:focus-visible .info-card {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.route-marker .info-card .region {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(216, 68, 58, 0.1);
+  padding: 2px 6px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+.route-marker .info-card .tagline {
+  font-size: 12px;
+  color: var(--foreground);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.route-marker .info-card .meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.route-marker .info-card .stay {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.route-marker .info-card .tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.route-marker .info-card .tag {
+  background: var(--surface-muted);
+  color: var(--foreground);
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-size: 10px;
+}
 
 /* Respect des préférences de réduction de mouvement. */
 @media (prefers-reduced-motion: reduce) {

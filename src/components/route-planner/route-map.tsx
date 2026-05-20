@@ -4,8 +4,27 @@ import { useEffect, useRef } from "react";
 import maplibregl, { type Map as MapLibreMap, type Marker } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
 import { connections } from "@/data/routes";
+
+// Échappement HTML basique pour injection sûre via innerHTML.
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (c) => {
+    switch (c) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      default:
+        return "&#39;";
+    }
+  });
+}
 
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
 const NETWORK_SOURCE = "sinora-network";
@@ -16,13 +35,20 @@ const ROUTE_LAYER = "sinora-route-line";
 interface Props {
   cities: City[];
   locale: Locale;
+  dict: Dictionary;
   selectedOrder: string[];
   onToggle: (slug: string) => void;
 }
 
 // Carte interactive : chaque ville est un marqueur cliquable.
 // La ligne d'itinéraire est mise à jour en temps réel.
-export function RouteMap({ cities, locale, selectedOrder, onToggle }: Props) {
+export function RouteMap({
+  cities,
+  locale,
+  dict,
+  selectedOrder,
+  onToggle,
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const markersRef = useRef<Map<string, Marker>>(new Map());
@@ -139,10 +165,26 @@ export function RouteMap({ cities, locale, selectedOrder, onToggle }: Props) {
       el.type = "button";
       el.className = "route-marker";
       el.setAttribute("aria-label", city.name[locale]);
+      const tagsHtml = city.tags
+        .slice(0, 3)
+        .map(
+          (t) =>
+            `<span class="tag">${escapeHtml(dict.labels.tags[t])}</span>`,
+        )
+        .join("");
+      const [minStay, maxStay] = city.recommendedStay;
       el.innerHTML = `
         <span class="dot" aria-hidden="true"></span>
         <span class="badge" aria-hidden="true"></span>
-        <span class="name">${city.name[locale]}</span>
+        <span class="name">${escapeHtml(city.name[locale])}</span>
+        <div class="info-card" role="tooltip">
+          <div class="region">${escapeHtml(dict.labels.regions[city.region])}</div>
+          <div class="tagline">${escapeHtml(city.tagline[locale])}</div>
+          <div class="meta">
+            <span class="stay">${minStay}–${maxStay} ${escapeHtml(dict.destinations.days)}</span>
+            <span class="tags">${tagsHtml}</span>
+          </div>
+        </div>
       `;
       el.addEventListener("click", () => onToggleRef.current(city.slug));
 
@@ -159,7 +201,7 @@ export function RouteMap({ cities, locale, selectedOrder, onToggle }: Props) {
       mapRef.current = null;
       styleLoadedRef.current = false;
     };
-  }, [cities, locale]);
+  }, [cities, locale, dict]);
 
   // Mise à jour de la sélection : classes des marqueurs + tracé.
   useEffect(() => {

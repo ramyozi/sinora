@@ -127,6 +127,16 @@
     "addToTrip": "加入我的行程",
     "optimizeAround": "围绕此活动优化",
     "empty": "没有符合筛选的活动。",
+    "trendingTitle": "近期热门",
+    "trendingSubtitle": "未来 30 天最热活动,按热度排序。",
+    "badges": {
+      "verified": "已核实",
+      "verifiedHint": "由 Sinora 团队核实。",
+      "community": "社区贡献",
+      "communityHint": "社区来源,请向主办方确认。",
+      "updated": "已更新",
+      "updatedHint": "最近更新:"
+    },
     "categories": {
       "festival": "节庆",
       "religious": "宗教",
@@ -342,6 +352,15 @@
     "gestures": {
       "desktop": "按住 Ctrl 滚动缩放地图",
       "mobile": "用双指拖动地图"
+    },
+    "eventOverlay": {
+      "title": "相关活动",
+      "subtitle": "与您的路线和日期相关的活动。",
+      "inRouteTitle": "旅行期间",
+      "conflictsTitle": "时间冲突",
+      "conflictHint": "极度拥挤,请提前预订",
+      "nearbyTitle": "附近可加入",
+      "addCity": "添加"
     },
     "niches": {
       "title": "旅行风格",

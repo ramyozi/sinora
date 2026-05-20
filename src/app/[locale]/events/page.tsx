@@ -8,6 +8,10 @@ import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { getWikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { Container } from "@/components/ui/container";
 import { EventsExplorer } from "@/components/events/events-explorer";
+import {
+  pickTrending,
+  TrendingEvents,
+} from "@/components/events/trending-events";
 
 export async function generateMetadata({
   params,
@@ -93,7 +97,14 @@ export default async function EventsPage({
         <p className="mt-3 text-pretty text-muted">{dict.events.subtitle}</p>
       </header>
 
-      <div className="mt-10">
+      <div className="mt-10 space-y-12">
+        <TrendingEvents
+          entries={pickTrending(entries, 30, 6)}
+          cityBySlug={cityBySlug}
+          imageBySlug={imageBySlug}
+          locale={locale}
+          dict={dict}
+        />
         <EventsExplorer
           entries={entries}
           cityBySlug={cityBySlug}

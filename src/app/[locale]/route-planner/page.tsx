@@ -69,6 +69,17 @@ export default async function RoutePlannerPage({
   const initial = parseInitialState(citiesParam, templateParam, validSlugs);
   const cityContext = await getCityContextSnapshots(cities);
 
+  // Pre-fill via deep link depuis la page /events.
+  const eventStart =
+    typeof sp.eventStart === "string" ? sp.eventStart : undefined;
+  const eventEnd =
+    typeof sp.eventEnd === "string" ? sp.eventEnd : undefined;
+  const eventSlug =
+    typeof sp.eventSlug === "string" ? sp.eventSlug : undefined;
+  const optimizeAround = sp.optimizeAround === "1";
+  const initialDates =
+    eventStart && eventEnd ? { start: eventStart, end: eventEnd } : undefined;
+
   return (
     <Container className="py-6 sm:py-8">
       <header className="flex flex-wrap items-end justify-between gap-3">
@@ -89,6 +100,9 @@ export default async function RoutePlannerPage({
           dict={dict}
           initialCities={initial.cities}
           initialStyle={initial.style}
+          initialDates={initialDates}
+          initialEventSlug={eventSlug}
+          initialOptimizeAround={optimizeAround}
           cityContext={cityContext}
         />
       </div>

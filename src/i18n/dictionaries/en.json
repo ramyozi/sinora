@@ -304,7 +304,9 @@
       "originLabel": "Starting from",
       "destinationLabel": "Ending at",
       "anyOrigin": "No fixed origin",
-      "anyDestination": "No fixed destination"
+      "anyDestination": "No fixed destination",
+      "loopBadge": "Loop",
+      "loopHint": "Round trip: your travel starts and ends in {city}. Intermediate cities form the loop."
     },
     "dates": {
       "title": "Trip dates",
@@ -402,6 +404,7 @@
     "moveDown": "Move down",
     "remove": "Remove",
     "clear": "Clear all",
+    "loopReturn": "Back to",
     "modes": {
       "hsr": "HSR",
       "train": "Train",

@@ -22,6 +22,8 @@ interface Props {
   dict: Dictionary;
   /** Pour traduire les slugs en noms localisés dans les chemins indirects. */
   cities: City[];
+  /** Vrai si origin === destination : `selected` contient l'origine deux fois. */
+  isLoop?: boolean;
   onMoveUp: (slug: string) => void;
   onMoveDown: (slug: string) => void;
   onRemove: (slug: string) => void;
@@ -38,6 +40,7 @@ export function ItineraryPanel({
   locale,
   dict,
   cities,
+  isLoop = false,
   onMoveUp,
   onMoveDown,
   onRemove,
@@ -45,6 +48,14 @@ export function ItineraryPanel({
 }: Props) {
   const rp = dict.routePlanner;
   const cityNameMap = new Map(cities.map((c) => [c.slug, c.name[locale]]));
+  // En mode boucle, la derniere entree est le retour a l'origine. On la marque
+  // pour afficher "Retour a X" et neutraliser les boutons reorder / remove
+  // (l'utilisateur sort de la boucle via le selecteur origin/destination).
+  const isLoopReturnAt = (idx: number) =>
+    isLoop &&
+    idx === selected.length - 1 &&
+    selected.length >= 2 &&
+    selected[0].slug === selected[selected.length - 1].slug;
 
   return (
     <aside className="flex flex-col gap-4 rounded-card border border-border bg-surface p-5">
@@ -72,6 +83,7 @@ export function ItineraryPanel({
           {selected.map((city, idx) => {
             const isFirst = idx === 0;
             const isLast = idx === selected.length - 1;
+            const isLoopReturn = isLoopReturnAt(idx);
             const segment = !isLast ? segments[idx] : undefined;
             const resolvedSeg = !isLast ? resolved[idx] : undefined;
             const isIndirect =
@@ -88,19 +100,28 @@ export function ItineraryPanel({
             }
 
             return (
-              <li key={city.slug}>
+              <li key={`${city.slug}-${idx}`}>
                 <div className="flex items-center gap-3">
-                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-accent text-xs font-semibold text-accent-foreground">
-                    {idx + 1}
+                  <span
+                    className={
+                      isLoopReturn
+                        ? "grid size-7 shrink-0 place-items-center rounded-full border border-accent/40 bg-surface text-xs font-semibold text-accent"
+                        : "grid size-7 shrink-0 place-items-center rounded-full bg-accent text-xs font-semibold text-accent-foreground"
+                    }
+                    aria-hidden={isLoopReturn ? true : undefined}
+                  >
+                    {isLoopReturn ? "↺" : idx + 1}
                   </span>
                   <span className="flex-1 text-sm font-medium text-foreground">
-                    {city.name[locale]}
+                    {isLoopReturn
+                      ? `${rp.loopReturn} ${city.name[locale]}`
+                      : city.name[locale]}
                   </span>
                   <div className="flex items-center gap-1">
                     <button
                       type="button"
                       onClick={() => onMoveUp(city.slug)}
-                      disabled={isFirst}
+                      disabled={isFirst || isLoopReturn}
                       aria-label={rp.moveUp}
                       className="grid size-7 place-items-center rounded-full text-muted transition-colors hover:bg-surface-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
                     >
@@ -109,7 +130,7 @@ export function ItineraryPanel({
                     <button
                       type="button"
                       onClick={() => onMoveDown(city.slug)}
-                      disabled={isLast}
+                      disabled={isLast || isLoopReturn}
                       aria-label={rp.moveDown}
                       className="grid size-7 place-items-center rounded-full text-muted transition-colors hover:bg-surface-muted hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
                     >
@@ -118,8 +139,9 @@ export function ItineraryPanel({
                     <button
                       type="button"
                       onClick={() => onRemove(city.slug)}
+                      disabled={isLoopReturn}
                       aria-label={rp.remove}
-                      className="grid size-7 place-items-center rounded-full text-muted transition-colors hover:bg-accent/10 hover:text-accent"
+                      className="grid size-7 place-items-center rounded-full text-muted transition-colors hover:bg-accent/10 hover:text-accent disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-muted"
                     >
                       <X className="size-3.5" />
                     </button>

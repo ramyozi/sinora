@@ -30,19 +30,47 @@ export interface RouteScore {
 /**
  * Réordonne un itinéraire par plus proche voisin à partir de la première ville.
  * Heuristique simple : conserve le point de départ et choisit à chaque étape
- * la ville restante la plus proche en distance à vol d'oiseau. Renvoie la
- * suite de slugs optimisée.
+ * la ville restante la plus proche en distance à vol d'oiseau.
+ *
+ * Mode boucle (`closeLoop: true`) : la dernière étape choisit l'intermédiaire
+ * qui minimise distance vers le candidat + distance retour vers le départ.
+ * Évite ainsi le scénario où la nearest-neighbor laisse une longue traversée
+ * pour rentrer chez soi.
  */
-export function optimizeRouteOrder(cities: City[]): string[] {
+export function optimizeRouteOrder(
+  cities: City[],
+  options?: { closeLoop?: boolean },
+): string[] {
   if (cities.length <= 2) return cities.map((c) => c.slug);
+  const closeLoop = options?.closeLoop ?? false;
   const remaining = cities.slice(1);
   const ordered: City[] = [cities[0]];
   while (remaining.length > 0) {
     const last = ordered[ordered.length - 1];
+    const isFinalStep = closeLoop && remaining.length === 1;
     let bestIdx = 0;
     let bestDist = Number.POSITIVE_INFINITY;
     for (let i = 0; i < remaining.length; i++) {
-      const d = haversineKm(last.coordinates, remaining[i].coordinates);
+      const candidate = remaining[i];
+      const dToCandidate = haversineKm(last.coordinates, candidate.coordinates);
+      // En mode boucle, l'avant-dernier saut doit aussi etre proche du retour
+      // a l'origine pour eviter un detour absurde. On somme distance candidate
+      // + distance retour quand on est sur le dernier choix possible.
+      let d = dToCandidate;
+      if (closeLoop && remaining.length === 2) {
+        // Avant-derniere etape : regarde aussi le segment final qui suivra.
+        const other = remaining.find((_, j) => j !== i);
+        if (other) {
+          const closing = haversineKm(other.coordinates, cities[0].coordinates);
+          d = dToCandidate + closing * 0.5;
+        }
+      }
+      if (isFinalStep) {
+        // Derniere etape : si plusieurs candidats restent (defensive), prend
+        // celui qui minimise distance + retour.
+        const closing = haversineKm(candidate.coordinates, cities[0].coordinates);
+        d = dToCandidate + closing * 0.5;
+      }
       if (d < bestDist) {
         bestDist = d;
         bestIdx = i;

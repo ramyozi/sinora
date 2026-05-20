@@ -1,6 +1,6 @@
 "use client";
 
-import { Flag, MapPin } from "lucide-react";
+import { Flag, MapPin, RefreshCw } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
@@ -32,6 +32,9 @@ export function RouteEndpoints({
   const sorted = [...cities].sort((a, b) =>
     a.name[locale].localeCompare(b.name[locale], locale),
   );
+  // Boucle / roadtrip : origin === destination, route circulaire.
+  const isLoop = Boolean(originSlug && destinationSlug && originSlug === destinationSlug);
+  const originCity = originSlug ? cities.find((c) => c.slug === originSlug) : null;
 
   return (
     <section className="rounded-card border border-border bg-surface p-4">
@@ -43,8 +46,18 @@ export function RouteEndpoints({
           <Flag className="size-3.5 text-accent" />
           {re.title}
         </div>
+        {isLoop && (
+          <span className="inline-flex items-center gap-1 rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
+            <RefreshCw className="size-3" />
+            {re.loopBadge}
+          </span>
+        )}
       </div>
-      <p className="mt-1 text-xs text-muted">{re.subtitle}</p>
+      <p className="mt-1 text-xs text-muted">
+        {isLoop && originCity
+          ? re.loopHint.replace("{city}", originCity.name[locale])
+          : re.subtitle}
+      </p>
 
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <label className="block">

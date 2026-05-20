@@ -304,7 +304,9 @@
       "originLabel": "出发自",
       "destinationLabel": "终点至",
       "anyOrigin": "不指定起点",
-      "anyDestination": "不指定终点"
+      "anyDestination": "不指定终点",
+      "loopBadge": "环线",
+      "loopHint": "环线行程:从 {city} 出发并返回。中间城市构成完整圈程。"
     },
     "dates": {
       "title": "行程日期",
@@ -402,6 +404,7 @@
     "moveDown": "下移",
     "remove": "移除",
     "clear": "全部清除",
+    "loopReturn": "回到",
     "modes": {
       "hsr": "高铁",
       "train": "普通列车",

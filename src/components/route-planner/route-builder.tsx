@@ -239,49 +239,76 @@ export function RouteBuilder({
       setDestinationSlug(null);
     }
   }, []);
+  // Mode boucle : origin === destination => circuit qui revient au depart.
+  // `selected` reste canonique [origin, ...intermediaires] ; `displayedOrder`
+  // re-ajoute l'origine en queue pour le rendu (segments, carte, panneau).
+  const isLoop = Boolean(
+    originSlug && destinationSlug && originSlug === destinationSlug,
+  );
+  const displayedOrder = useMemo(() => {
+    if (!isLoop || selected.length === 0) return selected;
+    if (selected[selected.length - 1] === selected[0] && selected.length > 1) {
+      return selected;
+    }
+    return [...selected, selected[0]];
+  }, [isLoop, selected]);
+
   const optimize = useCallback(() => {
     setSelected((prev) => {
       const orderedCities = prev
         .map((slug) => cities.find((c) => c.slug === slug))
         .filter((c): c is City => Boolean(c));
       if (orderedCities.length <= 2) return prev;
-      return optimizeRouteOrder(orderedCities);
+      const loop = Boolean(
+        originSlug && destinationSlug && originSlug === destinationSlug,
+      );
+      return optimizeRouteOrder(orderedCities, { closeLoop: loop });
     });
-  }, [cities]);
+  }, [cities, originSlug, destinationSlug]);
 
-  // Villes sélectionnées dans l'ordre choisi par l'utilisateur.
+  // Villes affichees : mode lineaire = selected ; mode boucle = + origine en queue.
   const selectedCities = useMemo(() => {
-    return selected
+    return displayedOrder
       .map((slug) => cities.find((c) => c.slug === slug))
       .filter((c): c is City => Boolean(c));
-  }, [selected, cities]);
+  }, [displayedOrder, cities]);
 
-  const segments = useMemo(() => segmentsForRoute(selected), [selected]);
-  const resolved = useMemo(() => resolveRoute(selected), [selected]);
-  const totals = useMemo(() => routeTotalsResolved(selected), [selected]);
-  const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
+  // En mode boucle, l'origine apparait deux fois dans `selectedCities`. Pour
+  // les metriques qui dependent du SEJOUR (recommendedStay, score, advice),
+  // on retire le doublon en queue : on visite chaque ville une fois. Les
+  // segments / resolved / fatigue gardent en revanche la fermeture du circuit
+  // pour bien compter le trajet retour.
+  const uniqueSelectedCities = useMemo(
+    () => (isLoop && selectedCities.length > 1 ? selectedCities.slice(0, -1) : selectedCities),
+    [isLoop, selectedCities],
+  );
+
+  const segments = useMemo(() => segmentsForRoute(displayedOrder), [displayedOrder]);
+  const resolved = useMemo(() => resolveRoute(displayedOrder), [displayedOrder]);
+  const totals = useMemo(() => routeTotalsResolved(displayedOrder), [displayedOrder]);
+  const fatigue = useMemo(() => assessRouteFatigue(displayedOrder), [displayedOrder]);
   const baseScore = useMemo(
-    () => scoreRoute(selectedCities, resolved, fatigue),
-    [selectedCities, resolved, fatigue],
+    () => scoreRoute(uniqueSelectedCities, resolved, fatigue),
+    [uniqueSelectedCities, resolved, fatigue],
   );
   // Bonus events : applique sur l'overall, dans la limite [0, 100].
   const score = useMemo(() => {
     if (!baseScore) return baseScore;
-    const bonus = eventScoreBonus(selectedCities, tripDates, events);
+    const bonus = eventScoreBonus(uniqueSelectedCities, tripDates, events);
     if (bonus === 0) return baseScore;
     return {
       ...baseScore,
       overall: Math.max(0, Math.min(100, baseScore.overall + bonus)),
     };
-  }, [baseScore, selectedCities, tripDates]);
+  }, [baseScore, uniqueSelectedCities, tripDates]);
   const budget = useMemo(
-    () => durationBudget(selectedCities, resolved, tripDates),
-    [selectedCities, resolved, tripDates],
+    () => durationBudget(uniqueSelectedCities, resolved, tripDates),
+    [uniqueSelectedCities, resolved, tripDates],
   );
   const density = useMemo(() => densityFromBudget(budget), [budget]);
   const advice = useMemo(
-    () => durationAdvice(selectedCities, density, cities),
-    [selectedCities, density, cities],
+    () => durationAdvice(uniqueSelectedCities, density, cities),
+    [uniqueSelectedCities, density, cities],
   );
   // Events qui touchent l'itineraire : dans la route, en conflit, ou proches.
   const eventMatches = useMemo(() => {
@@ -378,13 +405,17 @@ export function RouteBuilder({
     [config.tagBoost, profile, diet, interests],
   );
 
+  // Pour les suggestions, on passe `displayedOrder` afin de scanner aussi
+  // le segment de fermeture en mode boucle (ex. Hangzhou -> Shanghai dans un
+  // circuit Shanghai depart/arrivee). Les villes deja selectionnees sont
+  // dedupliquees par suggestIntermediates via selectedSet.
   const recommendations = useMemo(
     () =>
       suggestIntermediates(
-        { selected, cities, tagBoost: effectiveBoost },
+        { selected: displayedOrder, cities, tagBoost: effectiveBoost },
         config.suggestionLimit,
       ),
-    [selected, cities, effectiveBoost, config.suggestionLimit],
+    [displayedOrder, cities, effectiveBoost, config.suggestionLimit],
   );
 
   // Resume affiche en mode plie pour chaque section repliable.
@@ -401,7 +432,7 @@ export function RouteBuilder({
           cities={cities}
           locale={locale}
           dict={dict}
-          selectedOrder={selected}
+          selectedOrder={displayedOrder}
           segments={segments}
           resolved={resolved}
           hoveredSlug={hoveredSlug}
@@ -416,6 +447,7 @@ export function RouteBuilder({
           locale={locale}
           dict={dict}
           cities={cities}
+          isLoop={isLoop}
           onMoveUp={moveUp}
           onMoveDown={moveDown}
           onRemove={remove}

@@ -73,6 +73,27 @@ Slug vers route, défini dans `src/components/layout/footer.tsx`.
 3. **CTA fort vers `/route-planner`** : c'est le funnel principal du produit. Tout bouton principal hors page produit doit y mener.
 4. **Badge "Bientôt"** : libellé clair, jamais d'élément cliquable sans destination réelle.
 
+## Decisions M3.8
+
+### Clarification de la navigation (PR 6)
+
+L'audit M3.8 a identifie une duplication dans le header :
+- Entree de nav "Sejours" pointait sur `/route-planner`.
+- CTA "Planifier mon voyage" pointait egalement sur `/route-planner`.
+
+Decision : retirer l'entree "Sejours" du header et du mobile nav. La nav
+principale ne porte plus que les deux sections savoir/preparer :
+
+- Destinations : ou aller, exploration carte et grille.
+- Preparer : comment partir, hub des modules.
+
+Le funnel principal reste porte par la CTA accent "Planifier mon voyage"
+au bout du header, plus une entree dediee dans le footer ("Itineraire")
+pour ne pas couper la decouverte par lien profond.
+
+Cle dict `nav.trips` supprimee des trois locales. `nav.cta` reste la
+formule officielle.
+
 ## Maintenance
 
 Ce document doit être mis à jour à chaque nouveau parcours utilisateur :

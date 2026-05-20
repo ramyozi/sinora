@@ -17,10 +17,13 @@ export function Header({
   locale: Locale;
   dict: Dictionary;
 }) {
+  // Navigation reduite a deux sections : Destinations (savoir ou aller) et
+  // Preparer (savoir comment partir). L'acces au planner est porte uniquement
+  // par la CTA pour eviter la confusion historique entre "Sejours" et "Planifier
+  // mon voyage" qui pointaient sur la meme page.
   const links = [
     { label: dict.nav.destinations, href: localizedPath("/destinations", locale) },
     { label: dict.nav.prepare, href: localizedPath("/preparer", locale) },
-    { label: dict.nav.trips, href: localizedPath("/route-planner", locale) },
   ];
 
   const linkClass =

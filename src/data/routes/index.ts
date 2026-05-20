@@ -1,7 +1,21 @@
 import { connections } from "./connections";
-import type { Connection, RouteTotals } from "./types";
+import type {
+  Connection,
+  FatigueAssessment,
+  FatigueLevel,
+  RouteTotals,
+} from "./types";
 
-export type { Connection, RouteTotals, TransportMode } from "./types";
+export type {
+  Connection,
+  CrowdedPeriod,
+  FatigueAssessment,
+  FatigueLevel,
+  LocalizedNote,
+  RouteTotals,
+  ScoreLevel,
+  TransportMode,
+} from "./types";
 export { connections } from "./connections";
 
 // Connexions impliquant la ville donnée, peu importe le sens du graphe.
@@ -42,6 +56,27 @@ export function segmentsForRoute(
     segments.push(findConnection(cityOrder[i], cityOrder[i + 1]));
   }
   return segments;
+}
+
+/**
+ * Évalue la fatigue cumulée d'un itinéraire à partir des scores par segment.
+ * Les segments sans signal connu reçoivent une fatigue par défaut modérée (2).
+ */
+export function assessRouteFatigue(cityOrder: string[]): FatigueAssessment {
+  const segments = segmentsForRoute(cityOrder);
+  let total = 0;
+  const heavySegments: string[] = [];
+  for (const seg of segments) {
+    if (!seg) continue;
+    const f = seg.fatigue ?? 2;
+    total += f;
+    if (f >= 4) heavySegments.push(`${seg.from}-${seg.to}`);
+  }
+  let level: FatigueLevel = "calm";
+  if (total >= 16) level = "exhausting";
+  else if (total >= 11) level = "intense";
+  else if (total >= 6) level = "moderate";
+  return { total, level, heavySegments };
 }
 
 // Totaux de l'itinéraire, en ignorant les segments manquants pour les sommes.

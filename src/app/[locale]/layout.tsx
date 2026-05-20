@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://china.ramzibenmansour.com";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e0c0a" },
+  ],
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

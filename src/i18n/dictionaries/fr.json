@@ -198,6 +198,10 @@
       "title": "Cliquez sur une ville",
       "subtitle": "Composez votre itinéraire directement depuis la carte."
     },
+    "gestures": {
+      "desktop": "Utiliser Ctrl + molette pour zoomer",
+      "mobile": "Utiliser deux doigts pour déplacer la carte"
+    },
     "totalsTitle": "Estimation totale",
     "totalDistance": "Distance",
     "totalDuration": "Durée",

@@ -44,7 +44,7 @@ export function MobileNav({
         onClick={(e) => {
           if (e.target === ref.current) close();
         }}
-        className="fixed inset-auto right-0 top-0 m-0 h-dvh w-80 max-w-[88vw] bg-background p-6 text-foreground shadow-2xl backdrop:bg-foreground/40"
+        className="fixed inset-auto right-0 top-0 m-0 h-dvh w-80 max-w-[88vw] bg-background p-6 text-foreground shadow-2xl backdrop:bg-foreground/40 [padding-top:max(1.5rem,env(safe-area-inset-top))] [padding-right:max(1.5rem,env(safe-area-inset-right))] [padding-bottom:max(1.5rem,env(safe-area-inset-bottom))]"
       >
         <div className="flex items-center justify-end">
           <button

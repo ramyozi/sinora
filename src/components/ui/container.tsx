@@ -9,7 +9,16 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-6xl px-5 sm:px-8", className)}>
+    <div
+      className={cn(
+        "mx-auto w-full max-w-6xl",
+        "[padding-left:max(1.25rem,env(safe-area-inset-left))]",
+        "[padding-right:max(1.25rem,env(safe-area-inset-right))]",
+        "sm:[padding-left:max(2rem,env(safe-area-inset-left))]",
+        "sm:[padding-right:max(2rem,env(safe-area-inset-right))]",
+        className,
+      )}
+    >
       {children}
     </div>
   );

@@ -22,6 +22,7 @@ import {
 } from "@/data/routes/preferences";
 import type { RouteTemplate } from "@/data/routes/templates";
 import { bookingPlatformsForModes } from "@/data/routes/booking";
+import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
 import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
@@ -40,6 +41,8 @@ interface Props {
   /** État initial pré-rempli depuis l'URL (deep link depuis page ville ou template). */
   initialCities?: string[];
   initialStyle?: RouteStyle;
+  /** Météo et qualité de l'air pré-fetchées côté serveur, indexées par slug. */
+  cityContext?: Record<string, CityContextSnapshot>;
 }
 
 // Orchestrateur du Route Planner : possède l'ordre des villes sélectionnées
@@ -50,6 +53,7 @@ export function RouteBuilder({
   dict,
   initialCities,
   initialStyle,
+  cityContext,
 }: Props) {
   const [selected, setSelected] = useState<string[]>(initialCities ?? []);
   const [style, setStyle] = useState<RouteStyle>(initialStyle ?? "comfort");
@@ -210,6 +214,7 @@ export function RouteBuilder({
           cities={selectedCities}
           resolved={resolved}
           peakAlerts={peakAlerts}
+          cityContext={cityContext}
           locale={locale}
           dict={dict}
         />

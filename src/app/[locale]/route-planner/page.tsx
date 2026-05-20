@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getAllCities, sortCitiesByName } from "@/data/cities";
 import { routeTemplates } from "@/data/routes/templates";
 import type { RouteStyle } from "@/data/routes/style";
+import { getCityContextSnapshots } from "@/lib/api/providers/city-context";
 import { Container } from "@/components/ui/container";
 import { RouteBuilder } from "@/components/route-planner/route-builder";
 
@@ -66,6 +67,7 @@ export default async function RoutePlannerPage({
     typeof sp.template === "string" ? sp.template : undefined;
   const validSlugs = new Set(cities.map((c) => c.slug));
   const initial = parseInitialState(citiesParam, templateParam, validSlugs);
+  const cityContext = await getCityContextSnapshots(cities);
 
   return (
     <Container className="py-10 sm:py-14">
@@ -85,6 +87,7 @@ export default async function RoutePlannerPage({
           dict={dict}
           initialCities={initial.cities}
           initialStyle={initial.style}
+          cityContext={cityContext}
         />
       </div>
     </Container>

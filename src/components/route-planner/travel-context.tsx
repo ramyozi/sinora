@@ -1,4 +1,4 @@
-import { CalendarClock, Sun } from "lucide-react";
+import { CalendarClock, CloudFog, CloudRain, CloudSnow, Cloud, Sun, CloudSun, Zap, Wind } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, Season } from "@/data/cities";
@@ -7,6 +7,12 @@ import type {
   PeakWindow,
   ResolvedSegment,
 } from "@/data/routes";
+import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
+import { aqiBandFromIndex, type AqiBand } from "@/lib/api/providers/aqi-bands";
+import {
+  weatherKindFromCode,
+  type WeatherKind,
+} from "@/lib/api/providers/weather-codes";
 
 interface Props {
   cities: City[];
@@ -14,7 +20,28 @@ interface Props {
   peakAlerts: PeakWindow[];
   locale: Locale;
   dict: Dictionary;
+  cityContext?: Record<string, CityContextSnapshot>;
 }
+
+const weatherIconByKind: Record<WeatherKind, typeof Sun> = {
+  clear: Sun,
+  partly: CloudSun,
+  cloudy: Cloud,
+  fog: CloudFog,
+  drizzle: CloudRain,
+  rain: CloudRain,
+  snow: CloudSnow,
+  thunder: Zap,
+};
+
+const aqiBandClass: Record<AqiBand, string> = {
+  "very-good": "text-emerald-400",
+  good: "text-emerald-500",
+  moderate: "text-amber-500",
+  poor: "text-orange-500",
+  "very-poor": "text-rose-500",
+  extreme: "text-rose-700",
+};
 
 const seasonOrder: Season[] = ["printemps", "ete", "automne", "hiver"];
 
@@ -56,6 +83,7 @@ export function TravelContextPanel({
   peakAlerts,
   locale,
   dict,
+  cityContext,
 }: Props) {
   if (cities.length === 0) return null;
   const rp = dict.routePlanner;
@@ -134,6 +162,50 @@ export function TravelContextPanel({
           )}
         </div>
       </div>
+
+      {cityContext && cities.length > 0 && (
+        <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {cities.map((city) => {
+            const snap = cityContext[city.slug];
+            const weather = snap?.weather?.current;
+            const aqi = snap?.aqi;
+            const kind = weather ? weatherKindFromCode(weather.weatherCode) : null;
+            const Icon = kind ? weatherIconByKind[kind] : Wind;
+            const band = aqi ? aqiBandFromIndex(aqi.europeanAqi) : null;
+            return (
+              <div
+                key={city.slug}
+                className="flex items-center gap-3 rounded-card border border-border bg-surface-muted px-3 py-2 text-sm"
+              >
+                <Icon className="size-5 shrink-0 text-accent" />
+                <div className="min-w-0 flex-1">
+                  <div className="truncate font-medium text-foreground">
+                    {city.name[locale]}
+                  </div>
+                  <div className="text-xs text-muted">
+                    {weather ? (
+                      <>
+                        {Math.round(weather.temperature)}°C
+                        {kind ? ` · ${dict.weather.kinds[kind]}` : ""}
+                      </>
+                    ) : (
+                      dict.weather.unavailable
+                    )}
+                  </div>
+                </div>
+                {band && aqi && (
+                  <div
+                    className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-semibold ${aqiBandClass[band]}`}
+                    title={`AQI ${aqi.europeanAqi}`}
+                  >
+                    {dict.airQuality.bands[band]}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }

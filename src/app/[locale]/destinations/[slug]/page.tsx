@@ -13,6 +13,7 @@ import { CityGallery } from "@/components/destinations/city-gallery";
 import { CityHero } from "@/components/destinations/city-hero";
 import { CityHighlights } from "@/components/destinations/city-highlights";
 import { CityIdentitySection } from "@/components/destinations/city-identity";
+import { CityPOIs } from "@/components/destinations/city-pois";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
 import { CityMap } from "@/components/destinations/city-map";
 import { WeatherCard } from "@/components/destinations/weather-card";
@@ -55,12 +56,18 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const [dict, weather, aqi, image, gallery] = await Promise.all([
+  const pois = city.pointsOfInterest ?? [];
+  const [dict, weather, aqi, image, gallery, poiImages] = await Promise.all([
     getDictionary(locale),
     getWeather(city.coordinates.lat, city.coordinates.lng),
     getAirQuality(city.coordinates.lat, city.coordinates.lng),
     getWikiLeadImage(city.wikiTitle),
     getWikiGallery(city.wikiTitle, 6),
+    Promise.all(
+      pois.map((p) =>
+        p.wikiTitle ? getWikiLeadImage(p.wikiTitle) : Promise.resolve(null),
+      ),
+    ),
   ]);
 
   return (
@@ -82,8 +89,13 @@ export default async function CityPage({
             lat={city.coordinates.lat}
             lng={city.coordinates.lng}
             label={`${dict.destinations.locationLabel} - ${city.name[locale]}`}
+            pois={pois}
+            locale={locale}
+            dict={dict}
           />
         </section>
+
+        <CityPOIs pois={pois} images={poiImages} locale={locale} dict={dict} />
 
         <section>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground">

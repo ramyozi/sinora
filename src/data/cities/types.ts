@@ -59,6 +59,27 @@ export interface CityFood {
 
 export type DayMoment = "morning" | "afternoon" | "evening" | "night";
 
+export type POICategory =
+  | "monument"
+  | "quartier"
+  | "marche"
+  | "vue"
+  | "experience"
+  | "spot";
+
+export interface CityPOI {
+  /** Identifiant stable, utilise pour la section a ne pas rater et le focus carte. */
+  slug: string;
+  name: LocalizedText;
+  category: POICategory;
+  coordinates: { lat: number; lng: number };
+  /** Article Wikipedia (anglais) pour recuperer la photo de presentation. */
+  wikiTitle?: string;
+  description: LocalizedText;
+  /** Tags emotionnels courts affiches en surimpression sur la carte POI. */
+  tags?: LocalizedText[];
+}
+
 export interface CityIdentity {
   /** Vibes generales en mots simples. */
   moods: CityMood[];
@@ -100,4 +121,6 @@ export interface City {
   featured: boolean;
   /** Personnalite emotionnelle : optionnelle, etoffee ville par ville. */
   identity?: CityIdentity;
+  /** Points d'interet cliquables sur la carte ville. */
+  pointsOfInterest?: CityPOI[];
 }

@@ -37,6 +37,11 @@ export function Header({
       href: localizedPath("/preparer", locale),
       match: localizedPath("/preparer", locale),
     },
+    {
+      label: dict.nav.journal,
+      href: localizedPath("/journal", locale),
+      match: localizedPath("/journal", locale),
+    },
   ];
 
   return (

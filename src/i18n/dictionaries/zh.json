@@ -7,6 +7,7 @@
     "destinations": "目的地",
     "events": "节庆活动",
     "prepare": "出行准备",
+    "journal": "旅行手账",
     "trains": "高铁",
     "cta": "规划行程"
   },
@@ -918,5 +919,51 @@
       }
     ],
     "rights": "保留所有权利。"
+  },
+  "journal": {
+    "meta": {
+      "title": "我的旅行手账 - Sinora",
+      "description": "本地优先的旅行手账,用于筹备、记录与回顾您的中国之行。行程、笔记、预算与回忆,全部保留在您的设备上。"
+    },
+    "title": "我的旅行手账",
+    "subtitle": "筹备、出行、回顾。数据始终留在您的设备上。",
+    "localFirstBadge": "本地优先",
+    "loading": "正在加载手账…",
+    "stats": {
+      "trips": "行程",
+      "notes": "快速笔记",
+      "favorites": "心愿单",
+      "memories": "回忆"
+    },
+    "empty": {
+      "title": "您的手账还是一张白纸",
+      "description": "从规划器保存一条路线,或写下第一条笔记,开始构建您的旅程。",
+      "ctaPlanner": "规划行程",
+      "ctaNote": "写一条笔记"
+    },
+    "trips": {
+      "title": "已保存的行程",
+      "subtitle": "从上次离开的地方继续规划。"
+    },
+    "notes": {
+      "title": "快速笔记",
+      "subtitle": "记下一个想法、一个地址、一句中文。",
+      "addPlaceholder": "想法、地标、想记住的字…",
+      "addSubmit": "添加",
+      "remove": "删除",
+      "untagged": "无标签",
+      "categories": {
+        "tip": "贴士",
+        "phrase": "短语",
+        "address": "地址",
+        "thought": "想法",
+        "todo": "待办",
+        "other": "其他"
+      }
+    },
+    "privacy": {
+      "title": "数据全部留在本地",
+      "body": "Sinora 不会在服务器上存储任何信息。您的整本手账都保存在浏览器的本地存储中。"
+    }
   }
 }

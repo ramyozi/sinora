@@ -7,6 +7,7 @@
     "destinations": "Destinations",
     "events": "Events",
     "prepare": "Prepare",
+    "journal": "Journal",
     "trains": "Trains",
     "cta": "Plan my trip"
   },
@@ -918,5 +919,51 @@
       }
     ],
     "rights": "All rights reserved."
+  },
+  "journal": {
+    "meta": {
+      "title": "My travel journal - Sinora",
+      "description": "A local-first journal to prepare, live and preserve your China trips. Itineraries, notes, budget, memories: everything stays on your device."
+    },
+    "title": "My travel journal",
+    "subtitle": "Plan, live, remember. Your data stays on your device.",
+    "localFirstBadge": "Local-first",
+    "loading": "Loading your journal…",
+    "stats": {
+      "trips": "Trips",
+      "notes": "Quick notes",
+      "favorites": "Wishlist",
+      "memories": "Memories"
+    },
+    "empty": {
+      "title": "Your journal is still a blank page",
+      "description": "Save an itinerary from the planner or add a first note to start building your journey.",
+      "ctaPlanner": "Plan a trip",
+      "ctaNote": "Write a note"
+    },
+    "trips": {
+      "title": "Saved trips",
+      "subtitle": "Pick up planning where you left off."
+    },
+    "notes": {
+      "title": "Quick notes",
+      "subtitle": "Capture an idea, an address, a phrase in Chinese.",
+      "addPlaceholder": "An idea, a landmark, a word to remember…",
+      "addSubmit": "Add",
+      "remove": "Remove",
+      "untagged": "No tag",
+      "categories": {
+        "tip": "Tip",
+        "phrase": "Phrase",
+        "address": "Address",
+        "thought": "Thought",
+        "todo": "To-do",
+        "other": "Other"
+      }
+    },
+    "privacy": {
+      "title": "Your data stays local",
+      "body": "Sinora stores nothing on its servers. Your whole journal lives in your browser's local storage."
+    }
   }
 }

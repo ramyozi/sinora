@@ -7,6 +7,7 @@
     "destinations": "Destinations",
     "events": "Événements",
     "prepare": "Préparer",
+    "journal": "Carnet",
     "trains": "Trains",
     "cta": "Planifier mon voyage"
   },
@@ -918,5 +919,51 @@
       }
     ],
     "rights": "Tous droits réservés."
+  },
+  "journal": {
+    "meta": {
+      "title": "Mon carnet de voyage - Sinora",
+      "description": "Un carnet local-first pour préparer, vivre et conserver vos voyages en Chine. Itinéraires, notes, budget, souvenirs : tout reste sur votre appareil."
+    },
+    "title": "Mon carnet de voyage",
+    "subtitle": "Préparez, vivez, conservez. Vos données restent sur votre appareil.",
+    "localFirstBadge": "Local-first",
+    "loading": "Chargement de votre carnet…",
+    "stats": {
+      "trips": "Voyages",
+      "notes": "Notes rapides",
+      "favorites": "Mes envies",
+      "memories": "Souvenirs"
+    },
+    "empty": {
+      "title": "Votre carnet est encore une page blanche",
+      "description": "Sauvegardez un itinéraire depuis le planner ou ajoutez une première note pour commencer à construire votre voyage.",
+      "ctaPlanner": "Composer un voyage",
+      "ctaNote": "Écrire une note"
+    },
+    "trips": {
+      "title": "Voyages sauvegardés",
+      "subtitle": "Reprenez la planification où vous l'avez laissée."
+    },
+    "notes": {
+      "title": "Notes rapides",
+      "subtitle": "Captez une idée, une adresse, une phrase en chinois.",
+      "addPlaceholder": "Une idée, un repère, un mot à retenir…",
+      "addSubmit": "Ajouter",
+      "remove": "Supprimer",
+      "untagged": "Sans étiquette",
+      "categories": {
+        "tip": "Astuce",
+        "phrase": "Phrase",
+        "address": "Adresse",
+        "thought": "Pensée",
+        "todo": "À faire",
+        "other": "Autre"
+      }
+    },
+    "privacy": {
+      "title": "Vos données restent locales",
+      "body": "Sinora ne stocke aucune information sur ses serveurs. Tout votre carnet vit dans le stockage local de votre navigateur."
+    }
   }
 }

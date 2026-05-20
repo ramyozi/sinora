@@ -671,6 +671,23 @@
         "urgence": "Urgence"
       }
     },
+    "learning": {
+      "title": "Apprendre avant de partir",
+      "subtitle": "Ressources curées pour progresser en mandarin et acquérir des reflexes culturels.",
+      "free": "Gratuit",
+      "open": "Ouvrir",
+      "types": {
+        "youtube": "YouTube",
+        "app": "Applications",
+        "website": "Sites gratuits",
+        "course": "Cours express"
+      },
+      "levels": {
+        "beginner": "Débutant",
+        "intermediate": "Intermédiaire",
+        "advanced": "Avancé"
+      }
+    },
     "apps": {
       "meta": {
         "title": "Préparation digitale - Sinora",

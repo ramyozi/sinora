@@ -4,6 +4,7 @@ import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { phrases, phraseCategories } from "@/data/pretrip/phrases";
 import { Container } from "@/components/ui/container";
+import { LearningResources } from "@/components/pretrip/learning-resources";
 import { PhraseCard } from "@/components/pretrip/phrases/phrase-card";
 
 export async function generateMetadata({
@@ -58,6 +59,8 @@ export default async function PhrasesPage({
           </section>
         );
       })}
+
+      <LearningResources locale={locale} dict={dict} />
     </Container>
   );
 }

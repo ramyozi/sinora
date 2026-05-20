@@ -671,6 +671,23 @@
         "urgence": "应急"
       }
     },
+    "learning": {
+      "title": "出发前学起来",
+      "subtitle": "精选资源,夯实中文基础与文化感知。",
+      "free": "免费",
+      "open": "打开",
+      "types": {
+        "youtube": "YouTube",
+        "app": "应用",
+        "website": "免费网站",
+        "course": "速成课程"
+      },
+      "levels": {
+        "beginner": "入门",
+        "intermediate": "进阶",
+        "advanced": "高级"
+      }
+    },
     "apps": {
       "meta": {
         "title": "数字化准备 - Sinora",

@@ -169,6 +169,8 @@ export function RouteMap({
       })
       .filter((f): f is NonNullable<typeof f> => f !== null);
 
+    let dashAnimationId: number | null = null;
+
     map.on("load", () => {
       map.addSource(NETWORK_SOURCE, {
         type: "geojson",
@@ -255,6 +257,38 @@ export function RouteMap({
           .setHTML(html)
           .addTo(map);
       });
+      // Flux de tirets animé sur la ligne d'itinéraire : effet "marche" Google Maps.
+      const dashSequence: [number, number, number, number][] = [
+        [0, 0.5, 3, 3.5],
+        [0, 1, 3, 3],
+        [0, 1.5, 3, 2.5],
+        [0, 2, 3, 2],
+        [0, 2.5, 3, 1.5],
+        [0, 3, 3, 1],
+        [0, 3.5, 3, 0.5],
+        [0, 4, 3, 0],
+        [0.5, 4, 2.5, 0],
+        [1, 4, 2, 0],
+        [1.5, 4, 1.5, 0],
+        [2, 4, 1, 0],
+        [2.5, 4, 0.5, 0],
+        [3, 4, 0, 0],
+      ];
+      let dashStep = -1;
+      const animate = (timestamp: number) => {
+        const next = Math.floor(timestamp / 70) % dashSequence.length;
+        if (next !== dashStep) {
+          map.setPaintProperty(
+            ROUTE_LAYER,
+            "line-dasharray",
+            dashSequence[next],
+          );
+          dashStep = next;
+        }
+        dashAnimationId = requestAnimationFrame(animate);
+      };
+      dashAnimationId = requestAnimationFrame(animate);
+
       map.on("mouseleave", ROUTE_LAYER, () => {
         map.getCanvas().style.cursor = "";
         activePopup?.remove();
@@ -300,6 +334,7 @@ export function RouteMap({
     }
 
     return () => {
+      if (dashAnimationId !== null) cancelAnimationFrame(dashAnimationId);
       markers.forEach((m) => m.remove());
       markers.clear();
       map.remove();

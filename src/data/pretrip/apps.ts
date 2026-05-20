@@ -91,7 +91,7 @@ export const pretripApps: PretripApp[] = [
   {
     slug: "vpn",
     name: "VPN",
-    publisher: "—",
+    publisher: "-",
     category: "network",
     description: {
       fr: "Indispensable pour accéder à Google, WhatsApp, Instagram, X. L'installation depuis la Chine est bloquée : il faut l'installer et tester avant le départ.",
@@ -104,7 +104,7 @@ export const pretripApps: PretripApp[] = [
   {
     slug: "esim",
     name: "eSIM",
-    publisher: "—",
+    publisher: "-",
     category: "esim",
     description: {
       fr: "Carte SIM virtuelle achetée en ligne (Airalo, Holafly, etc.). Évite la SIM physique et passe en data sans changer de numéro.",

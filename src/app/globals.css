@@ -3,7 +3,7 @@
 /* Mode sombre piloté par la classe .dark sur <html>. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Palette claire — neutres chauds, accent cinabre. */
+/* Palette claire - neutres chauds, accent cinabre. */
 :root {
   --background: #faf9f7;
   --surface: #ffffff;
@@ -19,7 +19,7 @@
   --ring: #d8443a;
 }
 
-/* Palette sombre — encre profonde, accent cinabre éclairci. */
+/* Palette sombre - encre profonde, accent cinabre éclairci. */
 .dark {
   --background: #0c0b0a;
   --surface: #161412;

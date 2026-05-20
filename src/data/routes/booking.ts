@@ -37,8 +37,8 @@ export const bookingPlatforms: BookingPlatform[] = [
     context: "in-china",
     highlight: false,
     hint: {
-      fr: "Site officiel chinois — tarifs les plus bas, billets remboursables.",
-      en: "Official Chinese site — lowest prices, refundable tickets.",
+      fr: "Site officiel chinois - tarifs les plus bas, billets remboursables.",
+      en: "Official Chinese site - lowest prices, refundable tickets.",
       zh: "中国铁路官网,价格最低,可退票。",
     },
     caveat: {

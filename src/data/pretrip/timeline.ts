@@ -30,7 +30,7 @@ export const timelineBuckets: TimelineBucket[] = [
 ];
 
 export const timelineTasks: TimelineTask[] = [
-  // J-30 — démarrer les démarches longues
+  // J-30 - démarrer les démarches longues
   {
     slug: "passport-check",
     bucket: "j-30",
@@ -111,7 +111,7 @@ export const timelineTasks: TimelineTask[] = [
     moduleSlug: "apps",
   },
 
-  // J-15 — valider, installer, réserver
+  // J-15 - valider, installer, réserver
   {
     slug: "install-wechat-alipay",
     bucket: "j-15",
@@ -159,7 +159,7 @@ export const timelineTasks: TimelineTask[] = [
     },
   },
 
-  // J-7 — finaliser logistique et numérique
+  // J-7 - finaliser logistique et numérique
   {
     slug: "secondary-apps",
     bucket: "j-7",
@@ -218,14 +218,14 @@ export const timelineTasks: TimelineTask[] = [
       zh: "打印并扫描证件",
     },
     detail: {
-      fr: "Passeport, visa, billets, assurance — papier + PDF cloud hors ligne.",
-      en: "Passport, visa, tickets, insurance — paper + offline cloud PDF.",
+      fr: "Passeport, visa, billets, assurance - papier + PDF cloud hors ligne.",
+      en: "Passport, visa, tickets, insurance - paper + offline cloud PDF.",
       zh: "护照、签证、票据、保险:纸质 + 云端离线 PDF。",
     },
     moduleSlug: "securite",
   },
 
-  // J-1 — derniers réglages
+  // J-1 - derniers réglages
   {
     slug: "pack-bag",
     bucket: "j-1",

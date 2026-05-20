@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Sinora — Voyager en Chine, simplement",
+    "title": "Sinora - Voyager en Chine, simplement",
     "description": "La plateforme qui prépare, organise et accompagne votre voyage en Chine : séjours sur mesure, formalités, trains, cartes interactives et conseils locaux."
   },
   "nav": {
@@ -115,7 +115,7 @@
   },
   "destinations": {
     "meta": {
-      "title": "Destinations en Chine — Sinora",
+      "title": "Destinations en Chine - Sinora",
       "description": "Explorez les villes de Chine : aperçu, meilleures saisons, durée de séjour conseillée et incontournables."
     },
     "title": "Toutes les destinations",
@@ -187,7 +187,7 @@
   },
   "routePlanner": {
     "meta": {
-      "title": "Composer son itinéraire — Sinora",
+      "title": "Composer son itinéraire - Sinora",
       "description": "Carte interactive de Chine : cliquez sur les villes pour construire votre route, voir la distance, la durée et le budget transport estimés."
     },
     "title": "Composer son itinéraire",
@@ -335,12 +335,12 @@
       },
       "suggestions": {
         "intense": "Pensez à intercaler une étape calme pour souffler.",
-        "exhausting": "Itinéraire très chargé — ajouter au moins une nuit reposante."
+        "exhausting": "Itinéraire très chargé - ajouter au moins une nuit reposante."
       }
     },
     "preferences": {
       "title": "Préférences",
-      "subtitle": "Affinez votre voyage — chaque choix influence les suggestions.",
+      "subtitle": "Affinez votre voyage - chaque choix influence les suggestions.",
       "profileTitle": "Profil",
       "dietTitle": "Restrictions",
       "interestsTitle": "Intérêts",
@@ -356,7 +356,7 @@
     },
     "style": {
       "title": "Style de voyage",
-      "subtitle": "Choisissez le ton du voyage — budget et suggestions s'adaptent.",
+      "subtitle": "Choisissez le ton du voyage - budget et suggestions s'adaptent.",
       "options": {
         "eco": "Économique",
         "comfort": "Confort",
@@ -397,7 +397,7 @@
   },
   "pretrip": {
     "meta": {
-      "title": "Préparer son voyage en Chine — Sinora",
+      "title": "Préparer son voyage en Chine - Sinora",
       "description": "Visa, applications, phrases, sécurité, budget : tout ce qu'il faut savoir avant de partir, sans pavé de texte."
     },
     "title": "Préparer son voyage",
@@ -406,7 +406,7 @@
     "soon": "Bientôt",
     "timeline": {
       "meta": {
-        "title": "Timeline avant départ — Sinora",
+        "title": "Timeline avant départ - Sinora",
         "description": "Une chronologie J-30 → J-0 pour ne rien oublier, agrégeant les tâches de chaque module de préparation."
       },
       "intro": "Un fil unique pour ordonner toutes les préparations.",
@@ -435,7 +435,7 @@
     },
     "packing": {
       "meta": {
-        "title": "Bagages et checklist — Sinora",
+        "title": "Bagages et checklist - Sinora",
         "description": "Que mettre dans la valise selon la saison : essentiels universels et compléments par saison."
       },
       "essentialsTitle": "Indispensables",
@@ -445,7 +445,7 @@
     },
     "budget": {
       "meta": {
-        "title": "Budget et paiement — Sinora",
+        "title": "Budget et paiement - Sinora",
         "description": "Cash vs mobile payment, WeChat Pay / Alipay, conversion et pièges fréquents en Chine."
       },
       "methodsTitle": "Moyens de paiement",
@@ -461,7 +461,7 @@
     },
     "food": {
       "meta": {
-        "title": "Nourriture et restaurants — Sinora",
+        "title": "Nourriture et restaurants - Sinora",
         "description": "Trouver halal, vegan ou sûr, comprendre les règles culturelles et commander sans crainte."
       },
       "tipsTitle": "Bonnes pratiques",
@@ -479,7 +479,7 @@
     },
     "safety": {
       "meta": {
-        "title": "Sécurité et hors-ligne — Sinora",
+        "title": "Sécurité et hors-ligne - Sinora",
         "description": "Cartes offline, documents en cloud, réalité du Grand Pare-feu, sécurité réseau et numéros d'urgence en Chine."
       },
       "tipsTitle": "Mesures à prendre",
@@ -496,7 +496,7 @@
     },
     "phrases": {
       "meta": {
-        "title": "Phrases essentielles — Sinora",
+        "title": "Phrases essentielles - Sinora",
         "description": "Les phrases incontournables pour se débrouiller en Chine : politesse, restauration, transport, urgence."
       },
       "intro": "Hanzi, pinyin, traduction. Cliquer plus tard pour ajouter l'audio.",
@@ -509,7 +509,7 @@
     },
     "apps": {
       "meta": {
-        "title": "Préparation digitale — Sinora",
+        "title": "Préparation digitale - Sinora",
         "description": "Applications indispensables à installer avant le départ, eSIM et configuration du téléphone pour la Chine."
       },
       "pinnedTitle": "À installer en priorité",
@@ -535,7 +535,7 @@
     },
     "visa": {
       "meta": {
-        "title": "Visa et formalités — Sinora",
+        "title": "Visa et formalités - Sinora",
         "description": "Types de visa, exemptions (transit 240 h, exonérations), documents à préparer et erreurs fréquentes."
       },
       "exemptionsTitle": "Pouvez-vous éviter le visa ?",
@@ -563,7 +563,7 @@
       },
       "phrases": {
         "title": "Phrases essentielles",
-        "summary": "Politesse, transport, urgence — l'essentiel en mandarin."
+        "summary": "Politesse, transport, urgence - l'essentiel en mandarin."
       },
       "securite": {
         "title": "Sécurité et hors-ligne",

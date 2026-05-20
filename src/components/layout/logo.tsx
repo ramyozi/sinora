@@ -8,7 +8,7 @@ export function Logo({ locale }: { locale: Locale }) {
     <Link
       href={localizedPath("/", locale)}
       className="flex items-center gap-2.5"
-      aria-label="Sinora — accueil"
+      aria-label="Sinora - accueil"
     >
       <span className="grid size-9 place-items-center rounded-xl bg-accent">
         <svg

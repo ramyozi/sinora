@@ -26,7 +26,7 @@ export function AppCard({
           <h3 className="text-base font-semibold text-foreground">
             {app.name}
           </h3>
-          {app.publisher !== "—" && (
+          {app.publisher !== "-" && (
             <p className="mt-0.5 text-xs text-muted">
               {dict.pretrip.apps.publisherLabel} : {app.publisher}
             </p>

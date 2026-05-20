@@ -2,15 +2,15 @@
 
 Plateforme web dédiée aux voyageurs qui préparent, vivent et prolongent un voyage en Chine.
 Séjours sur mesure, formalités décryptées, réseau ferroviaire, cartes interactives et conseils
-locaux — le tout multilingue (français, anglais, chinois simplifié).
+locaux - le tout multilingue (français, anglais, chinois simplifié).
 
 ## Stack
 
 - **Next.js 16** (App Router, Server Components, Turbopack)
 - **TypeScript**
-- **Tailwind CSS v4** — design system par tokens, mode sombre par classe
-- **i18n native** — segment `[locale]`, dictionnaires typés, détection via `proxy`
-- **Déploiement** — Vercel
+- **Tailwind CSS v4** - design system par tokens, mode sombre par classe
+- **i18n native** - segment `[locale]`, dictionnaires typés, détection via `proxy`
+- **Déploiement** - Vercel
 
 ## Démarrage
 
@@ -49,5 +49,5 @@ docs/                 Architecture, décisions (ADR), feuille de route
 - [Couche API](docs/ARCHITECTURE-API.md)
 - [Audit UX et CTA](docs/UX-AUDIT.md)
 - [Feuille de route](docs/ROADMAP.md)
-- [Veille technique — APIs et données](docs/RECHERCHE-TECHNIQUE.md)
+- [Veille technique - APIs et données](docs/RECHERCHE-TECHNIQUE.md)
 - [Décisions d'architecture (ADR)](docs/adr)

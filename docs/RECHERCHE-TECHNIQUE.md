@@ -1,4 +1,4 @@
-# Veille technique — APIs et données
+# Veille technique - APIs et données
 
 Ce document recense les sources de données et APIs retenues pour Sinora, avec les
 critères de choix. Il est mis à jour au fil des intégrations.
@@ -38,10 +38,10 @@ ces sources, puis enrichi de contenus rédactionnels trilingues.
 données académiques exploitables.
 
 - Dataset *Nature Scientific Data* : 727 gares, 3 399 trains à grande vitesse,
-  données d'exploitation et localisation des gares —
+  données d'exploitation et localisation des gares -
   <https://www.nature.com/articles/s41597-022-01349-8>
 - `transportation_networks_of_china` : temps de trajet entre préfectures (route et
-  rail, 1994–2024) — <https://github.com/malin84/transportation_networks_of_china>
+  rail, 1994–2024) - <https://github.com/malin84/transportation_networks_of_china>
 
 ## Cartographie
 

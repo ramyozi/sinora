@@ -31,7 +31,7 @@ export interface Connection {
   /** Fourchette de prix en yuans (économique → confort). */
   priceCNY: [number, number];
 
-  // — Signaux M3.6 —
+  // - Signaux M3.6 -
 
   /** Niveau d'engagement logistique (1 = très simple, 5 = exigeant). */
   difficulty?: ScoreLevel;

@@ -11,7 +11,7 @@ import type { Connection } from "./types";
  * enrichi progressivement.
  */
 export const connections: Connection[] = [
-  // Pékin — hub Nord
+  // Pékin - hub Nord
   {
     from: "pekin",
     to: "xian",
@@ -24,7 +24,7 @@ export const connections: Connection[] = [
     crowdedPeriods: ["golden-week", "national-day"],
     note: {
       fr: "Axe culturel majeur, réserver tôt avant Golden Week.",
-      en: "Major cultural corridor — book well before Golden Week.",
+      en: "Major cultural corridor - book well before Golden Week.",
       zh: "重要文化走廊,黄金周前请尽早购票。",
     },
   },
@@ -40,7 +40,7 @@ export const connections: Connection[] = [
     crowdedPeriods: ["golden-week", "spring-festival", "summer-peak"],
     note: {
       fr: "Ligne la plus fréquentée du pays, billets souvent rares en haute saison.",
-      en: "China's busiest HSR axis — tickets often scarce in peak season.",
+      en: "China's busiest HSR axis - tickets often scarce in peak season.",
       zh: "全国最繁忙的高铁干线,旺季一票难求。",
     },
   },
@@ -90,8 +90,8 @@ export const connections: Connection[] = [
     scenic: 2,
     overnightCapable: true,
     note: {
-      fr: "Trajet long — un vol direct est souvent préférable.",
-      en: "Long ride — a direct flight is often preferable.",
+      fr: "Trajet long - un vol direct est souvent préférable.",
+      en: "Long ride - a direct flight is often preferable.",
       zh: "行程较长,常常更适合改乘直飞。",
     },
   },
@@ -132,7 +132,7 @@ export const connections: Connection[] = [
     },
   },
 
-  // Shanghai — hub Est
+  // Shanghai - hub Est
   {
     from: "shanghai",
     to: "hangzhou",
@@ -174,8 +174,8 @@ export const connections: Connection[] = [
     scenic: 3,
     overnightCapable: true,
     note: {
-      fr: "Long trajet — privilégier un train de nuit ou un vol selon le rythme.",
-      en: "Long ride — pick an overnight train or a flight depending on pace.",
+      fr: "Long trajet - privilégier un train de nuit ou un vol selon le rythme.",
+      en: "Long ride - pick an overnight train or a flight depending on pace.",
       zh: "行程很长,可选夕发朝至卧铺或改乘飞机。",
     },
   },
@@ -201,7 +201,7 @@ export const connections: Connection[] = [
     fatigue: 2,
   },
 
-  // Hangzhou — Suzhou
+  // Hangzhou - Suzhou
   {
     from: "hangzhou",
     to: "suzhou",
@@ -213,7 +213,7 @@ export const connections: Connection[] = [
     scenic: 2,
   },
 
-  // Xi'an — porte de l'Ouest
+  // Xi'an - porte de l'Ouest
   {
     from: "xian",
     to: "chengdu",
@@ -225,7 +225,7 @@ export const connections: Connection[] = [
     scenic: 4,
     note: {
       fr: "Traversée du massif des Qinling : tunnels et reliefs spectaculaires.",
-      en: "Crosses the Qinling range — tunnels and dramatic terrain.",
+      en: "Crosses the Qinling range - tunnels and dramatic terrain.",
       zh: "穿越秦岭主脉,隧道与山势壮观。",
     },
   },
@@ -289,7 +289,7 @@ export const connections: Connection[] = [
     scenic: 2,
   },
 
-  // Kachgar — Xinjiang (essentiellement vol)
+  // Kachgar - Xinjiang (essentiellement vol)
   {
     from: "kachgar",
     to: "kunming",
@@ -321,7 +321,7 @@ export const connections: Connection[] = [
     fatigue: 3,
   },
 
-  // Datong, Pingyao, Luoyang — corridor culturel nord/centre
+  // Datong, Pingyao, Luoyang - corridor culturel nord/centre
   {
     from: "datong",
     to: "pekin",
@@ -354,7 +354,7 @@ export const connections: Connection[] = [
     overnightCapable: true,
     note: {
       fr: "Option train de nuit lent confortable, économise une nuit d'hôtel.",
-      en: "Slow overnight train available — saves a hotel night.",
+      en: "Slow overnight train available - saves a hotel night.",
       zh: "可选舒适夕发朝至慢车,可省一晚住宿。",
     },
   },
@@ -405,7 +405,7 @@ export const connections: Connection[] = [
     scenic: 2,
   },
 
-  // Yangshuo — appendice de Guilin
+  // Yangshuo - appendice de Guilin
   {
     from: "yangshuo",
     to: "guilin",
@@ -417,12 +417,12 @@ export const connections: Connection[] = [
     scenic: 5,
     note: {
       fr: "Vallée karstique de la rivière Li : un des plus beaux paysages de Chine.",
-      en: "Karst valley of the Li River — one of China's finest landscapes.",
+      en: "Karst valley of the Li River - one of China's finest landscapes.",
       zh: "漓江畔的喀斯特峰林,中国最美风光之一。",
     },
   },
 
-  // Yunnan — Kunming · Dali · Lijiang
+  // Yunnan - Kunming · Dali · Lijiang
   {
     from: "lijiang",
     to: "kunming",
@@ -459,7 +459,7 @@ export const connections: Connection[] = [
     scenic: 4,
   },
 
-  // Huangshan — couronne est
+  // Huangshan - couronne est
   {
     from: "huangshan",
     to: "shanghai",
@@ -496,7 +496,7 @@ export const connections: Connection[] = [
     scenic: 3,
   },
 
-  // Dunhuang — oasis de la route de la soie
+  // Dunhuang - oasis de la route de la soie
   {
     from: "dunhuang",
     to: "xian",
@@ -518,7 +518,7 @@ export const connections: Connection[] = [
     fatigue: 2,
   },
 
-  // Lhassa — accès aérien principal
+  // Lhassa - accès aérien principal
   {
     from: "lhassa",
     to: "chengdu",
@@ -545,8 +545,8 @@ export const connections: Connection[] = [
     difficulty: 4,
     fatigue: 5,
     note: {
-      fr: "Long vol et grosse différence d'altitude — prévoir une nuit calme à l'arrivée.",
-      en: "Long flight with large altitude drop — keep a calm first night on arrival.",
+      fr: "Long vol et grosse différence d'altitude - prévoir une nuit calme à l'arrivée.",
+      en: "Long flight with large altitude drop - keep a calm first night on arrival.",
       zh: "航程长且海拔骤降,抵达后第一晚建议安静休整。",
     },
   },

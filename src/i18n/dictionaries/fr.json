@@ -127,6 +127,16 @@
     "addToTrip": "Ajouter à mon itinéraire",
     "optimizeAround": "Optimiser autour de cet événement",
     "empty": "Aucun événement ne correspond à ces filtres.",
+    "trendingTitle": "Trending now en Chine",
+    "trendingSubtitle": "Les événements les plus chauds dans les 30 prochains jours, classés par popularité.",
+    "badges": {
+      "verified": "Vérifié",
+      "verifiedHint": "Données vérifiées par l'équipe Sinora.",
+      "community": "Communauté",
+      "communityHint": "Source communautaire, à confirmer auprès des organisateurs.",
+      "updated": "À jour",
+      "updatedHint": "Dernière mise à jour :"
+    },
     "categories": {
       "festival": "Festival",
       "religious": "Religieux",
@@ -342,6 +352,15 @@
     "gestures": {
       "desktop": "Utiliser Ctrl + molette pour zoomer",
       "mobile": "Utiliser deux doigts pour déplacer la carte"
+    },
+    "eventOverlay": {
+      "title": "Événements détectés",
+      "subtitle": "Événements liés à votre itinéraire et à vos dates.",
+      "inRouteTitle": "Pendant votre voyage",
+      "conflictsTitle": "Conflit temporel détecté",
+      "conflictHint": "affluence extrême, anticiper réservations",
+      "nearbyTitle": "À proximité, à considérer",
+      "addCity": "Ajouter"
     },
     "niches": {
       "title": "Profil voyage",

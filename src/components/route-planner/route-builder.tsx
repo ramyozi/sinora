@@ -29,8 +29,26 @@ import {
 import type { RouteTemplate } from "@/data/routes/templates";
 import { bookingPlatformsForModes } from "@/data/routes/booking";
 import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
+import { events, type EventOccurrence, type SinoraEvent } from "@/data/events";
 import { Disclosure } from "@/components/ui/disclosure";
+import { EventOverlay } from "./event-overlay";
 import { NicheChips } from "./niche-chips";
+
+// Distance haversine en km. Inline pour eviter une dependance supplementaire.
+function haversineKm(
+  a: { lat: number; lng: number },
+  b: { lat: number; lng: number },
+): number {
+  const R = 6371;
+  const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+  const dLng = ((b.lng - a.lng) * Math.PI) / 180;
+  const lat1 = (a.lat * Math.PI) / 180;
+  const lat2 = (b.lat * Math.PI) / 180;
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
 import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
@@ -51,6 +69,12 @@ interface Props {
   /** État initial pré-rempli depuis l'URL (deep link depuis page ville ou template). */
   initialCities?: string[];
   initialStyle?: RouteStyle;
+  /** Dates pré-remplies si arrivee depuis /events. */
+  initialDates?: { start: string; end: string };
+  /** Slug d'evenement transmis via deep link pour overlay et badges. */
+  initialEventSlug?: string;
+  /** Quand vrai, l'optimisation auto est declenchee a l'arrivee. */
+  initialOptimizeAround?: boolean;
   /** Météo et qualité de l'air pré-fetchées côté serveur, indexées par slug. */
   cityContext?: Record<string, CityContextSnapshot>;
 }
@@ -63,6 +87,9 @@ export function RouteBuilder({
   dict,
   initialCities,
   initialStyle,
+  initialDates,
+  initialEventSlug,
+  initialOptimizeAround,
   cityContext,
 }: Props) {
   const [selected, setSelected] = useState<string[]>(initialCities ?? []);
@@ -72,8 +99,8 @@ export function RouteBuilder({
   const [interests, setInterests] = useState<CityTag[]>([]);
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const [tripDates, setTripDates] = useState<TripDatesValue>({
-    start: null,
-    end: null,
+    start: initialDates?.start ?? null,
+    end: initialDates?.end ?? null,
   });
   const [niche, setNiche] = useState<NicheSlug | null>(null);
   const config = styleConfig[style];
@@ -161,6 +188,74 @@ export function RouteBuilder({
     () => durationAdvice(selectedCities, density, cities, resolved),
     [selectedCities, density, cities, resolved],
   );
+  // Events qui touchent l'itineraire : dans la route, en conflit, ou proches.
+  const eventMatches = useMemo(() => {
+    const dateStart = tripDates.start ?? null;
+    const dateEnd = tripDates.end ?? null;
+    const selectedSet = new Set(selected);
+    const cityCoord = new Map(
+      cities.map(
+        (c) => [c.slug, c.coordinates] as const,
+      ),
+    );
+    const inRoute: { event: SinoraEvent; occurrence: EventOccurrence }[] = [];
+    const conflicts: { event: SinoraEvent; occurrence: EventOccurrence }[] = [];
+    const nearby: {
+      event: SinoraEvent;
+      occurrence: EventOccurrence;
+      proximityKm: number;
+    }[] = [];
+
+    for (const event of events) {
+      // Choisir une occurrence dans la fenetre voyage si dispo, sinon la plus proche future.
+      let occ: EventOccurrence | undefined;
+      if (dateStart && dateEnd) {
+        occ = event.occurrences.find(
+          (o) => o.end >= dateStart && o.start <= dateEnd,
+        );
+      } else {
+        const now = new Date().toISOString().slice(0, 10);
+        occ = event.occurrences
+          .filter((o) => o.end >= now)
+          .sort((a, b) => a.start.localeCompare(b.start))[0];
+      }
+      if (!occ) continue;
+
+      const inSelectedCity = selectedSet.has(event.citySlug);
+      const overlapsDates = dateStart && dateEnd
+        ? occ.end >= dateStart && occ.start <= dateEnd
+        : false;
+
+      if (inSelectedCity && overlapsDates) {
+        if (event.crowd === "extreme" && event.travelImpact !== "must-include") {
+          conflicts.push({ event, occurrence: occ });
+        } else {
+          inRoute.push({ event, occurrence: occ });
+        }
+        continue;
+      }
+
+      // Proche : ville non selectionnee mais a moins de 350 km d'une ville du voyage.
+      if (!inSelectedCity && overlapsDates && selectedCities.length > 0) {
+        const target = cityCoord.get(event.citySlug);
+        if (!target) continue;
+        let closestKm = Infinity;
+        for (const sel of selectedCities) {
+          const km = haversineKm(target, sel.coordinates);
+          if (km < closestKm) closestKm = km;
+        }
+        if (closestKm <= 350) {
+          nearby.push({ event, occurrence: occ, proximityKm: closestKm });
+        }
+      }
+    }
+
+    inRoute.sort((a, b) => a.occurrence.start.localeCompare(b.occurrence.start));
+    conflicts.sort((a, b) => a.occurrence.start.localeCompare(b.occurrence.start));
+    nearby.sort((a, b) => a.proximityKm - b.proximityKm);
+    return { inRoute, conflicts, nearby: nearby.slice(0, 4) };
+  }, [tripDates, selected, selectedCities, cities]);
+
   const peakAlerts = useMemo(() => {
     const periods: ("golden-week" | "spring-festival" | "summer-peak" | "national-day")[] = [];
     for (const seg of resolved) {
@@ -270,6 +365,20 @@ export function RouteBuilder({
           <TemplatesStrip dict={dict} onLoad={loadTemplate} />
         </Disclosure>
       </div>
+      <EventOverlay
+        matchesInRoute={eventMatches.inRoute}
+        nearbyEvents={eventMatches.nearby}
+        conflicts={eventMatches.conflicts}
+        cityBySlug={Object.fromEntries(cities.map((c) => [c.slug, c]))}
+        locale={locale}
+        dict={dict}
+        onAddCity={(slug) =>
+          setSelected((prev) =>
+            prev.includes(slug) ? prev : [...prev, slug],
+          )
+        }
+      />
+
       {score && (
         <RouteScoreCard
           score={score}

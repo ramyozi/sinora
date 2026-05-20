@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarRange, MapPin, Sparkles, Users } from "lucide-react";
+import {
+  BadgeCheck,
+  CalendarRange,
+  MapPin,
+  RefreshCw,
+  Sparkles,
+  Users,
+  UsersRound,
+} from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
@@ -122,6 +130,36 @@ export function EventCard({
             <span className="inline-flex items-center gap-1">
               <MapPin className="size-3.5" />
               {city.name[locale]}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {event.isVerified && (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-jade/15 px-2 py-0.5 text-xs font-medium text-jade"
+              title={ev.badges.verifiedHint}
+            >
+              <BadgeCheck className="size-3" />
+              {ev.badges.verified}
+            </span>
+          )}
+          {event.source === "community" && (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-sky-500/15 px-2 py-0.5 text-xs font-medium text-sky-500"
+              title={ev.badges.communityHint}
+            >
+              <UsersRound className="size-3" />
+              {ev.badges.community}
+            </span>
+          )}
+          {event.lastUpdated && (
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-surface-muted px-2 py-0.5 text-xs text-muted"
+              title={`${ev.badges.updatedHint} ${event.lastUpdated}`}
+            >
+              <RefreshCw className="size-3" />
+              {ev.badges.updated}
             </span>
           )}
         </div>

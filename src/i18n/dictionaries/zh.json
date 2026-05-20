@@ -134,6 +134,39 @@
     "imageCredit": "图片:Wikipedia",
     "galleryLabel": "城市影像",
     "galleryCredit": "{topic} 的 Wikipedia 精选图片。",
+    "identity": {
+      "title": "城市气质",
+      "subtitle": "让每个目的地与众不同的细节。",
+      "moodsLabel": "氛围",
+      "paceLabel": "节奏",
+      "bestMomentLabel": "最佳时机",
+      "experiencesLabel": "必体验",
+      "dayMomentsLabel": "一天时光",
+      "pitfallsLabel": "常见误区",
+      "moods": {
+        "electric": "通电",
+        "contemplative": "静谧",
+        "imperial": "帝都",
+        "vibrant": "鲜活",
+        "spiritual": "灵性",
+        "wild": "狂野",
+        "cozy": "温暖",
+        "spicy": "麻辣",
+        "ancient": "古意",
+        "futuristic": "未来"
+      },
+      "paces": {
+        "slow": "慢游",
+        "balanced": "均衡",
+        "fast": "快节奏"
+      },
+      "moments": {
+        "morning": "清晨",
+        "afternoon": "午后",
+        "evening": "黄昏",
+        "night": "夜晚"
+      }
+    },
     "addToPlanner": "加入我的行程",
     "filters": {
       "region": "地区",

@@ -34,6 +34,48 @@ export interface CityHighlight {
   kind: HighlightKind;
 }
 
+export type CityMood =
+  | "electric"
+  | "contemplative"
+  | "imperial"
+  | "vibrant"
+  | "spiritual"
+  | "wild"
+  | "cozy"
+  | "spicy"
+  | "ancient"
+  | "futuristic";
+
+export type CityPace = "slow" | "balanced" | "fast";
+
+export interface CityFood {
+  /** Nom du plat localisé. */
+  name: LocalizedText;
+  /** Une ligne pour le situer ou le décrire. */
+  hint: LocalizedText;
+  /** Emoji pour l'icone visuelle. */
+  emoji: string;
+}
+
+export type DayMoment = "morning" | "afternoon" | "evening" | "night";
+
+export interface CityIdentity {
+  /** Vibes generales en mots simples. */
+  moods: CityMood[];
+  /** Rythme suggere pour le visiteur. */
+  pace: CityPace;
+  /** Trois plats incontournables. */
+  food: CityFood[];
+  /** Choses a vivre pour ressentir la ville. */
+  mustExperience: LocalizedText[];
+  /** Saison ideale en une phrase. */
+  bestMoment: LocalizedText;
+  /** Ambiance evoquee a chaque moment cle de la journee. */
+  dayMoments: Partial<Record<DayMoment, LocalizedText>>;
+  /** Erreurs classiques que les visiteurs commettent. */
+  pitfalls: LocalizedText[];
+}
+
 export interface City {
   /** Identifiant stable, utilisé dans les URLs. */
   slug: string;
@@ -56,4 +98,6 @@ export interface City {
   wikiTitle: string;
   /** Mise en avant sur la page d'accueil. */
   featured: boolean;
+  /** Personnalite emotionnelle : optionnelle, etoffee ville par ville. */
+  identity?: CityIdentity;
 }

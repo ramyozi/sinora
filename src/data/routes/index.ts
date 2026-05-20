@@ -40,6 +40,14 @@ export {
 } from "./calendar";
 export { niches, type NichePreset, type NicheSlug } from "./niches";
 export {
+  detourCost,
+  eventMatchScore,
+  eventScoreBonus,
+  optimizeAroundEvent,
+  timeFitScore,
+  type OptimizeResult,
+} from "./eventRouteOptimizer";
+export {
   densityFromBudget,
   durationAdvice,
   durationBudget,

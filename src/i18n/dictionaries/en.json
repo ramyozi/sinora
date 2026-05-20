@@ -497,6 +497,51 @@
     "subtitle": "Everything you need before you leave, in cards.",
     "available": "Available",
     "soon": "Soon",
+    "modulesTitle": "All modules",
+    "modulesSubtitle": "Dive deeper into each topic at your own pace.",
+    "quickEssentials": {
+      "title": "Essentials at a glance",
+      "subtitle": "Six key items to sort before landing in China.",
+      "openLabel": "Open",
+      "items": {
+        "visa": {
+          "title": "Visa",
+          "body": "Check eligibility and start the application."
+        },
+        "esim": {
+          "title": "eSIM and internet",
+          "body": "Pick an eSIM, plan for a VPN."
+        },
+        "payment": {
+          "title": "Payments",
+          "body": "Alipay, WeChat Pay and cash: ready to pay anywhere."
+        },
+        "language": {
+          "title": "Language",
+          "body": "Survival phrases to get by."
+        },
+        "packing": {
+          "title": "Packing",
+          "body": "Adapt to the region and the season."
+        },
+        "safety": {
+          "title": "Safety",
+          "body": "Health reflexes, useful numbers, offline kit."
+        }
+      }
+    },
+    "timelineStrip": {
+      "title": "Countdown",
+      "subtitle": "Four checkpoints, nothing forgotten.",
+      "openCalendar": "Open the full calendar",
+      "task": "tasks",
+      "buckets": {
+        "j-30": "D-30",
+        "j-15": "D-15",
+        "j-7": "D-7",
+        "j-1": "D-1"
+      }
+    },
     "timeline": {
       "meta": {
         "title": "Pre-departure timeline - Sinora",

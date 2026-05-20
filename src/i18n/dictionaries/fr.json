@@ -497,6 +497,51 @@
     "subtitle": "Tout ce qu'il faut savoir avant de partir, en cartes.",
     "available": "Disponible",
     "soon": "Bientôt",
+    "modulesTitle": "Tous les modules",
+    "modulesSubtitle": "Approfondissez chaque sujet à votre rythme.",
+    "quickEssentials": {
+      "title": "L'essentiel d'un coup d'œil",
+      "subtitle": "Six préparations clés avant de poser le pied en Chine.",
+      "openLabel": "Ouvrir",
+      "items": {
+        "visa": {
+          "title": "Visa",
+          "body": "Vérifier l'éligibilité et lancer la demande."
+        },
+        "esim": {
+          "title": "eSIM et internet",
+          "body": "Choisir une eSIM, prévoir un VPN."
+        },
+        "payment": {
+          "title": "Paiements",
+          "body": "Alipay, WeChat Pay et cash : prêt à payer partout."
+        },
+        "language": {
+          "title": "Langue",
+          "body": "Phrases de survie pour se débrouiller."
+        },
+        "packing": {
+          "title": "Bagages",
+          "body": "Adapter selon la région et la saison."
+        },
+        "safety": {
+          "title": "Sécurité",
+          "body": "Réflexes santé, numéros utiles, hors-ligne."
+        }
+      }
+    },
+    "timelineStrip": {
+      "title": "Compte à rebours",
+      "subtitle": "Quatre paliers pour ne rien oublier.",
+      "openCalendar": "Voir le calendrier complet",
+      "task": "tâches",
+      "buckets": {
+        "j-30": "J-30",
+        "j-15": "J-15",
+        "j-7": "J-7",
+        "j-1": "J-1"
+      }
+    },
     "timeline": {
       "meta": {
         "title": "Timeline avant départ - Sinora",

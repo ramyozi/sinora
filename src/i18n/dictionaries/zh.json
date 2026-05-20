@@ -216,6 +216,37 @@
       "subtitle": "按步骤的时间线视图。",
       "stay": "建议停留"
     },
+    "templates": {
+      "title": "现成行程模板",
+      "subtitle": "六条经典线路,一键载入再自由调整。",
+      "load": "载入",
+      "items": {
+        "cultural-north": {
+          "name": "北方文化线",
+          "summary": "北京 · 大同 · 平遥 · 西安 · 洛阳"
+        },
+        "yunnan-slow": {
+          "name": "云南慢游",
+          "summary": "昆明 · 大理 · 丽江"
+        },
+        "silk-road": {
+          "name": "丝绸之路",
+          "summary": "西安 · 敦煌 · 喀什"
+        },
+        "halal-xinjiang": {
+          "name": "新疆清真线",
+          "summary": "西安 · 敦煌 · 喀什"
+        },
+        "megacities": {
+          "name": "大都会三角",
+          "summary": "北京 · 上海 · 香港"
+        },
+        "southwest-mountain": {
+          "name": "西南山脉",
+          "summary": "成都 · 昆明 · 大理 · 丽江"
+        }
+      }
+    },
     "segmentTooltip": {
       "fatigue": "疲劳",
       "scenic": "风景",

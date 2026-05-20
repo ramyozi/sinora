@@ -85,6 +85,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
         <RouteMap
           cities={cities}
           locale={locale}
+          dict={dict}
           selectedOrder={selected}
           onToggle={toggle}
         />

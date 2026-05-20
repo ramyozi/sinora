@@ -406,6 +406,25 @@
     "remove": "Retirer",
     "clear": "Tout effacer",
     "loopReturn": "Retour à",
+    "saveToJournal": {
+      "label": "Sauvegarder dans mon carnet",
+      "updateLabel": "Mettre à jour le carnet",
+      "title": "Sauvegarder ce voyage",
+      "updateTitle": "Mettre à jour le voyage",
+      "defaultName": "Mon voyage en Chine",
+      "nameLabel": "Nom du voyage",
+      "namePlaceholder": "Ex. Premier voyage en Chine",
+      "budgetLabel": "Budget prévisionnel (CNY)",
+      "budgetPlaceholder": "Optionnel",
+      "citiesShort": "villes",
+      "submit": "Sauvegarder",
+      "updateSubmit": "Mettre à jour",
+      "cancel": "Annuler",
+      "saved": "Voyage sauvegardé",
+      "savedHint": "Retrouvez-le dans votre carnet à tout moment.",
+      "openJournal": "Ouvrir le carnet",
+      "continue": "Continuer à planifier"
+    },
     "modes": {
       "hsr": "TGV",
       "train": "Train",
@@ -943,7 +962,23 @@
     },
     "trips": {
       "title": "Voyages sauvegardés",
-      "subtitle": "Reprenez la planification où vous l'avez laissée."
+      "subtitle": "Reprenez la planification où vous l'avez laissée.",
+      "resume": "Reprendre",
+      "duplicate": "Dupliquer",
+      "archive": "Archiver",
+      "unarchive": "Désarchiver",
+      "remove": "Supprimer",
+      "removeConfirm": "Supprimer définitivement ce voyage ? Les notes et dépenses associées seront effacées.",
+      "confirmRemove": "Oui, supprimer",
+      "cancel": "Annuler",
+      "actionsMenu": "Actions du voyage",
+      "budgetLabel": "Budget prévu"
+    },
+    "tripStatuses": {
+      "planning": "En préparation",
+      "ongoing": "En cours",
+      "completed": "Terminé",
+      "archived": "Archivé"
     },
     "notes": {
       "title": "Notes rapides",

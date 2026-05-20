@@ -64,6 +64,7 @@ import { TripDates } from "./trip-dates";
 import { TravelContextPanel } from "./travel-context";
 import { SuggestionsPanel } from "./suggestions-panel";
 import { TemplatesStrip } from "./templates-strip";
+import { SaveToJournal } from "./save-to-journal";
 
 interface Props {
   cities: City[];
@@ -72,12 +73,22 @@ interface Props {
   /** État initial pré-rempli depuis l'URL (deep link depuis page ville ou template). */
   initialCities?: string[];
   initialStyle?: RouteStyle;
+  /** Origin / destination pre-remplies via reprise depuis le carnet. */
+  initialOriginSlug?: string;
+  initialDestinationSlug?: string;
+  /** Preferences voyageur, pre-remplies via reprise depuis le carnet. */
+  initialProfile?: TravelProfile;
+  initialDiet?: DietRestriction[];
+  initialInterests?: CityTag[];
   /** Dates pré-remplies si arrivee depuis /events. */
   initialDates?: { start: string; end: string };
   /** Slug d'evenement transmis via deep link pour overlay et badges. */
   initialEventSlug?: string;
   /** Quand vrai, l'optimisation auto est declenchee a l'arrivee. */
   initialOptimizeAround?: boolean;
+  /** ID du trip sauvegarde si on a navigue depuis /journal. Active le mode
+   *  "mise a jour" du carnet plutot que "creation". */
+  initialTripId?: string;
   /** Météo et qualité de l'air pré-fetchées côté serveur, indexées par slug. */
   cityContext?: Record<string, CityContextSnapshot>;
 }
@@ -90,9 +101,15 @@ export function RouteBuilder({
   dict,
   initialCities,
   initialStyle,
+  initialOriginSlug,
+  initialDestinationSlug,
+  initialProfile,
+  initialDiet,
+  initialInterests,
   initialDates,
   initialEventSlug,
   initialOptimizeAround,
+  initialTripId,
   cityContext,
 }: Props) {
   // Calcule l'etat initial : si l'URL demande l'optimisation autour d'un event,
@@ -136,17 +153,21 @@ export function RouteBuilder({
 
   const [selected, setSelected] = useState<string[]>(initialState.selected);
   const [style, setStyle] = useState<RouteStyle>(initialStyle ?? "comfort");
-  const [profile, setProfile] = useState<TravelProfile>("solo");
-  const [diet, setDiet] = useState<DietRestriction[]>([]);
-  const [interests, setInterests] = useState<CityTag[]>([]);
+  const [profile, setProfile] = useState<TravelProfile>(initialProfile ?? "solo");
+  const [diet, setDiet] = useState<DietRestriction[]>(initialDiet ?? []);
+  const [interests, setInterests] = useState<CityTag[]>(initialInterests ?? []);
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const [tripDates, setTripDates] = useState<TripDatesValue>({
     start: initialDates?.start ?? null,
     end: initialDates?.end ?? null,
   });
   const [niche, setNiche] = useState<NicheSlug | null>(null);
-  const [originSlug, setOriginSlug] = useState<string | null>(null);
-  const [destinationSlug, setDestinationSlug] = useState<string | null>(null);
+  const [originSlug, setOriginSlug] = useState<string | null>(
+    initialOriginSlug ?? null,
+  );
+  const [destinationSlug, setDestinationSlug] = useState<string | null>(
+    initialDestinationSlug ?? null,
+  );
   const config = styleConfig[style];
 
   // Maintient l'ordre [origin, ...intermediates, destination] dans `selected`.
@@ -426,6 +447,26 @@ export function RouteBuilder({
 
   return (
     <div className="space-y-6 min-w-0">
+      {/* Barre d'actions du planner : sauvegarde dans le carnet en haut a
+          droite, accessible des qu'au moins une ville est selectionnee. */}
+      <div className="flex flex-wrap items-center justify-end gap-2">
+        <SaveToJournal
+          locale={locale}
+          dict={dict}
+          existingTripId={initialTripId ?? null}
+          snapshot={{
+            cities: selected,
+            originSlug,
+            destinationSlug,
+            style,
+            profile,
+            diet,
+            interests,
+            dates: tripDates,
+            pinnedEventSlugs: initialEventSlug ? [initialEventSlug] : [],
+          }}
+        />
+      </div>
       {/* Carte centrale, immediatement visible above the fold. */}
       <div className="grid gap-4 lg:grid-cols-[1fr_22rem]">
         <RouteMap

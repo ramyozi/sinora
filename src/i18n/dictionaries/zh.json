@@ -406,6 +406,25 @@
     "remove": "移除",
     "clear": "全部清除",
     "loopReturn": "回到",
+    "saveToJournal": {
+      "label": "保存到手账",
+      "updateLabel": "更新手账记录",
+      "title": "保存此次行程",
+      "updateTitle": "更新此次行程",
+      "defaultName": "我的中国之行",
+      "nameLabel": "行程名称",
+      "namePlaceholder": "例如:第一次中国之行",
+      "budgetLabel": "预算 (人民币)",
+      "budgetPlaceholder": "可选",
+      "citiesShort": "座城市",
+      "submit": "保存",
+      "updateSubmit": "更新",
+      "cancel": "取消",
+      "saved": "行程已保存",
+      "savedHint": "可随时在手账中查看。",
+      "openJournal": "打开手账",
+      "continue": "继续规划"
+    },
     "modes": {
       "hsr": "高铁",
       "train": "普通列车",
@@ -943,7 +962,23 @@
     },
     "trips": {
       "title": "已保存的行程",
-      "subtitle": "从上次离开的地方继续规划。"
+      "subtitle": "从上次离开的地方继续规划。",
+      "resume": "继续",
+      "duplicate": "复制",
+      "archive": "存档",
+      "unarchive": "恢复",
+      "remove": "删除",
+      "removeConfirm": "确定要永久删除此行程吗?关联的笔记和支出将一并清除。",
+      "confirmRemove": "是,删除",
+      "cancel": "取消",
+      "actionsMenu": "行程操作",
+      "budgetLabel": "预算"
+    },
+    "tripStatuses": {
+      "planning": "筹备中",
+      "ongoing": "进行中",
+      "completed": "已完成",
+      "archived": "已存档"
     },
     "notes": {
       "title": "快速笔记",

@@ -82,7 +82,7 @@ export function MobileNav({
         </nav>
 
         <Link
-          href={localizedPath("/", locale)}
+          href={localizedPath("/route-planner", locale)}
           onClick={close}
           className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
         >

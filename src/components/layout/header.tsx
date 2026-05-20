@@ -50,7 +50,7 @@ export function Header({
           <ThemeToggle />
           <LocaleSwitcher current={locale} />
           <ButtonLink
-            href={localizedPath("/", locale)}
+            href={localizedPath("/route-planner", locale)}
             size="sm"
             className="hidden md:inline-flex"
           >

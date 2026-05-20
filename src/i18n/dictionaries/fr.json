@@ -304,7 +304,9 @@
       "originLabel": "Je pars de",
       "destinationLabel": "Je termine à",
       "anyOrigin": "Aucune ville de départ",
-      "anyDestination": "Aucune ville d'arrivée"
+      "anyDestination": "Aucune ville d'arrivée",
+      "loopBadge": "Boucle",
+      "loopHint": "Roadtrip circulaire : votre voyage part et revient à {city}. Les villes intermédiaires forment la boucle."
     },
     "dates": {
       "title": "Dates du voyage",
@@ -402,6 +404,7 @@
     "moveDown": "Descendre",
     "remove": "Retirer",
     "clear": "Tout effacer",
+    "loopReturn": "Retour à",
     "modes": {
       "hsr": "TGV",
       "train": "Train",

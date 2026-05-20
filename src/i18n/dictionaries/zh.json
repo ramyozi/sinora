@@ -665,6 +665,8 @@
       "pinnedSubtitle": "在华日常所需的核心应用。",
       "othersTitle": "进阶推荐",
       "othersSubtitle": "根据需要补充的应用。",
+      "localTipsTitle": "本地玩法:中国人真正用的应用",
+      "localTipsSubtitle": "中国人日常的真实工具:订火车票、外卖、点评、本地推荐。装上即可从游客升级为内行。",
       "configTitle": "手机设置",
       "configSubtitle": "出发前与抵达后即时执行。",
       "configBefore": "出发前",
@@ -679,7 +681,10 @@
         "navigation": "导航",
         "translation": "翻译",
         "network": "网络 / VPN",
-        "esim": "eSIM / SIM"
+        "esim": "eSIM / SIM",
+        "booking": "预订",
+        "food": "餐饮",
+        "social": "社交 / 探索"
       },
       "actions": {
         "appStore": "App Store",

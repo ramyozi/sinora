@@ -7,7 +7,10 @@ export type AppCategory =
   | "navigation"
   | "translation"
   | "network"
-  | "esim";
+  | "esim"
+  | "booking"
+  | "food"
+  | "social";
 
 export interface PretripAppLinks {
   playStore?: string;
@@ -32,6 +35,8 @@ export interface PretripApp {
   logoBg?: string;
   /** Liens de telechargement officiels. */
   links?: PretripAppLinks;
+  /** App utilisee surtout par les Chinois et que les voyageurs gagnent a connaitre. */
+  localTip?: boolean;
 }
 
 export const pretripApps: PretripApp[] = [
@@ -249,6 +254,148 @@ export const pretripApps: PretripApp[] = [
       playStore: "https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro",
       appStore: "https://apps.apple.com/app/maps-me-offline-map-nav/id510623322",
       official: "https://maps.me",
+    },
+  },
+
+  // ===== APPS LOCALES UTILISEES PAR LES CHINOIS =====
+  {
+    slug: "12306",
+    name: "12306",
+    publisher: "China Railway",
+    category: "transit",
+    description: {
+      fr: "Site et app officiels du rail chinois. Reservation HSR, places debout, paiement Alipay/WeChat. Interface anglaise depuis 2023.",
+      en: "Official China Railway booking app. HSR seats, standing tickets, Alipay/WeChat payment. English UI since 2023.",
+      zh: "中国铁路官方购票应用,可订高铁、站票,支持支付宝和微信支付,2023 年起支持英文。",
+    },
+    installBefore: false,
+    pinned: false,
+    localTip: true,
+    logoBg: "e30613",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.MobileTicket",
+      appStore: "https://apps.apple.com/app/id564818797",
+      official: "https://www.12306.cn",
+    },
+  },
+  {
+    slug: "dianping",
+    name: "Dianping",
+    publisher: "Meituan-Dianping",
+    category: "food",
+    description: {
+      fr: "Le Yelp/TripAdvisor chinois. Avis restaurants reels, photos, prix moyens, queue prevue. Indispensable pour eviter les pieges a touristes.",
+      en: "The Chinese Yelp/TripAdvisor. Real restaurant reviews, photos, average prices, queue estimates. Essential to avoid tourist traps.",
+      zh: "大众点评:餐厅真实评价、照片、人均消费与排队信息,避雷必备。",
+    },
+    installBefore: false,
+    pinned: false,
+    localTip: true,
+    logoBg: "ffc300",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.dianping.v1",
+      appStore: "https://apps.apple.com/app/id351091731",
+      official: "https://www.dianping.com",
+    },
+  },
+  {
+    slug: "meituan",
+    name: "Meituan",
+    publisher: "Meituan",
+    category: "food",
+    description: {
+      fr: "Livraison de repas, billets cinema, bons plans hotel et coupons. Super-app du quotidien chinois.",
+      en: "Food delivery, movie tickets, hotel deals and coupons. The everyday Chinese super-app.",
+      zh: "美团:外卖、电影票、酒店优惠与团购券,中国人日常超级应用。",
+    },
+    installBefore: false,
+    pinned: false,
+    localTip: true,
+    logoBg: "fec000",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.sankuai.meituan",
+      appStore: "https://apps.apple.com/app/id423084029",
+      official: "https://www.meituan.com",
+    },
+  },
+  {
+    slug: "ctrip",
+    name: "Ctrip / Trip.com",
+    publisher: "Trip.com Group",
+    category: "booking",
+    description: {
+      fr: "Le plus grand OTA chinois. Hotels, vols, trains, attractions : version internationale Trip.com, plus complete que Booking en Chine.",
+      en: "China's largest OTA. Hotels, flights, trains, attractions: the Trip.com international version, more complete than Booking inside China.",
+      zh: "携程:中国最大 OTA,可订酒店、机票、火车与景点,境外用 Trip.com,在华比 Booking 覆盖更全。",
+    },
+    installBefore: true,
+    pinned: false,
+    localTip: true,
+    logoSlug: "tripdotcom",
+    logoBg: "2577e3",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=ctrip.english",
+      appStore: "https://apps.apple.com/app/trip-com-flights-hotels/id1492689185",
+      official: "https://www.trip.com",
+    },
+  },
+  {
+    slug: "fliggy",
+    name: "Fliggy",
+    publisher: "Alibaba",
+    category: "booking",
+    description: {
+      fr: "Plateforme voyage d'Alibaba. Souvent moins chere que Ctrip pour les vols domestiques. Paiement Alipay natif.",
+      en: "Alibaba's travel platform. Often cheaper than Ctrip for domestic flights. Native Alipay payment.",
+      zh: "飞猪,阿里巴巴旅行平台,国内机票常比携程更便宜,支付宝原生支付。",
+    },
+    installBefore: false,
+    pinned: false,
+    localTip: true,
+    logoBg: "ff7c2d",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.taobao.trip",
+      appStore: "https://apps.apple.com/app/id1009345057",
+      official: "https://www.fliggy.com",
+    },
+  },
+  {
+    slug: "xiaohongshu",
+    name: "Xiaohongshu (RED)",
+    publisher: "Xiaohongshu",
+    category: "social",
+    description: {
+      fr: "Le Instagram chinois, mais utilise comme moteur de recommandations voyage. Spots locaux, dress codes, restaurants caches.",
+      en: "The Chinese Instagram, used as a travel recommendation engine. Local spots, dress codes, hidden restaurants.",
+      zh: "小红书:中国的 Instagram,实际上是旅行推荐引擎。本地玩法、穿搭、隐藏餐厅。",
+    },
+    installBefore: false,
+    pinned: false,
+    localTip: true,
+    logoBg: "ff2442",
+    links: {
+      playStore: "https://play.google.com/store/apps/details?id=com.xingin.xhs",
+      appStore: "https://apps.apple.com/app/id741292507",
+      official: "https://www.xiaohongshu.com",
+    },
+  },
+  {
+    slug: "wechat-miniprograms",
+    name: "WeChat Mini-Programs",
+    publisher: "Tencent",
+    category: "communication",
+    description: {
+      fr: "Apps integrees dans WeChat (pas de telechargement separe). Indispensables : metro de chaque ville, ride-hailing local, location de power bank.",
+      en: "Apps embedded inside WeChat (no separate download). Essential ones: each city's metro, local ride-hailing, power-bank rentals.",
+      zh: "微信小程序,无需下载独立 app:各城地铁、本地打车、共享充电宝皆在其中。",
+    },
+    installBefore: true,
+    pinned: false,
+    localTip: true,
+    logoSlug: "wechat",
+    logoBg: "07c160",
+    links: {
+      official: "https://mp.weixin.qq.com",
     },
   },
 ];

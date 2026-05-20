@@ -6,7 +6,11 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
-import { connections, type Connection } from "@/data/routes";
+import {
+  connections,
+  type Connection,
+  type ResolvedSegment,
+} from "@/data/routes";
 
 // Échappement HTML basique pour injection sûre via innerHTML.
 function escapeHtml(value: string): string {
@@ -92,6 +96,8 @@ interface Props {
   selectedOrder: string[];
   /** Segments calculés pour l'ordre courant (undefined si pas de connexion directe). */
   segments: (import("@/data/routes").Connection | undefined)[];
+  /** Découpe résolue avec villes intermédiaires éventuelles. */
+  resolved: ResolvedSegment[];
   /** Slug d'une ville actuellement survolée dans le panneau de suggestions. */
   hoveredSlug?: string | null;
   onToggle: (slug: string) => void;
@@ -105,6 +111,7 @@ export function RouteMap({
   dict,
   selectedOrder,
   segments,
+  resolved,
   hoveredSlug,
   onToggle,
 }: Props) {
@@ -361,16 +368,43 @@ export function RouteMap({
       .filter((c): c is City => Boolean(c))
       .map((c) => [c.coordinates.lng, c.coordinates.lat]);
 
-    // Un Feature par segment, avec son index → permet un tooltip par segment.
+    // Un Feature par segment. Pour les sauts indirects, on enchaîne les
+    // tronçons du plus court chemin afin de tracer un trait réaliste sur le réseau.
+    const cityCoord = new Map(
+      cities.map(
+        (c) =>
+          [c.slug, [c.coordinates.lng, c.coordinates.lat] as [number, number]] as const,
+      ),
+    );
     const segmentFeatures: GeoJSON.Feature[] = [];
-    for (let i = 0; i < coordinates.length - 1; i++) {
+    for (let i = 0; i < selectedOrder.length - 1; i++) {
+      const fromSlug = selectedOrder[i];
+      const toSlug = selectedOrder[i + 1];
+      const fromCoord = cityCoord.get(fromSlug);
+      const toCoord = cityCoord.get(toSlug);
+      if (!fromCoord || !toCoord) continue;
+      const seg = resolved[i];
+      const indirect = seg && !seg.direct && seg.connections.length > 0;
+
+      let lineCoords: [number, number][];
+      if (indirect && seg) {
+        const pathCoords: [number, number][] = [fromCoord];
+        let cursor = fromSlug;
+        for (const conn of seg.connections) {
+          const next = conn.from === cursor ? conn.to : conn.from;
+          const nc = cityCoord.get(next);
+          if (nc) pathCoords.push(nc);
+          cursor = next;
+        }
+        lineCoords = pathCoords;
+      } else {
+        lineCoords = [fromCoord, toCoord];
+      }
+
       segmentFeatures.push({
         type: "Feature",
-        geometry: {
-          type: "LineString",
-          coordinates: [coordinates[i], coordinates[i + 1]],
-        },
-        properties: { index: i },
+        geometry: { type: "LineString", coordinates: lineCoords },
+        properties: { index: i, indirect: Boolean(indirect) },
       });
     }
 
@@ -404,7 +438,7 @@ export function RouteMap({
         duration: 600,
       });
     }
-  }, [selectedOrder, cities]);
+  }, [selectedOrder, cities, resolved]);
 
   // Synchronisation du marqueur survolé (depuis le panneau de suggestions).
   useEffect(() => {

@@ -150,6 +150,7 @@ export function RouteBuilder({
           dict={dict}
           selectedOrder={selected}
           segments={segments}
+          resolved={resolved}
           hoveredSlug={hoveredSlug}
           onToggle={toggle}
         />

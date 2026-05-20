@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
-import { cities } from "./dataset";
+import { cities as base } from "./dataset";
+import { citiesAdditions } from "./dataset-additions";
 import type {
   BudgetTier,
   City,
@@ -7,6 +8,9 @@ import type {
   CityTag,
   Season,
 } from "./types";
+
+// Catalogue complet : noyau initial (avec identite et POIs) + extensions M4.0.
+const cities: City[] = [...base, ...citiesAdditions];
 
 export type {
   City,
@@ -25,7 +29,7 @@ export type {
   HighlightKind,
   LocalizedText,
 } from "./types";
-export { cities } from "./dataset";
+export { cities };
 export { REGIONS, SEASONS, BUDGETS, TAGS } from "./enums";
 
 export function getAllCities(): City[] {

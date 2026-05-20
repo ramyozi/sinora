@@ -3,15 +3,20 @@
 import { useCallback, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { City } from "@/data/cities";
+import type { City, CityTag } from "@/data/cities";
 import { routeTotals, segmentsForRoute } from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
 import { type RouteStyle, styleConfig } from "@/data/routes/style";
+import {
+  composeTagBoost,
+  type DietRestriction,
+  type TravelProfile,
+} from "@/data/routes/preferences";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { ItineraryTimeline } from "./itinerary-timeline";
+import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
-import { StylePicker } from "./style-picker";
 import { SuggestionsPanel } from "./suggestions-panel";
 
 interface Props {
@@ -25,6 +30,9 @@ interface Props {
 export function RouteBuilder({ cities, locale, dict }: Props) {
   const [selected, setSelected] = useState<string[]>([]);
   const [style, setStyle] = useState<RouteStyle>("comfort");
+  const [profile, setProfile] = useState<TravelProfile>("solo");
+  const [diet, setDiet] = useState<DietRestriction[]>([]);
+  const [interests, setInterests] = useState<CityTag[]>([]);
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const config = styleConfig[style];
 
@@ -70,18 +78,35 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
 
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
   const totals = useMemo(() => routeTotals(selected), [selected]);
+
+  // Tag boost effectif : style + profil + restrictions + intérêts.
+  const effectiveBoost = useMemo(
+    () => composeTagBoost(config.tagBoost, { profile, diet, interests }),
+    [config.tagBoost, profile, diet, interests],
+  );
+
   const recommendations = useMemo(
     () =>
       suggestIntermediates(
-        { selected, cities, tagBoost: config.tagBoost },
+        { selected, cities, tagBoost: effectiveBoost },
         config.suggestionLimit,
       ),
-    [selected, cities, config],
+    [selected, cities, effectiveBoost, config.suggestionLimit],
   );
 
   return (
     <div className="space-y-6">
-      <StylePicker value={style} onChange={setStyle} dict={dict} />
+      <PreferencesPanel
+        style={style}
+        profile={profile}
+        diet={diet}
+        interests={interests}
+        onStyleChange={setStyle}
+        onProfileChange={setProfile}
+        onDietChange={setDiet}
+        onInterestsChange={setInterests}
+        dict={dict}
+      />
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
         <RouteMap
           cities={cities}

@@ -216,6 +216,12 @@
       "subtitle": "Vue chronologique étape par étape.",
       "stay": "Séjour conseillé"
     },
+    "segmentTooltip": {
+      "fatigue": "Fatigue",
+      "scenic": "Vue",
+      "crowded": "Affluence",
+      "overnight": "Train de nuit"
+    },
     "fatigue": {
       "title": "Intensité du voyage",
       "levels": {

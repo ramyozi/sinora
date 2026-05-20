@@ -216,6 +216,22 @@
       "subtitle": "Step-by-step chronological view.",
       "stay": "Recommended stay"
     },
+    "preferences": {
+      "title": "Preferences",
+      "subtitle": "Tune your trip — every choice shapes the suggestions.",
+      "profileTitle": "Profile",
+      "dietTitle": "Restrictions",
+      "interestsTitle": "Interests",
+      "profiles": {
+        "solo": "Solo",
+        "couple": "Couple",
+        "family": "Family",
+        "group": "Group"
+      },
+      "diet": {
+        "halal": "Halal"
+      }
+    },
     "style": {
       "title": "Travel style",
       "subtitle": "Pick the tone — budget and suggestions follow.",

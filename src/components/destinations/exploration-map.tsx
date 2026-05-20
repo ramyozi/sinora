@@ -106,7 +106,13 @@ export function ExplorationMap({ cities, locale, dict }: Props) {
           <div class="cta">${escapeHtml(dict.destinations.exploration.view)}</div>
         </div>
       `;
-      const marker = new maplibregl.Marker({ element: el, anchor: "top" })
+      // offset [0, -6] : compense la moitie de la hauteur du dot (12px) pour
+      // que son centre s'aligne pile sur la coord, et pas 6px en dessous.
+      const marker = new maplibregl.Marker({
+        element: el,
+        anchor: "top",
+        offset: [0, -6],
+      })
         .setLngLat([city.coordinates.lng, city.coordinates.lat])
         .addTo(map);
       markersRef.current.push(marker);

@@ -32,6 +32,7 @@ export function CityHero({
             fill
             priority
             sizes="100vw"
+            unoptimized
             className="-z-10 object-cover"
           />
           <div

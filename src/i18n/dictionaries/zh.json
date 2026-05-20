@@ -132,6 +132,8 @@
     "overviewLabel": "概览",
     "locationLabel": "位置",
     "imageCredit": "图片:Wikipedia",
+    "galleryLabel": "城市影像",
+    "galleryCredit": "{topic} 的 Wikipedia 精选图片。",
     "addToPlanner": "加入我的行程",
     "filters": {
       "region": "地区",

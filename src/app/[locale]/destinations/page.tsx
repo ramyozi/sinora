@@ -16,6 +16,7 @@ import {
   getAllCities,
   sortCitiesByName,
 } from "@/data/cities";
+import { getWikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { Container } from "@/components/ui/container";
 import { CityCard } from "@/components/destinations/city-card";
 import { FilterBar } from "@/components/destinations/filter-bar";
@@ -67,6 +68,14 @@ export default async function DestinationsPage({
     locale,
   );
 
+  // Pre-fetch lead images en parallele : cache 1 semaine cote provider.
+  const leadImages = await Promise.all(
+    cities.map((city) => getWikiLeadImage(city.wikiTitle)),
+  );
+  const imageBySlug = new Map(
+    cities.map((c, i) => [c.slug, leadImages[i] ?? null]),
+  );
+
   return (
     <Container className="py-16 sm:py-20">
       <header className="max-w-2xl">
@@ -93,6 +102,7 @@ export default async function DestinationsPage({
               city={city}
               locale={locale}
               dict={dict}
+              image={imageBySlug.get(city.slug) ?? null}
             />
           ))}
         </div>

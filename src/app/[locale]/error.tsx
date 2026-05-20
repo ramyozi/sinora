@@ -25,7 +25,7 @@ export default function Error({ error, reset }: ErrorProps) {
       </h1>
       <p className="text-pretty text-muted">
         Une erreur est survenue lors du chargement. Vous pouvez reessayer ou
-        revenir a l'accueil.
+        revenir a l&apos;accueil.
       </p>
       {error.digest && (
         <code className="rounded-md bg-surface-muted px-2 py-1 text-xs text-muted">
@@ -44,7 +44,7 @@ export default function Error({ error, reset }: ErrorProps) {
           href="/"
           className="inline-flex h-10 items-center rounded-full border border-border px-5 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted"
         >
-          Retour a l'accueil
+          Retour a l&apos;accueil
         </Link>
       </div>
     </main>

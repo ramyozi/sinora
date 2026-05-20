@@ -5,6 +5,7 @@
   },
   "nav": {
     "destinations": "目的地",
+    "events": "节庆活动",
     "prepare": "出行准备",
     "trains": "高铁",
     "cta": "规划行程"
@@ -121,6 +122,7 @@
     "subtitle": "春节、黄金周、灯会、啤酒节:把握高光时刻,围绕其规划行程。",
     "countLabel": "即将开始的活动",
     "filterTitle": "筛选日历",
+    "searchPlaceholder": "搜索活动或城市...",
     "allCategories": "全部类别",
     "crowdFilter": "人流:",
     "allCrowds": "全部",

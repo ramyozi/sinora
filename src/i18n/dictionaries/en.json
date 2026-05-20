@@ -5,6 +5,7 @@
   },
   "nav": {
     "destinations": "Destinations",
+    "events": "Events",
     "prepare": "Prepare",
     "trains": "Trains",
     "cta": "Plan my trip"
@@ -121,6 +122,7 @@
     "subtitle": "Spring Festival, Golden Week, lantern festivals, beer fests: spot the key dates and weave your trip around them.",
     "countLabel": "upcoming events",
     "filterTitle": "Filter calendar",
+    "searchPlaceholder": "Search an event, a city...",
     "allCategories": "All categories",
     "crowdFilter": "Crowd:",
     "allCrowds": "All",

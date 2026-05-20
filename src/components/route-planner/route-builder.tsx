@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
@@ -94,7 +94,46 @@ export function RouteBuilder({
   initialOptimizeAround,
   cityContext,
 }: Props) {
-  const [selected, setSelected] = useState<string[]>(initialCities ?? []);
+  // Calcule l'etat initial : si l'URL demande l'optimisation autour d'un event,
+  // on applique le optimizer une fois ici plutot que dans un useEffect (cela evite
+  // le warning react-hooks/set-state-in-effect et un re-render inutile).
+  const initialState = (() => {
+    const baseCities = initialCities ?? [];
+    const baseDates: TripDatesValue = {
+      start: initialDates?.start ?? null,
+      end: initialDates?.end ?? null,
+    };
+    if (!initialOptimizeAround || !initialEventSlug) {
+      return { selected: baseCities, dates: baseDates };
+    }
+    const event = events.find((e) => e.slug === initialEventSlug);
+    if (!event) return { selected: baseCities, dates: baseDates };
+    const occurrence =
+      event.occurrences.find(
+        (o) =>
+          initialDates &&
+          o.end >= initialDates.start &&
+          o.start <= initialDates.end,
+      ) ?? event.occurrences[0];
+    if (!occurrence) return { selected: baseCities, dates: baseDates };
+    const currentCityObjects = baseCities
+      .map((slug) => cities.find((c) => c.slug === slug))
+      .filter((c): c is City => Boolean(c));
+    const result = optimizeAroundEvent(
+      currentCityObjects,
+      baseDates,
+      event,
+      occurrence,
+      cities,
+    );
+    if (!result) return { selected: baseCities, dates: baseDates };
+    return {
+      selected: result.suggestedRoute,
+      dates: { start: result.adjustedDates.start, end: result.adjustedDates.end } as TripDatesValue,
+    };
+  })();
+
+  const [selected, setSelected] = useState<string[]>(initialState.selected);
   const [style, setStyle] = useState<RouteStyle>(initialStyle ?? "comfort");
   const [profile, setProfile] = useState<TravelProfile>("solo");
   const [diet, setDiet] = useState<DietRestriction[]>([]);
@@ -106,38 +145,6 @@ export function RouteBuilder({
   });
   const [niche, setNiche] = useState<NicheSlug | null>(null);
   const config = styleConfig[style];
-
-  // Optimisation autour d'un evenement : declenchee une seule fois au montage
-  // si l'URL le demande (eventSlug + optimizeAround=1).
-  const didOptimizeAround = useRef(false);
-  useEffect(() => {
-    if (didOptimizeAround.current) return;
-    if (!initialOptimizeAround || !initialEventSlug) return;
-    const event = events.find((e) => e.slug === initialEventSlug);
-    if (!event) return;
-    const occurrence =
-      event.occurrences.find(
-        (o) =>
-          initialDates &&
-          o.end >= initialDates.start &&
-          o.start <= initialDates.end,
-      ) ?? event.occurrences[0];
-    if (!occurrence) return;
-    const currentCityObjects = (initialCities ?? [])
-      .map((slug) => cities.find((c) => c.slug === slug))
-      .filter((c): c is City => Boolean(c));
-    const result = optimizeAroundEvent(
-      currentCityObjects,
-      { start: initialDates?.start ?? null, end: initialDates?.end ?? null },
-      event,
-      occurrence,
-      cities,
-    );
-    if (!result) return;
-    setSelected(result.suggestedRoute);
-    setTripDates(result.adjustedDates);
-    didOptimizeAround.current = true;
-  }, [initialOptimizeAround, initialEventSlug, initialCities, initialDates, cities]);
 
   // Application d'un preset niche : ecrase interests et style si fourni.
   const applyNiche = useCallback(
@@ -229,8 +236,8 @@ export function RouteBuilder({
   );
   const density = useMemo(() => densityFromBudget(budget), [budget]);
   const advice = useMemo(
-    () => durationAdvice(selectedCities, density, cities, resolved),
-    [selectedCities, density, cities, resolved],
+    () => durationAdvice(selectedCities, density, cities),
+    [selectedCities, density, cities],
   );
   // Events qui touchent l'itineraire : dans la route, en conflit, ou proches.
   const eventMatches = useMemo(() => {

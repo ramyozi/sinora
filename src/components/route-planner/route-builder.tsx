@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
 import {
   assessRouteFatigue,
+  optimizeRouteOrder,
   resolveRoute,
   routeTotalsResolved,
   scoreRoute,
@@ -92,6 +93,15 @@ export function RouteBuilder({
     setSelected(template.cities);
     setStyle(template.style);
   }, []);
+  const optimize = useCallback(() => {
+    setSelected((prev) => {
+      const orderedCities = prev
+        .map((slug) => cities.find((c) => c.slug === slug))
+        .filter((c): c is City => Boolean(c));
+      if (orderedCities.length <= 2) return prev;
+      return optimizeRouteOrder(orderedCities);
+    });
+  }, [cities]);
 
   // Villes sélectionnées dans l'ordre choisi par l'utilisateur.
   const selectedCities = useMemo(() => {
@@ -181,6 +191,7 @@ export function RouteBuilder({
           cities={selectedCities}
           locale={locale}
           dict={dict}
+          onOptimize={selectedCities.length >= 3 ? optimize : undefined}
         />
       )}
       {recommendations.length > 0 && (

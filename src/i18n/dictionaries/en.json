@@ -275,6 +275,7 @@
       "title": "Route score",
       "subtitle": "Geographic coherence, comfort and balance.",
       "allGood": "Route looks well-balanced, nothing to flag.",
+      "optimize": "Optimise order",
       "levels": {
         "weak": "Needs work",
         "fair": "Fair",

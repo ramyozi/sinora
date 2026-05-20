@@ -24,6 +24,7 @@ export {
   type ResolvedSegment,
 } from "./pathfinding";
 export {
+  optimizeRouteOrder,
   scoreRoute,
   type RouteScore,
   type RouteScoreLevel,

@@ -27,6 +27,33 @@ export interface RouteScore {
   warnings: RouteWarning[];
 }
 
+/**
+ * Réordonne un itinéraire par plus proche voisin à partir de la première ville.
+ * Heuristique simple : conserve le point de départ et choisit à chaque étape
+ * la ville restante la plus proche en distance à vol d'oiseau. Renvoie la
+ * suite de slugs optimisée.
+ */
+export function optimizeRouteOrder(cities: City[]): string[] {
+  if (cities.length <= 2) return cities.map((c) => c.slug);
+  const remaining = cities.slice(1);
+  const ordered: City[] = [cities[0]];
+  while (remaining.length > 0) {
+    const last = ordered[ordered.length - 1];
+    let bestIdx = 0;
+    let bestDist = Number.POSITIVE_INFINITY;
+    for (let i = 0; i < remaining.length; i++) {
+      const d = haversineKm(last.coordinates, remaining[i].coordinates);
+      if (d < bestDist) {
+        bestDist = d;
+        bestIdx = i;
+      }
+    }
+    ordered.push(remaining[bestIdx]);
+    remaining.splice(bestIdx, 1);
+  }
+  return ordered.map((c) => c.slug);
+}
+
 // Distance approximative en kilomètres entre deux paires lat/lng.
 function haversineKm(
   a: { lat: number; lng: number },

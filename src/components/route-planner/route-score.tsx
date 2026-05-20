@@ -1,4 +1,4 @@
-import { AlertTriangle, Sparkles } from "lucide-react";
+import { AlertTriangle, Sparkles, Wand2 } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
@@ -9,6 +9,8 @@ interface Props {
   cities: City[];
   locale: Locale;
   dict: Dictionary;
+  /** Optionnel : déclenche la réorganisation par plus proche voisin. */
+  onOptimize?: () => void;
 }
 
 const levelStyles: Record<RouteScore["level"], string> = {
@@ -19,7 +21,13 @@ const levelStyles: Record<RouteScore["level"], string> = {
 };
 
 // Carte synthétique : note globale, trois sous-scores, alertes d'optimisation.
-export function RouteScoreCard({ score, cities, locale, dict }: Props) {
+export function RouteScoreCard({
+  score,
+  cities,
+  locale,
+  dict,
+  onOptimize,
+}: Props) {
   const rp = dict.routePlanner;
   const sc = rp.score;
   const nameOf = (slug: string) =>
@@ -72,6 +80,17 @@ export function RouteScoreCard({ score, cities, locale, dict }: Props) {
           </dd>
         </div>
       </dl>
+
+      {score.warnings.length > 0 && onOptimize && (
+        <button
+          type="button"
+          onClick={onOptimize}
+          className="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent/20"
+        >
+          <Wand2 className="size-3.5" />
+          {sc.optimize}
+        </button>
+      )}
 
       {score.warnings.length > 0 && (
         <ul className="mt-5 space-y-2">

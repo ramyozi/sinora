@@ -275,6 +275,7 @@
       "title": "Note d'itinéraire",
       "subtitle": "Cohérence géographique, confort et équilibre.",
       "allGood": "Itinéraire bien équilibré, rien à signaler.",
+      "optimize": "Optimiser l'ordre",
       "levels": {
         "weak": "À retravailler",
         "fair": "Correct",

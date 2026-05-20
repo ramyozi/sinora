@@ -58,27 +58,16 @@ export function MobileNav({
         </div>
 
         <nav className="mt-6 flex flex-col gap-1">
-          {links.map((link) =>
-            link.href.startsWith("#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={close}
-                className={itemClass}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={close}
-                className={itemClass}
-              >
-                {link.label}
-              </Link>
-            ),
-          )}
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={close}
+              className={itemClass}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <Link

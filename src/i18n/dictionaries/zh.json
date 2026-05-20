@@ -271,6 +271,25 @@
       "crowded": "客流",
       "overnight": "夕发朝至"
     },
+    "context": {
+      "title": "出行背景",
+      "subtitle": "建议季节与近期需留意的高峰。",
+      "bestWindow": "建议季节",
+      "calendar": "未来高峰",
+      "noPeak": "未来 90 天内暂无主要高峰。",
+      "match": {
+        "common": "适合所有城市的理想窗口。",
+        "majority": "对多数行程都有利。",
+        "any": "时段开放,请逐城核对。"
+      },
+      "peakLabels": {
+        "golden-week": "黄金周",
+        "spring-festival": "春节",
+        "summer-peak": "暑期高峰",
+        "national-day": "国庆节"
+      },
+      "affectsRoute": "涉及您的行程:{kinds}。"
+    },
     "score": {
       "title": "行程评分",
       "subtitle": "地理连贯性、舒适度与节奏均衡。",

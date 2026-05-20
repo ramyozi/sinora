@@ -271,6 +271,25 @@
       "crowded": "Affluence",
       "overnight": "Train de nuit"
     },
+    "context": {
+      "title": "Contexte voyage",
+      "subtitle": "Saison conseillée et pics calendaires à surveiller.",
+      "bestWindow": "Saison conseillée",
+      "calendar": "Pics à venir",
+      "noPeak": "Aucun pic majeur sur les 90 prochains jours.",
+      "match": {
+        "common": "Fenêtre idéale pour toutes vos villes.",
+        "majority": "Fenêtre favorable à la majorité des étapes.",
+        "any": "Période ouverte, vérifier chaque ville."
+      },
+      "peakLabels": {
+        "golden-week": "Golden Week",
+        "spring-festival": "Nouvel An lunaire",
+        "summer-peak": "Pic estival",
+        "national-day": "Fête nationale"
+      },
+      "affectsRoute": "Concerne votre itinéraire : {kinds}."
+    },
     "score": {
       "title": "Note d'itinéraire",
       "subtitle": "Cohérence géographique, confort et équilibre.",

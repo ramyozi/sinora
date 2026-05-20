@@ -271,6 +271,25 @@
       "crowded": "Crowded",
       "overnight": "Overnight"
     },
+    "context": {
+      "title": "Travel context",
+      "subtitle": "Best season and upcoming peak periods to watch.",
+      "bestWindow": "Best window",
+      "calendar": "Upcoming peaks",
+      "noPeak": "No major peak in the next 90 days.",
+      "match": {
+        "common": "Ideal window across all your cities.",
+        "majority": "Favourable for most of your stops.",
+        "any": "Open period, check each city individually."
+      },
+      "peakLabels": {
+        "golden-week": "Golden Week",
+        "spring-festival": "Lunar New Year",
+        "summer-peak": "Summer peak",
+        "national-day": "National Day"
+      },
+      "affectsRoute": "Affects your route: {kinds}."
+    },
     "score": {
       "title": "Route score",
       "subtitle": "Geographic coherence, comfort and balance.",

@@ -7,6 +7,7 @@ import type { City, CityTag } from "@/data/cities";
 import {
   assessRouteFatigue,
   optimizeRouteOrder,
+  peakWindowsRelevant,
   resolveRoute,
   routeTotalsResolved,
   scoreRoute,
@@ -21,6 +22,7 @@ import {
 } from "@/data/routes/preferences";
 import type { RouteTemplate } from "@/data/routes/templates";
 import { bookingPlatformsForModes } from "@/data/routes/booking";
+import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
 import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
@@ -28,6 +30,7 @@ import { ItineraryTimeline } from "./itinerary-timeline";
 import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
 import { RouteScoreCard } from "./route-score";
+import { TravelContextPanel } from "./travel-context";
 import { SuggestionsPanel } from "./suggestions-panel";
 import { TemplatesStrip } from "./templates-strip";
 
@@ -38,6 +41,8 @@ interface Props {
   /** État initial pré-rempli depuis l'URL (deep link depuis page ville ou template). */
   initialCities?: string[];
   initialStyle?: RouteStyle;
+  /** Météo et qualité de l'air pré-fetchées côté serveur, indexées par slug. */
+  cityContext?: Record<string, CityContextSnapshot>;
 }
 
 // Orchestrateur du Route Planner : possède l'ordre des villes sélectionnées
@@ -48,6 +53,7 @@ export function RouteBuilder({
   dict,
   initialCities,
   initialStyle,
+  cityContext,
 }: Props) {
   const [selected, setSelected] = useState<string[]>(initialCities ?? []);
   const [style, setStyle] = useState<RouteStyle>(initialStyle ?? "comfort");
@@ -118,6 +124,15 @@ export function RouteBuilder({
     () => scoreRoute(selectedCities, resolved, fatigue),
     [selectedCities, resolved, fatigue],
   );
+  const peakAlerts = useMemo(() => {
+    const periods: ("golden-week" | "spring-festival" | "summer-peak" | "national-day")[] = [];
+    for (const seg of resolved) {
+      for (const conn of seg.connections) {
+        for (const p of conn.crowdedPeriods ?? []) periods.push(p);
+      }
+    }
+    return peakWindowsRelevant(periods, new Date());
+  }, [resolved]);
   const routeModes = useMemo(
     () =>
       Array.from(
@@ -192,6 +207,16 @@ export function RouteBuilder({
           locale={locale}
           dict={dict}
           onOptimize={selectedCities.length >= 3 ? optimize : undefined}
+        />
+      )}
+      {selectedCities.length > 0 && (
+        <TravelContextPanel
+          cities={selectedCities}
+          resolved={resolved}
+          peakAlerts={peakAlerts}
+          cityContext={cityContext}
+          locale={locale}
+          dict={dict}
         />
       )}
       {recommendations.length > 0 && (

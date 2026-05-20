@@ -25,6 +25,7 @@ interface Props {
 export function RouteBuilder({ cities, locale, dict }: Props) {
   const [selected, setSelected] = useState<string[]>([]);
   const [style, setStyle] = useState<RouteStyle>("comfort");
+  const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const config = styleConfig[style];
 
   const toggle = useCallback((slug: string) => {
@@ -87,6 +88,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           locale={locale}
           dict={dict}
           selectedOrder={selected}
+          hoveredSlug={hoveredSlug}
           onToggle={toggle}
         />
         <ItineraryPanel
@@ -107,6 +109,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           locale={locale}
           dict={dict}
           onAdd={insertAt}
+          onHover={setHoveredSlug}
         />
       )}
       {selectedCities.length >= 2 && (

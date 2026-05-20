@@ -1,7 +1,7 @@
-import { Compass, Heart, Sparkles, Sun, Moon, Sunrise, Sunset, AlertTriangle, Gauge } from "lucide-react";
+import { Compass, Diamond, Handshake, Heart, Sparkles, Sun, Moon, Sunrise, Sunset, AlertTriangle, Gauge, CloudSnow } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { City, CityIdentity, DayMoment } from "@/data/cities";
+import type { City, CityIdentity, DayMoment, Season } from "@/data/cities";
 
 interface Props {
   city: City;
@@ -30,6 +30,7 @@ const momentIcon: Record<DayMoment, typeof Sun> = {
 };
 
 const orderedMoments: DayMoment[] = ["morning", "afternoon", "evening", "night"];
+const orderedSeasons: Season[] = ["printemps", "ete", "automne", "hiver"];
 
 // Identite emotionnelle d'une ville : moods, rythme, plats, experiences, journee, pieges.
 export function CityIdentitySection({ city, locale, dict }: Props) {
@@ -162,6 +163,69 @@ export function CityIdentitySection({ city, locale, dict }: Props) {
           ))}
         </ul>
       </div>
+
+      {id.hiddenGems && id.hiddenGems.length > 0 && (
+        <div className="rounded-card border border-violet-500/30 bg-violet-500/5 p-5">
+          <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <Diamond className="size-4 text-violet-500" />
+            {ci.hiddenGemsLabel}
+          </div>
+          <ul className="mt-3 space-y-2">
+            {id.hiddenGems.map((g, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-sm text-foreground"
+              >
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-violet-500" />
+                {g[locale]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {id.etiquette && id.etiquette.length > 0 && (
+        <div className="rounded-card border border-border bg-surface p-5">
+          <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <Handshake className="size-4 text-accent" />
+            {ci.etiquetteLabel}
+          </div>
+          <ul className="mt-3 space-y-2">
+            {id.etiquette.map((e, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 text-sm text-foreground"
+              >
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                {e[locale]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {id.seasonalTips && (
+        <div className="rounded-card border border-border bg-surface p-5">
+          <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <CloudSnow className="size-4 text-accent" />
+            {ci.seasonalTipsLabel}
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {orderedSeasons
+              .filter((s) => id.seasonalTips?.[s])
+              .map((s) => (
+                <div key={s} className="rounded-card bg-surface-muted p-3">
+                  <div className="text-xs uppercase tracking-wide text-muted">
+                    {dict.labels.seasons[s]}
+                  </div>
+                  <p className="mt-1 text-sm text-foreground">
+                    {id.seasonalTips?.[s]?.[locale]}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

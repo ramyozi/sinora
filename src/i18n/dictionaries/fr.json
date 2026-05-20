@@ -297,6 +297,14 @@
     "subtitle": "Cliquez sur les villes pour les ajouter, réordonnez à votre rythme.",
     "panelTitle": "Votre itinéraire",
     "empty": "Sélectionnez au moins deux villes pour voir votre route apparaître.",
+    "endpoints": {
+      "title": "Origine et destination",
+      "subtitle": "Encadrez votre voyage : départ et arrivée. Les villes intermédiaires s'organisent entre les deux.",
+      "originLabel": "Je pars de",
+      "destinationLabel": "Je termine à",
+      "anyOrigin": "Aucune ville de départ",
+      "anyDestination": "Aucune ville d'arrivée"
+    },
     "dates": {
       "title": "Dates du voyage",
       "subtitle": "Donnez vos dates pour adapter les suggestions à la durée réelle.",

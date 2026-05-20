@@ -297,6 +297,14 @@
     "subtitle": "Click cities to add them, reorder at your own pace.",
     "panelTitle": "Your itinerary",
     "empty": "Select at least two cities to see your route appear.",
+    "endpoints": {
+      "title": "Start and end city",
+      "subtitle": "Bookend your trip: where you start, where you finish. Intermediates sit between the two.",
+      "originLabel": "Starting from",
+      "destinationLabel": "Ending at",
+      "anyOrigin": "No fixed origin",
+      "anyDestination": "No fixed destination"
+    },
     "dates": {
       "title": "Trip dates",
       "subtitle": "Set your dates so suggestions match the real duration.",

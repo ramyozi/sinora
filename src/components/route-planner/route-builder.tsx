@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
@@ -9,7 +9,9 @@ import {
   densityFromBudget,
   durationAdvice,
   durationBudget,
+  eventScoreBonus,
   niches,
+  optimizeAroundEvent,
   optimizeRouteOrder,
   peakWindowsRelevant,
   resolveRoute,
@@ -105,6 +107,38 @@ export function RouteBuilder({
   const [niche, setNiche] = useState<NicheSlug | null>(null);
   const config = styleConfig[style];
 
+  // Optimisation autour d'un evenement : declenchee une seule fois au montage
+  // si l'URL le demande (eventSlug + optimizeAround=1).
+  const didOptimizeAround = useRef(false);
+  useEffect(() => {
+    if (didOptimizeAround.current) return;
+    if (!initialOptimizeAround || !initialEventSlug) return;
+    const event = events.find((e) => e.slug === initialEventSlug);
+    if (!event) return;
+    const occurrence =
+      event.occurrences.find(
+        (o) =>
+          initialDates &&
+          o.end >= initialDates.start &&
+          o.start <= initialDates.end,
+      ) ?? event.occurrences[0];
+    if (!occurrence) return;
+    const currentCityObjects = (initialCities ?? [])
+      .map((slug) => cities.find((c) => c.slug === slug))
+      .filter((c): c is City => Boolean(c));
+    const result = optimizeAroundEvent(
+      currentCityObjects,
+      { start: initialDates?.start ?? null, end: initialDates?.end ?? null },
+      event,
+      occurrence,
+      cities,
+    );
+    if (!result) return;
+    setSelected(result.suggestedRoute);
+    setTripDates(result.adjustedDates);
+    didOptimizeAround.current = true;
+  }, [initialOptimizeAround, initialEventSlug, initialCities, initialDates, cities]);
+
   // Application d'un preset niche : ecrase interests et style si fourni.
   const applyNiche = useCallback(
     (slug: NicheSlug | null) => {
@@ -175,10 +209,20 @@ export function RouteBuilder({
   const resolved = useMemo(() => resolveRoute(selected), [selected]);
   const totals = useMemo(() => routeTotalsResolved(selected), [selected]);
   const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
-  const score = useMemo(
+  const baseScore = useMemo(
     () => scoreRoute(selectedCities, resolved, fatigue),
     [selectedCities, resolved, fatigue],
   );
+  // Bonus events : applique sur l'overall, dans la limite [0, 100].
+  const score = useMemo(() => {
+    if (!baseScore) return baseScore;
+    const bonus = eventScoreBonus(selectedCities, tripDates, events);
+    if (bonus === 0) return baseScore;
+    return {
+      ...baseScore,
+      overall: Math.max(0, Math.min(100, baseScore.overall + bonus)),
+    };
+  }, [baseScore, selectedCities, tripDates]);
   const budget = useMemo(
     () => durationBudget(selectedCities, resolved, tripDates),
     [selectedCities, resolved, tripDates],

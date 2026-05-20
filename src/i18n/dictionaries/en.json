@@ -112,6 +112,40 @@
     "subtitle": "Build your itinerary in a few minutes.",
     "button": "Build my trip"
   },
+  "events": {
+    "meta": {
+      "title": "Events in China - Sinora",
+      "description": "Calendar of festivals and key dates that shape China. Every event can be added to your itinerary."
+    },
+    "title": "Events in China",
+    "subtitle": "Spring Festival, Golden Week, lantern festivals, beer fests: spot the key dates and weave your trip around them.",
+    "countLabel": "upcoming events",
+    "filterTitle": "Filter calendar",
+    "allCategories": "All categories",
+    "crowdFilter": "Crowd:",
+    "allCrowds": "All",
+    "addToTrip": "Add to my trip",
+    "optimizeAround": "Optimise around this event",
+    "empty": "No events match these filters.",
+    "categories": {
+      "festival": "Festival",
+      "religious": "Religious",
+      "food": "Food",
+      "music": "Music",
+      "sport": "Sport",
+      "national": "National holiday",
+      "lantern": "Lanterns",
+      "ice-snow": "Ice and snow",
+      "art": "Art / film",
+      "tech": "Tech"
+    },
+    "crowdLabels": {
+      "calme": "Quiet",
+      "modere": "Moderate",
+      "dense": "Busy",
+      "extreme": "Extreme"
+    }
+  },
   "destinations": {
     "meta": {
       "title": "Destinations in China - Sinora",

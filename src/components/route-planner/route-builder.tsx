@@ -114,6 +114,7 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           locale={locale}
           dict={dict}
           selectedOrder={selected}
+          segments={segments}
           hoveredSlug={hoveredSlug}
           onToggle={toggle}
         />

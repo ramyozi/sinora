@@ -6,7 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
-import { connections } from "@/data/routes";
+import { connections, type Connection } from "@/data/routes";
 
 // Échappement HTML basique pour injection sûre via innerHTML.
 function escapeHtml(value: string): string {
@@ -26,6 +26,59 @@ function escapeHtml(value: string): string {
   });
 }
 
+// Construit le contenu HTML du tooltip premium d'un segment.
+function buildSegmentTooltip(
+  seg: Connection,
+  cities: City[],
+  locale: Locale,
+  dict: Dictionary,
+): string {
+  const from = cities.find((c) => c.slug === seg.from);
+  const to = cities.find((c) => c.slug === seg.to);
+  if (!from || !to) return "";
+  const rp = dict.routePlanner;
+  const st = rp.segmentTooltip;
+  const chips: string[] = [];
+  if (typeof seg.fatigue === "number") {
+    const warn = seg.fatigue >= 4 ? " warn" : "";
+    chips.push(
+      `<span class="chip${warn}">${escapeHtml(st.fatigue)} ${seg.fatigue}/5</span>`,
+    );
+  }
+  if (typeof seg.scenic === "number") {
+    chips.push(
+      `<span class="chip">${escapeHtml(st.scenic)} ${seg.scenic}/5</span>`,
+    );
+  }
+  if (seg.overnightCapable) {
+    chips.push(`<span class="chip">${escapeHtml(st.overnight)}</span>`);
+  }
+  if (seg.crowdedPeriods && seg.crowdedPeriods.length > 0) {
+    chips.push(`<span class="chip warn">${escapeHtml(st.crowded)}</span>`);
+  }
+  const note = seg.note ? escapeHtml(seg.note[locale]) : null;
+  return `
+    <div class="sinora-segment-card">
+      <div class="head">
+        <span>${escapeHtml(from.name[locale])}</span>
+        <span class="arrow">→</span>
+        <span>${escapeHtml(to.name[locale])}</span>
+      </div>
+      <div class="row">
+        <span class="strong">${seg.durationHours} ${escapeHtml(rp.hours)}</span>
+        <span>·</span>
+        <span>${escapeHtml(rp.modes[seg.mode])}</span>
+        <span>·</span>
+        <span>${seg.distanceKm} ${escapeHtml(rp.km)}</span>
+        <span>·</span>
+        <span>${seg.priceCNY[0]}–${seg.priceCNY[1]} ${escapeHtml(rp.cny)}</span>
+      </div>
+      ${chips.length ? `<div class="chips">${chips.join("")}</div>` : ""}
+      ${note ? `<p class="note">${note}</p>` : ""}
+    </div>
+  `;
+}
+
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
 const NETWORK_SOURCE = "sinora-network";
 const NETWORK_LAYER = "sinora-network-lines";
@@ -37,6 +90,8 @@ interface Props {
   locale: Locale;
   dict: Dictionary;
   selectedOrder: string[];
+  /** Segments calculés pour l'ordre courant (undefined si pas de connexion directe). */
+  segments: (import("@/data/routes").Connection | undefined)[];
   /** Slug d'une ville actuellement survolée dans le panneau de suggestions. */
   hoveredSlug?: string | null;
   onToggle: (slug: string) => void;
@@ -49,6 +104,7 @@ export function RouteMap({
   locale,
   dict,
   selectedOrder,
+  segments,
   hoveredSlug,
   onToggle,
 }: Props) {
@@ -58,9 +114,17 @@ export function RouteMap({
   const onToggleRef = useRef(onToggle);
   const styleLoadedRef = useRef(false);
 
+  // Contexte utilisé par les handlers de popup (segments + dict + cities + locale).
+  // Maintenu à jour via une ref pour ne pas recréer la carte à chaque rendu.
+  const segmentCtxRef = useRef({ segments, cities, locale, dict });
+
   // Garder la dernière fonction onToggle accessible sans re-créer la carte.
   useEffect(() => {
     onToggleRef.current = onToggle;
+  });
+
+  useEffect(() => {
+    segmentCtxRef.current = { segments, cities, locale, dict };
   });
 
   // Création de la carte et des marqueurs : une seule fois.
@@ -143,11 +207,7 @@ export function RouteMap({
 
       map.addSource(ROUTE_SOURCE, {
         type: "geojson",
-        data: {
-          type: "Feature",
-          geometry: { type: "LineString", coordinates: [] },
-          properties: {},
-        },
+        data: { type: "FeatureCollection", features: [] },
       });
       map.addLayer({
         id: ROUTE_LAYER,
@@ -160,6 +220,48 @@ export function RouteMap({
           "line-dasharray": [2, 1.5],
         },
       });
+
+      // Popup interactif au survol de la ligne d'itinéraire.
+      let activePopup: maplibregl.Popup | null = null;
+      let activeIndex: number | null = null;
+      map.on("mousemove", ROUTE_LAYER, (e) => {
+        map.getCanvas().style.cursor = "pointer";
+        const feature = e.features?.[0];
+        if (!feature) return;
+        const idx = (feature.properties?.index ?? -1) as number;
+        if (idx === activeIndex && activePopup) {
+          activePopup.setLngLat(e.lngLat);
+          return;
+        }
+        activeIndex = idx;
+        const ctx = segmentCtxRef.current;
+        const seg = ctx.segments[idx];
+        if (!seg) return;
+        const html = buildSegmentTooltip(
+          seg,
+          ctx.cities,
+          ctx.locale,
+          ctx.dict,
+        );
+        activePopup?.remove();
+        activePopup = new maplibregl.Popup({
+          closeButton: false,
+          closeOnClick: false,
+          offset: 12,
+          className: "sinora-segment-popup",
+          maxWidth: "300px",
+        })
+          .setLngLat(e.lngLat)
+          .setHTML(html)
+          .addTo(map);
+      });
+      map.on("mouseleave", ROUTE_LAYER, () => {
+        map.getCanvas().style.cursor = "";
+        activePopup?.remove();
+        activePopup = null;
+        activeIndex = null;
+      });
+
       styleLoadedRef.current = true;
     });
 
@@ -224,15 +326,27 @@ export function RouteMap({
       .filter((c): c is City => Boolean(c))
       .map((c) => [c.coordinates.lng, c.coordinates.lat]);
 
+    // Un Feature par segment, avec son index → permet un tooltip par segment.
+    const segmentFeatures: GeoJSON.Feature[] = [];
+    for (let i = 0; i < coordinates.length - 1; i++) {
+      segmentFeatures.push({
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [coordinates[i], coordinates[i + 1]],
+        },
+        properties: { index: i },
+      });
+    }
+
     const updateLine = () => {
       const source = map.getSource(ROUTE_SOURCE) as
         | maplibregl.GeoJSONSource
         | undefined;
       if (!source) return;
       source.setData({
-        type: "Feature",
-        geometry: { type: "LineString", coordinates },
-        properties: {},
+        type: "FeatureCollection",
+        features: segmentFeatures,
       });
     };
 

@@ -14,6 +14,7 @@ import { CityHero } from "@/components/destinations/city-hero";
 import { CityHighlights } from "@/components/destinations/city-highlights";
 import { CityIdentitySection } from "@/components/destinations/city-identity";
 import { CityPOIs } from "@/components/destinations/city-pois";
+import { CityStickyCTA } from "@/components/destinations/city-sticky-cta";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
 import { CityMap } from "@/components/destinations/city-map";
 import { WeatherCard } from "@/components/destinations/weather-card";
@@ -72,6 +73,12 @@ export default async function CityPage({
 
   return (
     <article>
+      <CityStickyCTA
+        slug={city.slug}
+        cityName={city.name[locale]}
+        label={dict.destinations.addToPlanner}
+        locale={locale}
+      />
       <CityHero city={city} locale={locale} dict={dict} image={image} />
 
       <Container className="space-y-12 py-12 sm:py-16">

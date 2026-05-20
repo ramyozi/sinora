@@ -27,13 +27,22 @@ interface Props {
   cities: City[];
   locale: Locale;
   dict: Dictionary;
+  /** État initial pré-rempli depuis l'URL (deep link depuis page ville ou template). */
+  initialCities?: string[];
+  initialStyle?: RouteStyle;
 }
 
 // Orchestrateur du Route Planner : possède l'ordre des villes sélectionnées
 // et calcule les segments / totaux à la volée.
-export function RouteBuilder({ cities, locale, dict }: Props) {
-  const [selected, setSelected] = useState<string[]>([]);
-  const [style, setStyle] = useState<RouteStyle>("comfort");
+export function RouteBuilder({
+  cities,
+  locale,
+  dict,
+  initialCities,
+  initialStyle,
+}: Props) {
+  const [selected, setSelected] = useState<string[]>(initialCities ?? []);
+  const [style, setStyle] = useState<RouteStyle>(initialStyle ?? "comfort");
   const [profile, setProfile] = useState<TravelProfile>("solo");
   const [diet, setDiet] = useState<DietRestriction[]>([]);
   const [interests, setInterests] = useState<CityTag[]>([]);

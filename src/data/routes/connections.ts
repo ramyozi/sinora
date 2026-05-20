@@ -1,10 +1,14 @@
 import type { Connection } from "./types";
 
 /**
- * Graphe de connexions réalistes entre les 12 villes Sinora.
+ * Graphe de connexions réalistes entre les villes Sinora.
  * Durées et fourchettes de prix indicatives, ordre de grandeur 2025-2026.
  * Les valeurs servent le moteur de planification ; pour la réservation
  * effective, l'utilisateur sera redirigé vers les plateformes officielles.
+ *
+ * Les signaux M3.6 (fatigue, scenic, crowdedPeriods, note...) sont posés sur
+ * les liaisons clés en priorité. Le reste reste au format minimal et sera
+ * enrichi progressivement.
  */
 export const connections: Connection[] = [
   // Pékin — hub Nord
@@ -15,6 +19,14 @@ export const connections: Connection[] = [
     durationHours: 5,
     distanceKm: 1200,
     priceCNY: [515, 820],
+    fatigue: 2,
+    scenic: 3,
+    crowdedPeriods: ["golden-week", "national-day"],
+    note: {
+      fr: "Axe culturel majeur, réserver tôt avant Golden Week.",
+      en: "Major cultural corridor — book well before Golden Week.",
+      zh: "重要文化走廊,黄金周前请尽早购票。",
+    },
   },
   {
     from: "pekin",
@@ -23,6 +35,14 @@ export const connections: Connection[] = [
     durationHours: 4.5,
     distanceKm: 1320,
     priceCNY: [553, 933],
+    fatigue: 2,
+    scenic: 1,
+    crowdedPeriods: ["golden-week", "spring-festival", "summer-peak"],
+    note: {
+      fr: "Ligne la plus fréquentée du pays, billets souvent rares en haute saison.",
+      en: "China's busiest HSR axis — tickets often scarce in peak season.",
+      zh: "全国最繁忙的高铁干线,旺季一票难求。",
+    },
   },
   {
     from: "pekin",
@@ -31,6 +51,13 @@ export const connections: Connection[] = [
     durationHours: 6,
     distanceKm: 1290,
     priceCNY: [540, 870],
+    fatigue: 3,
+    scenic: 4,
+    note: {
+      fr: "Hiver : paysages enneigés exceptionnels en sortie de la plaine.",
+      en: "Winter: superb snowy landscapes after leaving the plain.",
+      zh: "冬季出平原后雪景绝佳。",
+    },
   },
   {
     from: "pekin",
@@ -39,6 +66,8 @@ export const connections: Connection[] = [
     durationHours: 7.5,
     distanceKm: 1850,
     priceCNY: [770, 1300],
+    fatigue: 3,
+    scenic: 3,
   },
   {
     from: "pekin",
@@ -47,6 +76,8 @@ export const connections: Connection[] = [
     durationHours: 5.5,
     distanceKm: 1400,
     priceCNY: [600, 1000],
+    fatigue: 2,
+    scenic: 2,
   },
   {
     from: "pekin",
@@ -55,6 +86,14 @@ export const connections: Connection[] = [
     durationHours: 9,
     distanceKm: 2440,
     priceCNY: [1080, 1850],
+    fatigue: 4,
+    scenic: 2,
+    overnightCapable: true,
+    note: {
+      fr: "Trajet long — un vol direct est souvent préférable.",
+      en: "Long ride — a direct flight is often preferable.",
+      zh: "行程较长,常常更适合改乘直飞。",
+    },
   },
   {
     from: "pekin",
@@ -63,6 +102,8 @@ export const connections: Connection[] = [
     durationHours: 3.5,
     distanceKm: 2100,
     priceCNY: [800, 1500],
+    fatigue: 2,
+    scenic: 2,
   },
   {
     from: "pekin",
@@ -71,6 +112,8 @@ export const connections: Connection[] = [
     durationHours: 3,
     distanceKm: 1800,
     priceCNY: [700, 1400],
+    fatigue: 2,
+    scenic: 2,
   },
   {
     from: "pekin",
@@ -79,6 +122,14 @@ export const connections: Connection[] = [
     durationHours: 5,
     distanceKm: 3400,
     priceCNY: [1500, 3000],
+    difficulty: 4,
+    fatigue: 4,
+    scenic: 3,
+    note: {
+      fr: "Survol des steppes et du désert du Taklamakan, perspective unique.",
+      en: "Flies over the Mongolian steppes and the Taklamakan desert.",
+      zh: "航线掠过蒙古草原与塔克拉玛干沙漠,视角独特。",
+    },
   },
 
   // Shanghai — hub Est
@@ -89,6 +140,8 @@ export const connections: Connection[] = [
     durationHours: 1,
     distanceKm: 170,
     priceCNY: [73, 117],
+    fatigue: 1,
+    scenic: 2,
   },
   {
     from: "shanghai",
@@ -97,6 +150,8 @@ export const connections: Connection[] = [
     durationHours: 0.5,
     distanceKm: 85,
     priceCNY: [40, 65],
+    fatigue: 1,
+    scenic: 2,
   },
   {
     from: "shanghai",
@@ -105,6 +160,8 @@ export const connections: Connection[] = [
     durationHours: 6,
     distanceKm: 1400,
     priceCNY: [600, 1000],
+    fatigue: 3,
+    scenic: 2,
   },
   {
     from: "shanghai",
@@ -113,6 +170,14 @@ export const connections: Connection[] = [
     durationHours: 10,
     distanceKm: 2070,
     priceCNY: [850, 1450],
+    fatigue: 4,
+    scenic: 3,
+    overnightCapable: true,
+    note: {
+      fr: "Long trajet — privilégier un train de nuit ou un vol selon le rythme.",
+      en: "Long ride — pick an overnight train or a flight depending on pace.",
+      zh: "行程很长,可选夕发朝至卧铺或改乘飞机。",
+    },
   },
   {
     from: "shanghai",
@@ -121,6 +186,10 @@ export const connections: Connection[] = [
     durationHours: 8,
     distanceKm: 1980,
     priceCNY: [880, 1500],
+    fatigue: 3,
+    scenic: 2,
+    overnightCapable: true,
+    crowdedPeriods: ["golden-week"],
   },
   {
     from: "shanghai",
@@ -129,6 +198,7 @@ export const connections: Connection[] = [
     durationHours: 3,
     distanceKm: 1700,
     priceCNY: [700, 1300],
+    fatigue: 2,
   },
 
   // Hangzhou — Suzhou
@@ -139,6 +209,8 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 200,
     priceCNY: [95, 150],
+    fatigue: 1,
+    scenic: 2,
   },
 
   // Xi'an — porte de l'Ouest
@@ -149,6 +221,13 @@ export const connections: Connection[] = [
     durationHours: 3.5,
     distanceKm: 660,
     priceCNY: [263, 420],
+    fatigue: 2,
+    scenic: 4,
+    note: {
+      fr: "Traversée du massif des Qinling : tunnels et reliefs spectaculaires.",
+      en: "Crosses the Qinling range — tunnels and dramatic terrain.",
+      zh: "穿越秦岭主脉,隧道与山势壮观。",
+    },
   },
   {
     from: "xian",
@@ -157,6 +236,8 @@ export const connections: Connection[] = [
     durationHours: 5,
     distanceKm: 900,
     priceCNY: [380, 620],
+    fatigue: 3,
+    scenic: 3,
   },
 
   // Sichuan & Sud-Ouest
@@ -167,6 +248,8 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 300,
     priceCNY: [154, 240],
+    fatigue: 1,
+    scenic: 3,
   },
   {
     from: "chengdu",
@@ -175,6 +258,13 @@ export const connections: Connection[] = [
     durationHours: 6.5,
     distanceKm: 850,
     priceCNY: [410, 650],
+    fatigue: 3,
+    scenic: 5,
+    note: {
+      fr: "L'une des plus belles lignes HSR de Chine : ponts vertigineux, jungle subtropicale.",
+      en: "One of China's most scenic HSR lines: sky bridges and subtropical forest.",
+      zh: "中国最美高铁之一:云端大桥与亚热带丛林。",
+    },
   },
   {
     from: "kunming",
@@ -183,6 +273,8 @@ export const connections: Connection[] = [
     durationHours: 5,
     distanceKm: 850,
     priceCNY: [380, 620],
+    fatigue: 2,
+    scenic: 4,
   },
 
   // Sud
@@ -193,6 +285,8 @@ export const connections: Connection[] = [
     durationHours: 4,
     distanceKm: 1300,
     priceCNY: [580, 900],
+    fatigue: 2,
+    scenic: 2,
   },
 
   // Kachgar — Xinjiang (essentiellement vol)
@@ -203,6 +297,8 @@ export const connections: Connection[] = [
     durationHours: 4.5,
     distanceKm: 2200,
     priceCNY: [1200, 2200],
+    difficulty: 3,
+    fatigue: 3,
   },
   {
     from: "kachgar",
@@ -211,6 +307,8 @@ export const connections: Connection[] = [
     durationHours: 6,
     distanceKm: 4000,
     priceCNY: [1800, 3500],
+    difficulty: 4,
+    fatigue: 4,
   },
   {
     from: "kachgar",
@@ -219,6 +317,8 @@ export const connections: Connection[] = [
     durationHours: 4,
     distanceKm: 2400,
     priceCNY: [1300, 2400],
+    difficulty: 3,
+    fatigue: 3,
   },
 
   // Datong, Pingyao, Luoyang — corridor culturel nord/centre
@@ -229,6 +329,8 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 350,
     priceCNY: [170, 290],
+    fatigue: 1,
+    scenic: 2,
   },
   {
     from: "datong",
@@ -237,6 +339,8 @@ export const connections: Connection[] = [
     durationHours: 4,
     distanceKm: 450,
     priceCNY: [150, 280],
+    fatigue: 2,
+    scenic: 3,
   },
   {
     from: "pingyao",
@@ -245,6 +349,14 @@ export const connections: Connection[] = [
     durationHours: 3,
     distanceKm: 500,
     priceCNY: [110, 220],
+    fatigue: 2,
+    scenic: 3,
+    overnightCapable: true,
+    note: {
+      fr: "Option train de nuit lent confortable, économise une nuit d'hôtel.",
+      en: "Slow overnight train available — saves a hotel night.",
+      zh: "可选舒适夕发朝至慢车,可省一晚住宿。",
+    },
   },
   {
     from: "pingyao",
@@ -253,6 +365,9 @@ export const connections: Connection[] = [
     durationHours: 5,
     distanceKm: 600,
     priceCNY: [200, 380],
+    fatigue: 3,
+    scenic: 2,
+    overnightCapable: true,
   },
   {
     from: "luoyang",
@@ -261,6 +376,13 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 380,
     priceCNY: [175, 280],
+    fatigue: 1,
+    scenic: 3,
+    note: {
+      fr: "Excursion possible à la journée pour les grottes de Longmen depuis Xi'an.",
+      en: "Day trip from Xi'an to the Longmen Grottoes is feasible.",
+      zh: "可从西安当日往返参观龙门石窟。",
+    },
   },
   {
     from: "luoyang",
@@ -269,6 +391,8 @@ export const connections: Connection[] = [
     durationHours: 4,
     distanceKm: 800,
     priceCNY: [380, 620],
+    fatigue: 2,
+    scenic: 2,
   },
   {
     from: "luoyang",
@@ -277,6 +401,8 @@ export const connections: Connection[] = [
     durationHours: 6,
     distanceKm: 1100,
     priceCNY: [500, 850],
+    fatigue: 3,
+    scenic: 2,
   },
 
   // Yangshuo — appendice de Guilin
@@ -287,6 +413,13 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 70,
     priceCNY: [20, 35],
+    fatigue: 1,
+    scenic: 5,
+    note: {
+      fr: "Vallée karstique de la rivière Li : un des plus beaux paysages de Chine.",
+      en: "Karst valley of the Li River — one of China's finest landscapes.",
+      zh: "漓江畔的喀斯特峰林,中国最美风光之一。",
+    },
   },
 
   // Yunnan — Kunming · Dali · Lijiang
@@ -297,6 +430,8 @@ export const connections: Connection[] = [
     durationHours: 3.5,
     distanceKm: 510,
     priceCNY: [220, 360],
+    fatigue: 2,
+    scenic: 4,
   },
   {
     from: "lijiang",
@@ -305,6 +440,13 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 165,
     priceCNY: [70, 120],
+    fatigue: 1,
+    scenic: 5,
+    note: {
+      fr: "Vues sur le mont du Dragon de Jade et le lac Erhai durant le trajet.",
+      en: "Views of Jade Dragon Snow Mountain and Erhai Lake along the way.",
+      zh: "沿途可见玉龙雪山与洱海。",
+    },
   },
   {
     from: "dali",
@@ -313,6 +455,8 @@ export const connections: Connection[] = [
     durationHours: 2,
     distanceKm: 330,
     priceCNY: [145, 240],
+    fatigue: 1,
+    scenic: 4,
   },
 
   // Huangshan — couronne est
@@ -323,6 +467,13 @@ export const connections: Connection[] = [
     durationHours: 3,
     distanceKm: 470,
     priceCNY: [220, 360],
+    fatigue: 2,
+    scenic: 3,
+    note: {
+      fr: "Massif de la Montagne Jaune en toile de fond à l'approche d'Anhui.",
+      en: "The Yellow Mountain looms in the distance as you enter Anhui.",
+      zh: "进入安徽境内可遥望黄山主峰。",
+    },
   },
   {
     from: "huangshan",
@@ -331,6 +482,8 @@ export const connections: Connection[] = [
     durationHours: 1.5,
     distanceKm: 300,
     priceCNY: [140, 230],
+    fatigue: 1,
+    scenic: 4,
   },
   {
     from: "huangshan",
@@ -339,6 +492,8 @@ export const connections: Connection[] = [
     durationHours: 6.5,
     distanceKm: 1300,
     priceCNY: [600, 1000],
+    fatigue: 3,
+    scenic: 3,
   },
 
   // Dunhuang — oasis de la route de la soie
@@ -349,6 +504,8 @@ export const connections: Connection[] = [
     durationHours: 2.5,
     distanceKm: 1700,
     priceCNY: [1000, 1800],
+    difficulty: 3,
+    fatigue: 3,
   },
   {
     from: "dunhuang",
@@ -357,6 +514,8 @@ export const connections: Connection[] = [
     durationHours: 2,
     distanceKm: 1100,
     priceCNY: [800, 1500],
+    difficulty: 3,
+    fatigue: 2,
   },
 
   // Lhassa — accès aérien principal
@@ -367,6 +526,14 @@ export const connections: Connection[] = [
     durationHours: 2,
     distanceKm: 1300,
     priceCNY: [900, 1700],
+    difficulty: 5,
+    fatigue: 4,
+    scenic: 5,
+    note: {
+      fr: "Vol panoramique sur l'Himalaya. Prévoir 24 h d'acclimatation à l'arrivée (3 650 m).",
+      en: "Panoramic Himalaya flight. Plan 24 h to acclimatise upon arrival (3,650 m).",
+      zh: "横跨喜马拉雅的全景航线。抵达后请预留 24 小时适应海拔(3650 米)。",
+    },
   },
   {
     from: "lhassa",
@@ -375,6 +542,13 @@ export const connections: Connection[] = [
     durationHours: 4,
     distanceKm: 2500,
     priceCNY: [1500, 2800],
+    difficulty: 4,
+    fatigue: 5,
+    note: {
+      fr: "Long vol et grosse différence d'altitude — prévoir une nuit calme à l'arrivée.",
+      en: "Long flight with large altitude drop — keep a calm first night on arrival.",
+      zh: "航程长且海拔骤降,抵达后第一晚建议安静休整。",
+    },
   },
   {
     from: "lhassa",
@@ -383,5 +557,7 @@ export const connections: Connection[] = [
     durationHours: 3,
     distanceKm: 1900,
     priceCNY: [1100, 2100],
+    difficulty: 4,
+    fatigue: 4,
   },
 ];

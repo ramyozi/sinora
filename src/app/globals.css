@@ -76,6 +76,28 @@ body {
   color: var(--accent-foreground);
 }
 
+/* Z-index dynamique pour les marqueurs MapLibre : le marqueur survole ou
+   focus est ramene au-dessus de ses voisins. Sans cela, les popovers passent
+   derriere les markers proches. Les classes Sinora coexistent sur le meme
+   element que .maplibregl-marker, on cible donc directement. */
+.exploration-marker:hover,
+.exploration-marker:focus,
+.exploration-marker:focus-visible,
+.exploration-marker:focus-within,
+.city-poi-marker:hover,
+.city-poi-marker:focus,
+.city-poi-marker:focus-visible,
+.city-poi-marker:focus-within,
+.route-marker:hover,
+.route-marker:focus,
+.route-marker:focus-visible,
+.route-marker:focus-within,
+.route-marker.hovered,
+.route-marker.selected {
+  z-index: 50 !important;
+  position: relative;
+}
+
 /* Marqueurs des POI sur la page ville : bulle emoji + popover au survol. */
 .city-poi-marker {
   display: flex;

@@ -298,6 +298,7 @@
     "panelTitle": "Votre itinéraire",
     "empty": "Sélectionnez au moins deux villes pour voir votre route apparaître.",
     "endpoints": {
+      "badge": "Itinéraire personnalisé",
       "title": "Origine et destination",
       "subtitle": "Encadrez votre voyage : départ et arrivée. Les villes intermédiaires s'organisent entre les deux.",
       "originLabel": "Je pars de",
@@ -424,8 +425,10 @@
       "open": "Ouvrir"
     },
     "templates": {
-      "title": "Itinéraires prêts à partir",
-      "subtitle": "Six trames crédibles à charger en un clic, puis à personnaliser.",
+      "badge": "Inspiration",
+      "disclosureTitle": "Inspirations de voyage",
+      "title": "Itinéraires prêts à charger",
+      "subtitle": "Six trames indépendantes de votre route actuelle. Cliquer écrase votre itinéraire en cours.",
       "load": "Charger",
       "items": {
         "cultural-north": {

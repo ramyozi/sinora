@@ -35,9 +35,14 @@ export function RouteEndpoints({
 
   return (
     <section className="rounded-card border border-border bg-surface p-4">
-      <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
-        <Flag className="size-3.5 text-accent" />
-        {re.title}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
+          {re.badge}
+        </span>
+        <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
+          <Flag className="size-3.5 text-accent" />
+          {re.title}
+        </div>
       </div>
       <p className="mt-1 text-xs text-muted">{re.subtitle}</p>
 

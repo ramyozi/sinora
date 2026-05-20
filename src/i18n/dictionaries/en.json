@@ -298,6 +298,7 @@
     "panelTitle": "Your itinerary",
     "empty": "Select at least two cities to see your route appear.",
     "endpoints": {
+      "badge": "Custom trip",
       "title": "Start and end city",
       "subtitle": "Bookend your trip: where you start, where you finish. Intermediates sit between the two.",
       "originLabel": "Starting from",
@@ -424,8 +425,10 @@
       "open": "Open"
     },
     "templates": {
+      "badge": "Inspiration",
+      "disclosureTitle": "Travel inspirations",
       "title": "Ready-to-load itineraries",
-      "subtitle": "Six credible templates - one click to load, then personalise.",
+      "subtitle": "Six standalone templates, independent from your current route. Clicking overwrites your trip.",
       "load": "Load",
       "items": {
         "cultural-north": {

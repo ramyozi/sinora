@@ -665,6 +665,8 @@
       "pinnedSubtitle": "Les indispensables pour fonctionner en Chine.",
       "othersTitle": "Aller plus loin",
       "othersSubtitle": "Apps complémentaires selon vos besoins.",
+      "localTipsTitle": "Conseils locaux : ce qu'utilisent les Chinois",
+      "localTipsSubtitle": "Les apps qui font vraiment le quotidien : trains, livraison, avis, vraies recommandations. À installer pour passer du touriste à l'initié.",
       "configTitle": "Configurer son téléphone",
       "configSubtitle": "À faire avant le départ, et juste à l'arrivée.",
       "configBefore": "Avant départ",
@@ -679,7 +681,10 @@
         "navigation": "Navigation",
         "translation": "Traduction",
         "network": "Réseau / VPN",
-        "esim": "eSIM / SIM"
+        "esim": "eSIM / SIM",
+        "booking": "Réservation",
+        "food": "Restauration",
+        "social": "Social / découverte"
       },
       "actions": {
         "appStore": "App Store",

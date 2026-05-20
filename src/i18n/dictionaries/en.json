@@ -665,6 +665,8 @@
       "pinnedSubtitle": "The essentials to function day-to-day in China.",
       "othersTitle": "Going further",
       "othersSubtitle": "Complementary apps depending on your needs.",
+      "localTipsTitle": "Local tips: what Chinese travellers actually use",
+      "localTipsSubtitle": "The apps that run daily life: rail booking, food delivery, reviews, real recommendations. Install to go from tourist to insider.",
       "configTitle": "Phone configuration",
       "configSubtitle": "Done before departure, and right after landing.",
       "configBefore": "Before departure",
@@ -679,7 +681,10 @@
         "navigation": "Navigation",
         "translation": "Translation",
         "network": "Network / VPN",
-        "esim": "eSIM / SIM"
+        "esim": "eSIM / SIM",
+        "booking": "Booking",
+        "food": "Food",
+        "social": "Social / discovery"
       },
       "actions": {
         "appStore": "App Store",

@@ -30,7 +30,8 @@ export default async function AppsPage({
   const dict = await getDictionary(locale);
 
   const pinned = pretripApps.filter((app) => app.pinned);
-  const others = pretripApps.filter((app) => !app.pinned);
+  const localTips = pretripApps.filter((app) => app.localTip);
+  const others = pretripApps.filter((app) => !app.pinned && !app.localTip);
 
   return (
     <Container className="space-y-14 py-16 sm:py-20">
@@ -62,6 +63,25 @@ export default async function AppsPage({
         <p className="mt-2 text-muted">{dict.pretrip.apps.othersSubtitle}</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((app) => (
+            <AppCard key={app.slug} app={app} locale={locale} dict={dict} />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div className="flex items-center gap-2">
+          <span aria-hidden className="text-2xl">
+            🇨🇳
+          </span>
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            {dict.pretrip.apps.localTipsTitle}
+          </h2>
+        </div>
+        <p className="mt-2 text-muted">
+          {dict.pretrip.apps.localTipsSubtitle}
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {localTips.map((app) => (
             <AppCard key={app.slug} app={app} locale={locale} dict={dict} />
           ))}
         </div>

@@ -216,6 +216,12 @@
       "subtitle": "按步骤的时间线视图。",
       "stay": "建议停留"
     },
+    "segmentTooltip": {
+      "fatigue": "疲劳",
+      "scenic": "风景",
+      "crowded": "客流",
+      "overnight": "夕发朝至"
+    },
     "fatigue": {
       "title": "行程强度",
       "levels": {

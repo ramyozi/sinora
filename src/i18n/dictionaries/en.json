@@ -216,6 +216,12 @@
       "subtitle": "Step-by-step chronological view.",
       "stay": "Recommended stay"
     },
+    "segmentTooltip": {
+      "fatigue": "Fatigue",
+      "scenic": "Scenic",
+      "crowded": "Crowded",
+      "overnight": "Overnight"
+    },
     "fatigue": {
       "title": "Trip intensity",
       "levels": {

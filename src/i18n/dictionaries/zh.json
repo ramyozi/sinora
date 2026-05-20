@@ -168,6 +168,14 @@
       }
     },
     "addToPlanner": "加入我的行程",
+    "exploration": {
+      "viewMap": "地图",
+      "viewGrid": "网格",
+      "viewSwitchLabel": "切换视图",
+      "allRegions": "全中国",
+      "mapLabel": "Sinora 目的地互动地图",
+      "view": "查看城市"
+    },
     "filters": {
       "region": "地区",
       "season": "季节",

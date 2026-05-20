@@ -16,9 +16,10 @@ import {
   getAllCities,
   sortCitiesByName,
 } from "@/data/cities";
+import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { getWikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { Container } from "@/components/ui/container";
-import { CityCard } from "@/components/destinations/city-card";
+import { DestinationsExplorer } from "@/components/destinations/destinations-explorer";
 import { FilterBar } from "@/components/destinations/filter-bar";
 
 export async function generateMetadata({
@@ -72,7 +73,7 @@ export default async function DestinationsPage({
   const leadImages = await Promise.all(
     cities.map((city) => getWikiLeadImage(city.wikiTitle)),
   );
-  const imageBySlug = new Map(
+  const imageBySlug: Record<string, WikiLeadImage | null> = Object.fromEntries(
     cities.map((c, i) => [c.slug, leadImages[i] ?? null]),
   );
 
@@ -95,16 +96,13 @@ export default async function DestinationsPage({
       </div>
 
       {cities.length > 0 ? (
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {cities.map((city) => (
-            <CityCard
-              key={city.slug}
-              city={city}
-              locale={locale}
-              dict={dict}
-              image={imageBySlug.get(city.slug) ?? null}
-            />
-          ))}
+        <div className="mt-10">
+          <DestinationsExplorer
+            cities={cities}
+            locale={locale}
+            dict={dict}
+            imageBySlug={imageBySlug}
+          />
         </div>
       ) : (
         <p className="mt-10 rounded-card border border-border bg-surface p-10 text-center text-muted">

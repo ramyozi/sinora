@@ -76,6 +76,92 @@ body {
   color: var(--accent-foreground);
 }
 
+/* Marqueurs de la carte exploration : ancrage anonyme avec popup au survol. */
+.exploration-marker {
+  --marker-color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--foreground);
+  text-decoration: none;
+  position: relative;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.exploration-marker:hover,
+.exploration-marker:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+.exploration-marker .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: var(--marker-color);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 2px var(--marker-color);
+  transition: transform 0.15s;
+}
+.exploration-marker:hover .dot,
+.exploration-marker:focus-visible .dot {
+  transform: scale(1.25);
+}
+.exploration-marker .name {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--foreground);
+  background: var(--surface);
+  padding: 2px 5px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.exploration-marker .card {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 220px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 30;
+  text-align: left;
+}
+.exploration-marker:hover .card,
+.exploration-marker:focus-visible .card {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.exploration-marker .card .region {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--marker-color);
+  background: color-mix(in srgb, var(--marker-color) 12%, transparent);
+  padding: 2px 6px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+.exploration-marker .card .tagline {
+  font-size: 13px;
+  color: var(--foreground);
+  line-height: 1.35;
+}
+.exploration-marker .card .cta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
 /* Marqueurs cliquables du Route Planner. */
 .route-marker {
   display: flex;

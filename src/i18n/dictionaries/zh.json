@@ -216,6 +216,19 @@
       "subtitle": "按步骤的时间线视图。",
       "stay": "建议停留"
     },
+    "fatigue": {
+      "title": "行程强度",
+      "levels": {
+        "calm": "轻松",
+        "moderate": "适中",
+        "intense": "紧凑",
+        "exhausting": "极度疲劳"
+      },
+      "suggestions": {
+        "intense": "建议安排一站缓冲行程。",
+        "exhausting": "行程过于密集 — 至少保留一晚静养。"
+      }
+    },
     "preferences": {
       "title": "偏好设置",
       "subtitle": "微调旅程 — 每个选项都影响推荐。",

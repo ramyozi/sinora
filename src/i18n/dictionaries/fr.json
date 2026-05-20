@@ -132,6 +132,7 @@
     "overviewLabel": "Aperçu",
     "locationLabel": "Localisation",
     "imageCredit": "Photo : Wikipedia",
+    "addToPlanner": "Ajouter à mon itinéraire",
     "filters": {
       "region": "Région",
       "season": "Saison",

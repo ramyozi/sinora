@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { localizedPath } from "@/lib/navigation";
 import { Container } from "@/components/ui/container";
+import { ButtonLink } from "@/components/ui/button";
 import { regionGradient } from "./region-gradient";
 
 // En-tête de la page ville : photo en arrière-plan si disponible, sinon dégradé.
@@ -65,6 +66,16 @@ export function CityHero({
         <p className="mt-2 text-pretty text-lg text-foreground/80">
           {city.tagline[locale]}
         </p>
+
+        <div className="mt-6">
+          <ButtonLink
+            href={`${localizedPath("/route-planner", locale)}?cities=${city.slug}`}
+            size="md"
+          >
+            <Sparkles className="size-4" />
+            {dict.destinations.addToPlanner}
+          </ButtonLink>
+        </div>
       </Container>
 
       {image && (

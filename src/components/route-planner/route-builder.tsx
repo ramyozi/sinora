@@ -221,9 +221,23 @@ export function RouteBuilder({
       return copy;
     });
   }, []);
+  // Charger un template = remplacer integralement la route utilisateur :
+  // intermediates, origin et destination cohérents avec le template choisi.
+  // Sans ca, l'utilisateur garderait des endpoints fantomes (Pekin/Shanghai)
+  // alors que selected contiendrait Kunming/Dali/Lijiang.
   const loadTemplate = useCallback((template: RouteTemplate) => {
     setSelected(template.cities);
     setStyle(template.style);
+    if (template.cities.length > 0) {
+      setOriginSlug(template.cities[0]);
+    } else {
+      setOriginSlug(null);
+    }
+    if (template.cities.length > 1) {
+      setDestinationSlug(template.cities[template.cities.length - 1]);
+    } else {
+      setDestinationSlug(null);
+    }
   }, []);
   const optimize = useCallback(() => {
     setSelected((prev) => {
@@ -452,7 +466,7 @@ export function RouteBuilder({
             dict={dict}
           />
         </Disclosure>
-        <Disclosure title={dict.routePlanner.templates.title}>
+        <Disclosure title={dict.routePlanner.templates.disclosureTitle}>
           <TemplatesStrip dict={dict} onLoad={loadTemplate} />
         </Disclosure>
       </div>

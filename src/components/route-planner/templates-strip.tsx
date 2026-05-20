@@ -36,7 +36,12 @@ export function TemplatesStrip({ dict, onLoad }: Props) {
   return (
     <section className="rounded-card border border-border bg-surface p-5">
       <header>
-        <h2 className="text-base font-semibold text-foreground">{t.title}</h2>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
+            {t.badge}
+          </span>
+          <h2 className="text-base font-semibold text-foreground">{t.title}</h2>
+        </div>
         <p className="mt-1 text-xs text-muted">{t.subtitle}</p>
       </header>
 

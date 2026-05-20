@@ -298,6 +298,7 @@
     "panelTitle": "您的行程",
     "empty": "请至少选择两座城市,以查看路线。",
     "endpoints": {
+      "badge": "自定义行程",
       "title": "起点与终点",
       "subtitle": "框定行程:起点与终点,中间城市自动排序。",
       "originLabel": "出发自",
@@ -424,8 +425,10 @@
       "open": "打开"
     },
     "templates": {
+      "badge": "灵感",
+      "disclosureTitle": "灵感行程",
       "title": "现成行程模板",
-      "subtitle": "六条经典线路,一键载入再自由调整。",
+      "subtitle": "六条独立线路,与当前路线无关。点击载入会覆盖正在编辑的行程。",
       "load": "载入",
       "items": {
         "cultural-north": {

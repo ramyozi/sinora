@@ -194,6 +194,10 @@
     "subtitle": "点击城市以添加,自由调整顺序。",
     "panelTitle": "您的行程",
     "empty": "请至少选择两座城市,以查看路线。",
+    "mapHint": {
+      "title": "点击城市",
+      "subtitle": "直接在地图上构建您的行程。"
+    },
     "totalsTitle": "总体估算",
     "totalDistance": "距离",
     "totalDuration": "时长",

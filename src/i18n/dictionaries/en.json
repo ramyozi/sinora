@@ -194,6 +194,10 @@
     "subtitle": "Click cities to add them, reorder at your own pace.",
     "panelTitle": "Your itinerary",
     "empty": "Select at least two cities to see your route appear.",
+    "mapHint": {
+      "title": "Click a city",
+      "subtitle": "Build your route directly from the map."
+    },
     "totalsTitle": "Estimated totals",
     "totalDistance": "Distance",
     "totalDuration": "Duration",

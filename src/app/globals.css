@@ -212,6 +212,69 @@ body {
   font-size: 10px;
 }
 
+/* Tooltip premium au survol d'un segment de la route. */
+.sinora-segment-popup .maplibregl-popup-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+.sinora-segment-popup .maplibregl-popup-tip {
+  border-top-color: var(--surface);
+}
+.sinora-segment-card {
+  min-width: 220px;
+  max-width: 280px;
+}
+.sinora-segment-card .head {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sinora-segment-card .arrow {
+  color: var(--accent);
+}
+.sinora-segment-card .row {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.sinora-segment-card .row .strong {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.sinora-segment-card .chips {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.sinora-segment-card .chip {
+  background: var(--surface-muted);
+  color: var(--foreground);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.sinora-segment-card .chip.warn {
+  background: rgba(216, 68, 58, 0.1);
+  color: var(--accent);
+}
+.sinora-segment-card .note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--foreground);
+  line-height: 1.4;
+}
+
 /* Respect des préférences de réduction de mouvement. */
 @media (prefers-reduced-motion: reduce) {
   *,

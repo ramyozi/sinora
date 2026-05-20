@@ -564,18 +564,33 @@
   },
   "footer": {
     "tagline": "Travel to China, made simple.",
+    "soon": "Soon",
     "columns": [
       {
         "title": "Discover",
-        "links": ["Destinations", "Itineraries", "Trains", "Events"]
+        "links": [
+          { "slug": "destinations", "label": "Destinations" },
+          { "slug": "route-planner", "label": "Itinerary" },
+          { "slug": "trains", "label": "Trains" },
+          { "slug": "events", "label": "Events" }
+        ]
       },
       {
         "title": "Prepare",
-        "links": ["Visa & paperwork", "eSIM & internet", "Apps", "Payments"]
+        "links": [
+          { "slug": "visa", "label": "Visa and paperwork" },
+          { "slug": "esim", "label": "eSIM and internet" },
+          { "slug": "apps", "label": "Apps" },
+          { "slug": "payments", "label": "Payments" }
+        ]
       },
       {
         "title": "Sinora",
-        "links": ["About", "Privacy", "Contact"]
+        "links": [
+          { "slug": "about", "label": "About" },
+          { "slug": "privacy", "label": "Privacy" },
+          { "slug": "contact", "label": "Contact" }
+        ]
       }
     ],
     "rights": "All rights reserved."

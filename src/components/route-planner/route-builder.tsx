@@ -9,12 +9,14 @@ import {
   densityFromBudget,
   durationAdvice,
   durationBudget,
+  niches,
   optimizeRouteOrder,
   peakWindowsRelevant,
   resolveRoute,
   routeTotalsResolved,
   scoreRoute,
   segmentsForRoute,
+  type NicheSlug,
   type TripDates as TripDatesValue,
 } from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
@@ -28,6 +30,7 @@ import type { RouteTemplate } from "@/data/routes/templates";
 import { bookingPlatformsForModes } from "@/data/routes/booking";
 import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
 import { Disclosure } from "@/components/ui/disclosure";
+import { NicheChips } from "./niche-chips";
 import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
@@ -72,7 +75,21 @@ export function RouteBuilder({
     start: null,
     end: null,
   });
+  const [niche, setNiche] = useState<NicheSlug | null>(null);
   const config = styleConfig[style];
+
+  // Application d'un preset niche : ecrase interests et style si fourni.
+  const applyNiche = useCallback(
+    (slug: NicheSlug | null) => {
+      setNiche(slug);
+      if (!slug) return;
+      const preset = niches.find((n) => n.slug === slug);
+      if (!preset) return;
+      setInterests(preset.interests);
+      if (preset.style) setStyle(preset.style);
+    },
+    [],
+  );
 
   const toggle = useCallback((slug: string) => {
     setSelected((prev) =>
@@ -215,6 +232,9 @@ export function RouteBuilder({
           onClear={clear}
         />
       </div>
+
+      {/* Presets niche : un clic suffit pour orienter les suggestions. */}
+      <NicheChips active={niche} onSelect={applyNiche} dict={dict} />
 
       {/* Reglages plieables sous la carte. */}
       <div className="grid gap-3 lg:grid-cols-3">

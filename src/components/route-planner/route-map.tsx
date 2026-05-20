@@ -5,8 +5,11 @@ import maplibregl, { type Map as MapLibreMap, type Marker } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { Locale } from "@/i18n/config";
 import type { City } from "@/data/cities";
+import { connections } from "@/data/routes";
 
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+const NETWORK_SOURCE = "sinora-network";
+const NETWORK_LAYER = "sinora-network-lines";
 const ROUTE_SOURCE = "sinora-route";
 const ROUTE_LAYER = "sinora-route-line";
 
@@ -52,7 +55,63 @@ export function RouteMap({ cities, locale, selectedOrder, onToggle }: Props) {
     );
     mapRef.current = map;
 
+    // Calque réseau : toutes les connexions du graphe, en transparence.
+    const cityBySlug = new Map(cities.map((c) => [c.slug, c]));
+    const networkFeatures = connections
+      .map((conn) => {
+        const from = cityBySlug.get(conn.from);
+        const to = cityBySlug.get(conn.to);
+        if (!from || !to) return null;
+        return {
+          type: "Feature" as const,
+          geometry: {
+            type: "LineString" as const,
+            coordinates: [
+              [from.coordinates.lng, from.coordinates.lat],
+              [to.coordinates.lng, to.coordinates.lat],
+            ],
+          },
+          properties: { mode: conn.mode },
+        };
+      })
+      .filter((f): f is NonNullable<typeof f> => f !== null);
+
     map.on("load", () => {
+      map.addSource(NETWORK_SOURCE, {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: networkFeatures },
+      });
+      // Vols en pointillés, train/HSR/bus en trait plein discret.
+      map.addLayer({
+        id: NETWORK_LAYER,
+        type: "line",
+        source: NETWORK_SOURCE,
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: {
+          "line-color": [
+            "match",
+            ["get", "mode"],
+            "flight",
+            "#c8943b",
+            "hsr",
+            "#9a9288",
+            "train",
+            "#9a9288",
+            "bus",
+            "#9a9288",
+            "#9a9288",
+          ],
+          "line-width": 1.4,
+          "line-opacity": 0.35,
+          "line-dasharray": [
+            "case",
+            ["==", ["get", "mode"], "flight"],
+            ["literal", [2, 3]],
+            ["literal", [1, 0]],
+          ],
+        },
+      });
+
       map.addSource(ROUTE_SOURCE, {
         type: "geojson",
         data: {

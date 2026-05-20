@@ -13,6 +13,8 @@ import {
   type TravelProfile,
 } from "@/data/routes/preferences";
 import type { RouteTemplate } from "@/data/routes/templates";
+import { bookingPlatformsForModes } from "@/data/routes/booking";
+import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
 import { ItineraryTimeline } from "./itinerary-timeline";
@@ -85,6 +87,17 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
   const totals = useMemo(() => routeTotals(selected), [selected]);
   const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
+  const routeModes = useMemo(
+    () =>
+      Array.from(
+        new Set(segments.filter((s) => s).map((s) => s!.mode)),
+      ),
+    [segments],
+  );
+  const bookingPlatforms = useMemo(
+    () => bookingPlatformsForModes(routeModes),
+    [routeModes],
+  );
 
   // Tag boost effectif : style + profil + restrictions + intérêts.
   const effectiveBoost = useMemo(
@@ -160,6 +173,13 @@ export function RouteBuilder({ cities, locale, dict }: Props) {
           cities={selectedCities}
           transport={totals}
           tier={config.tier}
+          locale={locale}
+          dict={dict}
+        />
+      )}
+      {selectedCities.length >= 2 && (
+        <BookingCards
+          platforms={bookingPlatforms}
           locale={locale}
           dict={dict}
         />

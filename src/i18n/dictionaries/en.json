@@ -306,6 +306,21 @@
       "desktop": "Use Ctrl + scroll to zoom",
       "mobile": "Use two fingers to move the map"
     },
+    "niches": {
+      "title": "Travel profile",
+      "hint": "One click to steer the suggestions.",
+      "items": {
+        "otaku": "Otaku / pop culture",
+        "nightlife": "Nightlife",
+        "spiritual": "Spiritual",
+        "calm": "Slow travel",
+        "luxury": "Luxury",
+        "backpacker": "Backpacker",
+        "nature": "Nature and trek",
+        "photography": "Photography",
+        "food-hunter": "Food hunter"
+      }
+    },
     "totalsTitle": "Estimated totals",
     "totalDistance": "Distance",
     "totalDuration": "Duration",

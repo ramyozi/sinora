@@ -38,6 +38,7 @@ export {
   peakWindowsRelevant,
   type PeakWindow,
 } from "./calendar";
+export { niches, type NichePreset, type NicheSlug } from "./niches";
 export {
   densityFromBudget,
   durationAdvice,

@@ -306,6 +306,21 @@
       "desktop": "按住 Ctrl 滚动缩放地图",
       "mobile": "用双指拖动地图"
     },
+    "niches": {
+      "title": "旅行风格",
+      "hint": "一键调整推荐方向。",
+      "items": {
+        "otaku": "二次元 / 流行文化",
+        "nightlife": "夜生活",
+        "spiritual": "心灵之旅",
+        "calm": "慢游",
+        "luxury": "奢华",
+        "backpacker": "背包客",
+        "nature": "自然徒步",
+        "photography": "摄影",
+        "food-hunter": "美食猎人"
+      }
+    },
     "totalsTitle": "总体估算",
     "totalDistance": "距离",
     "totalDuration": "时长",

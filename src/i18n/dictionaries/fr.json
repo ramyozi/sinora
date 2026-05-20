@@ -194,6 +194,10 @@
     "subtitle": "Cliquez sur les villes pour les ajouter, réordonnez à votre rythme.",
     "panelTitle": "Votre itinéraire",
     "empty": "Sélectionnez au moins deux villes pour voir votre route apparaître.",
+    "mapHint": {
+      "title": "Cliquez sur une ville",
+      "subtitle": "Composez votre itinéraire directement depuis la carte."
+    },
     "totalsTitle": "Estimation totale",
     "totalDistance": "Distance",
     "totalDuration": "Durée",

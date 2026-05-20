@@ -169,6 +169,8 @@ export function RouteMap({
       })
       .filter((f): f is NonNullable<typeof f> => f !== null);
 
+    let dashAnimationId: number | null = null;
+
     map.on("load", () => {
       map.addSource(NETWORK_SOURCE, {
         type: "geojson",
@@ -255,6 +257,38 @@ export function RouteMap({
           .setHTML(html)
           .addTo(map);
       });
+      // Flux de tirets animé sur la ligne d'itinéraire : effet "marche" Google Maps.
+      const dashSequence: [number, number, number, number][] = [
+        [0, 0.5, 3, 3.5],
+        [0, 1, 3, 3],
+        [0, 1.5, 3, 2.5],
+        [0, 2, 3, 2],
+        [0, 2.5, 3, 1.5],
+        [0, 3, 3, 1],
+        [0, 3.5, 3, 0.5],
+        [0, 4, 3, 0],
+        [0.5, 4, 2.5, 0],
+        [1, 4, 2, 0],
+        [1.5, 4, 1.5, 0],
+        [2, 4, 1, 0],
+        [2.5, 4, 0.5, 0],
+        [3, 4, 0, 0],
+      ];
+      let dashStep = -1;
+      const animate = (timestamp: number) => {
+        const next = Math.floor(timestamp / 70) % dashSequence.length;
+        if (next !== dashStep) {
+          map.setPaintProperty(
+            ROUTE_LAYER,
+            "line-dasharray",
+            dashSequence[next],
+          );
+          dashStep = next;
+        }
+        dashAnimationId = requestAnimationFrame(animate);
+      };
+      dashAnimationId = requestAnimationFrame(animate);
+
       map.on("mouseleave", ROUTE_LAYER, () => {
         map.getCanvas().style.cursor = "";
         activePopup?.remove();
@@ -300,6 +334,7 @@ export function RouteMap({
     }
 
     return () => {
+      if (dashAnimationId !== null) cancelAnimationFrame(dashAnimationId);
       markers.forEach((m) => m.remove());
       markers.clear();
       map.remove();
@@ -378,12 +413,29 @@ export function RouteMap({
     });
   }, [hoveredSlug]);
 
+  const showHint = selectedOrder.length === 0;
+
   return (
-    <div
-      ref={containerRef}
-      className="h-[60vh] w-full overflow-hidden rounded-card border border-border"
-      role="application"
-      aria-label="Carte interactive du Route Planner"
-    />
+    <div className="relative h-[60vh] w-full overflow-hidden rounded-card border border-border">
+      <div
+        ref={containerRef}
+        className="h-full w-full"
+        role="application"
+        aria-label="Carte interactive du Route Planner"
+      />
+      {showHint && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-full border border-border bg-background/90 px-4 py-2 text-center text-sm shadow-sm backdrop-blur"
+        >
+          <span className="font-medium text-foreground">
+            {dict.routePlanner.mapHint.title}
+          </span>
+          <span className="ml-2 text-muted">
+            {dict.routePlanner.mapHint.subtitle}
+          </span>
+        </div>
+      )}
+    </div>
   );
 }

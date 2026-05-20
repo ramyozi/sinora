@@ -35,6 +35,7 @@ import { events, type EventOccurrence, type SinoraEvent } from "@/data/events";
 import { Disclosure } from "@/components/ui/disclosure";
 import { EventOverlay } from "./event-overlay";
 import { NicheChips } from "./niche-chips";
+import { RouteEndpoints } from "./route-endpoints";
 
 // Distance haversine en km. Inline pour eviter une dependance supplementaire.
 function haversineKm(
@@ -144,7 +145,36 @@ export function RouteBuilder({
     end: initialDates?.end ?? null,
   });
   const [niche, setNiche] = useState<NicheSlug | null>(null);
+  const [originSlug, setOriginSlug] = useState<string | null>(null);
+  const [destinationSlug, setDestinationSlug] = useState<string | null>(null);
   const config = styleConfig[style];
+
+  // Maintient l'ordre [origin, ...intermediates, destination] dans `selected`.
+  // Si l'utilisateur change origin ou destination, on retire l'ancien endpoint
+  // de la liste et on insere le nouveau en bonne place.
+  const updateEndpoints = useCallback(
+    (newOrigin: string | null, newDestination: string | null) => {
+      setSelected((prev) => {
+        const middle = prev.filter(
+          (slug) =>
+            slug !== newOrigin &&
+            slug !== newDestination &&
+            slug !== originSlug &&
+            slug !== destinationSlug,
+        );
+        const next: string[] = [];
+        if (newOrigin) next.push(newOrigin);
+        next.push(...middle);
+        if (newDestination && newDestination !== newOrigin) {
+          next.push(newDestination);
+        }
+        return next;
+      });
+      setOriginSlug(newOrigin);
+      setDestinationSlug(newDestination);
+    },
+    [originSlug, destinationSlug],
+  );
 
   // Application d'un preset niche : ecrase interests et style si fourni.
   const applyNiche = useCallback(
@@ -350,7 +380,7 @@ export function RouteBuilder({
   const prefsSummary = `${dict.routePlanner.style.options[style]} · ${dict.routePlanner.preferences.profiles[profile]}`;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-w-0">
       {/* Carte centrale, immediatement visible above the fold. */}
       <div className="grid gap-4 lg:grid-cols-[1fr_22rem]">
         <RouteMap
@@ -378,6 +408,16 @@ export function RouteBuilder({
           onClear={clear}
         />
       </div>
+
+      {/* Origine et destination du voyage : encadrent les villes intermediaires. */}
+      <RouteEndpoints
+        cities={cities}
+        originSlug={originSlug}
+        destinationSlug={destinationSlug}
+        onChange={updateEndpoints}
+        locale={locale}
+        dict={dict}
+      />
 
       {/* Presets niche : un clic suffit pour orienter les suggestions. */}
       <NicheChips active={niche} onSelect={applyNiche} dict={dict} />

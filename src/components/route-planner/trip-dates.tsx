@@ -30,7 +30,7 @@ export function TripDates({ dates, onChange, totalDays, locale, dict }: Props) {
       </header>
       <p className="mt-1 text-xs text-muted">{td.subtitle}</p>
 
-      <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
+      <div className="mt-4 grid gap-3">
         <label className="block">
           <span className="block text-xs font-medium text-muted">
             {td.startLabel}

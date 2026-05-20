@@ -297,6 +297,14 @@
     "subtitle": "点击城市以添加,自由调整顺序。",
     "panelTitle": "您的行程",
     "empty": "请至少选择两座城市,以查看路线。",
+    "endpoints": {
+      "title": "起点与终点",
+      "subtitle": "框定行程:起点与终点,中间城市自动排序。",
+      "originLabel": "出发自",
+      "destinationLabel": "终点至",
+      "anyOrigin": "不指定起点",
+      "anyDestination": "不指定终点"
+    },
     "dates": {
       "title": "行程日期",
       "subtitle": "填写日期后,建议会按实际天数调整。",

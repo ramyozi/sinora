@@ -7,6 +7,7 @@ import type { City, CityTag } from "@/data/cities";
 import {
   assessRouteFatigue,
   optimizeRouteOrder,
+  peakWindowsRelevant,
   resolveRoute,
   routeTotalsResolved,
   scoreRoute,
@@ -28,6 +29,7 @@ import { ItineraryTimeline } from "./itinerary-timeline";
 import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
 import { RouteScoreCard } from "./route-score";
+import { TravelContextPanel } from "./travel-context";
 import { SuggestionsPanel } from "./suggestions-panel";
 import { TemplatesStrip } from "./templates-strip";
 
@@ -118,6 +120,15 @@ export function RouteBuilder({
     () => scoreRoute(selectedCities, resolved, fatigue),
     [selectedCities, resolved, fatigue],
   );
+  const peakAlerts = useMemo(() => {
+    const periods: ("golden-week" | "spring-festival" | "summer-peak" | "national-day")[] = [];
+    for (const seg of resolved) {
+      for (const conn of seg.connections) {
+        for (const p of conn.crowdedPeriods ?? []) periods.push(p);
+      }
+    }
+    return peakWindowsRelevant(periods, new Date());
+  }, [resolved]);
   const routeModes = useMemo(
     () =>
       Array.from(
@@ -192,6 +203,15 @@ export function RouteBuilder({
           locale={locale}
           dict={dict}
           onOptimize={selectedCities.length >= 3 ? optimize : undefined}
+        />
+      )}
+      {selectedCities.length > 0 && (
+        <TravelContextPanel
+          cities={selectedCities}
+          resolved={resolved}
+          peakAlerts={peakAlerts}
+          locale={locale}
+          dict={dict}
         />
       )}
       {recommendations.length > 0 && (

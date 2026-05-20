@@ -31,6 +31,13 @@ export {
   type RouteWarning,
   type RouteWarningKind,
 } from "./score";
+export {
+  isPeakDate,
+  peakWindows,
+  peakWindowsBetween,
+  peakWindowsRelevant,
+  type PeakWindow,
+} from "./calendar";
 
 // Connexions impliquant la ville donnée, peu importe le sens du graphe.
 export function getConnections(citySlug: string): Connection[] {

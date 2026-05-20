@@ -79,7 +79,7 @@ export function JournalOverview({
                 {label}
               </div>
               <div className="text-xl font-semibold text-foreground">
-                {hydrated ? value : "—"}
+                {hydrated ? value : "-"}
               </div>
             </div>
           </div>

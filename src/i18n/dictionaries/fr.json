@@ -216,6 +216,17 @@
       "subtitle": "Vue chronologique étape par étape.",
       "stay": "Séjour conseillé"
     },
+    "booking": {
+      "title": "Où réserver",
+      "subtitle": "Plateformes pertinentes pour les modes de transport de votre itinéraire.",
+      "contextLabels": {
+        "before-china": "Dès chez vous",
+        "in-china": "Une fois sur place",
+        "anytime": "Avant ou pendant"
+      },
+      "primary": "Recommandé",
+      "open": "Ouvrir"
+    },
     "templates": {
       "title": "Itinéraires prêts à partir",
       "subtitle": "Six trames crédibles à charger en un clic, puis à personnaliser.",

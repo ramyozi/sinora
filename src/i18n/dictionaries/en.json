@@ -216,6 +216,17 @@
       "subtitle": "Step-by-step chronological view.",
       "stay": "Recommended stay"
     },
+    "booking": {
+      "title": "Where to book",
+      "subtitle": "Platforms relevant to the transport modes of your itinerary.",
+      "contextLabels": {
+        "before-china": "From home",
+        "in-china": "Once on the ground",
+        "anytime": "Before or during"
+      },
+      "primary": "Recommended",
+      "open": "Open"
+    },
     "templates": {
       "title": "Ready-to-load itineraries",
       "subtitle": "Six credible templates — one click to load, then personalise.",

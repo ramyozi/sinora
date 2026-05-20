@@ -1,4 +1,5 @@
 import { connections } from "./connections";
+import { resolveRoute } from "./pathfinding";
 import type {
   Connection,
   FatigueAssessment,
@@ -17,6 +18,11 @@ export type {
   TransportMode,
 } from "./types";
 export { connections } from "./connections";
+export {
+  findShortestPath,
+  resolveRoute,
+  type ResolvedSegment,
+} from "./pathfinding";
 
 // Connexions impliquant la ville donnée, peu importe le sens du graphe.
 export function getConnections(citySlug: string): Connection[] {
@@ -89,5 +95,42 @@ export function routeTotals(cityOrder: string[]): RouteTotals {
     priceMin: present.reduce((sum, s) => sum + s.priceCNY[0], 0),
     priceMax: present.reduce((sum, s) => sum + s.priceCNY[1], 0),
     missingSegments: segments.length - present.length,
+  };
+}
+
+/**
+ * Totaux d'itinéraire enrichis : utilise le plus court chemin pour combler
+ * les sauts sans liaison directe, et expose le nombre de sauts indirects.
+ */
+export function routeTotalsResolved(cityOrder: string[]): RouteTotals & {
+  indirectSegments: number;
+} {
+  const resolved = resolveRoute(cityOrder);
+  let distanceKm = 0;
+  let durationHours = 0;
+  let priceMin = 0;
+  let priceMax = 0;
+  let missingSegments = 0;
+  let indirectSegments = 0;
+  for (const seg of resolved) {
+    if (seg.connections.length === 0) {
+      missingSegments += 1;
+      continue;
+    }
+    if (!seg.direct) indirectSegments += 1;
+    for (const c of seg.connections) {
+      distanceKm += c.distanceKm;
+      durationHours += c.durationHours;
+      priceMin += c.priceCNY[0];
+      priceMax += c.priceCNY[1];
+    }
+  }
+  return {
+    distanceKm,
+    durationHours,
+    priceMin,
+    priceMax,
+    missingSegments,
+    indirectSegments,
   };
 }

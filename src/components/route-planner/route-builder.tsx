@@ -4,7 +4,12 @@ import { useCallback, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
-import { assessRouteFatigue, routeTotals, segmentsForRoute } from "@/data/routes";
+import {
+  assessRouteFatigue,
+  resolveRoute,
+  routeTotalsResolved,
+  segmentsForRoute,
+} from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
 import { type RouteStyle, styleConfig } from "@/data/routes/style";
 import {
@@ -94,14 +99,15 @@ export function RouteBuilder({
   }, [selected, cities]);
 
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
-  const totals = useMemo(() => routeTotals(selected), [selected]);
+  const resolved = useMemo(() => resolveRoute(selected), [selected]);
+  const totals = useMemo(() => routeTotalsResolved(selected), [selected]);
   const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
   const routeModes = useMemo(
     () =>
       Array.from(
-        new Set(segments.filter((s) => s).map((s) => s!.mode)),
+        new Set(resolved.flatMap((r) => r.connections.map((c) => c.mode))),
       ),
-    [segments],
+    [resolved],
   );
   const bookingPlatforms = useMemo(
     () => bookingPlatformsForModes(routeModes),
@@ -150,10 +156,12 @@ export function RouteBuilder({
         <ItineraryPanel
           selected={selectedCities}
           segments={segments}
+          resolved={resolved}
           totals={totals}
           fatigue={fatigue}
           locale={locale}
           dict={dict}
+          cities={cities}
           onMoveUp={moveUp}
           onMoveDown={moveDown}
           onRemove={remove}

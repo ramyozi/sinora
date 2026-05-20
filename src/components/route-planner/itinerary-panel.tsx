@@ -7,6 +7,7 @@ import type { City } from "@/data/cities";
 import type {
   Connection,
   FatigueAssessment,
+  ResolvedSegment,
   RouteTotals,
 } from "@/data/routes";
 import { FatigueMeter } from "./fatigue-meter";
@@ -14,10 +15,13 @@ import { FatigueMeter } from "./fatigue-meter";
 interface Props {
   selected: City[];
   segments: (Connection | undefined)[];
-  totals: RouteTotals;
+  resolved: ResolvedSegment[];
+  totals: RouteTotals & { indirectSegments?: number };
   fatigue: FatigueAssessment;
   locale: Locale;
   dict: Dictionary;
+  /** Pour traduire les slugs en noms localisés dans les chemins indirects. */
+  cities: City[];
   onMoveUp: (slug: string) => void;
   onMoveDown: (slug: string) => void;
   onRemove: (slug: string) => void;
@@ -28,16 +32,19 @@ interface Props {
 export function ItineraryPanel({
   selected,
   segments,
+  resolved,
   totals,
   fatigue,
   locale,
   dict,
+  cities,
   onMoveUp,
   onMoveDown,
   onRemove,
   onClear,
 }: Props) {
   const rp = dict.routePlanner;
+  const cityNameMap = new Map(cities.map((c) => [c.slug, c.name[locale]]));
 
   return (
     <aside className="flex flex-col gap-4 rounded-card border border-border bg-surface p-5">
@@ -66,6 +73,19 @@ export function ItineraryPanel({
             const isFirst = idx === 0;
             const isLast = idx === selected.length - 1;
             const segment = !isLast ? segments[idx] : undefined;
+            const resolvedSeg = !isLast ? resolved[idx] : undefined;
+            const isIndirect =
+              resolvedSeg && !resolvedSeg.direct && resolvedSeg.connections.length > 0;
+            const viaCities: string[] = [];
+            if (isIndirect && resolvedSeg) {
+              let cursor = city.slug;
+              for (let i = 0; i < resolvedSeg.connections.length - 1; i++) {
+                const conn = resolvedSeg.connections[i];
+                const next = conn.from === cursor ? conn.to : conn.from;
+                viaCities.push(cityNameMap.get(next) ?? next);
+                cursor = next;
+              }
+            }
 
             return (
               <li key={city.slug}>
@@ -106,10 +126,36 @@ export function ItineraryPanel({
                   </div>
                 </div>
                 {!isLast && (
-                  <div className="ml-10 mt-2 text-xs text-muted">
-                    {segment
-                      ? `${segment.durationHours} ${rp.hours} · ${rp.modes[segment.mode]} · ${segment.priceCNY[0]}–${segment.priceCNY[1]} ${rp.cny}`
-                      : "—"}
+                  <div className="ml-10 mt-2 space-y-1 text-xs text-muted">
+                    {segment ? (
+                      <div>
+                        {segment.durationHours} {rp.hours} ·{" "}
+                        {rp.modes[segment.mode]} · {segment.priceCNY[0]}-
+                        {segment.priceCNY[1]} {rp.cny}
+                      </div>
+                    ) : isIndirect ? (
+                      <>
+                        <div className="font-medium text-foreground/80">
+                          {rp.viaLabel} {viaCities.join(" · ")}
+                        </div>
+                        <div>
+                          {resolvedSeg!.connections.reduce(
+                            (s, c) => s + c.durationHours,
+                            0,
+                          )}{" "}
+                          {rp.hours} ·{" "}
+                          {Array.from(
+                            new Set(
+                              resolvedSeg!.connections.map(
+                                (c) => rp.modes[c.mode],
+                              ),
+                            ),
+                          ).join(" + ")}
+                        </div>
+                      </>
+                    ) : (
+                      <div>-</div>
+                    )}
                   </div>
                 )}
               </li>
@@ -145,6 +191,9 @@ export function ItineraryPanel({
           </dl>
           {totals.missingSegments > 0 && (
             <p className="mt-3 text-xs text-muted">{rp.missingHint}</p>
+          )}
+          {totals.indirectSegments != null && totals.indirectSegments > 0 && (
+            <p className="mt-2 text-xs text-muted">{rp.indirectHint}</p>
           )}
         </div>
       )}

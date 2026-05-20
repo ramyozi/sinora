@@ -44,6 +44,100 @@ export const cities: City[] = [
     airport: "PEK",
     wikiTitle: "Beijing",
     featured: true,
+    identity: {
+      moods: ["imperial", "vibrant", "ancient"],
+      pace: "balanced",
+      food: [
+        {
+          name: { fr: "Canard laqué", en: "Peking duck", zh: "北京烤鸭" },
+          hint: {
+            fr: "Le plat signature, à goûter chez Da Dong ou Quanjude.",
+            en: "The signature dish: try Da Dong or Quanjude.",
+            zh: "招牌烤鸭,推荐大董或全聚德。",
+          },
+          emoji: "🦆",
+        },
+        {
+          name: { fr: "Jianbing", en: "Jianbing", zh: "煎饼" },
+          hint: {
+            fr: "Crêpe salée du petit-déjeuner, croustillante et chaude.",
+            en: "Savoury breakfast crepe, hot and crisp.",
+            zh: "早餐街边煎饼,酥脆热烫。",
+          },
+          emoji: "🥞",
+        },
+        {
+          name: { fr: "Zhajiangmian", en: "Zhajiangmian", zh: "炸酱面" },
+          hint: {
+            fr: "Nouilles fraîches et sauce soja noire, indémodables.",
+            en: "Fresh noodles with rich black bean sauce, a classic.",
+            zh: "鲜面配浓郁炸酱,经典老味。",
+          },
+          emoji: "🍜",
+        },
+      ],
+      mustExperience: [
+        {
+          fr: "Marcher sur la Grande Muraille au lever du soleil.",
+          en: "Walk the Great Wall at sunrise.",
+          zh: "在长城迎接日出。",
+        },
+        {
+          fr: "Se perdre dans les hutongs à vélo, un thé à la main.",
+          en: "Cycle through the hutongs with a tea in hand.",
+          zh: "骑车穿胡同,茶香相伴。",
+        },
+        {
+          fr: "Assister à un opéra de Pékin dans un théâtre traditionnel.",
+          en: "Catch a Peking opera in a traditional venue.",
+          zh: "在老戏楼欣赏一场京剧。",
+        },
+      ],
+      bestMoment: {
+        fr: "Fin avril à début juin et septembre-octobre, ciel net et soirées douces.",
+        en: "Late April to early June and September-October: clear skies, soft evenings.",
+        zh: "4 月底至 6 月初与 9-10 月,天空通透,夜风柔和。",
+      },
+      dayMoments: {
+        morning: {
+          fr: "Brume sur la Cité interdite, exercices de tai-chi au parc Jingshan.",
+          en: "Mist over the Forbidden City, tai chi at Jingshan park.",
+          zh: "紫禁城薄雾,景山公园的太极。",
+        },
+        afternoon: {
+          fr: "Thé et calligraphie dans les ruelles de Nanluoguxiang.",
+          en: "Tea and calligraphy in the Nanluoguxiang alleys.",
+          zh: "南锣鼓巷的茶与书法。",
+        },
+        evening: {
+          fr: "Sanlitun pour les rooftops, Wangfujing pour la street food.",
+          en: "Sanlitun for rooftops, Wangfujing for street food.",
+          zh: "三里屯天台,王府井小吃。",
+        },
+        night: {
+          fr: "Lampes rouges sur la Porte de la Paix céleste, silence imposant.",
+          en: "Red lanterns above Tiananmen Gate, a quiet grandeur.",
+          zh: "天安门红灯笼下的肃穆夜色。",
+        },
+      },
+      pitfalls: [
+        {
+          fr: "Sous-estimer la pollution en hiver : prévoir un masque FFP2.",
+          en: "Underestimating winter smog: bring an FFP2 mask.",
+          zh: "低估冬季雾霾,请备 FFP2 口罩。",
+        },
+        {
+          fr: "Réserver la Grande Muraille en haute saison : Mutianyu sature dès 10h.",
+          en: "Booking the Great Wall too late: Mutianyu fills up by 10am.",
+          zh: "长城预约要早,慕田峪 10 点已挤满。",
+        },
+        {
+          fr: "Croire qu'on visite la Cité interdite en 1h : compter 3h minimum.",
+          en: "Thinking the Forbidden City takes an hour: plan three minimum.",
+          zh: "别低估紫禁城,至少留三小时。",
+        },
+      ],
+    },
   },
   {
     slug: "shanghai",
@@ -90,6 +184,108 @@ export const cities: City[] = [
     airport: "PVG",
     wikiTitle: "Shanghai",
     featured: true,
+    identity: {
+      moods: ["electric", "futuristic", "vibrant"],
+      pace: "fast",
+      food: [
+        {
+          name: { fr: "Xiao long bao", en: "Xiao long bao", zh: "小笼包" },
+          hint: {
+            fr: "Raviolis soupe juteux, Din Tai Fung ou Jia Jia Tang Bao.",
+            en: "Juicy soup dumplings: Din Tai Fung or Jia Jia Tang Bao.",
+            zh: "鲜美汤包,鼎泰丰或佳家汤包。",
+          },
+          emoji: "🥟",
+        },
+        {
+          name: {
+            fr: "Sheng jian bao",
+            en: "Sheng jian bao",
+            zh: "生煎包",
+          },
+          hint: {
+            fr: "Pains poêlés croustillants, à manger debout au comptoir.",
+            en: "Pan-fried crispy buns, eaten standing at the counter.",
+            zh: "底脆的生煎包,站着吃最地道。",
+          },
+          emoji: "🥖",
+        },
+        {
+          name: {
+            fr: "Hairy crab",
+            en: "Hairy crab",
+            zh: "大闸蟹",
+          },
+          hint: {
+            fr: "Spécialité automnale, accompagnée d'un huangjiu chaud.",
+            en: "Autumn specialty, paired with warm huangjiu wine.",
+            zh: "秋日螃蟹配温黄酒。",
+          },
+          emoji: "🦀",
+        },
+      ],
+      mustExperience: [
+        {
+          fr: "Voir le Bund de nuit, façades coloniales contre skyline laser.",
+          en: "See the Bund at night: colonial facades against the laser skyline.",
+          zh: "夜游外滩,百年洋房与浦东天际线对望。",
+        },
+        {
+          fr: "Prendre un cocktail au sommet du Shanghai Tower.",
+          en: "Sip a cocktail on top of Shanghai Tower.",
+          zh: "在上海中心顶楼来杯鸡尾酒。",
+        },
+        {
+          fr: "Flâner dans la concession française au printemps.",
+          en: "Wander the French Concession in spring.",
+          zh: "春日漫步法租界。",
+        },
+      ],
+      bestMoment: {
+        fr: "Mars-mai pour la douceur, octobre-novembre pour l'air sec.",
+        en: "March-May for mild air, October-November for dry skies.",
+        zh: "3-5 月气候宜人,10-11 月空气干爽。",
+      },
+      dayMoments: {
+        morning: {
+          fr: "Cafés indépendants à Wukang Road, croissants chinois et latte.",
+          en: "Indie cafes on Wukang Road, Chinese croissants and lattes.",
+          zh: "武康路独立咖啡馆,牛角包配拿铁。",
+        },
+        afternoon: {
+          fr: "Promenade dans les jardins Yuyuan, thé à la maison de thé Huxinting.",
+          en: "Stroll Yu Garden, tea at Huxinting teahouse.",
+          zh: "豫园漫步,湖心亭品茶。",
+        },
+        evening: {
+          fr: "Bund Sightseeing Tunnel ou apéritif sur un rooftop de Xintiandi.",
+          en: "Bund Sightseeing Tunnel or rooftop drinks in Xintiandi.",
+          zh: "外滩观光隧道或新天地天台小酌。",
+        },
+        night: {
+          fr: "Lasers sur la Perle d'Orient, scooters silencieux et rues calmes.",
+          en: "Lasers on the Oriental Pearl, silent scooters, quieted streets.",
+          zh: "东方明珠的灯光,无声电瓶车,街巷静谧。",
+        },
+      },
+      pitfalls: [
+        {
+          fr: "Compter sur Google Maps : préférer Amap ou Baidu Maps.",
+          en: "Relying on Google Maps: use Amap or Baidu Maps instead.",
+          zh: "勿迷信谷歌地图,优先高德或百度。",
+        },
+        {
+          fr: "Sous-estimer les distances : le métro relie tout mais demande du temps.",
+          en: "Underestimating distances: the metro reaches everything but takes time.",
+          zh: "距离别低估,地铁四通八达但耗时。",
+        },
+        {
+          fr: "Visiter Yu Garden un dimanche : foule étouffante.",
+          en: "Visiting Yu Garden on a Sunday: oppressive crowds.",
+          zh: "周日豫园人潮汹涌。",
+        },
+      ],
+    },
   },
   {
     slug: "xian",
@@ -140,6 +336,104 @@ export const cities: City[] = [
     airport: "XIY",
     wikiTitle: "Xi'an",
     featured: true,
+    identity: {
+      moods: ["ancient", "spiritual", "imperial"],
+      pace: "balanced",
+      food: [
+        {
+          name: { fr: "Roujiamo", en: "Roujiamo", zh: "肉夹馍" },
+          hint: {
+            fr: "Burger chinois au porc braisé, le snack de rue ultime.",
+            en: "Chinese burger of braised pork: the ultimate street snack.",
+            zh: "酱肉夹馍,街头之王。",
+          },
+          emoji: "🍔",
+        },
+        {
+          name: {
+            fr: "Biang biang noodles",
+            en: "Biang biang noodles",
+            zh: "biangbiang 面",
+          },
+          hint: {
+            fr: "Larges nouilles plates, sauce piquante et vinaigre noir.",
+            en: "Wide flat noodles, chili sauce and black vinegar.",
+            zh: "宽扁面,辣油黑醋。",
+          },
+          emoji: "🍝",
+        },
+        {
+          name: { fr: "Yangrou paomo", en: "Yangrou paomo", zh: "羊肉泡馍" },
+          hint: {
+            fr: "Soupe d'agneau et pain effrité, plat des nuits froides.",
+            en: "Lamb soup with crumbled flatbread, perfect for cold nights.",
+            zh: "羊肉泡馍,寒夜暖身。",
+          },
+          emoji: "🍲",
+        },
+      ],
+      mustExperience: [
+        {
+          fr: "Faire du vélo sur les remparts Ming au coucher du soleil.",
+          en: "Cycle the Ming walls at sunset.",
+          zh: "傍晚骑车环城墙。",
+        },
+        {
+          fr: "Découvrir l'armée de terre cuite tôt le matin (avant les bus).",
+          en: "Visit the Terracotta Army early (before tour buses).",
+          zh: "清晨拜访兵马俑,避开旅游团。",
+        },
+        {
+          fr: "Manger halal dans le Muslim Quarter à la tombée de la nuit.",
+          en: "Eat halal in the Muslim Quarter at dusk.",
+          zh: "傍晚的回民街,清真小吃飘香。",
+        },
+      ],
+      bestMoment: {
+        fr: "Octobre offre des journées dorées et des soirées fraîches idéales.",
+        en: "October gives golden days and crisp evenings.",
+        zh: "10 月白日金黄,夜晚清爽。",
+      },
+      dayMoments: {
+        morning: {
+          fr: "Pagode de la Grande Oie, lumière douce et touristes encore absents.",
+          en: "Great Wild Goose Pagoda, soft light and few visitors yet.",
+          zh: "晨光的大雁塔,游客未至。",
+        },
+        afternoon: {
+          fr: "Calligraphes et libraires dans la Forest of Stelae.",
+          en: "Calligraphers and bookshops near the Forest of Stelae.",
+          zh: "碑林博物馆周边的书法与古籍。",
+        },
+        evening: {
+          fr: "Muslim Quarter, fumée de brochettes et lampions colorés.",
+          en: "Muslim Quarter, smoke from skewers, coloured lanterns.",
+          zh: "回民街烟火气与彩灯。",
+        },
+        night: {
+          fr: "Tour de la Cloche illuminée, vélo le long des remparts.",
+          en: "Lit Bell Tower, late ride along the walls.",
+          zh: "钟楼夜灯,城墙骑行。",
+        },
+      },
+      pitfalls: [
+        {
+          fr: "Acheter les billets de l'armée de terre cuite sur place : queue d'une heure.",
+          en: "Buying Terracotta Army tickets on site: an hour queue.",
+          zh: "现场购票兵马俑,排队一小时。",
+        },
+        {
+          fr: "Confondre Muslim Quarter et touristique : les vraies adresses sont en retrait.",
+          en: "Confusing Muslim Quarter for touristy: real spots are tucked away.",
+          zh: "回民街别只走主街,深巷才有真味。",
+        },
+        {
+          fr: "Sous-estimer la fraîcheur des soirées d'automne.",
+          en: "Underestimating autumn evening chill.",
+          zh: "低估秋夜寒意。",
+        },
+      ],
+    },
   },
   {
     slug: "chengdu",
@@ -186,6 +480,100 @@ export const cities: City[] = [
     airport: "CTU",
     wikiTitle: "Chengdu",
     featured: true,
+    identity: {
+      moods: ["cozy", "spicy", "contemplative"],
+      pace: "slow",
+      food: [
+        {
+          name: { fr: "Hotpot", en: "Hotpot", zh: "火锅" },
+          hint: {
+            fr: "Bouillon piquant rouge feu, soirée garantie chez Shu Jiu Xiang.",
+            en: "Fiery red broth: try Shu Jiu Xiang for a memorable night.",
+            zh: "麻辣红汤,推荐蜀九香。",
+          },
+          emoji: "🌶️",
+        },
+        {
+          name: { fr: "Mapo tofu", en: "Mapo tofu", zh: "麻婆豆腐" },
+          hint: {
+            fr: "Tofu soyeux dans une sauce poivre du Sichuan, plat signature.",
+            en: "Silky tofu in Sichuan pepper sauce: the signature dish.",
+            zh: "嫩豆腐入麻辣酱,正宗川味。",
+          },
+          emoji: "🍛",
+        },
+        {
+          name: { fr: "Dan dan noodles", en: "Dan dan noodles", zh: "担担面" },
+          hint: {
+            fr: "Nouilles fines, sauce sésame et porc émincé, simple et addictif.",
+            en: "Thin noodles, sesame sauce, minced pork: simple and addictive.",
+            zh: "细面配芝麻肉末,简单上瘾。",
+          },
+          emoji: "🍜",
+        },
+      ],
+      mustExperience: [
+        {
+          fr: "Voir les pandas géants à Dujiangyan tôt le matin.",
+          en: "See the giant pandas at Dujiangyan early morning.",
+          zh: "清晨去都江堰看大熊猫。",
+        },
+        {
+          fr: "Prendre le thé dans le parc du Peuple, ambiance locale.",
+          en: "Take tea at People's Park: pure local atmosphere.",
+          zh: "在人民公园喝茶,纯正本地味。",
+        },
+        {
+          fr: "Goûter au mala lorsqu'il pleut : c'est encore meilleur.",
+          en: "Eat mala in the rain: it tastes even better.",
+          zh: "雨天吃麻辣,更过瘾。",
+        },
+      ],
+      bestMoment: {
+        fr: "Mars-mai et septembre-novembre. Évitez le bouillonnant été humide.",
+        en: "March-May and September-November. Skip the muggy summers.",
+        zh: "3-5 月与 9-11 月最佳,夏季湿热可避。",
+      },
+      dayMoments: {
+        morning: {
+          fr: "Tai-chi dans Wenshu Temple, encens et silence.",
+          en: "Tai chi at Wenshu Temple, incense and quiet.",
+          zh: "文殊院晨练,香烟缭绕。",
+        },
+        afternoon: {
+          fr: "Quartiers Kuan et Zhai, snacks et démonstrations de visages changeants.",
+          en: "Kuan and Zhai alleys, snacks and face-changing shows.",
+          zh: "宽窄巷子小吃与变脸表演。",
+        },
+        evening: {
+          fr: "Jinli Street au crépuscule, lampions et calligraphes.",
+          en: "Jinli Street at dusk, lanterns and calligraphers.",
+          zh: "锦里黄昏,灯笼与书法。",
+        },
+        night: {
+          fr: "Hotpot tardif sur Jiuyanqiao, scooters et néons sur la rivière.",
+          en: "Late-night hotpot on Jiuyanqiao, scooters and neons by the river.",
+          zh: "九眼桥夜火锅,电瓶车与霓虹。",
+        },
+      },
+      pitfalls: [
+        {
+          fr: "Prévoir une seule journée pandas : ajouter Dujiangyan vaut la peine.",
+          en: "Planning a single panda day: Dujiangyan deserves its own trip.",
+          zh: "熊猫只安排一日太赶,都江堰值得加一天。",
+        },
+        {
+          fr: "Demander un hotpot 'pas trop épicé' : précisez le niveau exact.",
+          en: "Ordering hotpot 'not too spicy': specify the exact level.",
+          zh: "火锅别只说不太辣,要标明具体等级。",
+        },
+        {
+          fr: "Sous-estimer l'humidité : le tonneau de bain de la maison de thé est culte.",
+          en: "Underestimating humidity: the teahouse foot soak is iconic.",
+          zh: "低估湿气,茶馆泡脚很经典。",
+        },
+      ],
+    },
   },
   {
     slug: "guilin",

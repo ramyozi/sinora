@@ -12,6 +12,7 @@ import { CityFacts } from "@/components/destinations/city-facts";
 import { CityGallery } from "@/components/destinations/city-gallery";
 import { CityHero } from "@/components/destinations/city-hero";
 import { CityHighlights } from "@/components/destinations/city-highlights";
+import { CityIdentitySection } from "@/components/destinations/city-identity";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
 import { CityMap } from "@/components/destinations/city-map";
 import { WeatherCard } from "@/components/destinations/weather-card";
@@ -104,6 +105,8 @@ export default async function CityPage({
         </section>
 
         <CityHighlights city={city} locale={locale} dict={dict} />
+
+        <CityIdentitySection city={city} locale={locale} dict={dict} />
 
         <CityGallery images={gallery} title={city.name[locale]} dict={dict} />
       </Container>

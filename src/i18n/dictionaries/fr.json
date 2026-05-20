@@ -134,6 +134,39 @@
     "imageCredit": "Photo : Wikipedia",
     "galleryLabel": "En images",
     "galleryCredit": "Sélection d'images Wikipedia pour {topic}.",
+    "identity": {
+      "title": "Identité de la ville",
+      "subtitle": "Ce qui rend chaque destination unique.",
+      "moodsLabel": "Ambiances",
+      "paceLabel": "Rythme",
+      "bestMomentLabel": "Meilleur moment",
+      "experiencesLabel": "À vivre absolument",
+      "dayMomentsLabel": "Au fil de la journée",
+      "pitfallsLabel": "Erreurs à éviter",
+      "moods": {
+        "electric": "Électrique",
+        "contemplative": "Contemplative",
+        "imperial": "Impériale",
+        "vibrant": "Vibrante",
+        "spiritual": "Spirituelle",
+        "wild": "Sauvage",
+        "cozy": "Cocon",
+        "spicy": "Piquante",
+        "ancient": "Antique",
+        "futuristic": "Futuriste"
+      },
+      "paces": {
+        "slow": "Slow travel",
+        "balanced": "Équilibré",
+        "fast": "Énergique"
+      },
+      "moments": {
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soirée",
+        "night": "Nuit"
+      }
+    },
     "addToPlanner": "Ajouter à mon itinéraire",
     "filters": {
       "region": "Région",

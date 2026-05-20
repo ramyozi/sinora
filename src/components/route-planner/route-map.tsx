@@ -238,6 +238,20 @@ export function RouteMap({
     } else {
       map.once("load", updateLine);
     }
+
+    // Recadrage souple sur l'itinéraire courant dès qu'il y a au moins
+    // une ville sélectionnée. Ignoré si l'itinéraire est vide.
+    if (coordinates.length >= 1) {
+      const bounds = coordinates.reduce(
+        (acc, c) => acc.extend(c),
+        new maplibregl.LngLatBounds(coordinates[0], coordinates[0]),
+      );
+      map.fitBounds(bounds, {
+        padding: 80,
+        maxZoom: 7,
+        duration: 600,
+      });
+    }
   }, [selectedOrder, cities]);
 
   return (

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BookHeart, MapPinned, NotebookPen, Sparkles, Heart } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { City } from "@/data/cities";
 import { localizedPath } from "@/lib/navigation";
 import {
   useJournalHydrated,
@@ -11,6 +12,7 @@ import {
 } from "@/features/travel-journal";
 import { QuickNoteForm } from "./quick-note-form";
 import { JournalNotesList } from "./journal-notes-list";
+import { JournalTripsList } from "./journal-trips-list";
 
 // Vue principale du carnet : header chaleureux, stats, et bloc notes rapide
 // pour valider la persistence end-to-end. Le reste arrivera dans les PRs
@@ -18,9 +20,11 @@ import { JournalNotesList } from "./journal-notes-list";
 export function JournalOverview({
   locale,
   dict,
+  cities,
 }: {
   locale: Locale;
   dict: Dictionary;
+  cities: City[];
 }) {
   const hydrated = useJournalHydrated();
   const trips = useJournalStore((s) => s.trips);
@@ -120,8 +124,13 @@ export function JournalOverview({
         </section>
       )}
 
-      {/* Section notes : utilisee comme preuve-de-vie de la persistence en
-          PR1. Ajout d'une note + reload = la note doit etre toujours la. */}
+      {/* Liste des voyages sauvegardes : ne s'affiche que si on a au moins
+          un trip dans le carnet, sinon l'empty state au-dessus prend la place. */}
+      {hydrated && trips.length > 0 && (
+        <JournalTripsList locale={locale} dict={dict} cities={cities} />
+      )}
+
+      {/* Section notes : capture rapide d'idees / phrases / adresses. */}
       <section
         id="quick-note"
         className="rounded-card border border-border bg-surface p-5 sm:p-6"

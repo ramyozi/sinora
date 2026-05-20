@@ -406,6 +406,25 @@
     "remove": "Remove",
     "clear": "Clear all",
     "loopReturn": "Back to",
+    "saveToJournal": {
+      "label": "Save to my journal",
+      "updateLabel": "Update journal entry",
+      "title": "Save this trip",
+      "updateTitle": "Update this trip",
+      "defaultName": "My China trip",
+      "nameLabel": "Trip name",
+      "namePlaceholder": "e.g. First time in China",
+      "budgetLabel": "Planned budget (CNY)",
+      "budgetPlaceholder": "Optional",
+      "citiesShort": "cities",
+      "submit": "Save",
+      "updateSubmit": "Update",
+      "cancel": "Cancel",
+      "saved": "Trip saved",
+      "savedHint": "Find it anytime in your journal.",
+      "openJournal": "Open journal",
+      "continue": "Keep planning"
+    },
     "modes": {
       "hsr": "HSR",
       "train": "Train",
@@ -943,7 +962,23 @@
     },
     "trips": {
       "title": "Saved trips",
-      "subtitle": "Pick up planning where you left off."
+      "subtitle": "Pick up planning where you left off.",
+      "resume": "Resume",
+      "duplicate": "Duplicate",
+      "archive": "Archive",
+      "unarchive": "Restore",
+      "remove": "Delete",
+      "removeConfirm": "Permanently delete this trip? Linked notes and expenses will be erased.",
+      "confirmRemove": "Yes, delete",
+      "cancel": "Cancel",
+      "actionsMenu": "Trip actions",
+      "budgetLabel": "Planned budget"
+    },
+    "tripStatuses": {
+      "planning": "Planning",
+      "ongoing": "Ongoing",
+      "completed": "Completed",
+      "archived": "Archived"
     },
     "notes": {
       "title": "Quick notes",

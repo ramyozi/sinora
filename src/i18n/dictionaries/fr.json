@@ -564,18 +564,33 @@
   },
   "footer": {
     "tagline": "Voyager en Chine, simplement.",
+    "soon": "Bientôt",
     "columns": [
       {
         "title": "Découvrir",
-        "links": ["Destinations", "Séjours", "Trains", "Événements"]
+        "links": [
+          { "slug": "destinations", "label": "Destinations" },
+          { "slug": "route-planner", "label": "Itinéraire" },
+          { "slug": "trains", "label": "Trains" },
+          { "slug": "events", "label": "Événements" }
+        ]
       },
       {
         "title": "Préparer",
-        "links": ["Visa & formalités", "eSIM & internet", "Applications", "Paiements"]
+        "links": [
+          { "slug": "visa", "label": "Visa et formalités" },
+          { "slug": "esim", "label": "eSIM et internet" },
+          { "slug": "apps", "label": "Applications" },
+          { "slug": "payments", "label": "Paiements" }
+        ]
       },
       {
         "title": "Sinora",
-        "links": ["À propos", "Confidentialité", "Contact"]
+        "links": [
+          { "slug": "about", "label": "À propos" },
+          { "slug": "privacy", "label": "Confidentialité" },
+          { "slug": "contact", "label": "Contact" }
+        ]
       }
     ],
     "rights": "Tous droits réservés."

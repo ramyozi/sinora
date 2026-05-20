@@ -20,7 +20,6 @@ export function Header({
   const links = [
     { label: dict.nav.destinations, href: localizedPath("/destinations", locale) },
     { label: dict.nav.prepare, href: localizedPath("/preparer", locale) },
-    { label: dict.nav.trains, href: "#features" },
     { label: dict.nav.trips, href: localizedPath("/route-planner", locale) },
   ];
 
@@ -33,24 +32,18 @@ export function Header({
         <Logo locale={locale} />
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((link) =>
-            link.href.startsWith("#") ? (
-              <a key={link.href} href={link.href} className={linkClass}>
-                {link.label}
-              </a>
-            ) : (
-              <Link key={link.href} href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            ),
-          )}
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <LocaleSwitcher current={locale} />
           <ButtonLink
-            href={localizedPath("/", locale)}
+            href={localizedPath("/route-planner", locale)}
             size="sm"
             className="hidden md:inline-flex"
           >

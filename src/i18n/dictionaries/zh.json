@@ -564,18 +564,33 @@
   },
   "footer": {
     "tagline": "轻松游中国。",
+    "soon": "即将推出",
     "columns": [
       {
         "title": "探索",
-        "links": ["目的地", "行程", "高铁", "活动"]
+        "links": [
+          { "slug": "destinations", "label": "目的地" },
+          { "slug": "route-planner", "label": "行程" },
+          { "slug": "trains", "label": "高铁" },
+          { "slug": "events", "label": "活动" }
+        ]
       },
       {
         "title": "准备",
-        "links": ["签证与手续", "eSIM 与网络", "应用", "支付"]
+        "links": [
+          { "slug": "visa", "label": "签证与手续" },
+          { "slug": "esim", "label": "eSIM 与网络" },
+          { "slug": "apps", "label": "应用" },
+          { "slug": "payments", "label": "支付" }
+        ]
       },
       {
         "title": "Sinora",
-        "links": ["关于", "隐私", "联系"]
+        "links": [
+          { "slug": "about", "label": "关于" },
+          { "slug": "privacy", "label": "隐私" },
+          { "slug": "contact", "label": "联系" }
+        ]
       }
     ],
     "rights": "保留所有权利。"

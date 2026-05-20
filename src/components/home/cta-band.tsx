@@ -29,7 +29,7 @@ export function CtaBand({
               {dict.cta.subtitle}
             </p>
             <div className="mt-8 flex justify-center">
-              <ButtonLink href={localizedPath("/", locale)} size="lg">
+              <ButtonLink href={localizedPath("/route-planner", locale)} size="lg">
                 {dict.cta.button}
                 <ArrowRight className="size-4" />
               </ButtonLink>

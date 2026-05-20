@@ -1,7 +1,27 @@
+import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { localizedPath } from "@/lib/navigation";
 import { Container } from "@/components/ui/container";
 import { Logo } from "./logo";
+
+// Mapping slug vers route. null signifie module non encore livré (badge Bientôt).
+const slugToPath: Record<string, string | null> = {
+  destinations: "/destinations",
+  "route-planner": "/route-planner",
+  trains: null,
+  events: null,
+  visa: "/preparer/visa",
+  esim: "/preparer/apps",
+  apps: "/preparer/apps",
+  payments: "/preparer/budget",
+  about: null,
+  privacy: null,
+  contact: null,
+};
+
+const itemClass =
+  "text-sm text-muted transition-colors hover:text-foreground";
 
 // Pied de page : marque, colonnes de liens et mentions.
 export function Footer({
@@ -28,13 +48,34 @@ export function Footer({
                 {column.title}
               </h3>
               <ul className="space-y-2">
-                {column.links.map((link) => (
-                  <li key={link}>
-                    <span className="cursor-default text-sm text-muted transition-colors hover:text-foreground">
-                      {link}
-                    </span>
-                  </li>
-                ))}
+                {column.links.map((link) => {
+                  const path = slugToPath[link.slug];
+                  if (path) {
+                    return (
+                      <li key={link.slug}>
+                        <Link
+                          href={localizedPath(path, locale)}
+                          className={itemClass}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    );
+                  }
+                  return (
+                    <li
+                      key={link.slug}
+                      className="flex items-center gap-2"
+                    >
+                      <span className="cursor-default text-sm text-muted/70">
+                        {link.label}
+                      </span>
+                      <span className="rounded-full bg-surface-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted">
+                        {dict.footer.soon}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

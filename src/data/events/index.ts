@@ -1,4 +1,9 @@
-import { events } from "./dataset";
+import { events as core } from "./dataset";
+import { eventsAdditions } from "./dataset-additions";
+import {
+  registerEventProvider,
+  StaticEventProvider,
+} from "./provider";
 import type { EventOccurrence, SinoraEvent } from "./types";
 
 export type {
@@ -7,9 +12,26 @@ export type {
   EventOccurrence,
   EventPriority,
   EventTravelImpact,
+  EventSource,
+  EventExternalLink,
   SinoraEvent,
 } from "./types";
-export { events } from "./dataset";
+
+// Catalogue complet : noyau initial + expansion massive M4.1 PR2.
+export const events: SinoraEvent[] = [...core, ...eventsAdditions];
+
+// Auto-enregistrement du provider statique avec le catalogue complet.
+// Les futurs providers (API) s'ajoutent via registerEventProvider.
+registerEventProvider(new StaticEventProvider(events));
+
+export {
+  fetchGlobalEvents,
+  fetchCityEvents,
+  normalizeEvents,
+  registerEventProvider,
+  StaticEventProvider,
+  type EventProvider,
+} from "./provider";
 
 export function getAllEvents(): SinoraEvent[] {
   return events;

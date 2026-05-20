@@ -29,6 +29,13 @@ export interface EventOccurrence {
   end: string;
 }
 
+export type EventSource = "static" | "wikipedia" | "community" | "api";
+
+export interface EventExternalLink {
+  kind: "official" | "tickets" | "wiki" | "social";
+  url: string;
+}
+
 export interface SinoraEvent {
   slug: string;
   title: LocalizedText;
@@ -48,8 +55,23 @@ export interface SinoraEvent {
   recommendedStayExtensionDays: number;
   /** Article Wikipedia pour la photo de presentation. */
   wikiTitle?: string;
+  /** URL d'image directe (utilise quand wikiTitle est absent). */
+  imageUrl?: string;
   /** Occurrences connues (anneees specifiques). Au moins 2026 et 2027. */
   occurrences: EventOccurrence[];
   /** Tags emotionnels pour filtrage niche. */
   niche?: string[];
+
+  // ===== Enrichissement M4.1 PR2 =====
+
+  /** Liens externes (site officiel, billetterie, etc.). */
+  externalLinks?: EventExternalLink[];
+  /** Source de l'entree pour ingestion future. */
+  source?: EventSource;
+  /** Date de derniere mise a jour de l'entree (ISO). */
+  lastUpdated?: string;
+  /** Score de popularite estime, 0-100. */
+  popularityScore?: number;
+  /** True si verifie par l'equipe editoriale. */
+  isVerified?: boolean;
 }

@@ -413,12 +413,29 @@ export function RouteMap({
     });
   }, [hoveredSlug]);
 
+  const showHint = selectedOrder.length === 0;
+
   return (
-    <div
-      ref={containerRef}
-      className="h-[60vh] w-full overflow-hidden rounded-card border border-border"
-      role="application"
-      aria-label="Carte interactive du Route Planner"
-    />
+    <div className="relative h-[60vh] w-full overflow-hidden rounded-card border border-border">
+      <div
+        ref={containerRef}
+        className="h-full w-full"
+        role="application"
+        aria-label="Carte interactive du Route Planner"
+      />
+      {showHint && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-full border border-border bg-background/90 px-4 py-2 text-center text-sm shadow-sm backdrop-blur"
+        >
+          <span className="font-medium text-foreground">
+            {dict.routePlanner.mapHint.title}
+          </span>
+          <span className="ml-2 text-muted">
+            {dict.routePlanner.mapHint.subtitle}
+          </span>
+        </div>
+      )}
+    </div>
   );
 }

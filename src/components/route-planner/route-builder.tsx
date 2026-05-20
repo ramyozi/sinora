@@ -27,6 +27,7 @@ import {
 import type { RouteTemplate } from "@/data/routes/templates";
 import { bookingPlatformsForModes } from "@/data/routes/booking";
 import type { CityContextSnapshot } from "@/lib/api/providers/city-context";
+import { Disclosure } from "@/components/ui/disclosure";
 import { BookingCards } from "./booking-cards";
 import { BudgetEstimate } from "./budget-estimate";
 import { ItineraryPanel } from "./itinerary-panel";
@@ -179,28 +180,16 @@ export function RouteBuilder({
     [selected, cities, effectiveBoost, config.suggestionLimit],
   );
 
+  // Resume affiche en mode plie pour chaque section repliable.
+  const datesSummary = budget.totalDays
+    ? `${budget.totalDays} ${dict.routePlanner.dates.daysShort}`
+    : dict.routePlanner.dates.pending;
+  const prefsSummary = `${dict.routePlanner.style.options[style]} · ${dict.routePlanner.preferences.profiles[profile]}`;
+
   return (
     <div className="space-y-6">
-      <TripDates
-        dates={tripDates}
-        onChange={setTripDates}
-        totalDays={budget.totalDays}
-        locale={locale}
-        dict={dict}
-      />
-      <TemplatesStrip dict={dict} onLoad={loadTemplate} />
-      <PreferencesPanel
-        style={style}
-        profile={profile}
-        diet={diet}
-        interests={interests}
-        onStyleChange={setStyle}
-        onProfileChange={setProfile}
-        onDietChange={setDiet}
-        onInterestsChange={setInterests}
-        dict={dict}
-      />
-      <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
+      {/* Carte centrale, immediatement visible above the fold. */}
+      <div className="grid gap-4 lg:grid-cols-[1fr_22rem]">
         <RouteMap
           cities={cities}
           locale={locale}
@@ -225,6 +214,41 @@ export function RouteBuilder({
           onRemove={remove}
           onClear={clear}
         />
+      </div>
+
+      {/* Reglages plieables sous la carte. */}
+      <div className="grid gap-3 lg:grid-cols-3">
+        <Disclosure
+          title={dict.routePlanner.dates.title}
+          summary={datesSummary}
+        >
+          <TripDates
+            dates={tripDates}
+            onChange={setTripDates}
+            totalDays={budget.totalDays}
+            locale={locale}
+            dict={dict}
+          />
+        </Disclosure>
+        <Disclosure
+          title={dict.routePlanner.preferences.title}
+          summary={prefsSummary}
+        >
+          <PreferencesPanel
+            style={style}
+            profile={profile}
+            diet={diet}
+            interests={interests}
+            onStyleChange={setStyle}
+            onProfileChange={setProfile}
+            onDietChange={setDiet}
+            onInterestsChange={setInterests}
+            dict={dict}
+          />
+        </Disclosure>
+        <Disclosure title={dict.routePlanner.templates.title}>
+          <TemplatesStrip dict={dict} onLoad={loadTemplate} />
+        </Disclosure>
       </div>
       {score && (
         <RouteScoreCard

@@ -1717,4 +1717,104 @@ export const cities: City[] = [
     wikiTitle: "Lhasa",
     featured: false,
   },
+  {
+    slug: "zhangjiajie",
+    name: { fr: "Zhangjiajie", en: "Zhangjiajie", zh: "张家界" },
+    region: "centre",
+    coordinates: { lat: 29.117, lng: 110.479 },
+    population: 1.5,
+    bestSeasons: ["printemps", "automne"],
+    budgetTier: "modere",
+    recommendedStay: [2, 3],
+    tags: ["nature", "panorama", "aventure"],
+    tagline: {
+      fr: "Piliers de grès et brumes du Wulingyuan",
+      en: "Sandstone pillars and Wulingyuan mists",
+      zh: "武陵源砂岩石柱与云海",
+    },
+    summary: {
+      fr: "Le parc national de Zhangjiajie a inspiré les montagnes flottantes d'Avatar. Sentiers vertigineux, téléphérique et pont de verre.",
+      en: "Zhangjiajie National Forest Park inspired Avatar's floating mountains. Vertiginous trails, cable cars and glass bridge.",
+      zh: "张家界国家森林公园,《阿凡达》悬浮山的灵感地。栈道、索道与玻璃桥。",
+    },
+    highlights: [
+      {
+        name: {
+          fr: "Pilier Avatar Hallelujah",
+          en: "Avatar Hallelujah Mountain",
+          zh: "阿凡达哈利路亚山",
+        },
+        kind: "nature",
+      },
+      {
+        name: {
+          fr: "Pont de verre du Grand Canyon",
+          en: "Glass Bridge",
+          zh: "大峡谷玻璃桥",
+        },
+        kind: "nature",
+      },
+      {
+        name: {
+          fr: "Mont Tianzi",
+          en: "Tianzi Mountain",
+          zh: "天子山",
+        },
+        kind: "nature",
+      },
+    ],
+    airport: "DYG",
+    wikiTitle: "Zhangjiajie National Forest Park",
+    featured: false,
+  },
+  {
+    slug: "fenghuang",
+    name: { fr: "Fenghuang", en: "Fenghuang", zh: "凤凰古城" },
+    region: "centre",
+    coordinates: { lat: 27.948, lng: 109.594 },
+    population: 0.37,
+    bestSeasons: ["printemps", "automne"],
+    budgetTier: "eco",
+    recommendedStay: [1, 2],
+    tags: ["culture", "histoire", "panorama"],
+    tagline: {
+      fr: "Cité ancienne au bord de la rivière Tuojiang",
+      en: "Ancient town along the Tuojiang river",
+      zh: "沱江畔的湘西古城",
+    },
+    summary: {
+      fr: "Maisons sur pilotis Miao, ruelles pavées, lampions le soir. La nuit, la rivière reflète les façades comme une scène de film.",
+      en: "Miao stilt houses, cobbled lanes, lanterns at night. The river mirrors the facades like a film set.",
+      zh: "苗族吊脚楼,石板小巷,夜晚灯笼倒映河面如电影场景。",
+    },
+    highlights: [
+      {
+        name: {
+          fr: "Tour Nord (Beimen)",
+          en: "North Gate Tower",
+          zh: "北门城楼",
+        },
+        kind: "monument",
+      },
+      {
+        name: {
+          fr: "Ponts de pierre Tuojiang",
+          en: "Tuojiang stone bridges",
+          zh: "沱江跳岩",
+        },
+        kind: "monument",
+      },
+      {
+        name: {
+          fr: "Ruelles anciennes",
+          en: "Old town alleys",
+          zh: "古城小巷",
+        },
+        kind: "quartier",
+      },
+    ],
+    airport: "DYG",
+    wikiTitle: "Fenghuang County",
+    featured: false,
+  },
 ];

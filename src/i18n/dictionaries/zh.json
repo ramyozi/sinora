@@ -216,6 +216,22 @@
       "subtitle": "按步骤的时间线视图。",
       "stay": "建议停留"
     },
+    "preferences": {
+      "title": "偏好设置",
+      "subtitle": "微调旅程 — 每个选项都影响推荐。",
+      "profileTitle": "出行人",
+      "dietTitle": "饮食限制",
+      "interestsTitle": "兴趣",
+      "profiles": {
+        "solo": "独行",
+        "couple": "情侣",
+        "family": "家庭",
+        "group": "团队"
+      },
+      "diet": {
+        "halal": "清真"
+      }
+    },
     "style": {
       "title": "旅行风格",
       "subtitle": "选择风格,预算与建议随之调整。",

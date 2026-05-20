@@ -216,6 +216,22 @@
       "subtitle": "Vue chronologique étape par étape.",
       "stay": "Séjour conseillé"
     },
+    "preferences": {
+      "title": "Préférences",
+      "subtitle": "Affinez votre voyage — chaque choix influence les suggestions.",
+      "profileTitle": "Profil",
+      "dietTitle": "Restrictions",
+      "interestsTitle": "Intérêts",
+      "profiles": {
+        "solo": "Solo",
+        "couple": "Couple",
+        "family": "Famille",
+        "group": "Groupe"
+      },
+      "diet": {
+        "halal": "Halal"
+      }
+    },
     "style": {
       "title": "Style de voyage",
       "subtitle": "Choisissez le ton du voyage — budget et suggestions s'adaptent.",

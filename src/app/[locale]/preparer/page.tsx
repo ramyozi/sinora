@@ -5,6 +5,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { pretripModules } from "@/data/pretrip/modules";
 import { Container } from "@/components/ui/container";
 import { ModuleCard } from "@/components/pretrip/module-card";
+import { QuickEssentials } from "@/components/pretrip/quick-essentials";
+import { TimelineStrip } from "@/components/pretrip/timeline-strip";
 
 export async function generateMetadata({
   params,
@@ -29,7 +31,7 @@ export default async function PreparerHubPage({
   const dict = await getDictionary(locale);
 
   return (
-    <Container className="py-16 sm:py-20">
+    <Container className="space-y-14 py-16 sm:py-20">
       <header className="max-w-2xl">
         <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           {dict.pretrip.title}
@@ -37,16 +39,26 @@ export default async function PreparerHubPage({
         <p className="mt-3 text-pretty text-muted">{dict.pretrip.subtitle}</p>
       </header>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {pretripModules.map((module) => (
-          <ModuleCard
-            key={module.slug}
-            module={module}
-            locale={locale}
-            dict={dict}
-          />
-        ))}
-      </div>
+      <QuickEssentials locale={locale} dict={dict} />
+
+      <TimelineStrip locale={locale} dict={dict} />
+
+      <section>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          {dict.pretrip.modulesTitle}
+        </h2>
+        <p className="mt-2 text-muted">{dict.pretrip.modulesSubtitle}</p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {pretripModules.map((module) => (
+            <ModuleCard
+              key={module.slug}
+              module={module}
+              locale={locale}
+              dict={dict}
+            />
+          ))}
+        </div>
+      </section>
     </Container>
   );
 }

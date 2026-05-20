@@ -497,6 +497,51 @@
     "subtitle": "出发前所需的一切,以卡片形式呈现。",
     "available": "已上线",
     "soon": "即将推出",
+    "modulesTitle": "所有模块",
+    "modulesSubtitle": "按自己的节奏深入每一项主题。",
+    "quickEssentials": {
+      "title": "出行要点一览",
+      "subtitle": "六件抵达中国前必备的准备。",
+      "openLabel": "查看",
+      "items": {
+        "visa": {
+          "title": "签证",
+          "body": "核对资格,尽早办理。"
+        },
+        "esim": {
+          "title": "eSIM 与上网",
+          "body": "选 eSIM,准备 VPN。"
+        },
+        "payment": {
+          "title": "支付",
+          "body": "支付宝、微信支付与现金,处处可付。"
+        },
+        "language": {
+          "title": "语言",
+          "body": "实用短句,顺畅交流。"
+        },
+        "packing": {
+          "title": "行李",
+          "body": "按区域和季节适配。"
+        },
+        "safety": {
+          "title": "安全",
+          "body": "健康小贴士、应急号码与离线工具。"
+        }
+      }
+    },
+    "timelineStrip": {
+      "title": "倒计时",
+      "subtitle": "四个节点,事事不漏。",
+      "openCalendar": "查看完整日历",
+      "task": "项任务",
+      "buckets": {
+        "j-30": "D-30",
+        "j-15": "D-15",
+        "j-7": "D-7",
+        "j-1": "D-1"
+      }
+    },
     "timeline": {
       "meta": {
         "title": "出行前时间线 - Sinora",

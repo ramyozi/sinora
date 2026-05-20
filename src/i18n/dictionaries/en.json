@@ -216,6 +216,19 @@
       "subtitle": "Step-by-step chronological view.",
       "stay": "Recommended stay"
     },
+    "fatigue": {
+      "title": "Trip intensity",
+      "levels": {
+        "calm": "Calm",
+        "moderate": "Moderate",
+        "intense": "Intense",
+        "exhausting": "Exhausting"
+      },
+      "suggestions": {
+        "intense": "Consider adding a calm stop to catch your breath.",
+        "exhausting": "Very dense itinerary — keep at least one restful night."
+      }
+    },
     "preferences": {
       "title": "Preferences",
       "subtitle": "Tune your trip — every choice shapes the suggestions.",

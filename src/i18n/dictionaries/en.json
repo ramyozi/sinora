@@ -168,6 +168,14 @@
       }
     },
     "addToPlanner": "Add to my itinerary",
+    "exploration": {
+      "viewMap": "Map",
+      "viewGrid": "Grid",
+      "viewSwitchLabel": "Switch view",
+      "allRegions": "All of China",
+      "mapLabel": "Interactive map of Sinora destinations",
+      "view": "View city"
+    },
     "filters": {
       "region": "Region",
       "season": "Season",

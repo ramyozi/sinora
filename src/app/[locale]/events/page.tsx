@@ -75,11 +75,20 @@ export default async function EventsPage({
     allCities.map((c) => [c.slug, c]),
   );
 
-  // Pre-fetch images des events en parallel (Wiki, cache 1 semaine).
+  // Pre-fetch images en parallel. Fallback : si l'event n'a pas de wikiTitle,
+  // on retombe sur l'image de la ville hote pour garantir un visuel.
   const images = await Promise.all(
-    entries.map(({ event }) =>
-      event.wikiTitle ? getWikiLeadImage(event.wikiTitle) : Promise.resolve(null),
-    ),
+    entries.map(async ({ event }) => {
+      if (event.wikiTitle) {
+        const direct = await getWikiLeadImage(event.wikiTitle);
+        if (direct) return direct;
+      }
+      const host = cityBySlug[event.citySlug];
+      if (host?.wikiTitle) {
+        return getWikiLeadImage(host.wikiTitle);
+      }
+      return null;
+    }),
   );
   const imageBySlug: Record<string, WikiLeadImage | null> = Object.fromEntries(
     entries.map(({ event }, i) => [event.slug, images[i] ?? null]),

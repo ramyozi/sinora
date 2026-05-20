@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     out.push(...entry(`/destinations/${slug}`, "monthly", 0.7));
   }
   out.push(...entry("/route-planner", "weekly", 0.95));
+  out.push(...entry("/events", "weekly", 0.85));
   out.push(...entry("/preparer", "weekly", 0.85));
   for (const m of pretripModules) {
     if (m.available) {

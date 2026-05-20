@@ -122,7 +122,6 @@ export function durationAdvice(
   cities: City[],
   density: DensityScore | null,
   available: City[],
-  resolved: ResolvedSegment[],
 ): DurationAdvice[] {
   if (!density) return [];
   const advice: DurationAdvice[] = [];

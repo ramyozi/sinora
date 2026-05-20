@@ -5,6 +5,7 @@
   },
   "nav": {
     "destinations": "Destinations",
+    "events": "Événements",
     "prepare": "Préparer",
     "trains": "Trains",
     "cta": "Planifier mon voyage"
@@ -121,6 +122,7 @@
     "subtitle": "Spring Festival, Golden Week, fêtes des lanternes, festivals de la bière : repérez les temps forts et tissez votre voyage autour.",
     "countLabel": "événements à venir",
     "filterTitle": "Filtrer le calendrier",
+    "searchPlaceholder": "Rechercher un événement, une ville...",
     "allCategories": "Tous types",
     "crowdFilter": "Affluence :",
     "allCrowds": "Toutes",

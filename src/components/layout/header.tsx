@@ -23,6 +23,7 @@ export function Header({
   // mon voyage" qui pointaient sur la meme page.
   const links = [
     { label: dict.nav.destinations, href: localizedPath("/destinations", locale) },
+    { label: dict.nav.events, href: localizedPath("/events", locale) },
     { label: dict.nav.prepare, href: localizedPath("/preparer", locale) },
   ];
 

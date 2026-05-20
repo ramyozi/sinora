@@ -339,7 +339,16 @@ export function RouteMap({
       `;
       el.addEventListener("click", () => onToggleRef.current(city.slug));
 
-      const marker = new maplibregl.Marker({ element: el, anchor: "top" })
+      // anchor "top" place le top-center du marker sur la coord, donc le centre
+      // du dot (.dot, 12px de haut, premier enfant du flex column) se retrouve
+      // a coord.y + 6px. offset [0, -6] remonte le marker pour que le centre du
+      // dot tombe pile sur la coordonnee reelle. Sans ca, on voit clairement
+      // l'orange decale du POI noir de la basemap des qu'on zoome.
+      const marker = new maplibregl.Marker({
+        element: el,
+        anchor: "top",
+        offset: [0, -6],
+      })
         .setLngLat([city.coordinates.lng, city.coordinates.lat])
         .addTo(map);
       markers.set(city.slug, marker);

@@ -680,6 +680,11 @@
         "translation": "Traduction",
         "network": "Réseau / VPN",
         "esim": "eSIM / SIM"
+      },
+      "actions": {
+        "appStore": "App Store",
+        "playStore": "Play Store",
+        "official": "Site officiel"
       }
     },
     "visa": {

@@ -5,9 +5,11 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getCityBySlug, getCitySlugs } from "@/data/cities";
 import { getAirQuality } from "@/lib/api/providers/air-quality";
 import { getWeather } from "@/lib/api/providers/weather";
+import { getWikiGallery } from "@/lib/api/providers/wiki-gallery";
 import { getWikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { Container } from "@/components/ui/container";
 import { CityFacts } from "@/components/destinations/city-facts";
+import { CityGallery } from "@/components/destinations/city-gallery";
 import { CityHero } from "@/components/destinations/city-hero";
 import { CityHighlights } from "@/components/destinations/city-highlights";
 import { AirQualityCard } from "@/components/destinations/air-quality-card";
@@ -52,11 +54,12 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const [dict, weather, aqi, image] = await Promise.all([
+  const [dict, weather, aqi, image, gallery] = await Promise.all([
     getDictionary(locale),
     getWeather(city.coordinates.lat, city.coordinates.lng),
     getAirQuality(city.coordinates.lat, city.coordinates.lng),
     getWikiLeadImage(city.wikiTitle),
+    getWikiGallery(city.wikiTitle, 6),
   ]);
 
   return (
@@ -101,6 +104,8 @@ export default async function CityPage({
         </section>
 
         <CityHighlights city={city} locale={locale} dict={dict} />
+
+        <CityGallery images={gallery} title={city.name[locale]} dict={dict} />
       </Container>
     </article>
   );

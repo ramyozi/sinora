@@ -132,6 +132,8 @@
     "overviewLabel": "Aperçu",
     "locationLabel": "Localisation",
     "imageCredit": "Photo : Wikipedia",
+    "galleryLabel": "En images",
+    "galleryCredit": "Sélection d'images Wikipedia pour {topic}.",
     "addToPlanner": "Ajouter à mon itinéraire",
     "filters": {
       "region": "Région",

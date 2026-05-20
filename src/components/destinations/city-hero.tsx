@@ -23,7 +23,7 @@ export function CityHero({
   image?: WikiLeadImage | null;
 }) {
   return (
-    <header className="relative overflow-hidden">
+    <header className="relative overflow-hidden" data-city-hero>
       {image ? (
         <>
           <Image

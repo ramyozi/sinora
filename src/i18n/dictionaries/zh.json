@@ -680,6 +680,11 @@
         "translation": "翻译",
         "network": "网络 / VPN",
         "esim": "eSIM / SIM"
+      },
+      "actions": {
+        "appStore": "App Store",
+        "playStore": "Play 商店",
+        "official": "官方网站"
       }
     },
     "visa": {

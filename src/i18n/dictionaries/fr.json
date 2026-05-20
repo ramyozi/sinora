@@ -194,6 +194,56 @@
     "subtitle": "Cliquez sur les villes pour les ajouter, réordonnez à votre rythme.",
     "panelTitle": "Votre itinéraire",
     "empty": "Sélectionnez au moins deux villes pour voir votre route apparaître.",
+    "dates": {
+      "title": "Dates du voyage",
+      "subtitle": "Donnez vos dates pour adapter les suggestions à la durée réelle.",
+      "startLabel": "Départ",
+      "endLabel": "Retour",
+      "totalLabel": "Durée",
+      "daysShort": "j",
+      "pending": "À renseigner",
+      "locale": {
+        "fr": "Format AAAA-MM-JJ. Les jours sont comptés inclusifs.",
+        "en": "ISO format. Inclusive day count.",
+        "zh": "ISO 格式,含起讫两日。"
+      }
+    },
+    "density": {
+      "title": "Densité du séjour",
+      "subtitle": "Score basé sur vos villes, transports et jours disponibles.",
+      "total": "Disponibles",
+      "transit": "Transit",
+      "stays": "Villes",
+      "free": "Marge",
+      "daysShort": "j",
+      "levels": {
+        "rushed": "Surchargé",
+        "tight": "Serré",
+        "balanced": "Équilibré",
+        "spacious": "Spacieux",
+        "empty": "Trop vide"
+      },
+      "advice": {
+        "cut": {
+          "title": "Retirer une étape",
+          "body": "{city} allonge fortement le voyage. Sans elle, le rythme retombe.",
+          "action": "Retirer"
+        },
+        "trim": {
+          "title": "Réduire chaque ville",
+          "body": "Réduisez d'une journée la ville la plus dense pour respirer."
+        },
+        "explore": {
+          "title": "Ajouter une excursion proche",
+          "body": "{city} ajouterait une étape courte sans dévier votre route.",
+          "action": "Ajouter"
+        },
+        "extend": {
+          "title": "Étoffer les étapes",
+          "body": "Profitez du temps libre pour prolonger une ville coup de cœur."
+        }
+      }
+    },
     "mapHint": {
       "title": "Cliquez sur une ville",
       "subtitle": "Composez votre itinéraire directement depuis la carte."

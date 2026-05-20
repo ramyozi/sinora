@@ -194,6 +194,56 @@
     "subtitle": "点击城市以添加,自由调整顺序。",
     "panelTitle": "您的行程",
     "empty": "请至少选择两座城市,以查看路线。",
+    "dates": {
+      "title": "行程日期",
+      "subtitle": "填写日期后,建议会按实际天数调整。",
+      "startLabel": "出发",
+      "endLabel": "返回",
+      "totalLabel": "时长",
+      "daysShort": "天",
+      "pending": "待填写",
+      "locale": {
+        "fr": "Format AAAA-MM-JJ. Les jours sont comptés inclusifs.",
+        "en": "ISO format. Inclusive day count.",
+        "zh": "ISO 格式,含起讫两日。"
+      }
+    },
+    "density": {
+      "title": "行程密度",
+      "subtitle": "依据城市、交通与可用天数计算的评分。",
+      "total": "可用",
+      "transit": "交通",
+      "stays": "城市",
+      "free": "余裕",
+      "daysShort": "天",
+      "levels": {
+        "rushed": "过满",
+        "tight": "偏紧",
+        "balanced": "均衡",
+        "spacious": "宽裕",
+        "empty": "过空"
+      },
+      "advice": {
+        "cut": {
+          "title": "去掉一站",
+          "body": "{city} 会显著拉长行程,去掉后节奏更舒缓。",
+          "action": "移除"
+        },
+        "trim": {
+          "title": "缩减每城停留",
+          "body": "在最密集的城市削减一日,给自己留出余裕。"
+        },
+        "explore": {
+          "title": "加入附近一站",
+          "body": "{city} 可以加入短停,且不偏离路线。",
+          "action": "添加"
+        },
+        "extend": {
+          "title": "延长停留",
+          "body": "利用空闲时间在心动的城市多待几日。"
+        }
+      }
+    },
     "mapHint": {
       "title": "点击城市",
       "subtitle": "直接在地图上构建您的行程。"

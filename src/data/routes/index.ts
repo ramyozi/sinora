@@ -38,6 +38,18 @@ export {
   peakWindowsRelevant,
   type PeakWindow,
 } from "./calendar";
+export {
+  densityFromBudget,
+  durationAdvice,
+  durationBudget,
+  tripDurationDays,
+  type DensityLevel,
+  type DensityScore,
+  type DurationAdvice,
+  type DurationAdviceKind,
+  type DurationBudget,
+  type TripDates,
+} from "./duration";
 
 // Connexions impliquant la ville donnée, peu importe le sens du graphe.
 export function getConnections(citySlug: string): Connection[] {

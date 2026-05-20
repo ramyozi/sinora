@@ -194,6 +194,56 @@
     "subtitle": "Click cities to add them, reorder at your own pace.",
     "panelTitle": "Your itinerary",
     "empty": "Select at least two cities to see your route appear.",
+    "dates": {
+      "title": "Trip dates",
+      "subtitle": "Set your dates so suggestions match the real duration.",
+      "startLabel": "Departure",
+      "endLabel": "Return",
+      "totalLabel": "Duration",
+      "daysShort": "d",
+      "pending": "Pending",
+      "locale": {
+        "fr": "Format AAAA-MM-JJ. Les jours sont comptés inclusifs.",
+        "en": "ISO format. Inclusive day count.",
+        "zh": "ISO 格式,含起讫两日。"
+      }
+    },
+    "density": {
+      "title": "Trip density",
+      "subtitle": "Score based on your cities, transit and available days.",
+      "total": "Available",
+      "transit": "Transit",
+      "stays": "Cities",
+      "free": "Margin",
+      "daysShort": "d",
+      "levels": {
+        "rushed": "Overpacked",
+        "tight": "Tight",
+        "balanced": "Balanced",
+        "spacious": "Spacious",
+        "empty": "Too empty"
+      },
+      "advice": {
+        "cut": {
+          "title": "Drop one stop",
+          "body": "{city} stretches the trip significantly. Without it the pace eases.",
+          "action": "Drop"
+        },
+        "trim": {
+          "title": "Trim each city",
+          "body": "Shave a day off the densest city to give yourself breathing room."
+        },
+        "explore": {
+          "title": "Add a nearby excursion",
+          "body": "{city} would add a short stop without bending your route.",
+          "action": "Add"
+        },
+        "extend": {
+          "title": "Stretch your stays",
+          "body": "Use the free time to extend a favourite city."
+        }
+      }
+    },
     "mapHint": {
       "title": "Click a city",
       "subtitle": "Build your route directly from the map."

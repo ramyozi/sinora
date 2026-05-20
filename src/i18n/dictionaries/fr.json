@@ -205,7 +205,9 @@
     "km": "km",
     "hours": "h",
     "cny": "¥",
-    "missingHint": "Une ou plusieurs étapes n'ont pas de liaison directe. Un calcul de plus court chemin sera ajouté prochainement.",
+    "missingHint": "Une ou plusieurs étapes n'ont pas de liaison directe et aucun chemin n'a été trouvé.",
+    "indirectHint": "Certaines étapes empruntent un trajet indirect calculé par le moteur.",
+    "viaLabel": "via",
     "moveUp": "Monter",
     "moveDown": "Descendre",
     "remove": "Retirer",
@@ -268,6 +270,37 @@
       "scenic": "Vue",
       "crowded": "Affluence",
       "overnight": "Train de nuit"
+    },
+    "score": {
+      "title": "Note d'itinéraire",
+      "subtitle": "Cohérence géographique, confort et équilibre.",
+      "allGood": "Itinéraire bien équilibré, rien à signaler.",
+      "optimize": "Optimiser l'ordre",
+      "levels": {
+        "weak": "À retravailler",
+        "fair": "Correct",
+        "good": "Bon",
+        "excellent": "Excellent"
+      },
+      "criteria": {
+        "coherence": "Cohérence",
+        "pace": "Rythme",
+        "balance": "Équilibre"
+      },
+      "warnings": {
+        "backtrack": {
+          "title": "Demi-tour repéré",
+          "body": "Vous revenez en arrière entre {cities}. Réorganiser peut réduire la fatigue."
+        },
+        "long-leg": {
+          "title": "Étape très longue",
+          "body": "{cities} : {value} km d'un coup. Envisager une étape intermédiaire."
+        },
+        "fragmented": {
+          "title": "Itinéraire fragmenté",
+          "body": "Plusieurs sauts sans liaison directe ({value}). Quelques étapes proches gagneraient en cohérence."
+        }
+      }
     },
     "fatigue": {
       "title": "Intensité du voyage",

@@ -205,7 +205,9 @@
     "km": "km",
     "hours": "h",
     "cny": "¥",
-    "missingHint": "One or more legs lack a direct connection. Shortest-path routing will be added soon.",
+    "indirectHint": "Some legs use an indirect route computed by the engine.",
+    "viaLabel": "via",
+    "missingHint": "One or more legs have no direct connection and no path could be found.",
     "moveUp": "Move up",
     "moveDown": "Move down",
     "remove": "Remove",
@@ -268,6 +270,37 @@
       "scenic": "Scenic",
       "crowded": "Crowded",
       "overnight": "Overnight"
+    },
+    "score": {
+      "title": "Route score",
+      "subtitle": "Geographic coherence, comfort and balance.",
+      "allGood": "Route looks well-balanced, nothing to flag.",
+      "optimize": "Optimise order",
+      "levels": {
+        "weak": "Needs work",
+        "fair": "Fair",
+        "good": "Good",
+        "excellent": "Excellent"
+      },
+      "criteria": {
+        "coherence": "Coherence",
+        "pace": "Pace",
+        "balance": "Balance"
+      },
+      "warnings": {
+        "backtrack": {
+          "title": "Backtrack detected",
+          "body": "You go back on yourself between {cities}. Reordering can save time."
+        },
+        "long-leg": {
+          "title": "Very long leg",
+          "body": "{cities}: {value} km in one go. Consider an intermediate stop."
+        },
+        "fragmented": {
+          "title": "Fragmented route",
+          "body": "Many legs without a direct connection ({value}). Tightening up would help."
+        }
+      }
     },
     "fatigue": {
       "title": "Trip intensity",

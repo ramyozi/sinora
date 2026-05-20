@@ -4,7 +4,14 @@ import { useCallback, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City, CityTag } from "@/data/cities";
-import { assessRouteFatigue, routeTotals, segmentsForRoute } from "@/data/routes";
+import {
+  assessRouteFatigue,
+  optimizeRouteOrder,
+  resolveRoute,
+  routeTotalsResolved,
+  scoreRoute,
+  segmentsForRoute,
+} from "@/data/routes";
 import { suggestIntermediates } from "@/data/routes/recommendation";
 import { type RouteStyle, styleConfig } from "@/data/routes/style";
 import {
@@ -20,6 +27,7 @@ import { ItineraryPanel } from "./itinerary-panel";
 import { ItineraryTimeline } from "./itinerary-timeline";
 import { PreferencesPanel } from "./preferences-panel";
 import { RouteMap } from "./route-map";
+import { RouteScoreCard } from "./route-score";
 import { SuggestionsPanel } from "./suggestions-panel";
 import { TemplatesStrip } from "./templates-strip";
 
@@ -85,6 +93,15 @@ export function RouteBuilder({
     setSelected(template.cities);
     setStyle(template.style);
   }, []);
+  const optimize = useCallback(() => {
+    setSelected((prev) => {
+      const orderedCities = prev
+        .map((slug) => cities.find((c) => c.slug === slug))
+        .filter((c): c is City => Boolean(c));
+      if (orderedCities.length <= 2) return prev;
+      return optimizeRouteOrder(orderedCities);
+    });
+  }, [cities]);
 
   // Villes sélectionnées dans l'ordre choisi par l'utilisateur.
   const selectedCities = useMemo(() => {
@@ -94,14 +111,19 @@ export function RouteBuilder({
   }, [selected, cities]);
 
   const segments = useMemo(() => segmentsForRoute(selected), [selected]);
-  const totals = useMemo(() => routeTotals(selected), [selected]);
+  const resolved = useMemo(() => resolveRoute(selected), [selected]);
+  const totals = useMemo(() => routeTotalsResolved(selected), [selected]);
   const fatigue = useMemo(() => assessRouteFatigue(selected), [selected]);
+  const score = useMemo(
+    () => scoreRoute(selectedCities, resolved, fatigue),
+    [selectedCities, resolved, fatigue],
+  );
   const routeModes = useMemo(
     () =>
       Array.from(
-        new Set(segments.filter((s) => s).map((s) => s!.mode)),
+        new Set(resolved.flatMap((r) => r.connections.map((c) => c.mode))),
       ),
-    [segments],
+    [resolved],
   );
   const bookingPlatforms = useMemo(
     () => bookingPlatformsForModes(routeModes),
@@ -144,22 +166,34 @@ export function RouteBuilder({
           dict={dict}
           selectedOrder={selected}
           segments={segments}
+          resolved={resolved}
           hoveredSlug={hoveredSlug}
           onToggle={toggle}
         />
         <ItineraryPanel
           selected={selectedCities}
           segments={segments}
+          resolved={resolved}
           totals={totals}
           fatigue={fatigue}
           locale={locale}
           dict={dict}
+          cities={cities}
           onMoveUp={moveUp}
           onMoveDown={moveDown}
           onRemove={remove}
           onClear={clear}
         />
       </div>
+      {score && (
+        <RouteScoreCard
+          score={score}
+          cities={selectedCities}
+          locale={locale}
+          dict={dict}
+          onOptimize={selectedCities.length >= 3 ? optimize : undefined}
+        />
+      )}
       {recommendations.length > 0 && (
         <SuggestionsPanel
           recommendations={recommendations}

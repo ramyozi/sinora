@@ -21,8 +21,14 @@ export function ThemeToggle() {
 
   function toggle() {
     const next = !dark;
+    const value = next ? "dark" : "light";
     document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
+    localStorage.setItem("theme", value);
+    // Cookie : permet au layout serveur de connaitre le theme et d'appliquer
+    // la classe dark sur <html> au render. Sans ca, un changement de locale
+    // re-render <html> sans la classe et React la retire pendant la
+    // reconciliation. SameSite Lax + un an pour persister entre sessions.
+    document.cookie = `theme=${value}; path=/; max-age=31536000; samesite=lax`;
   }
 
   return (

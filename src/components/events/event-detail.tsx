@@ -28,6 +28,7 @@ import type {
 } from "@/data/events";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { localizedPath } from "@/lib/navigation";
+import { OpenInMaps } from "@/components/ui/open-in-maps";
 import { EventShareButton } from "./event-share";
 
 const categoryColor: Record<EventCategory, string> = {
@@ -345,6 +346,19 @@ export function EventDetail({
               {event.durationHint[locale]}
             </Practical>
           )}
+
+          {/* Ouvrir dans Google Maps : coordonnees precises si connues,
+              sinon recherche par nom de lieu + ville. */}
+          <div className="border-t border-border pt-3">
+            <OpenInMaps
+              lat={event.coordinates?.lat}
+              lng={event.coordinates?.lng}
+              query={`${event.venue ? `${event.venue[locale]} ` : ""}${
+                city ? city.name[locale] : event.citySlug
+              }`.trim()}
+              label={d.openInMaps}
+            />
+          </div>
 
           {/* Liens externes. */}
           {event.externalLinks && event.externalLinks.length > 0 && (

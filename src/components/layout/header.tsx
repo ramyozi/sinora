@@ -33,6 +33,11 @@ export function Header({
       match: localizedPath("/events", locale),
     },
     {
+      label: dict.nav.activities,
+      href: localizedPath("/activites", locale),
+      match: localizedPath("/activites", locale),
+    },
+    {
       label: dict.nav.prepare,
       href: localizedPath("/preparer", locale),
       match: localizedPath("/preparer", locale),

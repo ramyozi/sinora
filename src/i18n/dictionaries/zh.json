@@ -12,6 +12,11 @@
     "trains": "高铁",
     "cta": "规划行程"
   },
+  "maps": {
+    "button": "在地图中查看",
+    "title": "选择地图应用",
+    "chinaHint": "中国"
+  },
   "hero": {
     "badge": "行前、旅途与归来",
     "title": "您的中国之旅,",

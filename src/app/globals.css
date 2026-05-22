@@ -5,6 +5,7 @@
 
 /* Palette claire - neutres chauds, accent cinabre. */
 :root {
+  color-scheme: light;
   --background: #faf9f7;
   --surface: #ffffff;
   --surface-muted: #f3f1ec;
@@ -21,6 +22,7 @@
 
 /* Palette sombre - encre profonde, accent cinabre éclairci. */
 .dark {
+  color-scheme: dark;
   --background: #0c0b0a;
   --surface: #161412;
   --surface-muted: #1f1c19;

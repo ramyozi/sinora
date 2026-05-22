@@ -6,6 +6,7 @@
   "nav": {
     "destinations": "目的地",
     "events": "节庆活动",
+    "activities": "活动体验",
     "prepare": "出行准备",
     "journal": "旅行手账",
     "trains": "高铁",
@@ -999,6 +1000,167 @@
     "privacy": {
       "title": "数据全部留在本地",
       "body": "Sinora 不会在服务器上存储任何信息。您的整本手账都保存在浏览器的本地存储中。"
+    }
+  },
+  "activities": {
+    "meta": {
+      "title": "活动与体验 - Sinora",
+      "description": "探索中国数百项沉浸式活动与体验:徒步、古迹、美食、夜生活、自然。筛选、收藏、规划。"
+    },
+    "title": "活动与体验",
+    "subtitle": "远不止城市:成就一趟旅程的是体验。探索、筛选,构建属于你的行程。",
+    "countLabel": "项体验",
+    "categories": {
+      "hiking": "徒步",
+      "viewpoint": "观景点",
+      "monument": "古迹",
+      "historic-quarter": "历史街区",
+      "food": "美食地点",
+      "cafe": "咖啡馆",
+      "tea-house": "茶馆",
+      "shopping": "购物",
+      "museum": "博物馆",
+      "park": "公园",
+      "stroll": "漫步",
+      "cruise": "游船",
+      "transport": "交通体验",
+      "show": "演出",
+      "photo-spot": "拍照点",
+      "nightlife": "夜生活",
+      "zen": "禅意活动",
+      "gaming": "电玩游艺",
+      "karaoke": "卡拉OK",
+      "nature": "自然",
+      "excursion": "短途远足",
+      "multi-day": "多日行程",
+      "workshop": "文化工坊",
+      "cinema": "电影",
+      "spiritual": "灵性",
+      "iconic": "标志性"
+    },
+    "groups": {
+      "outdoor": "户外与自然",
+      "culture": "文化与遗产",
+      "food": "美食与饮品",
+      "leisure": "休闲与娱乐",
+      "experience": "特色体验"
+    },
+    "badges": {
+      "must-see": "必看",
+      "hidden-gem": "隐藏珍宝",
+      "local-favorite": "本地人最爱",
+      "great-for-photos": "适合拍照",
+      "family-pick": "家庭之选",
+      "romantic": "浪漫",
+      "rainy-day": "雨天之选",
+      "sunset-spot": "日落胜地",
+      "off-the-beaten-path": "小众之地",
+      "unesco": "世界遗产",
+      "free-entry": "免费入场",
+      "night-owl": "夜猫子"
+    },
+    "difficulties": {
+      "none": "无需体力",
+      "easy": "轻松",
+      "moderate": "中等",
+      "challenging": "有挑战",
+      "expert": "专家级"
+    },
+    "budgets": {
+      "free": "免费",
+      "low": "低预算",
+      "moderate": "中等预算",
+      "high": "高预算",
+      "premium": "高端"
+    },
+    "crowds": {
+      "quiet": "清静",
+      "moderate": "适中",
+      "busy": "热闹",
+      "packed": "拥挤"
+    },
+    "touristLevels": {
+      "hidden": "鲜为人知",
+      "local": "本地",
+      "mixed": "混合",
+      "touristy": "游客密集",
+      "iconic": "标志性"
+    },
+    "settings": {
+      "indoor": "室内",
+      "outdoor": "户外",
+      "mixed": "室内外结合"
+    },
+    "seasons": {
+      "printemps": "春",
+      "ete": "夏",
+      "automne": "秋",
+      "hiver": "冬"
+    },
+    "dayMoments": {
+      "morning": "上午",
+      "afternoon": "下午",
+      "evening": "傍晚",
+      "night": "夜晚"
+    },
+    "durationFormat": {
+      "hShort": "小时",
+      "minShort": "分钟"
+    },
+    "filters": {
+      "title": "筛选",
+      "searchPlaceholder": "搜索活动、街区或氛围…",
+      "sortLabel": "排序",
+      "sorts": {
+        "editorial": "编辑精选",
+        "rating": "评分最高",
+        "duration": "时长最短",
+        "budget": "预算由低到高"
+      },
+      "city": "城市",
+      "budget": "预算",
+      "difficulty": "难度",
+      "season": "季节",
+      "crowd": "人流",
+      "tourist": "游客密度",
+      "setting": "环境",
+      "quickLabel": "快速筛选",
+      "quick": {
+        "family": "亲子",
+        "solo": "独行",
+        "night": "夜间",
+        "rain": "适合雨天"
+      },
+      "reset": "重置筛选",
+      "noResults": "没有符合这些筛选条件的活动。"
+    },
+    "detail": {
+      "backToList": "全部活动",
+      "scoreOutOf": "100",
+      "durationLabel": "时长",
+      "budgetLabel": "预算",
+      "difficultyLabel": "难度",
+      "crowdLabel": "人流",
+      "whyGo": "为何前往",
+      "ambiance": "氛围",
+      "idealMoment": "最佳时刻",
+      "localTip": "本地贴士",
+      "perfectFor": "适合人群",
+      "avoid": "应避免",
+      "practical": "实用信息",
+      "openingHours": "开放时间",
+      "pricing": "价格",
+      "transport": "如何前往",
+      "bestTime": "最佳时段",
+      "seasons": "推荐季节",
+      "setting": "环境",
+      "accessibility": "无障碍",
+      "planTrip": "在此规划行程",
+      "etiquette": "当地礼仪",
+      "warnings": "注意事项",
+      "reviews": "评价",
+      "gallery": "图库",
+      "related": "接着探索"
     }
   }
 }

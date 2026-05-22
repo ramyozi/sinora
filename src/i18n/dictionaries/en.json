@@ -6,6 +6,7 @@
   "nav": {
     "destinations": "Destinations",
     "events": "Events",
+    "activities": "Activities",
     "prepare": "Prepare",
     "journal": "Journal",
     "trains": "Trains",
@@ -999,6 +1000,167 @@
     "privacy": {
       "title": "Your data stays local",
       "body": "Sinora stores nothing on its servers. Your whole journal lives in your browser's local storage."
+    }
+  },
+  "activities": {
+    "meta": {
+      "title": "Activities and experiences - Sinora",
+      "description": "Explore hundreds of immersive activities and experiences across China: hikes, monuments, food, nightlife, nature. Filter, save, plan."
+    },
+    "title": "Activities and experiences",
+    "subtitle": "Far more than cities: the experiences that make a trip. Explore, filter, build the itinerary that fits you.",
+    "countLabel": "experiences",
+    "categories": {
+      "hiking": "Hiking",
+      "viewpoint": "Viewpoint",
+      "monument": "Monument",
+      "historic-quarter": "Historic quarter",
+      "food": "Food spot",
+      "cafe": "Cafe",
+      "tea-house": "Tea house",
+      "shopping": "Shopping",
+      "museum": "Museum",
+      "park": "Park",
+      "stroll": "Stroll",
+      "cruise": "Cruise",
+      "transport": "Transport experience",
+      "show": "Show",
+      "photo-spot": "Photo spot",
+      "nightlife": "Nightlife",
+      "zen": "Zen activity",
+      "gaming": "Arcade and gaming",
+      "karaoke": "Karaoke",
+      "nature": "Nature",
+      "excursion": "Excursion",
+      "multi-day": "Multi-day trip",
+      "workshop": "Cultural workshop",
+      "cinema": "Cinema",
+      "spiritual": "Spiritual",
+      "iconic": "Iconic"
+    },
+    "groups": {
+      "outdoor": "Outdoor and nature",
+      "culture": "Culture and heritage",
+      "food": "Food and drink",
+      "leisure": "Leisure and going out",
+      "experience": "Experiences"
+    },
+    "badges": {
+      "must-see": "Must-see",
+      "hidden-gem": "Hidden gem",
+      "local-favorite": "Local favorite",
+      "great-for-photos": "Great for photos",
+      "family-pick": "Family pick",
+      "romantic": "Romantic",
+      "rainy-day": "Rainy day",
+      "sunset-spot": "Sunset spot",
+      "off-the-beaten-path": "Off the beaten path",
+      "unesco": "UNESCO",
+      "free-entry": "Free entry",
+      "night-owl": "Night owl"
+    },
+    "difficulties": {
+      "none": "No effort",
+      "easy": "Easy",
+      "moderate": "Moderate",
+      "challenging": "Challenging",
+      "expert": "Expert"
+    },
+    "budgets": {
+      "free": "Free",
+      "low": "Low budget",
+      "moderate": "Mid budget",
+      "high": "High budget",
+      "premium": "Premium"
+    },
+    "crowds": {
+      "quiet": "Quiet",
+      "moderate": "Moderate",
+      "busy": "Busy",
+      "packed": "Packed"
+    },
+    "touristLevels": {
+      "hidden": "Under the radar",
+      "local": "Local",
+      "mixed": "Mixed",
+      "touristy": "Touristy",
+      "iconic": "Iconic"
+    },
+    "settings": {
+      "indoor": "Indoor",
+      "outdoor": "Outdoor",
+      "mixed": "Mixed"
+    },
+    "seasons": {
+      "printemps": "Spring",
+      "ete": "Summer",
+      "automne": "Autumn",
+      "hiver": "Winter"
+    },
+    "dayMoments": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "night": "Night"
+    },
+    "durationFormat": {
+      "hShort": "h",
+      "minShort": "min"
+    },
+    "filters": {
+      "title": "Filters",
+      "searchPlaceholder": "Search an activity, a district, a mood…",
+      "sortLabel": "Sort",
+      "sorts": {
+        "editorial": "Editor's picks",
+        "rating": "Top rated",
+        "duration": "Shortest first",
+        "budget": "Budget ascending"
+      },
+      "city": "City",
+      "budget": "Budget",
+      "difficulty": "Difficulty",
+      "season": "Season",
+      "crowd": "Crowd",
+      "tourist": "Tourist density",
+      "setting": "Setting",
+      "quickLabel": "Quick filters",
+      "quick": {
+        "family": "Family",
+        "solo": "Solo",
+        "night": "At night",
+        "rain": "Rain-friendly"
+      },
+      "reset": "Reset filters",
+      "noResults": "No activity matches these filters."
+    },
+    "detail": {
+      "backToList": "All activities",
+      "scoreOutOf": "100",
+      "durationLabel": "Duration",
+      "budgetLabel": "Budget",
+      "difficultyLabel": "Difficulty",
+      "crowdLabel": "Crowd",
+      "whyGo": "Why go",
+      "ambiance": "Atmosphere",
+      "idealMoment": "Ideal moment",
+      "localTip": "Local tip",
+      "perfectFor": "Perfect for",
+      "avoid": "What to avoid",
+      "practical": "Practical info",
+      "openingHours": "Opening hours",
+      "pricing": "Pricing",
+      "transport": "Getting there",
+      "bestTime": "Best time",
+      "seasons": "Recommended seasons",
+      "setting": "Setting",
+      "accessibility": "Accessibility",
+      "planTrip": "Build a trip here",
+      "etiquette": "Local etiquette",
+      "warnings": "Good to know",
+      "reviews": "Reviews",
+      "gallery": "Gallery",
+      "related": "Discover next"
     }
   }
 }

@@ -158,6 +158,40 @@
       "modere": "适中",
       "dense": "拥挤",
       "extreme": "极度拥挤"
+    },
+    "travelImpact": {
+      "none": "对行程无影响",
+      "detour": "值得绕道",
+      "must-include": "务必纳入"
+    },
+    "detail": {
+      "backToList": "全部活动",
+      "nextDate": "下一届",
+      "popularity": "热度",
+      "about": "简介",
+      "highlights": "亮点",
+      "practical": "实用信息",
+      "practicalTips": "实用贴士",
+      "allDates": "全部日期",
+      "location": "地点",
+      "venue": "场地",
+      "address": "地址",
+      "metro": "最近地铁",
+      "price": "票价",
+      "duration": "建议时长",
+      "crowdLabel": "人流",
+      "categoryLabel": "类别",
+      "datesLabel": "日期",
+      "impactLabel": "行程",
+      "stayExtension": "延长停留",
+      "stayExtensionValue": "建议增加 {n} 天",
+      "links": "实用链接",
+      "addToTrip": "加入我的行程",
+      "optimizeAround": "围绕优化",
+      "share": "分享",
+      "shareCopied": "链接已复制",
+      "similar": "更多活动推荐",
+      "ongoing": "进行中"
     }
   },
   "destinations": {

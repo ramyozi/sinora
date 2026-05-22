@@ -74,4 +74,27 @@ export interface SinoraEvent {
   popularityScore?: number;
   /** True si verifie par l'equipe editoriale. */
   isVerified?: boolean;
+
+  // ===== Enrichissement page detail =====
+  // Champs optionnels alimentant la page detail immersive. Absents, la page
+  // se rabat proprement sur le resume et la description Wikipedia.
+
+  /** Description longue editoriale. A defaut, l'extrait Wikipedia est utilise. */
+  longDescription?: LocalizedText;
+  /** Temps forts / programme : 2-5 points marquants. */
+  highlights?: LocalizedText[];
+  /** Conseils pratiques (reservation, tenue, affluence...). */
+  practicalTips?: LocalizedText[];
+  /** Coordonnees precises du lieu si connues (sinon : centre ville). */
+  coordinates?: { lat: number; lng: number };
+  /** Adresse complete du lieu. */
+  address?: LocalizedText;
+  /** Station de metro la plus proche. */
+  nearestMetro?: LocalizedText;
+  /** Titres d'articles Wikipedia pour la galerie. */
+  galleryWikiTitles?: string[];
+  /** Information de prix / billetterie, format libre. */
+  priceInfo?: LocalizedText;
+  /** Indication de duree de visite conseillee. */
+  durationHint?: LocalizedText;
 }

@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "upload.wikimedia.org" },
+      // Images P18 du pipeline d'activites (Special:FilePath redirige vers
+      // upload.wikimedia.org).
+      { protocol: "https", hostname: "commons.wikimedia.org" },
       { protocol: "https", hostname: "cdn.simpleicons.org" },
     ],
   },

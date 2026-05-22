@@ -33,13 +33,17 @@ export function computeEditorialScore(activity: Activity): number {
   // Authenticite locale : 0-100 -> 0-15.
   const authenticityPart = (activity.localAuthenticity / 100) * 15;
 
-  // Richesse du contenu editorial : sections immersives remplies.
+  // Richesse du contenu editorial : sections immersives remplies. Les
+  // activites "generated" n'ont pas de bloc immersion : leur score repose
+  // donc surtout sur la note, le volume d'avis et l'authenticite.
   const im = activity.immersion;
   let contentPart = 0;
-  contentPart += Math.min(8, im.whyGo.length * 2.5);
-  if (im.localTip) contentPart += 3;
-  if (im.idealMoment) contentPart += 2;
-  if (im.ambiance) contentPart += 2;
+  if (im) {
+    contentPart += Math.min(8, im.whyGo.length * 2.5);
+    if (im.localTip) contentPart += 3;
+    if (im.idealMoment) contentPart += 2;
+    if (im.ambiance) contentPart += 2;
+  }
   if (activity.reviews && activity.reviews.length > 0) contentPart += 3;
   contentPart = Math.min(15, contentPart);
 

@@ -135,10 +135,12 @@ export function ActivityDetail({
                 <MapPin className="size-4" />
                 {activity.district[locale]}, {cityName}
               </span>
-              <span className="inline-flex items-center gap-1">
-                <Star className="size-4 fill-amber-400 text-amber-400" />
-                {activity.rating.toFixed(1)} ({activity.reviewCount})
-              </span>
+              {activity.reviewCount > 0 && (
+                <span className="inline-flex items-center gap-1">
+                  <Star className="size-4 fill-amber-400 text-amber-400" />
+                  {activity.rating.toFixed(1)} ({activity.reviewCount})
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -183,49 +185,53 @@ export function ActivityDetail({
         <p className="text-pretty text-lg text-foreground">
           {activity.summary[locale]}
         </p>
-        <p className="text-pretty leading-relaxed text-muted">
-          {activity.longDescription[locale]}
-        </p>
+        {activity.longDescription && (
+          <p className="text-pretty leading-relaxed text-muted">
+            {activity.longDescription[locale]}
+          </p>
+        )}
       </section>
 
-      {/* Pourquoi y aller. */}
-      <section className="rounded-card border border-border bg-surface p-5">
-        <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
-          <Sparkles className="size-5 text-accent" />
-          {d.whyGo}
-        </h2>
-        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-          {im.whyGo.map((reason, i) => (
-            <li
-              key={i}
-              className="flex gap-2 rounded-lg bg-background p-3 text-sm text-foreground"
-            >
-              <Sparkle className="mt-0.5 size-4 shrink-0 text-accent" />
-              {reason[locale]}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {/* Pourquoi y aller : section editoriale, absente du tier generated. */}
+      {im && im.whyGo.length > 0 && (
+        <section className="rounded-card border border-border bg-surface p-5">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
+            <Sparkles className="size-5 text-accent" />
+            {d.whyGo}
+          </h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {im.whyGo.map((reason, i) => (
+              <li
+                key={i}
+                className="flex gap-2 rounded-lg bg-background p-3 text-sm text-foreground"
+              >
+                <Sparkle className="mt-0.5 size-4 shrink-0 text-accent" />
+                {reason[locale]}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Sections immersives + infos pratiques. */}
       <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
         <div className="space-y-4">
-          {im.ambiance && (
+          {im?.ambiance && (
             <Editorial icon={Wind} title={d.ambiance}>
               {im.ambiance[locale]}
             </Editorial>
           )}
-          {im.idealMoment && (
+          {im?.idealMoment && (
             <Editorial icon={Sunrise} title={d.idealMoment}>
               {im.idealMoment[locale]}
             </Editorial>
           )}
-          {im.localTip && (
+          {im?.localTip && (
             <Editorial icon={Lightbulb} title={d.localTip} tone="accent">
               {im.localTip[locale]}
             </Editorial>
           )}
-          {im.perfectFor && im.perfectFor.length > 0 && (
+          {im?.perfectFor && im.perfectFor.length > 0 && (
             <div className="rounded-card border border-border bg-surface p-4">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
                 <Heart className="size-4 text-accent" />
@@ -243,7 +249,7 @@ export function ActivityDetail({
               </div>
             </div>
           )}
-          {im.avoid && im.avoid.length > 0 && (
+          {im?.avoid && im.avoid.length > 0 && (
             <div className="rounded-card border border-amber-500/30 bg-amber-500/5 p-4">
               <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground">
                 <AlertTriangle className="size-4 text-amber-500" />
@@ -258,6 +264,13 @@ export function ActivityDetail({
               </ul>
             </div>
           )}
+          {/* Note de provenance pour le tier generated : transparence sur
+              l'origine ouverte de la fiche. */}
+          {activity.source === "generated" && (
+            <p className="rounded-card border border-border bg-surface-muted p-3 text-xs text-muted">
+              {d.generatedNote}
+            </p>
+          )}
         </div>
 
         {/* Infos pratiques. */}
@@ -265,15 +278,21 @@ export function ActivityDetail({
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
             {d.practical}
           </h2>
-          <Practical icon={Ticket} label={d.openingHours}>
-            {activity.openingHours[locale]}
-          </Practical>
-          <Practical icon={Wallet} label={d.pricing}>
-            {activity.pricing[locale]}
-          </Practical>
-          <Practical icon={Train} label={d.transport}>
-            {activity.transportTips[locale]}
-          </Practical>
+          {activity.openingHours && (
+            <Practical icon={Ticket} label={d.openingHours}>
+              {activity.openingHours[locale]}
+            </Practical>
+          )}
+          {activity.pricing && (
+            <Practical icon={Wallet} label={d.pricing}>
+              {activity.pricing[locale]}
+            </Practical>
+          )}
+          {activity.transportTips && (
+            <Practical icon={Train} label={d.transport}>
+              {activity.transportTips[locale]}
+            </Practical>
+          )}
           <Practical icon={Sunrise} label={d.bestTime}>
             {bestTime}
           </Practical>
@@ -283,7 +302,7 @@ export function ActivityDetail({
           <Practical icon={Users} label={d.setting}>
             {a.settings[activity.setting]} · {a.touristLevels[activity.touristLevel]}
           </Practical>
-          {activity.accessibility.notes && (
+          {activity.accessibility?.notes && (
             <Practical icon={Heart} label={d.accessibility}>
               {activity.accessibility.notes[locale]}
             </Practical>

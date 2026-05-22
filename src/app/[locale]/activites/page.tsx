@@ -44,14 +44,25 @@ export default async function ActivitiesPage({
   // meilleures experiences.
   const ranked = sortByEditorialScore(getAllActivities());
 
-  // Pre-fetch des images de couverture en parallele. Echec silencieux ->
-  // la carte retombe sur son degrade de categorie.
+  // Resolution des images de couverture :
+  // - tier generated : URL deja resolue par le pipeline (coverImageUrl)
+  // - tier curated : image en tete d'article Wikipedia, fetchee ici
+  // L'echec retombe silencieusement sur le degrade de categorie de la carte.
   const images = await Promise.all(
-    ranked.map((activity) =>
-      activity.coverWikiTitle
-        ? getWikiLeadImage(activity.coverWikiTitle)
-        : Promise.resolve(null),
-    ),
+    ranked.map(async (activity) => {
+      if (activity.coverImageUrl) {
+        return {
+          url: activity.coverImageUrl,
+          width: 0,
+          height: 0,
+          articleUrl: activity.coverImageAttribution ?? "",
+        };
+      }
+      if (activity.coverWikiTitle) {
+        return getWikiLeadImage(activity.coverWikiTitle);
+      }
+      return null;
+    }),
   );
 
   const entries: ActivityEntry[] = ranked.map((activity, i) => ({

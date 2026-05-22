@@ -2,6 +2,7 @@ import { beijingActivities } from "./dataset/beijing";
 import { shanghaiActivities } from "./dataset/shanghai";
 import { chengduActivities } from "./dataset/chengdu";
 import { xianActivities } from "./dataset/xian";
+import { generatedActivities } from "./generated";
 import { computeEditorialScore } from "./scoring";
 import type { Activity } from "./types";
 
@@ -25,6 +26,7 @@ export type {
   ActivityImmersion,
   ActivityReview,
   ActivitySetting,
+  ActivitySource,
   ActivityTouristLevel,
   WeatherSensitivity,
 } from "./types";
@@ -63,12 +65,21 @@ export {
   pickFeatured,
 } from "./scoring";
 
-// Catalogue complet, agrege ville par ville.
-export const activities: Activity[] = [
+// Dataset curated : ecrit a la main, qualite editoriale maximale.
+export const curatedActivities: Activity[] = [
   ...beijingActivities,
   ...shanghaiActivities,
   ...chengduActivities,
   ...xianActivities,
+];
+
+// Catalogue hybride : le curated d'abord (prioritaire), puis le tier genere.
+// Le pipeline dedoublonne deja le genere contre le curated ; on filtre ici
+// par slug en plus, par securite, le curated gagnant toujours.
+const curatedSlugs = new Set(curatedActivities.map((a) => a.slug));
+export const activities: Activity[] = [
+  ...curatedActivities,
+  ...generatedActivities.filter((a) => !curatedSlugs.has(a.slug)),
 ];
 
 // Index par slug pour un acces O(1) depuis les pages de detail.

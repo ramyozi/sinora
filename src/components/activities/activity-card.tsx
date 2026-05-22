@@ -87,17 +87,21 @@ export function ActivityCard({
         </div>
 
         <div className="p-4">
-          {/* Ville + note visiteurs. */}
+          {/* Ville + note visiteurs. La note ne s'affiche que si l'activite
+              a des avis : le tier generated n'en a pas et son signal qualite
+              est porte par le score editorial (badge en couverture). */}
           <div className="flex items-center justify-between gap-2 text-xs text-muted">
             <span className="inline-flex items-center gap-1">
               <MapPin className="size-3.5" />
               {cityName}
             </span>
-            <span className="inline-flex items-center gap-1 text-foreground">
-              <Star className="size-3.5 fill-amber-400 text-amber-400" />
-              {activity.rating.toFixed(1)}
-              <span className="text-muted">({activity.reviewCount})</span>
-            </span>
+            {activity.reviewCount > 0 && (
+              <span className="inline-flex items-center gap-1 text-foreground">
+                <Star className="size-3.5 fill-amber-400 text-amber-400" />
+                {activity.rating.toFixed(1)}
+                <span className="text-muted">({activity.reviewCount})</span>
+              </span>
+            )}
           </div>
 
           <h3 className="mt-1.5 text-base font-semibold text-foreground transition-colors group-hover:text-accent">

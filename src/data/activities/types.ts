@@ -134,13 +134,28 @@ export interface ActivityImmersion {
   perfectFor?: LocalizedText[];
 }
 
+// Origine d'une activite dans le modele hybride :
+// - "curated" : ecrite a la main par l'equipe editoriale, qualite maximale,
+//   trilingue complet, sections immersives remplies.
+// - "generated" : produite par le pipeline (Overpass / Wikidata / Wikipedia),
+//   tier d'enrichissement plus leger qui permet de scaler a 100+ / ville.
+export type ActivitySource = "curated" | "generated";
+
 // Modele principal d'une activite.
+//
+// Les champs marques optionnels ne sont pas toujours disponibles pour les
+// activites "generated" : le pipeline remplit ce qu'il peut depuis les
+// sources ouvertes, l'UI degrade proprement quand un champ manque. Les
+// activites "curated" remplissent tout.
 export interface Activity {
   // --- Identite ---
   slug: string;
+  /** Origine : curated (defaut) ou generated. */
+  source?: ActivitySource;
   title: LocalizedText;
   summary: LocalizedText;
-  longDescription: LocalizedText;
+  /** Description longue : optionnelle pour le tier generated. */
+  longDescription?: LocalizedText;
 
   // --- Localisation ---
   /** Slug de la ville hote (doit exister dans le dataset villes). */
@@ -176,14 +191,14 @@ export interface Activity {
   /** Reste agreable / faisable sous la pluie. */
   rainCompatible: boolean;
 
-  // --- Infos visiteur ---
-  accessibility: ActivityAccessibility;
+  // --- Infos visiteur (optionnelles pour le tier generated) ---
+  accessibility?: ActivityAccessibility;
   /** Conseils pour s'y rendre (metro, ligne, arret...). */
-  transportTips: LocalizedText;
+  transportTips?: LocalizedText;
   /** Horaires d'ouverture, format libre. */
-  openingHours: LocalizedText;
+  openingHours?: LocalizedText;
   /** Tarification, format libre ("Gratuit", "60 CNY", ...). */
-  pricing: LocalizedText;
+  pricing?: LocalizedText;
 
   // --- Reputation ---
   /** Note moyenne sur 5. */
@@ -197,13 +212,15 @@ export interface Activity {
   // --- Medias ---
   /** Titre d'article Wikipedia (anglais) pour l'image de couverture. */
   coverWikiTitle?: string;
-  /** URL d'image directe si pas d'article Wikipedia. */
+  /** URL d'image directe (tier generated : resolue par le pipeline). */
   coverImageUrl?: string;
+  /** Page d'attribution de l'image (Wikipedia / Wikimedia Commons). */
+  coverImageAttribution?: string;
   /** Galerie : titres Wikipedia additionnels. */
   galleryWikiTitles?: string[];
 
-  // --- Contenu editorial ---
-  immersion: ActivityImmersion;
+  // --- Contenu editorial (immersion optionnelle pour le tier generated) ---
+  immersion?: ActivityImmersion;
   /** Conseils de voyage divers. */
   travelTips?: LocalizedText[];
   /** Regles d'etiquette locale specifiques au lieu. */

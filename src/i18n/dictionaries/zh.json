@@ -1160,7 +1160,8 @@
       "warnings": "注意事项",
       "reviews": "评价",
       "gallery": "图库",
-      "related": "接着探索"
+      "related": "接着探索",
+      "generatedNote": "本页由开放数据(OpenStreetMap、Wikidata、维基百科)自动补充。实用信息可能有所变动,请以现场为准。"
     }
   }
 }

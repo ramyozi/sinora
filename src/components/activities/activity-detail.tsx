@@ -310,8 +310,12 @@ export function ActivityDetail({
           )}
           <div className="space-y-2 border-t border-border pt-3">
             <OpenInMaps
-              lat={activity.coordinates.lat}
-              lng={activity.coordinates.lng}
+              place={{
+                name: activity.title[locale],
+                city: cityName,
+                lat: activity.coordinates.lat,
+                lng: activity.coordinates.lng,
+              }}
               label={d.openInMaps}
             />
             <Link

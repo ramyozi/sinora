@@ -1,11 +1,9 @@
 import { MapPin } from "lucide-react";
+import { buildMapUrl, type MapPlace } from "@/lib/maps";
 
 interface Props {
-  /** Coordonnees precises. Prioritaires sur `query` si fournies. */
-  lat?: number;
-  lng?: number;
-  /** Texte de recherche si aucune coordonnee (nom du lieu, ville). */
-  query?: string;
+  /** Lieu a ouvrir : nom, ville, adresse, coordonnees WGS-84. */
+  place: MapPlace;
   label: string;
   /** Variante visuelle : bouton plein (primary) ou contour (outline). */
   variant?: "primary" | "outline";
@@ -13,28 +11,12 @@ interface Props {
 
 // Bouton "Voir dans Google Maps".
 //
-// On utilise l'URL universelle Google Maps (`/maps/search/?api=1`) plutot
-// que le schema `geo:` : elle fonctionne sur les trois plateformes et ouvre
-// l'application native sur mobile (iOS et Android) quand elle est installee,
-// la version web sur desktop. Le schema `geo:` est limite a Android et echoue
-// sans application de cartographie. Depuis la fiche Google Maps ainsi
-// ouverte, l'itineraire est accessible en un tap.
-export function OpenInMaps({
-  lat,
-  lng,
-  query,
-  label,
-  variant = "outline",
-}: Props) {
-  const target =
-    typeof lat === "number" && typeof lng === "number"
-      ? `${lat},${lng}`
-      : (query ?? "");
-  if (!target) return null;
-
-  const href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    target,
-  )}`;
+// Le lien est construit PAR NOM (`buildMapUrl`) et non par coordonnee brute :
+// `?query=Temple of Heaven Beijing` ouvre le bon POI, la ou `?query=lat,lng`
+// ouvrait un point generique. L'URL universelle Google Maps ouvre
+// l'application native sur mobile et la version web sur desktop.
+export function OpenInMaps({ place, label, variant = "outline" }: Props) {
+  const href = buildMapUrl("google", place);
 
   const className =
     variant === "primary"

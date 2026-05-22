@@ -28,7 +28,7 @@ import type {
 } from "@/data/events";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { localizedPath } from "@/lib/navigation";
-import { OpenInMaps } from "@/components/ui/open-in-maps";
+import { MapNavigationMenu } from "@/components/ui/map-navigation-menu";
 import { EventShareButton } from "./event-share";
 
 const categoryColor: Record<EventCategory, string> = {
@@ -347,10 +347,10 @@ export function EventDetail({
             </Practical>
           )}
 
-          {/* Ouvrir dans Google Maps : recherche par nom du lieu (venue),
+          {/* Navigation multi-cartes : recherche par nom du lieu (venue),
               coordonnees precises si connues, sinon centre ville. */}
           <div className="border-t border-border pt-3">
-            <OpenInMaps
+            <MapNavigationMenu
               place={{
                 name: event.venue ? event.venue[locale] : event.title[locale],
                 city: city ? city.name[locale] : event.citySlug,
@@ -358,7 +358,9 @@ export function EventDetail({
                 lat: event.coordinates?.lat ?? city?.coordinates.lat ?? 0,
                 lng: event.coordinates?.lng ?? city?.coordinates.lng ?? 0,
               }}
-              label={d.openInMaps}
+              buttonLabel={dict.maps.button}
+              title={dict.maps.title}
+              chinaHint={dict.maps.chinaHint}
             />
           </div>
 

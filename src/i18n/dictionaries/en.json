@@ -12,6 +12,11 @@
     "trains": "Trains",
     "cta": "Plan my trip"
   },
+  "maps": {
+    "button": "Open on a map",
+    "title": "Open in",
+    "chinaHint": "China"
+  },
   "hero": {
     "badge": "Before, during and after the trip",
     "title": "Your trip to China,",

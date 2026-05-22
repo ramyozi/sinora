@@ -12,6 +12,11 @@
     "trains": "Trains",
     "cta": "Planifier mon voyage"
   },
+  "maps": {
+    "button": "Voir sur une carte",
+    "title": "Ouvrir dans",
+    "chinaHint": "Chine"
+  },
   "hero": {
     "badge": "Avant, pendant et après le voyage",
     "title": "Votre voyage en Chine,",

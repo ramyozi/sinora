@@ -25,7 +25,7 @@ import type { Activity } from "@/data/activities";
 import { categoryMeta, groupGradient } from "@/data/activities";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { localizedPath } from "@/lib/navigation";
-import { OpenInMaps } from "@/components/ui/open-in-maps";
+import { MapNavigationMenu } from "@/components/ui/map-navigation-menu";
 import { categoryIcon, formatDuration } from "./activity-visuals";
 import { ActivityCard } from "./activity-card";
 
@@ -309,14 +309,16 @@ export function ActivityDetail({
             </Practical>
           )}
           <div className="space-y-2 border-t border-border pt-3">
-            <OpenInMaps
+            <MapNavigationMenu
               place={{
                 name: activity.title[locale],
                 city: cityName,
                 lat: activity.coordinates.lat,
                 lng: activity.coordinates.lng,
               }}
-              label={d.openInMaps}
+              buttonLabel={dict.maps.button}
+              title={dict.maps.title}
+              chinaHint={dict.maps.chinaHint}
             />
             <Link
               href={plannerHref}

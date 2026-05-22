@@ -191,7 +191,8 @@
       "share": "Share",
       "shareCopied": "Link copied",
       "similar": "Events to discover",
-      "ongoing": "Ongoing"
+      "ongoing": "Ongoing",
+      "openInMaps": "Open in Google Maps"
     }
   },
   "destinations": {
@@ -1195,7 +1196,8 @@
       "reviews": "Reviews",
       "gallery": "Gallery",
       "related": "Discover next",
-      "generatedNote": "Entry automatically enriched from open data (OpenStreetMap, Wikidata, Wikipedia). Practical details may vary: check on site."
+      "generatedNote": "Entry automatically enriched from open data (OpenStreetMap, Wikidata, Wikipedia). Practical details may vary: check on site.",
+      "openInMaps": "Open in Google Maps"
     }
   }
 }

@@ -191,7 +191,8 @@
       "share": "Partager",
       "shareCopied": "Lien copié",
       "similar": "Événements à découvrir",
-      "ongoing": "En cours"
+      "ongoing": "En cours",
+      "openInMaps": "Voir dans Google Maps"
     }
   },
   "destinations": {
@@ -1195,7 +1196,8 @@
       "reviews": "Avis",
       "gallery": "Galerie",
       "related": "À découvrir aussi",
-      "generatedNote": "Fiche enrichie automatiquement depuis des données ouvertes (OpenStreetMap, Wikidata, Wikipedia). Les détails pratiques peuvent varier : vérifiez sur place."
+      "generatedNote": "Fiche enrichie automatiquement depuis des données ouvertes (OpenStreetMap, Wikidata, Wikipedia). Les détails pratiques peuvent varier : vérifiez sur place.",
+      "openInMaps": "Voir dans Google Maps"
     }
   }
 }

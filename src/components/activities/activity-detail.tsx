@@ -25,6 +25,7 @@ import type { Activity } from "@/data/activities";
 import { categoryMeta, groupGradient } from "@/data/activities";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { localizedPath } from "@/lib/navigation";
+import { OpenInMaps } from "@/components/ui/open-in-maps";
 import { categoryIcon, formatDuration } from "./activity-visuals";
 import { ActivityCard } from "./activity-card";
 
@@ -307,13 +308,20 @@ export function ActivityDetail({
               {activity.accessibility.notes[locale]}
             </Practical>
           )}
-          <Link
-            href={plannerHref}
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-          >
-            <Compass className="size-4" />
-            {d.planTrip}
-          </Link>
+          <div className="space-y-2 border-t border-border pt-3">
+            <OpenInMaps
+              lat={activity.coordinates.lat}
+              lng={activity.coordinates.lng}
+              label={d.openInMaps}
+            />
+            <Link
+              href={plannerHref}
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+            >
+              <Compass className="size-4" />
+              {d.planTrip}
+            </Link>
+          </div>
         </aside>
       </div>
 

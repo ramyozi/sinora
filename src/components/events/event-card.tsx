@@ -85,10 +85,14 @@ export function EventCard({
   });
   const plannerHref = `${localizedPath("/route-planner", locale)}?${params.toString()}`;
   const optimizeHref = `${plannerHref}&optimizeAround=1`;
+  const detailHref = localizedPath(`/events/${event.slug}`, locale);
 
   return (
-    <article className="overflow-hidden rounded-card border border-border bg-surface">
-      <div className="relative aspect-[16/9] bg-surface-muted">
+    <article className="group overflow-hidden rounded-card border border-border bg-surface transition-colors hover:border-accent/40">
+      <Link
+        href={detailHref}
+        className="relative block aspect-[16/9] bg-surface-muted"
+      >
         {image ? (
           <Image
             src={image.url}
@@ -96,7 +100,7 @@ export function EventCard({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             unoptimized
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="grid h-full place-items-center text-3xl" aria-hidden>
@@ -115,11 +119,16 @@ export function EventCard({
           <Users className="size-3" />
           {crowdLabel[event.crowd]}
         </span>
-      </div>
+      </Link>
 
       <div className="p-5">
         <h3 className="text-base font-semibold text-foreground">
-          {event.title[locale]}
+          <Link
+            href={detailHref}
+            className="transition-colors hover:text-accent"
+          >
+            {event.title[locale]}
+          </Link>
         </h3>
         <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-muted">
           <span className="inline-flex items-center gap-1">

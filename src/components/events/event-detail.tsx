@@ -347,15 +347,17 @@ export function EventDetail({
             </Practical>
           )}
 
-          {/* Ouvrir dans Google Maps : coordonnees precises si connues,
-              sinon recherche par nom de lieu + ville. */}
+          {/* Ouvrir dans Google Maps : recherche par nom du lieu (venue),
+              coordonnees precises si connues, sinon centre ville. */}
           <div className="border-t border-border pt-3">
             <OpenInMaps
-              lat={event.coordinates?.lat}
-              lng={event.coordinates?.lng}
-              query={`${event.venue ? `${event.venue[locale]} ` : ""}${
-                city ? city.name[locale] : event.citySlug
-              }`.trim()}
+              place={{
+                name: event.venue ? event.venue[locale] : event.title[locale],
+                city: city ? city.name[locale] : event.citySlug,
+                address: event.address?.[locale],
+                lat: event.coordinates?.lat ?? city?.coordinates.lat ?? 0,
+                lng: event.coordinates?.lng ?? city?.coordinates.lng ?? 0,
+              }}
               label={d.openInMaps}
             />
           </div>

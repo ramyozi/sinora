@@ -158,6 +158,40 @@
       "modere": "Modéré",
       "dense": "Dense",
       "extreme": "Extrême"
+    },
+    "travelImpact": {
+      "none": "Sans impact sur l'itinéraire",
+      "detour": "Vaut un détour",
+      "must-include": "À intégrer absolument"
+    },
+    "detail": {
+      "backToList": "Tous les événements",
+      "nextDate": "Prochaine édition",
+      "popularity": "Popularité",
+      "about": "À propos",
+      "highlights": "Temps forts",
+      "practical": "Infos pratiques",
+      "practicalTips": "Conseils pratiques",
+      "allDates": "Toutes les dates",
+      "location": "Lieu",
+      "venue": "Site",
+      "address": "Adresse",
+      "metro": "Métro le plus proche",
+      "price": "Tarifs",
+      "duration": "Durée conseillée",
+      "crowdLabel": "Affluence",
+      "categoryLabel": "Catégorie",
+      "datesLabel": "Dates",
+      "impactLabel": "Itinéraire",
+      "stayExtension": "Allonger le séjour",
+      "stayExtensionValue": "+{n} jour(s) conseillé(s)",
+      "links": "Liens utiles",
+      "addToTrip": "Ajouter à mon itinéraire",
+      "optimizeAround": "Optimiser autour",
+      "share": "Partager",
+      "shareCopied": "Lien copié",
+      "similar": "Événements à découvrir",
+      "ongoing": "En cours"
     }
   },
   "destinations": {

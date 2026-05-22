@@ -33,6 +33,67 @@ export const events: SinoraEvent[] = [
       { start: "2027-01-05", end: "2027-02-25" },
     ],
     niche: ["photography", "nature"],
+    longDescription: {
+      fr: "Chaque hiver, Harbin se transforme en capitale mondiale de la glace. Des blocs decoupes dans la riviere Songhua gelee servent a batir des palais, des tours et des temples a taille reelle, illumines de l'interieur a la tombee de la nuit. Le parc Ice and Snow World s'etend sur des dizaines d'hectares ; l'ile du Soleil voisine accueille les sculptures de neige monumentales. Le froid est extreme, souvent sous les -20 C, mais le spectacle nocturne est sans equivalent.",
+      en: "Every winter, Harbin becomes the world capital of ice. Blocks cut from the frozen Songhua river are carved into full-scale palaces, towers and temples, lit from within after dark. The Ice and Snow World park stretches over dozens of hectares; neighbouring Sun Island hosts the monumental snow sculptures. The cold is extreme, often below -20 C, but the night spectacle has no equal.",
+      zh: "每年冬季,哈尔滨成为世界冰雪之都。从冰封的松花江切割出的冰块,被雕琢成与真实建筑等大的宫殿、塔楼与庙宇,入夜后由内部点亮。冰雪大世界园区绵延数十公顷,邻近的太阳岛则陈列巨型雪雕。气温极低,常在零下20度以下,但夜间的景象举世无双。",
+    },
+    highlights: [
+      {
+        fr: "Palais de glace grandeur nature illumines de neon multicolore",
+        en: "Life-size ice palaces lit with multicolour neon",
+        zh: "霓虹点亮的真实尺寸冰宫",
+      },
+      {
+        fr: "Sculptures de neige monumentales de l'ile du Soleil",
+        en: "Monumental snow sculptures on Sun Island",
+        zh: "太阳岛的巨型雪雕",
+      },
+      {
+        fr: "Toboggans de glace et patinage sur la riviere gelee",
+        en: "Ice slides and skating on the frozen river",
+        zh: "冰滑梯与江面滑冰",
+      },
+      {
+        fr: "Baignade hivernale et sculpture sur glace en direct",
+        en: "Winter swimming and live ice carving",
+        zh: "冬泳与现场冰雕表演",
+      },
+    ],
+    practicalTips: [
+      {
+        fr: "Visez la tombee de la nuit : les structures s'illuminent vers 16h30.",
+        en: "Aim for nightfall: the structures light up around 4:30pm.",
+        zh: "瞄准入夜时分:冰建筑约16:30亮灯。",
+      },
+      {
+        fr: "Equipement grand froid indispensable : bottes, sous-couches, protege-visage.",
+        en: "Extreme-cold gear is essential: boots, base layers, face cover.",
+        zh: "必备极寒装备:雪地靴、保暖内衣、面罩。",
+      },
+      {
+        fr: "Gardez la batterie du telephone au chaud, elle se vide tres vite.",
+        en: "Keep your phone battery warm, it drains very fast.",
+        zh: "手机电池需保暖,低温下耗电极快。",
+      },
+    ],
+    coordinates: { lat: 45.7717, lng: 126.5944 },
+    address: {
+      fr: "Ice and Snow World, district de Songbei, Harbin, Heilongjiang",
+      en: "Ice and Snow World, Songbei District, Harbin, Heilongjiang",
+      zh: "黑龙江省哈尔滨市松北区冰雪大世界",
+    },
+    priceInfo: {
+      fr: "Ice and Snow World environ 330 CNY ; tarifs reduits en soiree.",
+      en: "Ice and Snow World around 330 CNY; reduced evening rates.",
+      zh: "冰雪大世界约330元;夜场票价较低。",
+    },
+    durationHint: {
+      fr: "Prevoir 3 a 4 heures, de prefere en soiree.",
+      en: "Allow 3 to 4 hours, ideally in the evening.",
+      zh: "建议预留3至4小时,夜间为佳。",
+    },
+    galleryWikiTitles: ["Sun Island", "Songhua River"],
   },
   {
     slug: "spring-festival",
@@ -57,6 +118,60 @@ export const events: SinoraEvent[] = [
       { start: "2027-02-06", end: "2027-02-12" },
     ],
     niche: ["spiritual"],
+    longDescription: {
+      fr: "Le Nouvel An lunaire est le moment le plus intense de l'annee en Chine. Des centaines de millions de personnes voyagent pour retrouver leur famille : c'est la plus grande migration humaine du monde. Les rues se parent de lampions rouges et de couplets calligraphies, les temples se remplissent pour les premieres prieres de l'annee, et les nuits resonnent de feux d'artifice. Pour le voyageur, c'est une plongee saisissante dans la Chine intime, a condition d'accepter une logistique de transport sous tension.",
+      en: "The Lunar New Year is the most intense moment of the year in China. Hundreds of millions of people travel to reunite with family in the world's largest human migration. Streets fill with red lanterns and calligraphed couplets, temples crowd for the year's first prayers, and nights echo with fireworks. For the traveller it is a striking immersion into intimate China, provided you accept transport logistics under heavy strain.",
+      zh: "农历新年是中国一年中最热烈的时刻。数以亿计的人返乡团聚,形成全球最大的人口迁徙。街巷挂满红灯笼与手写春联,寺庙因新年首次祈福而人潮涌动,夜空回荡烟花。对旅行者而言,这是深入中国日常的震撼体验,但须接受紧张的交通安排。",
+    },
+    highlights: [
+      {
+        fr: "Reveillon en famille et plats porte-bonheur",
+        en: "Family reunion dinner and lucky dishes",
+        zh: "年夜饭与吉祥菜肴",
+      },
+      {
+        fr: "Temples bondes pour les premieres prieres de l'annee",
+        en: "Temples packed for the year's first prayers",
+        zh: "寺庙挤满新年首次祈福的人群",
+      },
+      {
+        fr: "Danses du lion et du dragon dans les rues",
+        en: "Lion and dragon dances in the streets",
+        zh: "街头舞狮舞龙",
+      },
+      {
+        fr: "Feux d'artifice et marches du Nouvel An",
+        en: "Fireworks and New Year markets",
+        zh: "烟花与春节庙会",
+      },
+    ],
+    practicalTips: [
+      {
+        fr: "Reservez trains et hotels des l'ouverture des ventes, 30 a 60 jours avant.",
+        en: "Book trains and hotels the moment sales open, 30 to 60 days ahead.",
+        zh: "车票与酒店一开售即预订,提前30至60天。",
+      },
+      {
+        fr: "Beaucoup de petits commerces ferment plusieurs jours : prevoyez en consequence.",
+        en: "Many small shops close for several days: plan accordingly.",
+        zh: "许多小店歇业数日,需提前安排。",
+      },
+      {
+        fr: "Les grandes villes se vident, les zones rurales s'animent : un bon moment pour les metropoles plus calmes.",
+        en: "Big cities empty out while rural areas come alive: a good time for calmer metropolises.",
+        zh: "大城市变得冷清,乡村则热闹起来:适合体验更安静的都市。",
+      },
+    ],
+    priceInfo: {
+      fr: "Festivites de rue gratuites ; certains temples appliquent un droit d'entree.",
+      en: "Street festivities are free; some temples charge an entrance fee.",
+      zh: "街头庆典免费;部分寺庙收取门票。",
+    },
+    durationHint: {
+      fr: "Le pic d'intensite dure environ une semaine.",
+      en: "The peak intensity lasts about a week.",
+      zh: "最热烈的阶段约持续一周。",
+    },
   },
   {
     slug: "datong-lantern",

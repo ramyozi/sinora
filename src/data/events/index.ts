@@ -46,6 +46,35 @@ export function getEventsByCity(citySlug: string): SinoraEvent[] {
 }
 
 /**
+ * Evenements similaires a un evenement donne, pour la section "a decouvrir
+ * aussi" de la page detail. Score : meme ville (+3), meme categorie (+2),
+ * occurrence proche dans le temps (+1). Trie par score decroissant.
+ */
+export function getSimilarEvents(
+  event: SinoraEvent,
+  limit = 3,
+): SinoraEvent[] {
+  const earliest = (e: SinoraEvent): string =>
+    e.occurrences.map((o) => o.start).sort()[0] ?? "";
+  const ref = earliest(event);
+
+  const scored = events
+    .filter((e) => e.slug !== event.slug)
+    .map((e) => {
+      let score = 0;
+      if (e.citySlug === event.citySlug) score += 3;
+      if (e.category === event.category) score += 2;
+      // Proximite temporelle : meme mois de demarrage.
+      if (ref && earliest(e).slice(0, 7) === ref.slice(0, 7)) score += 1;
+      return { event: e, score };
+    })
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, limit).map((s) => s.event);
+}
+
+/**
  * Trouve les occurrences d'evenements qui chevauchent une fenetre de dates.
  * Retourne les paires { event, occurrence } pour un traitement aval.
  */

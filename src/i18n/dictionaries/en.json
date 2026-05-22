@@ -158,6 +158,40 @@
       "modere": "Moderate",
       "dense": "Busy",
       "extreme": "Extreme"
+    },
+    "travelImpact": {
+      "none": "No impact on the itinerary",
+      "detour": "Worth a detour",
+      "must-include": "A must-include"
+    },
+    "detail": {
+      "backToList": "All events",
+      "nextDate": "Next edition",
+      "popularity": "Popularity",
+      "about": "About",
+      "highlights": "Highlights",
+      "practical": "Practical info",
+      "practicalTips": "Practical tips",
+      "allDates": "All dates",
+      "location": "Location",
+      "venue": "Venue",
+      "address": "Address",
+      "metro": "Nearest metro",
+      "price": "Pricing",
+      "duration": "Suggested duration",
+      "crowdLabel": "Crowd",
+      "categoryLabel": "Category",
+      "datesLabel": "Dates",
+      "impactLabel": "Itinerary",
+      "stayExtension": "Extend the stay",
+      "stayExtensionValue": "+{n} day(s) recommended",
+      "links": "Useful links",
+      "addToTrip": "Add to my itinerary",
+      "optimizeAround": "Optimize around",
+      "share": "Share",
+      "shareCopied": "Link copied",
+      "similar": "Events to discover",
+      "ongoing": "Ongoing"
     }
   },
   "destinations": {

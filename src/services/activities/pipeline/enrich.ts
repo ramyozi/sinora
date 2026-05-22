@@ -217,10 +217,21 @@ function subCategoryFor(tags: Record<string, string>): LocalizedText {
 
 // --- Helpers texte ----------------------------------------------------------
 
+// Remplace les tirets longs (cadratin, demi-cadratin, barre horizontale) par
+// un trait d'union : le projet interdit les em dashes, y compris dans les
+// textes importes (les extraits Wikipedia chinois en contiennent souvent,
+// dans les plages de dates ou les appositions).
+function sanitize(text: string): string {
+  // Plage U+2012..U+2015 : figure dash, en dash, em dash, horizontal bar.
+  // Echappements Unicode pour ne pas ecrire le caractere interdit en source.
+  return text.replace(/[\u2012\u2013\u2014\u2015]+/g, "-");
+}
+
 // Tronque proprement un texte a la limite, sur une frontiere de mot.
 function truncate(text: string, max: number): string {
-  if (text.length <= max) return text;
-  const cut = text.slice(0, max);
+  const clean = sanitize(text);
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max);
   const lastSpace = cut.lastIndexOf(" ");
   return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}…`;
 }
@@ -234,11 +245,11 @@ function capitalize(text: string): string {
 
 // Construit un LocalizedText avec chaine de repli en -> fr/zh.
 function localized(labels: Partial<Record<PipelineLang, string>>): LocalizedText {
-  const en = labels.en ?? labels.zh ?? labels.fr ?? "";
+  const en = sanitize(labels.en ?? labels.zh ?? labels.fr ?? "");
   return {
     en: capitalize(en),
-    fr: capitalize(labels.fr ?? en),
-    zh: labels.zh ?? en,
+    fr: capitalize(sanitize(labels.fr ?? "") || en),
+    zh: sanitize(labels.zh ?? "") || en,
   };
 }
 

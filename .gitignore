@@ -40,4 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# cache du pipeline d'activites (build-time uniquement)
+/.cache
+
 .vercel

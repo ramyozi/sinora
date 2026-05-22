@@ -1160,7 +1160,8 @@
       "warnings": "Good to know",
       "reviews": "Reviews",
       "gallery": "Gallery",
-      "related": "Discover next"
+      "related": "Discover next",
+      "generatedNote": "Entry automatically enriched from open data (OpenStreetMap, Wikidata, Wikipedia). Practical details may vary: check on site."
     }
   }
 }

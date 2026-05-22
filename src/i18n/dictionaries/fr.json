@@ -1160,7 +1160,8 @@
       "warnings": "À savoir",
       "reviews": "Avis",
       "gallery": "Galerie",
-      "related": "À découvrir aussi"
+      "related": "À découvrir aussi",
+      "generatedNote": "Fiche enrichie automatiquement depuis des données ouvertes (OpenStreetMap, Wikidata, Wikipedia). Les détails pratiques peuvent varier : vérifiez sur place."
     }
   }
 }

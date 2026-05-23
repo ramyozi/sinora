@@ -226,6 +226,12 @@
     "imageCredit": "图片:Wikipedia",
     "galleryLabel": "城市影像",
     "galleryCredit": "{topic} 的 Wikipedia 精选图片。",
+    "explore": {
+      "title": "探索这座城市",
+      "subtitle": "活动与节庆已自动按城市筛选。",
+      "activities": "查看活动",
+      "events": "查看节庆"
+    },
     "pois": {
       "title": "不可错过",
       "subtitle": "值得停留的地点与体验:点击地图标记即可跳转。",
@@ -960,9 +966,10 @@
         "title": "探索",
         "links": [
           { "slug": "destinations", "label": "目的地" },
+          { "slug": "activities", "label": "活动体验" },
+          { "slug": "events", "label": "节庆活动" },
           { "slug": "route-planner", "label": "行程" },
-          { "slug": "trains", "label": "高铁" },
-          { "slug": "events", "label": "活动" }
+          { "slug": "trains", "label": "高铁" }
         ]
       },
       {

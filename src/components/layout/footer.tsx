@@ -8,6 +8,7 @@ import { Logo } from "./logo";
 // Mapping slug vers route. null signifie module non encore livré (badge Bientôt).
 const slugToPath: Record<string, string | null> = {
   destinations: "/destinations",
+  activities: "/activites",
   "route-planner": "/route-planner",
   trains: null,
   events: "/events",

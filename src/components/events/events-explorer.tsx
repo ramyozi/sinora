@@ -85,7 +85,7 @@ export function EventsExplorer({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={ev.searchPlaceholder}
-              className="h-10 w-full rounded-full border border-border bg-surface pl-10 pr-4 text-sm text-foreground transition-colors hover:border-accent/40 focus:border-accent focus:outline-none"
+              className="h-10 w-full appearance-none rounded-full border border-border bg-surface pl-10 pr-4 text-sm text-foreground placeholder:text-muted transition-colors hover:border-accent/40 focus:border-accent focus:outline-none [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
               aria-label={ev.searchPlaceholder}
             />
           </label>

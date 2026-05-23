@@ -141,7 +141,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
               setFilters((p) => ({ ...p, query: e.target.value }))
             }
             placeholder={a.filters.searchPlaceholder}
-            className="h-10 w-full rounded-lg border border-border bg-surface pl-9 pr-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none"
+            className="h-10 w-full appearance-none rounded-lg border border-border bg-surface pl-9 pr-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
           />
         </div>
         <label className="sr-only" htmlFor="activity-sort">

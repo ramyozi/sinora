@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { LayoutGrid, List, Search, SlidersHorizontal, X } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Season } from "@/data/cities/types";
@@ -32,6 +32,9 @@ import {
 } from "@/data/activities";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
 import { ActivityCard } from "./activity-card";
+import { ActivityCardCompact } from "./activity-card-compact";
+
+type DisplayMode = "immersive" | "compact";
 
 export interface ActivityEntry {
   activity: Activity;
@@ -83,6 +86,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
   const [filters, setFilters] = useState<ActivityFilters>(emptyFilters);
   const [sort, setSort] = useState<ActivitySort>("editorial");
   const [panelOpen, setPanelOpen] = useState(false);
+  const [displayMode, setDisplayMode] = useState<DisplayMode>("immersive");
 
   const scoreBySlug = useMemo(
     () => new Map(entries.map((e) => [e.activity.slug, e.score])),
@@ -176,6 +180,40 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             </span>
           )}
         </button>
+        {/* Bascule mode d'affichage : immersif (grosses cartes) ou
+            compact (liste dense). */}
+        <div
+          role="group"
+          aria-label={a.display.label}
+          className="inline-flex h-10 rounded-lg border border-border bg-surface p-0.5"
+        >
+          <button
+            type="button"
+            onClick={() => setDisplayMode("immersive")}
+            aria-pressed={displayMode === "immersive"}
+            aria-label={a.display.immersive}
+            className={`grid w-9 place-items-center rounded-md transition-colors ${
+              displayMode === "immersive"
+                ? "bg-accent text-accent-foreground"
+                : "text-muted hover:text-foreground"
+            }`}
+          >
+            <LayoutGrid className="size-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setDisplayMode("compact")}
+            aria-pressed={displayMode === "compact"}
+            aria-label={a.display.compact}
+            className={`grid w-9 place-items-center rounded-md transition-colors ${
+              displayMode === "compact"
+                ? "bg-accent text-accent-foreground"
+                : "text-muted hover:text-foreground"
+            }`}
+          >
+            <List className="size-4" />
+          </button>
+        </div>
       </div>
 
       {/* Panneau de filtres detaille. */}
@@ -348,20 +386,41 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
         {visible.length} {a.countLabel}
       </p>
 
-      {/* Grille de cartes. */}
+      {/* Grille ou liste suivant le mode d'affichage. */}
       {visible.length > 0 ? (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((activity) => (
-            <ActivityCard
-              key={activity.slug}
-              activity={activity}
-              image={imageBySlug.get(activity.slug) ?? null}
-              cityName={cityName.get(activity.citySlug) ?? activity.citySlug}
-              locale={locale}
-              dict={dict}
-              score={scoreBySlug.get(activity.slug) ?? 0}
-            />
-          ))}
+        <div
+          className={
+            displayMode === "immersive"
+              ? "grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+              : "grid gap-2 sm:grid-cols-2"
+          }
+        >
+          {visible.map((activity) => {
+            const image = imageBySlug.get(activity.slug) ?? null;
+            const cName = cityName.get(activity.citySlug) ?? activity.citySlug;
+            const score = scoreBySlug.get(activity.slug) ?? 0;
+            return displayMode === "immersive" ? (
+              <ActivityCard
+                key={activity.slug}
+                activity={activity}
+                image={image}
+                cityName={cName}
+                locale={locale}
+                dict={dict}
+                score={score}
+              />
+            ) : (
+              <ActivityCardCompact
+                key={activity.slug}
+                activity={activity}
+                image={image}
+                cityName={cName}
+                locale={locale}
+                dict={dict}
+                score={score}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className="rounded-card border border-dashed border-border bg-surface p-10 text-center">

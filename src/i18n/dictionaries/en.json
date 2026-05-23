@@ -1147,6 +1147,11 @@
       "hShort": "h",
       "minShort": "min"
     },
+    "display": {
+      "label": "Display",
+      "immersive": "Immersive view",
+      "compact": "Compact view"
+    },
     "filters": {
       "title": "Filters",
       "searchPlaceholder": "Search an activity, a district, a mood…",

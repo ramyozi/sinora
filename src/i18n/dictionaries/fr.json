@@ -1147,6 +1147,11 @@
       "hShort": "h",
       "minShort": "min"
     },
+    "display": {
+      "label": "Affichage",
+      "immersive": "Vue immersive",
+      "compact": "Vue compacte"
+    },
     "filters": {
       "title": "Filtres",
       "searchPlaceholder": "Rechercher une activité, un quartier, une ambiance…",

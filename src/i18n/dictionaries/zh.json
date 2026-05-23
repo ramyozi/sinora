@@ -1147,6 +1147,11 @@
       "hShort": "小时",
       "minShort": "分钟"
     },
+    "display": {
+      "label": "显示模式",
+      "immersive": "沉浸视图",
+      "compact": "紧凑视图"
+    },
     "filters": {
       "title": "筛选",
       "searchPlaceholder": "搜索活动、街区或氛围…",

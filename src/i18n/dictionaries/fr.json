@@ -226,6 +226,12 @@
     "imageCredit": "Photo : Wikipedia",
     "galleryLabel": "En images",
     "galleryCredit": "Sélection d'images Wikipedia pour {topic}.",
+    "explore": {
+      "title": "Explorer cette ville",
+      "subtitle": "Activités et événements filtrés automatiquement.",
+      "activities": "Voir les activités",
+      "events": "Voir les événements"
+    },
     "pois": {
       "title": "À ne pas rater",
       "subtitle": "Lieux et expériences a vivre : clic carte = focus sur la fiche.",
@@ -960,9 +966,10 @@
         "title": "Découvrir",
         "links": [
           { "slug": "destinations", "label": "Destinations" },
+          { "slug": "activities", "label": "Activités" },
+          { "slug": "events", "label": "Événements" },
           { "slug": "route-planner", "label": "Itinéraire" },
-          { "slug": "trains", "label": "Trains" },
-          { "slug": "events", "label": "Événements" }
+          { "slug": "trains", "label": "Trains" }
         ]
       },
       {

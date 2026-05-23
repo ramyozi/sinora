@@ -1152,6 +1152,11 @@
       "immersive": "Vue immersive",
       "compact": "Vue compacte"
     },
+    "activeFilters": {
+      "label": "Filtres actifs",
+      "clearAll": "Tout effacer"
+    },
+    "inCityTitle": "Activités à {city}",
     "filters": {
       "title": "Filtres",
       "searchPlaceholder": "Rechercher une activité, un quartier, une ambiance…",

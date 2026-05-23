@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { LayoutGrid, List, Search, SlidersHorizontal, X } from "lucide-react";
+import { LayoutGrid, List, MapPin, Search, SlidersHorizontal, X } from "lucide-react";
+import { useUrlFilters } from "@/lib/url-filters";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Season } from "@/data/cities/types";
@@ -83,10 +84,28 @@ function Chip({
 // pour une reponse instantanee.
 export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
   const a = dict.activities;
-  const [filters, setFilters] = useState<ActivityFilters>(emptyFilters);
-  const [sort, setSort] = useState<ActivitySort>("editorial");
+  const url = useUrlFilters();
+
+  // Dimensions URL-driven : source de verite = URL. Permettent deep linking,
+  // partage et back/forward natifs.
+  const urlCities = url.getList("city");
+  const urlCategories = url.getList("category") as ActivityCategory[];
+  const sort = (url.get("sort") as ActivitySort | null) ?? "editorial";
+  const displayMode: DisplayMode =
+    url.get("view") === "compact" ? "compact" : "immersive";
+
+  // Etat local pour les autres dimensions de filtrage (budgets, saisons,
+  // affluence, bascules rapides...) qui restent ephemeres.
+  const [otherFilters, setOtherFilters] = useState<ActivityFilters>(emptyFilters);
   const [panelOpen, setPanelOpen] = useState(false);
-  const [displayMode, setDisplayMode] = useState<DisplayMode>("immersive");
+
+  // Vue effective : URL + etat local. React Compiler memoise automatiquement
+  // les derivations sans qu'on ait besoin d'un useMemo manuel.
+  const filters: ActivityFilters = {
+    ...otherFilters,
+    cities: urlCities,
+    categories: urlCategories,
+  };
 
   const scoreBySlug = useMemo(
     () => new Map(entries.map((e) => [e.activity.slug, e.score])),
@@ -95,21 +114,23 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
 
   // Pipeline : filtre -> tri. Le tri editorial respecte l'ordre d'entree
   // (deja trie par score cote serveur) ; les autres re-trient la liste.
-  const visible = useMemo(() => {
-    const filtered = applyFilters(
-      entries.map((e) => e.activity),
-      filters,
+  // Pas de useMemo manuel : React Compiler gere la memoization a partir
+  // des derivations URL + etat local.
+  const filteredBase = applyFilters(
+    entries.map((e) => e.activity),
+    filters,
+  );
+  let visible: Activity[];
+  if (sort === "editorial") {
+    const order = new Map(
+      entries.map((e, i) => [e.activity.slug, i] as const),
     );
-    if (sort === "editorial") {
-      const order = new Map(
-        entries.map((e, i) => [e.activity.slug, i] as const),
-      );
-      return [...filtered].sort(
-        (x, y) => (order.get(x.slug) ?? 0) - (order.get(y.slug) ?? 0),
-      );
-    }
-    return sortActivities(filtered, sort);
-  }, [entries, filters, sort]);
+    visible = [...filteredBase].sort(
+      (x, y) => (order.get(x.slug) ?? 0) - (order.get(y.slug) ?? 0),
+    );
+  } else {
+    visible = sortActivities(filteredBase, sort);
+  }
 
   const activeCount = countActiveFilters(filters);
   const imageBySlug = useMemo(
@@ -121,9 +142,22 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
     [cities],
   );
 
-  // Helpers de bascule generiques pour les filtres multi-valeurs.
+  // Helpers de bascule. Les dimensions URL-driven (cities, categories)
+  // ecrivent dans l'URL ; les autres dans l'etat local.
+  function toggleCity(slug: string) {
+    const next = urlCities.includes(slug)
+      ? urlCities.filter((s) => s !== slug)
+      : [...urlCities, slug];
+    url.setMany({ city: next.length ? next : null });
+  }
+  function toggleCategory(cat: ActivityCategory) {
+    const next = urlCategories.includes(cat)
+      ? urlCategories.filter((c) => c !== cat)
+      : [...urlCategories, cat];
+    url.setMany({ category: next.length ? next : null });
+  }
   function toggle<T>(key: keyof ActivityFilters, value: T) {
-    setFilters((prev) => {
+    setOtherFilters((prev) => {
       const list = prev[key] as T[];
       const next = list.includes(value)
         ? list.filter((v) => v !== value)
@@ -131,9 +165,57 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
       return { ...prev, [key]: next };
     });
   }
+  function setSort(value: ActivitySort) {
+    url.setMany({ sort: value === "editorial" ? null : value });
+  }
+  function setDisplayMode(value: DisplayMode) {
+    url.setMany({ view: value === "immersive" ? null : value });
+  }
+  function resetAll() {
+    url.reset(["city", "category", "sort", "view"]);
+    setOtherFilters(emptyFilters);
+  }
+
+  // Bandeau "filtres actifs" : ville et categories URL-driven, avec X.
+  const activeCityChips = urlCities
+    .map((slug) => {
+      const name = cityName.get(slug);
+      return name ? { slug, name } : null;
+    })
+    .filter((c): c is { slug: string; name: string } => c !== null);
 
   return (
     <div className="space-y-5">
+      {/* Bandeau de filtres actifs URL-driven : ville(s), avec X pour retirer
+          chacune et un reset global si plusieurs criteres sont actifs. */}
+      {activeCityChips.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 rounded-card border border-accent/30 bg-accent/5 px-3 py-2 text-sm">
+          <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+            {a.activeFilters.label}
+          </span>
+          {activeCityChips.map((c) => (
+            <button
+              key={c.slug}
+              type="button"
+              onClick={() => toggleCity(c.slug)}
+              className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+            >
+              <MapPin className="size-3" />
+              {c.name}
+              <X className="size-3" />
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={resetAll}
+            className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-accent hover:underline"
+          >
+            <X className="size-3.5" />
+            {a.activeFilters.clearAll}
+          </button>
+        </div>
+      )}
+
       {/* Barre d'outils : recherche + tri + bouton filtres. */}
       <div className="flex flex-wrap items-center gap-2">
         <div className="relative min-w-0 flex-1">
@@ -142,7 +224,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             type="search"
             value={filters.query}
             onChange={(e) =>
-              setFilters((p) => ({ ...p, query: e.target.value }))
+              setOtherFilters((p) => ({ ...p, query: e.target.value }))
             }
             placeholder={a.filters.searchPlaceholder}
             className="h-10 w-full appearance-none rounded-lg border border-border bg-surface pl-9 pr-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
@@ -225,7 +307,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
               <Chip
                 key={c.slug}
                 active={filters.cities.includes(c.slug)}
-                onClick={() => toggle("cities", c.slug)}
+                onClick={() => toggleCity(c.slug)}
               >
                 {c.name}
               </Chip>
@@ -239,7 +321,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
                 <Chip
                   key={cat}
                   active={filters.categories.includes(cat)}
-                  onClick={() => toggle("categories", cat)}
+                  onClick={() => toggleCategory(cat)}
                 >
                   <span aria-hidden>{categoryMeta[cat].emoji}</span>{" "}
                   {a.categories[cat]}
@@ -331,7 +413,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             <Chip
               active={filters.familyFriendly}
               onClick={() =>
-                setFilters((p) => ({
+                setOtherFilters((p) => ({
                   ...p,
                   familyFriendly: !p.familyFriendly,
                 }))
@@ -342,7 +424,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             <Chip
               active={filters.soloFriendly}
               onClick={() =>
-                setFilters((p) => ({ ...p, soloFriendly: !p.soloFriendly }))
+                setOtherFilters((p) => ({ ...p, soloFriendly: !p.soloFriendly }))
               }
             >
               {a.filters.quick.solo}
@@ -350,7 +432,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             <Chip
               active={filters.nightActivity}
               onClick={() =>
-                setFilters((p) => ({ ...p, nightActivity: !p.nightActivity }))
+                setOtherFilters((p) => ({ ...p, nightActivity: !p.nightActivity }))
               }
             >
               {a.filters.quick.night}
@@ -358,7 +440,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
             <Chip
               active={filters.rainCompatible}
               onClick={() =>
-                setFilters((p) => ({
+                setOtherFilters((p) => ({
                   ...p,
                   rainCompatible: !p.rainCompatible,
                 }))
@@ -371,7 +453,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
           {activeCount > 0 && (
             <button
               type="button"
-              onClick={() => setFilters(emptyFilters)}
+              onClick={() => resetAll()}
               className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
             >
               <X className="size-3.5" />
@@ -429,7 +511,7 @@ export function ActivitiesExplorer({ entries, cities, locale, dict }: Props) {
           </p>
           <button
             type="button"
-            onClick={() => setFilters(emptyFilters)}
+            onClick={() => resetAll()}
             className="mt-2 text-xs font-medium text-accent hover:underline"
           >
             {a.filters.reset}

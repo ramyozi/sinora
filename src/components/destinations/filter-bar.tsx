@@ -6,7 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { BUDGETS, REGIONS, SEASONS, TAGS } from "@/data/cities";
 
 const selectClass =
-  "h-9 rounded-full border border-border bg-surface px-3 pr-8 text-sm text-foreground transition-colors hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-ring";
+  "h-9 shrink-0 appearance-none rounded-full border border-border bg-surface px-3 pr-7 text-sm text-foreground transition-colors hover:bg-surface-muted focus:outline-none focus:ring-2 focus:ring-ring";
 
 // Barre de filtres synchronisée à l'URL : SEO friendly et partageable.
 export function FilterBar({ dict }: { dict: Dictionary }) {
@@ -34,7 +34,9 @@ export function FilterBar({ dict }: { dict: Dictionary }) {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-2.5">
+    // Mobile : barre horizontale scrollable pour eviter un empilement vertical
+    // qui pousse la carte plus bas. Desktop : flex-wrap classique.
+    <div className="-mx-4 flex items-center gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:gap-2.5 sm:overflow-visible sm:px-0 sm:pb-0 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <select
         className={selectClass}
         value={region}
@@ -95,7 +97,7 @@ export function FilterBar({ dict }: { dict: Dictionary }) {
         <button
           type="button"
           onClick={reset}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
         >
           <X className="size-3.5" />
           {dict.destinations.filters.reset}

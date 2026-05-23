@@ -35,10 +35,15 @@ export async function generateMetadata({
 // gere ensuite tout le filtrage cote client.
 export default async function ActivitiesPage({
   params,
+  searchParams,
 }: PageProps<"/[locale]/activites">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = await getDictionary(locale);
+  const sp = await searchParams;
+  // Filtre URL-driven `?city=slug` : detection cote serveur pour ajuster le
+  // titre SEO et le hero "Activites a {ville}".
+  const citySlug = typeof sp.city === "string" ? sp.city : null;
 
   // Activites triees par score editorial : la grille s'ouvre sur les
   // meilleures experiences.
@@ -79,6 +84,14 @@ export default async function ActivitiesPage({
     .map((c) => ({ slug: c.slug, name: c.name[locale] }))
     .sort((x, y) => x.name.localeCompare(y.name, locale));
 
+  // Titre dynamique quand un filtre ville est applique via l'URL.
+  const cityName = citySlug
+    ? (allCities.find((c) => c.slug === citySlug)?.name[locale] ?? null)
+    : null;
+  const heroTitle = cityName
+    ? dict.activities.inCityTitle.replace("{city}", cityName)
+    : dict.activities.title;
+
   return (
     <Container className="py-6 sm:py-14">
       <header className="max-w-2xl">
@@ -86,7 +99,7 @@ export default async function ActivitiesPage({
           {entries.length} {dict.activities.countLabel}
         </span>
         <h1 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-5xl">
-          {dict.activities.title}
+          {heroTitle}
         </h1>
         <p className="mt-3 text-pretty text-muted">
           {dict.activities.subtitle}

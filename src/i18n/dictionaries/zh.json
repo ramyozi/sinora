@@ -1152,6 +1152,11 @@
       "immersive": "沉浸视图",
       "compact": "紧凑视图"
     },
+    "activeFilters": {
+      "label": "已启用筛选",
+      "clearAll": "全部清除"
+    },
+    "inCityTitle": "{city}的活动",
     "filters": {
       "title": "筛选",
       "searchPlaceholder": "搜索活动、街区或氛围…",

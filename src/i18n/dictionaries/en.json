@@ -1152,6 +1152,11 @@
       "immersive": "Immersive view",
       "compact": "Compact view"
     },
+    "activeFilters": {
+      "label": "Active filters",
+      "clearAll": "Clear all"
+    },
+    "inCityTitle": "Activities in {city}",
     "filters": {
       "title": "Filters",
       "searchPlaceholder": "Search an activity, a district, a mood…",

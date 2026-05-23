@@ -164,6 +164,11 @@
       "dense": "Dense",
       "extreme": "Extrême"
     },
+    "activeFilters": {
+      "label": "Filtres actifs",
+      "clearAll": "Tout effacer"
+    },
+    "inCityTitle": "Événements à {city}",
     "travelImpact": {
       "none": "Sans impact sur l'itinéraire",
       "detour": "Vaut un détour",

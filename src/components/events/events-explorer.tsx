@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Filter, Search } from "lucide-react";
+import { Filter, MapPin, Search, X } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { City } from "@/data/cities";
@@ -12,6 +12,7 @@ import type {
   SinoraEvent,
 } from "@/data/events";
 import type { WikiLeadImage } from "@/lib/api/providers/wiki-image";
+import { useUrlFilters } from "@/lib/url-filters";
 import { EventCard } from "./event-card";
 
 interface DisplayEntry {
@@ -35,9 +36,30 @@ export function EventsExplorer({
   dict,
 }: Props) {
   const ev = dict.events;
-  const [category, setCategory] = useState<EventCategory | "all">("all");
+  const url = useUrlFilters();
+
+  // Dimensions URL-driven : city + category (single). Permettent deep linking
+  // depuis une page ville, partage de lien et back/forward navigateur.
+  const urlCity = url.get("city");
+  const urlCategory = url.get("category");
+  const category: EventCategory | "all" = urlCategory
+    ? (urlCategory as EventCategory)
+    : "all";
+
   const [crowd, setCrowd] = useState<EventCrowd | "all">("all");
   const [query, setQuery] = useState("");
+
+  function setCategoryFilter(value: EventCategory | "all") {
+    url.setMany({ category: value === "all" ? null : value });
+  }
+  function clearCity() {
+    url.setMany({ city: null });
+  }
+  function resetAll() {
+    url.reset(["city", "category"]);
+    setCrowd("all");
+    setQuery("");
+  }
 
   const categories: EventCategory[] = useMemo(() => {
     const set = new Set<EventCategory>();
@@ -45,32 +67,65 @@ export function EventsExplorer({
     return Array.from(set);
   }, [entries]);
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return entries.filter(({ event }) => {
-      if (category !== "all" && event.category !== category) return false;
-      if (crowd !== "all" && event.crowd !== crowd) return false;
-      if (q) {
-        const haystack = [
-          event.title.fr,
-          event.title.en,
-          event.title.zh,
-          event.summary.fr,
-          event.summary.en,
-          event.citySlug,
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-      return true;
-    });
-  }, [entries, category, crowd, query]);
+  const filtered = entries.filter(({ event }) => {
+    if (urlCity && event.citySlug !== urlCity) return false;
+    if (category !== "all" && event.category !== category) return false;
+    if (crowd !== "all" && event.crowd !== crowd) return false;
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      const haystack = [
+        event.title.fr,
+        event.title.en,
+        event.title.zh,
+        event.summary.fr,
+        event.summary.en,
+        event.citySlug,
+      ]
+        .join(" ")
+        .toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const activeCityName = urlCity
+    ? (cityBySlug[urlCity]?.name[locale] ?? null)
+    : null;
 
   const crowds: EventCrowd[] = ["calme", "modere", "dense", "extreme"];
 
   return (
     <div className="space-y-6">
+      {/* Bandeau de filtres actifs URL-driven : ville (deep link depuis page
+          ville) avec X pour retirer, bouton "Tout effacer" si plusieurs
+          dimensions sont posees. */}
+      {(activeCityName || urlCategory) && (
+        <div className="flex flex-wrap items-center gap-2 rounded-card border border-accent/30 bg-accent/5 px-3 py-2 text-sm">
+          <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+            {ev.activeFilters.label}
+          </span>
+          {activeCityName && (
+            <button
+              type="button"
+              onClick={clearCity}
+              className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+            >
+              <MapPin className="size-3" />
+              {activeCityName}
+              <X className="size-3" />
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={resetAll}
+            className="ml-auto inline-flex items-center gap-1 text-xs font-medium text-accent hover:underline"
+          >
+            <X className="size-3.5" />
+            {ev.activeFilters.clearAll}
+          </button>
+        </div>
+      )}
+
       <div className="rounded-card border border-border bg-surface p-4">
         <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-muted">
           <Filter className="size-3.5 text-accent" />
@@ -93,7 +148,7 @@ export function EventsExplorer({
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
             type="button"
-            onClick={() => setCategory("all")}
+            onClick={() => setCategoryFilter("all")}
             className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
               category === "all"
                 ? "border-foreground bg-foreground text-background"
@@ -106,7 +161,7 @@ export function EventsExplorer({
             <button
               key={c}
               type="button"
-              onClick={() => setCategory(c)}
+              onClick={() => setCategoryFilter(c)}
               className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
                 category === c
                   ? "border-accent bg-accent/10 text-accent"

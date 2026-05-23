@@ -56,10 +56,15 @@ function dateKey(d: Date): string {
 
 export default async function EventsPage({
   params,
+  searchParams,
 }: PageProps<"/[locale]/events">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = await getDictionary(locale);
+  const sp = await searchParams;
+  // Filtre URL-driven `?city=slug` : detection cote serveur pour ajuster le
+  // titre SEO et le hero "Evenements a {ville}".
+  const citySlug = typeof sp.city === "string" ? sp.city : null;
 
   // Selectionner la prochaine occurrence pertinente par evenement.
   const today = new Date();
@@ -101,7 +106,12 @@ export default async function EventsPage({
           {entries.length} {dict.events.countLabel}
         </span>
         <h1 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-5xl">
-          {dict.events.title}
+          {citySlug
+            ? dict.events.inCityTitle.replace(
+                "{city}",
+                allCities.find((c) => c.slug === citySlug)?.name[locale] ?? "",
+              )
+            : dict.events.title}
         </h1>
         <p className="mt-3 text-pretty text-muted">{dict.events.subtitle}</p>
       </header>

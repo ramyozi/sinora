@@ -164,6 +164,11 @@
       "dense": "拥挤",
       "extreme": "极度拥挤"
     },
+    "activeFilters": {
+      "label": "已启用筛选",
+      "clearAll": "全部清除"
+    },
+    "inCityTitle": "{city}的活动",
     "travelImpact": {
       "none": "对行程无影响",
       "detour": "值得绕道",

@@ -97,7 +97,7 @@ export default async function ActivityPage({
   }));
 
   return (
-    <Container className="py-8 sm:py-12">
+    <Container className="py-5 sm:py-12">
       <ActivityDetail
         activity={activity}
         cover={cover ?? null}

@@ -80,12 +80,12 @@ export default async function ActivitiesPage({
     .sort((x, y) => x.name.localeCompare(y.name, locale));
 
   return (
-    <Container className="py-10 sm:py-14">
+    <Container className="py-6 sm:py-14">
       <header className="max-w-2xl">
         <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted">
           {entries.length} {dict.activities.countLabel}
         </span>
-        <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        <h1 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-5xl">
           {dict.activities.title}
         </h1>
         <p className="mt-3 text-pretty text-muted">

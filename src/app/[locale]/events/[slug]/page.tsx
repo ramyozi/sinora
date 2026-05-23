@@ -107,7 +107,7 @@ export default async function EventPage({
   }));
 
   return (
-    <Container className="py-8 sm:py-12">
+    <Container className="py-5 sm:py-12">
       <EventDetail
         event={event}
         occurrence={occurrence}

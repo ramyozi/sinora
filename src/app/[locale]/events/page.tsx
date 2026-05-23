@@ -95,18 +95,18 @@ export default async function EventsPage({
   );
 
   return (
-    <Container className="py-12 sm:py-16">
+    <Container className="py-6 sm:py-16">
       <header className="max-w-2xl">
         <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted">
           {entries.length} {dict.events.countLabel}
         </span>
-        <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        <h1 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-5xl">
           {dict.events.title}
         </h1>
         <p className="mt-3 text-pretty text-muted">{dict.events.subtitle}</p>
       </header>
 
-      <div className="mt-10 space-y-12">
+      <div className="mt-6 space-y-8 sm:mt-10 sm:space-y-12">
         <TrendingEvents
           entries={pickTrending(entries, 30, 6)}
           cityBySlug={cityBySlug}
